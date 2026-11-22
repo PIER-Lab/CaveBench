@@ -1,0 +1,122 @@
+[
+  {
+    "id": "S01",
+    "title": "Cabin inertia",
+    "domain": "Dynamics",
+    "question_id": "scene_01/sample_0001/k6"
+  },
+  {
+    "id": "S02",
+    "title": "Rotation & gas",
+    "domain": "Dynamics",
+    "question_id": "scene_06/sample_0001/k6"
+  },
+  {
+    "id": "S03",
+    "title": "Driven pendulums",
+    "domain": "Dynamics",
+    "question_id": "scene_11/sample_0001/k6"
+  },
+  {
+    "id": "S04",
+    "title": "Tray impact",
+    "domain": "Dynamics",
+    "question_id": "scene_12/sample_0002/k6"
+  },
+  {
+    "id": "S05",
+    "title": "Moving heat source",
+    "domain": "Thermal",
+    "question_id": "scene_03/sample_0025/k6"
+  },
+  {
+    "id": "S06",
+    "title": "Layered liquids",
+    "domain": "Thermal",
+    "question_id": "scene_08/sample_0001/k6"
+  },
+  {
+    "id": "S07",
+    "title": "Heated gas bulbs",
+    "domain": "Thermal",
+    "question_id": "scene_15/sample_0001/k6"
+  },
+  {
+    "id": "S08",
+    "title": "Bimetal supports",
+    "domain": "Thermal",
+    "question_id": "scene_16/sample_0004/k6"
+  },
+  {
+    "id": "S09",
+    "title": "Magnetic coils",
+    "domain": "Electromagnetism",
+    "question_id": "scene_02/sample_0001/k6"
+  },
+  {
+    "id": "S10",
+    "title": "Electric dipoles",
+    "domain": "Electromagnetism",
+    "question_id": "scene_07/sample_0009/k6"
+  },
+  {
+    "id": "S11",
+    "title": "Dielectric response",
+    "domain": "Electromagnetism",
+    "question_id": "scene_13/sample_0007/k6"
+  },
+  {
+    "id": "S12",
+    "title": "Conducting wires",
+    "domain": "Electromagnetism",
+    "question_id": "scene_14/sample_0001/k6"
+  },
+  {
+    "id": "S13",
+    "title": "Standing waves",
+    "domain": "Acoustics",
+    "question_id": "scene_05/sample_0030/k6"
+  },
+  {
+    "id": "S14",
+    "title": "Wave scattering",
+    "domain": "Acoustics",
+    "question_id": "scene_10/sample_0002/k6"
+  },
+  {
+    "id": "S15",
+    "title": "Doppler response",
+    "domain": "Acoustics",
+    "question_id": "scene_19/sample_0001/k6"
+  },
+  {
+    "id": "S16",
+    "title": "Two-source ripples",
+    "domain": "Acoustics",
+    "question_id": "scene_20/sample_0001/k6"
+  },
+  {
+    "id": "S17",
+    "title": "Photoelastic load",
+    "domain": "Optics",
+    "question_id": "scene_04/sample_0007/k6"
+  },
+  {
+    "id": "S18",
+    "title": "Double reflection",
+    "domain": "Optics",
+    "question_id": "scene_09/sample_0003/k6"
+  },
+  {
+    "id": "S19",
+    "title": "Graded refraction",
+    "domain": "Optics",
+    "question_id": "scene_17/sample_0001/k6"
+  },
+  {
+    "id": "S20",
+    "title": "Double-slit fringes",
+    "domain": "Optics",
+    "question_id": "scene_18/sample_0007/k6"
+  }
+]
