@@ -1,0 +1,2401 @@
+model,effort,stage,question_id,scene,k,exact,correct_events
+Gemini 3.8 Flash,High,Primary,scene_01/sample_0001/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_01/sample_0001/k6,S01,6,0,0 0 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_01/sample_0008/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_01/sample_0008/k6,S01,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_01/sample_0052/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_01/sample_0052/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_01/sample_0095/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_01/sample_0095/k6,S01,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_01/sample_0112/k6,S01,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,High,Final,scene_01/sample_0112/k6,S01,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_01/sample_0154/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_01/sample_0154/k6,S01,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_01/sample_0166/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_01/sample_0166/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_01/sample_0181/k6,S01,6,0,1 0 0 1 1 0
+Gemini 3.8 Flash,High,Final,scene_01/sample_0181/k6,S01,6,0,1 0 0 1 1 0
+Gemini 3.8 Flash,High,Primary,scene_01/sample_0243/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_01/sample_0243/k6,S01,6,0,1 1 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_01/sample_0428/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_01/sample_0428/k6,S01,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_02/sample_0001/k6,S09,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_02/sample_0001/k6,S09,6,0,1 1 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_02/sample_0002/k6,S09,6,0,1 0 1 0 0 1
+Gemini 3.8 Flash,High,Final,scene_02/sample_0002/k6,S09,6,0,1 0 1 0 0 1
+Gemini 3.8 Flash,High,Primary,scene_02/sample_0006/k6,S09,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_02/sample_0006/k6,S09,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,High,Primary,scene_02/sample_0015/k6,S09,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_02/sample_0015/k6,S09,6,0,0 0 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_02/sample_0017/k6,S09,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,High,Final,scene_02/sample_0017/k6,S09,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,High,Primary,scene_02/sample_0070/k6,S09,6,0,1 1 0 0 1 1
+Gemini 3.8 Flash,High,Final,scene_02/sample_0070/k6,S09,6,0,1 1 0 0 1 1
+Gemini 3.8 Flash,High,Primary,scene_02/sample_0095/k6,S09,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_02/sample_0095/k6,S09,6,0,1 1 0 1 1 0
+Gemini 3.8 Flash,High,Primary,scene_02/sample_0273/k6,S09,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_02/sample_0273/k6,S09,6,0,1 1 0 0 1 1
+Gemini 3.8 Flash,High,Primary,scene_02/sample_0305/k6,S09,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_02/sample_0305/k6,S09,6,0,1 1 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_02/sample_0391/k6,S09,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_02/sample_0391/k6,S09,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_03/sample_0025/k6,S05,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_03/sample_0025/k6,S05,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_03/sample_0130/k6,S05,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,High,Final,scene_03/sample_0130/k6,S05,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,High,Primary,scene_03/sample_0255/k6,S05,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_03/sample_0255/k6,S05,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_03/sample_0308/k6,S05,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_03/sample_0308/k6,S05,6,0,1 0 0 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_03/sample_0337/k6,S05,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Final,scene_03/sample_0337/k6,S05,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_03/sample_0366/k6,S05,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_03/sample_0366/k6,S05,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_03/sample_0379/k6,S05,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_03/sample_0379/k6,S05,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_03/sample_0433/k6,S05,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_03/sample_0433/k6,S05,6,0,0 0 0 1 0 1
+Gemini 3.8 Flash,High,Primary,scene_03/sample_0461/k6,S05,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_03/sample_0461/k6,S05,6,0,1 0 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_03/sample_0507/k6,S05,6,0,1 0 0 0 1 0
+Gemini 3.8 Flash,High,Final,scene_03/sample_0507/k6,S05,6,0,1 0 0 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_04/sample_0007/k6,S17,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_04/sample_0007/k6,S17,6,0,1 0 0 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_04/sample_0066/k6,S17,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_04/sample_0066/k6,S17,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_04/sample_0125/k6,S17,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_04/sample_0125/k6,S17,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_04/sample_0163/k6,S17,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_04/sample_0163/k6,S17,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_04/sample_0166/k6,S17,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,High,Final,scene_04/sample_0166/k6,S17,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_04/sample_0246/k6,S17,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_04/sample_0246/k6,S17,6,0,0 1 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_04/sample_0252/k6,S17,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Final,scene_04/sample_0252/k6,S17,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_04/sample_0359/k6,S17,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_04/sample_0359/k6,S17,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_04/sample_0392/k6,S17,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_04/sample_0392/k6,S17,6,0,0 0 1 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_04/sample_0466/k6,S17,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_04/sample_0466/k6,S17,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_05/sample_0030/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_05/sample_0030/k6,S13,6,0,1 0 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_05/sample_0049/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_05/sample_0049/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_05/sample_0058/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_05/sample_0058/k6,S13,6,0,1 0 0 0 1 1
+Gemini 3.8 Flash,High,Primary,scene_05/sample_0191/k6,S13,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,High,Final,scene_05/sample_0191/k6,S13,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_05/sample_0241/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_05/sample_0241/k6,S13,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_05/sample_0243/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_05/sample_0243/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_05/sample_0298/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_05/sample_0298/k6,S13,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_05/sample_0354/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_05/sample_0354/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_05/sample_0526/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_05/sample_0526/k6,S13,6,0,1 1 1 1 1 0
+Gemini 3.8 Flash,High,Primary,scene_05/sample_0537/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_05/sample_0537/k6,S13,6,0,1 1 1 1 0 1
+Gemini 3.8 Flash,High,Primary,scene_06/sample_0001/k6,S02,6,0,1 1 1 1 1 0
+Gemini 3.8 Flash,High,Final,scene_06/sample_0001/k6,S02,6,0,1 1 1 1 1 0
+Gemini 3.8 Flash,High,Primary,scene_06/sample_0002/k6,S02,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_06/sample_0002/k6,S02,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_06/sample_0003/k6,S02,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Final,scene_06/sample_0003/k6,S02,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_06/sample_0004/k6,S02,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_06/sample_0004/k6,S02,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_06/sample_0006/k6,S02,6,0,0 1 1 1 0 1
+Gemini 3.8 Flash,High,Final,scene_06/sample_0006/k6,S02,6,0,0 1 1 1 0 1
+Gemini 3.8 Flash,High,Primary,scene_06/sample_0013/k6,S02,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_06/sample_0013/k6,S02,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_06/sample_0015/k6,S02,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_06/sample_0015/k6,S02,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_06/sample_0022/k6,S02,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_06/sample_0022/k6,S02,6,0,1 1 1 1 1 0
+Gemini 3.8 Flash,High,Primary,scene_06/sample_0024/k6,S02,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_06/sample_0024/k6,S02,6,0,1 1 0 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_06/sample_0070/k6,S02,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_06/sample_0070/k6,S02,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_07/sample_0009/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_07/sample_0009/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_07/sample_0011/k6,S10,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_07/sample_0011/k6,S10,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_07/sample_0052/k6,S10,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_07/sample_0052/k6,S10,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_07/sample_0146/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_07/sample_0146/k6,S10,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_07/sample_0273/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_07/sample_0273/k6,S10,6,0,0 1 0 0 0 1
+Gemini 3.8 Flash,High,Primary,scene_07/sample_0275/k6,S10,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,High,Final,scene_07/sample_0275/k6,S10,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,High,Primary,scene_07/sample_0298/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_07/sample_0298/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_07/sample_0387/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_07/sample_0387/k6,S10,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,High,Primary,scene_07/sample_0474/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_07/sample_0474/k6,S10,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_07/sample_0510/k6,S10,6,0,0 0 0 1 1 0
+Gemini 3.8 Flash,High,Final,scene_07/sample_0510/k6,S10,6,0,0 0 0 1 1 0
+Gemini 3.8 Flash,High,Primary,scene_08/sample_0001/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_08/sample_0001/k6,S06,6,0,0 1 0 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_08/sample_0027/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_08/sample_0027/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_08/sample_0032/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_08/sample_0032/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_08/sample_0038/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_08/sample_0038/k6,S06,6,0,1 0 0 1 0 1
+Gemini 3.8 Flash,High,Primary,scene_08/sample_0354/k6,S06,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,High,Final,scene_08/sample_0354/k6,S06,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_08/sample_0373/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_08/sample_0373/k6,S06,6,0,0 0 0 1 0 1
+Gemini 3.8 Flash,High,Primary,scene_08/sample_0404/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_08/sample_0404/k6,S06,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_08/sample_0424/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_08/sample_0424/k6,S06,6,0,0 1 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_08/sample_0461/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_08/sample_0461/k6,S06,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_08/sample_0507/k6,S06,6,0,0 0 0 1 1 1
+Gemini 3.8 Flash,High,Final,scene_08/sample_0507/k6,S06,6,0,0 0 0 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_09/sample_0003/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_09/sample_0003/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_09/sample_0004/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_09/sample_0004/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_09/sample_0087/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_09/sample_0087/k6,S18,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,High,Primary,scene_09/sample_0125/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_09/sample_0125/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_09/sample_0172/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_09/sample_0172/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_09/sample_0178/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_09/sample_0178/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_09/sample_0199/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_09/sample_0199/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_09/sample_0296/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_09/sample_0296/k6,S18,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_09/sample_0300/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_09/sample_0300/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_09/sample_0361/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_09/sample_0361/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_10/sample_0002/k6,S14,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_10/sample_0002/k6,S14,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_10/sample_0027/k6,S14,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_10/sample_0027/k6,S14,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_10/sample_0053/k6,S14,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_10/sample_0053/k6,S14,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_10/sample_0129/k6,S14,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_10/sample_0129/k6,S14,6,0,1 0 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_10/sample_0280/k6,S14,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_10/sample_0280/k6,S14,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_10/sample_0335/k6,S14,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_10/sample_0335/k6,S14,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_10/sample_0388/k6,S14,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_10/sample_0388/k6,S14,6,0,1 1 0 1 1 0
+Gemini 3.8 Flash,High,Primary,scene_10/sample_0501/k6,S14,6,0,1 0 0 0 1 0
+Gemini 3.8 Flash,High,Final,scene_10/sample_0501/k6,S14,6,0,1 0 0 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_10/sample_0524/k6,S14,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_10/sample_0524/k6,S14,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_10/sample_0526/k6,S14,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,High,Final,scene_10/sample_0526/k6,S14,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_11/sample_0001/k6,S03,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_11/sample_0001/k6,S03,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_11/sample_0053/k6,S03,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_11/sample_0053/k6,S03,6,0,1 0 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_11/sample_0105/k6,S03,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_11/sample_0105/k6,S03,6,0,1 1 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_11/sample_0167/k6,S03,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_11/sample_0167/k6,S03,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,High,Primary,scene_11/sample_0208/k6,S03,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_11/sample_0208/k6,S03,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_11/sample_0240/k6,S03,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_11/sample_0240/k6,S03,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_11/sample_0256/k6,S03,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_11/sample_0256/k6,S03,6,0,1 0 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_11/sample_0312/k6,S03,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_11/sample_0312/k6,S03,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_11/sample_0394/k6,S03,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_11/sample_0394/k6,S03,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_11/sample_0499/k6,S03,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_11/sample_0499/k6,S03,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_12/sample_0002/k6,S04,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_12/sample_0002/k6,S04,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_12/sample_0107/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_12/sample_0107/k6,S04,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,High,Primary,scene_12/sample_0133/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_12/sample_0133/k6,S04,6,0,1 0 0 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_12/sample_0254/k6,S04,6,0,1 0 0 0 1 0
+Gemini 3.8 Flash,High,Final,scene_12/sample_0254/k6,S04,6,0,1 0 0 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_12/sample_0278/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_12/sample_0278/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_12/sample_0316/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_12/sample_0316/k6,S04,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_12/sample_0411/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_12/sample_0411/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_12/sample_0439/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_12/sample_0439/k6,S04,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_12/sample_0455/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_12/sample_0455/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_12/sample_0490/k6,S04,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,High,Final,scene_12/sample_0490/k6,S04,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_13/sample_0007/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_13/sample_0007/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_13/sample_0022/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_13/sample_0022/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_13/sample_0096/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_13/sample_0096/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_13/sample_0145/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_13/sample_0145/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_13/sample_0154/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_13/sample_0154/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_13/sample_0182/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_13/sample_0182/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_13/sample_0237/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_13/sample_0237/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_13/sample_0351/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_13/sample_0351/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_13/sample_0441/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_13/sample_0441/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_13/sample_0454/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_13/sample_0454/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_14/sample_0001/k6,S12,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_14/sample_0001/k6,S12,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_14/sample_0003/k6,S12,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,High,Final,scene_14/sample_0003/k6,S12,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_14/sample_0004/k6,S12,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Final,scene_14/sample_0004/k6,S12,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_14/sample_0010/k6,S12,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_14/sample_0010/k6,S12,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,High,Primary,scene_14/sample_0014/k6,S12,6,0,1 0 0 0 0 1
+Gemini 3.8 Flash,High,Final,scene_14/sample_0014/k6,S12,6,0,1 0 0 0 0 1
+Gemini 3.8 Flash,High,Primary,scene_14/sample_0017/k6,S12,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_14/sample_0017/k6,S12,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_14/sample_0018/k6,S12,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_14/sample_0018/k6,S12,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_14/sample_0081/k6,S12,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,High,Final,scene_14/sample_0081/k6,S12,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_14/sample_0222/k6,S12,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,High,Final,scene_14/sample_0222/k6,S12,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_14/sample_0425/k6,S12,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_14/sample_0425/k6,S12,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_15/sample_0001/k6,S07,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_15/sample_0001/k6,S07,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_15/sample_0052/k6,S07,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_15/sample_0052/k6,S07,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_15/sample_0168/k6,S07,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_15/sample_0168/k6,S07,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_15/sample_0184/k6,S07,6,0,1 0 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_15/sample_0184/k6,S07,6,0,1 0 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_15/sample_0207/k6,S07,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_15/sample_0207/k6,S07,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_15/sample_0305/k6,S07,6,0,0 1 0 1 0 1
+Gemini 3.8 Flash,High,Final,scene_15/sample_0305/k6,S07,6,0,0 1 0 1 0 1
+Gemini 3.8 Flash,High,Primary,scene_15/sample_0323/k6,S07,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,High,Final,scene_15/sample_0323/k6,S07,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_15/sample_0360/k6,S07,6,0,0 1 0 1 0 0
+Gemini 3.8 Flash,High,Final,scene_15/sample_0360/k6,S07,6,0,0 1 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_15/sample_0439/k6,S07,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,High,Final,scene_15/sample_0439/k6,S07,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_15/sample_0526/k6,S07,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,High,Final,scene_15/sample_0526/k6,S07,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_16/sample_0004/k6,S08,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,High,Final,scene_16/sample_0004/k6,S08,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_16/sample_0006/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_16/sample_0006/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_16/sample_0073/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_16/sample_0073/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_16/sample_0145/k6,S08,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_16/sample_0145/k6,S08,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_16/sample_0150/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_16/sample_0150/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_16/sample_0219/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_16/sample_0219/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_16/sample_0228/k6,S08,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_16/sample_0228/k6,S08,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_16/sample_0357/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_16/sample_0357/k6,S08,6,0,0 1 0 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_16/sample_0396/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_16/sample_0396/k6,S08,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_16/sample_0397/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_16/sample_0397/k6,S08,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,High,Primary,scene_17/sample_0001/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_17/sample_0001/k6,S19,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_17/sample_0055/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_17/sample_0055/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_17/sample_0060/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_17/sample_0060/k6,S19,6,0,1 1 0 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_17/sample_0067/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_17/sample_0067/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_17/sample_0069/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_17/sample_0069/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_17/sample_0119/k6,S19,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,High,Final,scene_17/sample_0119/k6,S19,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_17/sample_0342/k6,S19,6,0,0 0 0 1 1 0
+Gemini 3.8 Flash,High,Final,scene_17/sample_0342/k6,S19,6,0,0 0 0 1 1 0
+Gemini 3.8 Flash,High,Primary,scene_17/sample_0454/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_17/sample_0454/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_17/sample_0469/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_17/sample_0469/k6,S19,6,0,0 1 1 0 0 1
+Gemini 3.8 Flash,High,Primary,scene_17/sample_0472/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_17/sample_0472/k6,S19,6,0,0 1 0 1 0 0
+Gemini 3.8 Flash,High,Primary,scene_18/sample_0007/k6,S20,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_18/sample_0007/k6,S20,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,High,Primary,scene_18/sample_0061/k6,S20,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_18/sample_0061/k6,S20,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_18/sample_0120/k6,S20,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_18/sample_0120/k6,S20,6,0,1 0 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_18/sample_0128/k6,S20,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_18/sample_0128/k6,S20,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_18/sample_0203/k6,S20,6,0,1 0 1 1 1 1
+Gemini 3.8 Flash,High,Final,scene_18/sample_0203/k6,S20,6,0,1 0 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_18/sample_0336/k6,S20,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_18/sample_0336/k6,S20,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_18/sample_0394/k6,S20,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_18/sample_0394/k6,S20,6,0,1 0 0 1 0 1
+Gemini 3.8 Flash,High,Primary,scene_18/sample_0482/k6,S20,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_18/sample_0482/k6,S20,6,0,0 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_18/sample_0505/k6,S20,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_18/sample_0505/k6,S20,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_18/sample_0509/k6,S20,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_18/sample_0509/k6,S20,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_19/sample_0001/k6,S15,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_19/sample_0001/k6,S15,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_19/sample_0190/k6,S15,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_19/sample_0190/k6,S15,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_19/sample_0329/k6,S15,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_19/sample_0329/k6,S15,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_19/sample_0346/k6,S15,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_19/sample_0346/k6,S15,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_19/sample_0358/k6,S15,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_19/sample_0358/k6,S15,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,High,Primary,scene_19/sample_0403/k6,S15,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_19/sample_0403/k6,S15,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_19/sample_0405/k6,S15,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,High,Final,scene_19/sample_0405/k6,S15,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_19/sample_0457/k6,S15,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_19/sample_0457/k6,S15,6,0,1 0 0 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_19/sample_0462/k6,S15,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_19/sample_0462/k6,S15,6,0,1 0 0 0 1 0
+Gemini 3.8 Flash,High,Primary,scene_19/sample_0494/k6,S15,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_19/sample_0494/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_20/sample_0001/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_20/sample_0001/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_20/sample_0079/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_20/sample_0079/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_20/sample_0103/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_20/sample_0103/k6,S16,6,0,0 0 0 1 1 1
+Gemini 3.8 Flash,High,Primary,scene_20/sample_0262/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_20/sample_0262/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_20/sample_0397/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_20/sample_0397/k6,S16,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,High,Primary,scene_20/sample_0431/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_20/sample_0431/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_20/sample_0435/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_20/sample_0435/k6,S16,6,0,1 1 1 1 0 1
+Gemini 3.8 Flash,High,Primary,scene_20/sample_0476/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_20/sample_0476/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_20/sample_0501/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_20/sample_0501/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Primary,scene_20/sample_0509/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,High,Final,scene_20/sample_0509/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_01/sample_0001/k6,S01,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_01/sample_0001/k6,S01,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_01/sample_0008/k6,S01,6,0,0 0 1 1 1 0
+Gemini 3.8 Flash,Low,Final,scene_01/sample_0008/k6,S01,6,0,0 0 1 1 1 0
+Gemini 3.8 Flash,Low,Primary,scene_01/sample_0052/k6,S01,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_01/sample_0052/k6,S01,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_01/sample_0095/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_01/sample_0095/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_01/sample_0112/k6,S01,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_01/sample_0112/k6,S01,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_01/sample_0154/k6,S01,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_01/sample_0154/k6,S01,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_01/sample_0166/k6,S01,6,0,0 1 0 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_01/sample_0166/k6,S01,6,0,0 1 0 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_01/sample_0181/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_01/sample_0181/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_01/sample_0243/k6,S01,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_01/sample_0243/k6,S01,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_01/sample_0428/k6,S01,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_01/sample_0428/k6,S01,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_02/sample_0001/k6,S09,6,0,1 0 1 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_02/sample_0001/k6,S09,6,0,1 0 1 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_02/sample_0002/k6,S09,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_02/sample_0002/k6,S09,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Low,Primary,scene_02/sample_0006/k6,S09,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_02/sample_0006/k6,S09,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_02/sample_0015/k6,S09,6,0,0 0 1 1 1 0
+Gemini 3.8 Flash,Low,Final,scene_02/sample_0015/k6,S09,6,0,0 0 1 1 1 0
+Gemini 3.8 Flash,Low,Primary,scene_02/sample_0017/k6,S09,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_02/sample_0017/k6,S09,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,Low,Primary,scene_02/sample_0070/k6,S09,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,Low,Final,scene_02/sample_0070/k6,S09,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,Low,Primary,scene_02/sample_0095/k6,S09,6,0,0 1 0 0 1 0
+Gemini 3.8 Flash,Low,Final,scene_02/sample_0095/k6,S09,6,0,0 1 0 0 1 0
+Gemini 3.8 Flash,Low,Primary,scene_02/sample_0273/k6,S09,6,0,1 1 0 1 0 0
+Gemini 3.8 Flash,Low,Final,scene_02/sample_0273/k6,S09,6,0,1 1 0 1 0 0
+Gemini 3.8 Flash,Low,Primary,scene_02/sample_0305/k6,S09,6,0,1 1 0 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_02/sample_0305/k6,S09,6,0,1 1 0 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_02/sample_0391/k6,S09,6,0,1 1 0 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_02/sample_0391/k6,S09,6,0,1 1 0 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_03/sample_0025/k6,S05,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_03/sample_0025/k6,S05,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_03/sample_0130/k6,S05,6,0,1 1 0 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_03/sample_0130/k6,S05,6,0,1 1 0 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_03/sample_0255/k6,S05,6,0,0 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_03/sample_0255/k6,S05,6,0,0 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_03/sample_0308/k6,S05,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_03/sample_0308/k6,S05,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_03/sample_0337/k6,S05,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_03/sample_0337/k6,S05,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_03/sample_0366/k6,S05,6,0,0 0 0 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_03/sample_0366/k6,S05,6,0,0 0 0 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_03/sample_0379/k6,S05,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_03/sample_0379/k6,S05,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_03/sample_0433/k6,S05,6,0,0 0 1 1 0 0
+Gemini 3.8 Flash,Low,Final,scene_03/sample_0433/k6,S05,6,0,0 0 1 1 0 0
+Gemini 3.8 Flash,Low,Primary,scene_03/sample_0461/k6,S05,6,0,0 0 1 1 0 0
+Gemini 3.8 Flash,Low,Final,scene_03/sample_0461/k6,S05,6,0,0 0 1 1 0 0
+Gemini 3.8 Flash,Low,Primary,scene_03/sample_0507/k6,S05,6,0,1 1 0 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_03/sample_0507/k6,S05,6,0,1 1 0 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_04/sample_0007/k6,S17,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_04/sample_0007/k6,S17,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_04/sample_0066/k6,S17,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_04/sample_0066/k6,S17,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_04/sample_0125/k6,S17,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Low,Final,scene_04/sample_0125/k6,S17,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Low,Primary,scene_04/sample_0163/k6,S17,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_04/sample_0163/k6,S17,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_04/sample_0166/k6,S17,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_04/sample_0166/k6,S17,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_04/sample_0246/k6,S17,6,0,0 1 0 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_04/sample_0246/k6,S17,6,0,0 1 0 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_04/sample_0252/k6,S17,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Low,Final,scene_04/sample_0252/k6,S17,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Low,Primary,scene_04/sample_0359/k6,S17,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_04/sample_0359/k6,S17,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_04/sample_0392/k6,S17,6,0,0 0 1 0 1 0
+Gemini 3.8 Flash,Low,Final,scene_04/sample_0392/k6,S17,6,0,0 0 1 0 1 0
+Gemini 3.8 Flash,Low,Primary,scene_04/sample_0466/k6,S17,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,Low,Final,scene_04/sample_0466/k6,S17,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,Low,Primary,scene_05/sample_0030/k6,S13,6,0,1 0 0 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_05/sample_0030/k6,S13,6,0,1 0 0 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_05/sample_0049/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_05/sample_0049/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_05/sample_0058/k6,S13,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_05/sample_0058/k6,S13,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_05/sample_0191/k6,S13,6,0,0 0 0 0 1 0
+Gemini 3.8 Flash,Low,Final,scene_05/sample_0191/k6,S13,6,0,0 0 0 0 1 0
+Gemini 3.8 Flash,Low,Primary,scene_05/sample_0241/k6,S13,6,0,1 1 0 0 1 0
+Gemini 3.8 Flash,Low,Final,scene_05/sample_0241/k6,S13,6,0,1 1 0 0 1 0
+Gemini 3.8 Flash,Low,Primary,scene_05/sample_0243/k6,S13,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_05/sample_0243/k6,S13,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_05/sample_0298/k6,S13,6,0,0 0 0 1 1 0
+Gemini 3.8 Flash,Low,Final,scene_05/sample_0298/k6,S13,6,0,0 0 0 1 1 0
+Gemini 3.8 Flash,Low,Primary,scene_05/sample_0354/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_05/sample_0354/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_05/sample_0526/k6,S13,6,0,1 0 1 1 0 0
+Gemini 3.8 Flash,Low,Final,scene_05/sample_0526/k6,S13,6,0,1 0 1 1 0 0
+Gemini 3.8 Flash,Low,Primary,scene_05/sample_0537/k6,S13,6,0,1 0 0 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_05/sample_0537/k6,S13,6,0,1 0 0 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_06/sample_0001/k6,S02,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_06/sample_0001/k6,S02,6,0,1 1 1 1 1 0
+Gemini 3.8 Flash,Low,Primary,scene_06/sample_0002/k6,S02,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_06/sample_0002/k6,S02,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_06/sample_0003/k6,S02,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Low,Final,scene_06/sample_0003/k6,S02,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Low,Primary,scene_06/sample_0004/k6,S02,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_06/sample_0004/k6,S02,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_06/sample_0006/k6,S02,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_06/sample_0006/k6,S02,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_06/sample_0013/k6,S02,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Low,Final,scene_06/sample_0013/k6,S02,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Low,Primary,scene_06/sample_0015/k6,S02,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_06/sample_0015/k6,S02,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_06/sample_0022/k6,S02,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_06/sample_0022/k6,S02,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_06/sample_0024/k6,S02,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_06/sample_0024/k6,S02,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_06/sample_0070/k6,S02,6,0,1 1 1 1 1 0
+Gemini 3.8 Flash,Low,Final,scene_06/sample_0070/k6,S02,6,0,1 1 1 1 1 0
+Gemini 3.8 Flash,Low,Primary,scene_07/sample_0009/k6,S10,6,0,0 0 0 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_07/sample_0009/k6,S10,6,0,0 0 0 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_07/sample_0011/k6,S10,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_07/sample_0011/k6,S10,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_07/sample_0052/k6,S10,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,Low,Final,scene_07/sample_0052/k6,S10,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,Low,Primary,scene_07/sample_0146/k6,S10,6,0,0 0 0 1 1 0
+Gemini 3.8 Flash,Low,Final,scene_07/sample_0146/k6,S10,6,0,0 0 0 1 1 0
+Gemini 3.8 Flash,Low,Primary,scene_07/sample_0273/k6,S10,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_07/sample_0273/k6,S10,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_07/sample_0275/k6,S10,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Low,Final,scene_07/sample_0275/k6,S10,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Low,Primary,scene_07/sample_0298/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_07/sample_0298/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_07/sample_0387/k6,S10,6,0,1 0 0 0 0 1
+Gemini 3.8 Flash,Low,Final,scene_07/sample_0387/k6,S10,6,0,1 0 0 0 0 1
+Gemini 3.8 Flash,Low,Primary,scene_07/sample_0474/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_07/sample_0474/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_07/sample_0510/k6,S10,6,0,0 1 0 1 1 0
+Gemini 3.8 Flash,Low,Final,scene_07/sample_0510/k6,S10,6,0,0 1 0 1 1 0
+Gemini 3.8 Flash,Low,Primary,scene_08/sample_0001/k6,S06,6,0,0 0 0 0 1 0
+Gemini 3.8 Flash,Low,Final,scene_08/sample_0001/k6,S06,6,0,0 0 0 0 1 0
+Gemini 3.8 Flash,Low,Primary,scene_08/sample_0027/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_08/sample_0027/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_08/sample_0032/k6,S06,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_08/sample_0032/k6,S06,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_08/sample_0038/k6,S06,6,0,1 0 0 0 0 1
+Gemini 3.8 Flash,Low,Final,scene_08/sample_0038/k6,S06,6,0,1 0 0 0 0 1
+Gemini 3.8 Flash,Low,Primary,scene_08/sample_0354/k6,S06,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_08/sample_0354/k6,S06,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_08/sample_0373/k6,S06,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_08/sample_0373/k6,S06,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_08/sample_0404/k6,S06,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_08/sample_0404/k6,S06,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_08/sample_0424/k6,S06,6,0,0 1 1 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_08/sample_0424/k6,S06,6,0,0 1 1 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_08/sample_0461/k6,S06,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_08/sample_0461/k6,S06,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_08/sample_0507/k6,S06,6,0,0 1 1 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_08/sample_0507/k6,S06,6,0,0 1 1 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_09/sample_0003/k6,S18,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_09/sample_0003/k6,S18,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_09/sample_0004/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_09/sample_0004/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_09/sample_0087/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_09/sample_0087/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_09/sample_0125/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_09/sample_0125/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_09/sample_0172/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_09/sample_0172/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_09/sample_0178/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_09/sample_0178/k6,S18,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Low,Primary,scene_09/sample_0199/k6,S18,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_09/sample_0199/k6,S18,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_09/sample_0296/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_09/sample_0296/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_09/sample_0300/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_09/sample_0300/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_09/sample_0361/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_09/sample_0361/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_10/sample_0002/k6,S14,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_10/sample_0002/k6,S14,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_10/sample_0027/k6,S14,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_10/sample_0027/k6,S14,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_10/sample_0053/k6,S14,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_10/sample_0053/k6,S14,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_10/sample_0129/k6,S14,6,0,1 0 0 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_10/sample_0129/k6,S14,6,0,1 0 0 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_10/sample_0280/k6,S14,6,0,1 0 0 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_10/sample_0280/k6,S14,6,0,1 0 0 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_10/sample_0335/k6,S14,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_10/sample_0335/k6,S14,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_10/sample_0388/k6,S14,6,0,1 1 0 1 0 0
+Gemini 3.8 Flash,Low,Final,scene_10/sample_0388/k6,S14,6,0,1 1 0 1 0 0
+Gemini 3.8 Flash,Low,Primary,scene_10/sample_0501/k6,S14,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_10/sample_0501/k6,S14,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_10/sample_0524/k6,S14,6,0,1 0 1 1 1 0
+Gemini 3.8 Flash,Low,Final,scene_10/sample_0524/k6,S14,6,0,1 0 1 1 1 0
+Gemini 3.8 Flash,Low,Primary,scene_10/sample_0526/k6,S14,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_10/sample_0526/k6,S14,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_11/sample_0001/k6,S03,6,0,0 1 0 0 1 0
+Gemini 3.8 Flash,Low,Final,scene_11/sample_0001/k6,S03,6,0,0 1 0 0 1 0
+Gemini 3.8 Flash,Low,Primary,scene_11/sample_0053/k6,S03,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Low,Final,scene_11/sample_0053/k6,S03,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Low,Primary,scene_11/sample_0105/k6,S03,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_11/sample_0105/k6,S03,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_11/sample_0167/k6,S03,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,Low,Final,scene_11/sample_0167/k6,S03,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,Low,Primary,scene_11/sample_0208/k6,S03,6,0,0 1 1 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_11/sample_0208/k6,S03,6,0,0 1 1 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_11/sample_0240/k6,S03,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_11/sample_0240/k6,S03,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_11/sample_0256/k6,S03,6,0,1 1 1 1 1 0
+Gemini 3.8 Flash,Low,Final,scene_11/sample_0256/k6,S03,6,0,1 1 1 1 1 0
+Gemini 3.8 Flash,Low,Primary,scene_11/sample_0312/k6,S03,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_11/sample_0312/k6,S03,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_11/sample_0394/k6,S03,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_11/sample_0394/k6,S03,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_11/sample_0499/k6,S03,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_11/sample_0499/k6,S03,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_12/sample_0002/k6,S04,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_12/sample_0002/k6,S04,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_12/sample_0107/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_12/sample_0107/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_12/sample_0133/k6,S04,6,0,1 1 1 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_12/sample_0133/k6,S04,6,0,1 1 1 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_12/sample_0254/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_12/sample_0254/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_12/sample_0278/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_12/sample_0278/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_12/sample_0316/k6,S04,6,0,1 1 1 1 1 0
+Gemini 3.8 Flash,Low,Final,scene_12/sample_0316/k6,S04,6,0,1 1 1 1 1 0
+Gemini 3.8 Flash,Low,Primary,scene_12/sample_0411/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_12/sample_0411/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_12/sample_0439/k6,S04,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_12/sample_0439/k6,S04,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_12/sample_0455/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_12/sample_0455/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_12/sample_0490/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_12/sample_0490/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_13/sample_0007/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_13/sample_0007/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_13/sample_0022/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_13/sample_0022/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_13/sample_0096/k6,S11,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_13/sample_0096/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_13/sample_0145/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_13/sample_0145/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_13/sample_0154/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_13/sample_0154/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_13/sample_0182/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_13/sample_0182/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_13/sample_0237/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_13/sample_0237/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_13/sample_0351/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_13/sample_0351/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_13/sample_0441/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_13/sample_0441/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_13/sample_0454/k6,S11,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_13/sample_0454/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_14/sample_0001/k6,S12,6,0,0 0 1 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_14/sample_0001/k6,S12,6,0,0 0 1 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_14/sample_0003/k6,S12,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_14/sample_0003/k6,S12,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_14/sample_0004/k6,S12,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_14/sample_0004/k6,S12,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Low,Primary,scene_14/sample_0010/k6,S12,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,Low,Final,scene_14/sample_0010/k6,S12,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,Low,Primary,scene_14/sample_0014/k6,S12,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_14/sample_0014/k6,S12,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_14/sample_0017/k6,S12,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_14/sample_0017/k6,S12,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_14/sample_0018/k6,S12,6,0,1 0 0 1 0 0
+Gemini 3.8 Flash,Low,Final,scene_14/sample_0018/k6,S12,6,0,1 0 0 1 0 0
+Gemini 3.8 Flash,Low,Primary,scene_14/sample_0081/k6,S12,6,0,1 1 0 0 1 0
+Gemini 3.8 Flash,Low,Final,scene_14/sample_0081/k6,S12,6,0,1 1 0 0 1 0
+Gemini 3.8 Flash,Low,Primary,scene_14/sample_0222/k6,S12,6,0,0 0 1 0 1 0
+Gemini 3.8 Flash,Low,Final,scene_14/sample_0222/k6,S12,6,0,0 0 1 0 1 0
+Gemini 3.8 Flash,Low,Primary,scene_14/sample_0425/k6,S12,6,0,0 0 0 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_14/sample_0425/k6,S12,6,0,0 0 0 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_15/sample_0001/k6,S07,6,0,1 1 1 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_15/sample_0001/k6,S07,6,0,1 1 1 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_15/sample_0052/k6,S07,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_15/sample_0052/k6,S07,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_15/sample_0168/k6,S07,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_15/sample_0168/k6,S07,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_15/sample_0184/k6,S07,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_15/sample_0184/k6,S07,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_15/sample_0207/k6,S07,6,0,0 1 0 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_15/sample_0207/k6,S07,6,0,0 1 0 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_15/sample_0305/k6,S07,6,0,1 1 1 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_15/sample_0305/k6,S07,6,0,1 1 1 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_15/sample_0323/k6,S07,6,0,0 0 0 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_15/sample_0323/k6,S07,6,0,0 0 0 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_15/sample_0360/k6,S07,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_15/sample_0360/k6,S07,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_15/sample_0439/k6,S07,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_15/sample_0439/k6,S07,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_15/sample_0526/k6,S07,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,Low,Final,scene_15/sample_0526/k6,S07,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,Low,Primary,scene_16/sample_0004/k6,S08,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_16/sample_0004/k6,S08,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_16/sample_0006/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_16/sample_0006/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_16/sample_0073/k6,S08,6,0,0 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_16/sample_0073/k6,S08,6,0,0 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_16/sample_0145/k6,S08,6,0,0 1 0 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_16/sample_0145/k6,S08,6,0,0 1 0 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_16/sample_0150/k6,S08,6,0,0 1 1 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_16/sample_0150/k6,S08,6,0,0 1 1 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_16/sample_0219/k6,S08,6,0,0 0 0 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_16/sample_0219/k6,S08,6,0,0 0 0 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_16/sample_0228/k6,S08,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,Low,Final,scene_16/sample_0228/k6,S08,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,Low,Primary,scene_16/sample_0357/k6,S08,6,0,1 0 0 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_16/sample_0357/k6,S08,6,0,1 0 0 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_16/sample_0396/k6,S08,6,0,0 1 1 0 1 0
+Gemini 3.8 Flash,Low,Final,scene_16/sample_0396/k6,S08,6,0,0 1 1 0 1 0
+Gemini 3.8 Flash,Low,Primary,scene_16/sample_0397/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_16/sample_0397/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_17/sample_0001/k6,S19,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_17/sample_0001/k6,S19,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_17/sample_0055/k6,S19,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_17/sample_0055/k6,S19,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_17/sample_0060/k6,S19,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_17/sample_0060/k6,S19,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_17/sample_0067/k6,S19,6,0,0 0 0 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_17/sample_0067/k6,S19,6,0,0 0 0 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_17/sample_0069/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_17/sample_0069/k6,S19,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Low,Primary,scene_17/sample_0119/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_17/sample_0119/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_17/sample_0342/k6,S19,6,0,0 0 1 0 1 0
+Gemini 3.8 Flash,Low,Final,scene_17/sample_0342/k6,S19,6,0,0 0 1 0 1 0
+Gemini 3.8 Flash,Low,Primary,scene_17/sample_0454/k6,S19,6,0,0 0 0 0 1 0
+Gemini 3.8 Flash,Low,Final,scene_17/sample_0454/k6,S19,6,0,0 0 0 0 1 0
+Gemini 3.8 Flash,Low,Primary,scene_17/sample_0469/k6,S19,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_17/sample_0469/k6,S19,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_17/sample_0472/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_17/sample_0472/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_18/sample_0007/k6,S20,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_18/sample_0007/k6,S20,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_18/sample_0061/k6,S20,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_18/sample_0061/k6,S20,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_18/sample_0120/k6,S20,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_18/sample_0120/k6,S20,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_18/sample_0128/k6,S20,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_18/sample_0128/k6,S20,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_18/sample_0203/k6,S20,6,0,1 0 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_18/sample_0203/k6,S20,6,0,1 0 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_18/sample_0336/k6,S20,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_18/sample_0336/k6,S20,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_18/sample_0394/k6,S20,6,0,1 0 0 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_18/sample_0394/k6,S20,6,0,1 0 0 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_18/sample_0482/k6,S20,6,0,0 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_18/sample_0482/k6,S20,6,0,0 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_18/sample_0505/k6,S20,6,0,1 0 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_18/sample_0505/k6,S20,6,0,1 0 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_18/sample_0509/k6,S20,6,0,0 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_18/sample_0509/k6,S20,6,0,0 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_19/sample_0001/k6,S15,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_19/sample_0001/k6,S15,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_19/sample_0190/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_19/sample_0190/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_19/sample_0329/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_19/sample_0329/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_19/sample_0346/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_19/sample_0346/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_19/sample_0358/k6,S15,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Low,Final,scene_19/sample_0358/k6,S15,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Low,Primary,scene_19/sample_0403/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_19/sample_0403/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_19/sample_0405/k6,S15,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_19/sample_0405/k6,S15,6,0,0 0 1 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_19/sample_0457/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_19/sample_0457/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_19/sample_0462/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Final,scene_19/sample_0462/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Low,Primary,scene_19/sample_0494/k6,S15,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_19/sample_0494/k6,S15,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_20/sample_0001/k6,S16,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_20/sample_0001/k6,S16,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_20/sample_0079/k6,S16,6,0,1 0 1 1 0 1
+Gemini 3.8 Flash,Low,Final,scene_20/sample_0079/k6,S16,6,0,1 0 1 1 0 1
+Gemini 3.8 Flash,Low,Primary,scene_20/sample_0103/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_20/sample_0103/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_20/sample_0262/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_20/sample_0262/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_20/sample_0397/k6,S16,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_20/sample_0397/k6,S16,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_20/sample_0431/k6,S16,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_20/sample_0431/k6,S16,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_20/sample_0435/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_20/sample_0435/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_20/sample_0476/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_20/sample_0476/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Primary,scene_20/sample_0501/k6,S16,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Final,scene_20/sample_0501/k6,S16,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Low,Primary,scene_20/sample_0509/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Low,Final,scene_20/sample_0509/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_01/sample_0001/k6,S01,6,0,0 1 1 0 1 0
+Gemini 3.8 Flash,Medium,Final,scene_01/sample_0001/k6,S01,6,0,0 1 1 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_01/sample_0008/k6,S01,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_01/sample_0008/k6,S01,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_01/sample_0052/k6,S01,6,0,1 0 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_01/sample_0052/k6,S01,6,0,1 0 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_01/sample_0095/k6,S01,6,0,1 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_01/sample_0095/k6,S01,6,0,1 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_01/sample_0112/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_01/sample_0112/k6,S01,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_01/sample_0154/k6,S01,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_01/sample_0154/k6,S01,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_01/sample_0166/k6,S01,6,0,0 1 0 1 1 0
+Gemini 3.8 Flash,Medium,Final,scene_01/sample_0166/k6,S01,6,0,0 1 0 1 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_01/sample_0181/k6,S01,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_01/sample_0181/k6,S01,6,0,1 0 0 1 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_01/sample_0243/k6,S01,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_01/sample_0243/k6,S01,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_01/sample_0428/k6,S01,6,0,1 1 1 0 1 1
+Gemini 3.8 Flash,Medium,Final,scene_01/sample_0428/k6,S01,6,0,1 1 1 0 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_02/sample_0001/k6,S09,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_02/sample_0001/k6,S09,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_02/sample_0002/k6,S09,6,0,0 0 1 1 0 1
+Gemini 3.8 Flash,Medium,Final,scene_02/sample_0002/k6,S09,6,0,0 0 1 1 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_02/sample_0006/k6,S09,6,0,0 1 0 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_02/sample_0006/k6,S09,6,0,0 1 0 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_02/sample_0015/k6,S09,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_02/sample_0015/k6,S09,6,0,0 0 1 1 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_02/sample_0017/k6,S09,6,0,1 1 0 1 0 1
+Gemini 3.8 Flash,Medium,Final,scene_02/sample_0017/k6,S09,6,0,1 1 0 1 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_02/sample_0070/k6,S09,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_02/sample_0070/k6,S09,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_02/sample_0095/k6,S09,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_02/sample_0095/k6,S09,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_02/sample_0273/k6,S09,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_02/sample_0273/k6,S09,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_02/sample_0305/k6,S09,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_02/sample_0305/k6,S09,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_02/sample_0391/k6,S09,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_02/sample_0391/k6,S09,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_03/sample_0025/k6,S05,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_03/sample_0025/k6,S05,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_03/sample_0130/k6,S05,6,0,1 1 0 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_03/sample_0130/k6,S05,6,0,1 1 0 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_03/sample_0255/k6,S05,6,0,0 1 1 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_03/sample_0255/k6,S05,6,0,0 1 1 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_03/sample_0308/k6,S05,6,0,1 0 0 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_03/sample_0308/k6,S05,6,0,1 0 0 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_03/sample_0337/k6,S05,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_03/sample_0337/k6,S05,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_03/sample_0366/k6,S05,6,0,0 0 1 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_03/sample_0366/k6,S05,6,0,0 0 1 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_03/sample_0379/k6,S05,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_03/sample_0379/k6,S05,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_03/sample_0433/k6,S05,6,0,0 1 1 1 0 1
+Gemini 3.8 Flash,Medium,Final,scene_03/sample_0433/k6,S05,6,0,0 1 1 1 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_03/sample_0461/k6,S05,6,0,0 0 1 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_03/sample_0461/k6,S05,6,0,0 0 1 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_03/sample_0507/k6,S05,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_03/sample_0507/k6,S05,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_04/sample_0007/k6,S17,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_04/sample_0007/k6,S17,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_04/sample_0066/k6,S17,6,0,0 1 0 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_04/sample_0066/k6,S17,6,0,0 1 0 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_04/sample_0125/k6,S17,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_04/sample_0125/k6,S17,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_04/sample_0163/k6,S17,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_04/sample_0163/k6,S17,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_04/sample_0166/k6,S17,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_04/sample_0166/k6,S17,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_04/sample_0246/k6,S17,6,0,0 1 0 1 1 0
+Gemini 3.8 Flash,Medium,Final,scene_04/sample_0246/k6,S17,6,0,0 1 0 1 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_04/sample_0252/k6,S17,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_04/sample_0252/k6,S17,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_04/sample_0359/k6,S17,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_04/sample_0359/k6,S17,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_04/sample_0392/k6,S17,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_04/sample_0392/k6,S17,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_04/sample_0466/k6,S17,6,0,1 1 1 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_04/sample_0466/k6,S17,6,0,1 1 1 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_05/sample_0030/k6,S13,6,0,1 0 0 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_05/sample_0030/k6,S13,6,0,1 0 0 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_05/sample_0049/k6,S13,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_05/sample_0049/k6,S13,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_05/sample_0058/k6,S13,6,0,1 0 0 0 1 1
+Gemini 3.8 Flash,Medium,Final,scene_05/sample_0058/k6,S13,6,0,1 0 0 0 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_05/sample_0191/k6,S13,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_05/sample_0191/k6,S13,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_05/sample_0241/k6,S13,6,0,1 1 1 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_05/sample_0241/k6,S13,6,0,1 1 1 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_05/sample_0243/k6,S13,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_05/sample_0243/k6,S13,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_05/sample_0298/k6,S13,6,0,0 1 1 1 1 0
+Gemini 3.8 Flash,Medium,Final,scene_05/sample_0298/k6,S13,6,0,0 1 1 1 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_05/sample_0354/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_05/sample_0354/k6,S13,6,0,0 0 1 1 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_05/sample_0526/k6,S13,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_05/sample_0526/k6,S13,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_05/sample_0537/k6,S13,6,0,1 1 0 1 0 1
+Gemini 3.8 Flash,Medium,Final,scene_05/sample_0537/k6,S13,6,0,1 1 0 1 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_06/sample_0001/k6,S02,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_06/sample_0001/k6,S02,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_06/sample_0002/k6,S02,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_06/sample_0002/k6,S02,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_06/sample_0003/k6,S02,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_06/sample_0003/k6,S02,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_06/sample_0004/k6,S02,6,0,1 1 0 0 1 0
+Gemini 3.8 Flash,Medium,Final,scene_06/sample_0004/k6,S02,6,0,1 1 0 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_06/sample_0006/k6,S02,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_06/sample_0006/k6,S02,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_06/sample_0013/k6,S02,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_06/sample_0013/k6,S02,6,0,1 1 1 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_06/sample_0015/k6,S02,6,0,1 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_06/sample_0015/k6,S02,6,0,1 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_06/sample_0022/k6,S02,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_06/sample_0022/k6,S02,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_06/sample_0024/k6,S02,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_06/sample_0024/k6,S02,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_06/sample_0070/k6,S02,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,Medium,Final,scene_06/sample_0070/k6,S02,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_07/sample_0009/k6,S10,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_07/sample_0009/k6,S10,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_07/sample_0011/k6,S10,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_07/sample_0011/k6,S10,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_07/sample_0052/k6,S10,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_07/sample_0052/k6,S10,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_07/sample_0146/k6,S10,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_07/sample_0146/k6,S10,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_07/sample_0273/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_07/sample_0273/k6,S10,6,0,0 1 0 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_07/sample_0275/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_07/sample_0275/k6,S10,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_07/sample_0298/k6,S10,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_07/sample_0298/k6,S10,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_07/sample_0387/k6,S10,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_07/sample_0387/k6,S10,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_07/sample_0474/k6,S10,6,0,0 1 1 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_07/sample_0474/k6,S10,6,0,0 1 1 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_07/sample_0510/k6,S10,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_07/sample_0510/k6,S10,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_08/sample_0001/k6,S06,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_08/sample_0001/k6,S06,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_08/sample_0027/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_08/sample_0027/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_08/sample_0032/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_08/sample_0032/k6,S06,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_08/sample_0038/k6,S06,6,0,1 0 1 1 1 0
+Gemini 3.8 Flash,Medium,Final,scene_08/sample_0038/k6,S06,6,0,1 0 1 1 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_08/sample_0354/k6,S06,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_08/sample_0354/k6,S06,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_08/sample_0373/k6,S06,6,0,1 0 0 0 1 1
+Gemini 3.8 Flash,Medium,Final,scene_08/sample_0373/k6,S06,6,0,1 0 0 0 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_08/sample_0404/k6,S06,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_08/sample_0404/k6,S06,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_08/sample_0424/k6,S06,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,Medium,Final,scene_08/sample_0424/k6,S06,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_08/sample_0461/k6,S06,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Medium,Final,scene_08/sample_0461/k6,S06,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_08/sample_0507/k6,S06,6,0,0 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_08/sample_0507/k6,S06,6,0,0 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_09/sample_0003/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_09/sample_0003/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_09/sample_0004/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_09/sample_0004/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_09/sample_0087/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_09/sample_0087/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_09/sample_0125/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_09/sample_0125/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_09/sample_0172/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_09/sample_0172/k6,S18,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_09/sample_0178/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_09/sample_0178/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_09/sample_0199/k6,S18,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_09/sample_0199/k6,S18,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_09/sample_0296/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_09/sample_0296/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_09/sample_0300/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_09/sample_0300/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_09/sample_0361/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_09/sample_0361/k6,S18,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_10/sample_0002/k6,S14,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_10/sample_0002/k6,S14,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_10/sample_0027/k6,S14,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_10/sample_0027/k6,S14,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_10/sample_0053/k6,S14,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_10/sample_0053/k6,S14,6,0,1 1 0 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_10/sample_0129/k6,S14,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_10/sample_0129/k6,S14,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_10/sample_0280/k6,S14,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_10/sample_0280/k6,S14,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_10/sample_0335/k6,S14,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,Medium,Final,scene_10/sample_0335/k6,S14,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_10/sample_0388/k6,S14,6,0,1 1 0 1 1 0
+Gemini 3.8 Flash,Medium,Final,scene_10/sample_0388/k6,S14,6,0,1 1 0 1 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_10/sample_0501/k6,S14,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,Medium,Final,scene_10/sample_0501/k6,S14,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_10/sample_0524/k6,S14,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_10/sample_0524/k6,S14,6,0,1 0 1 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_10/sample_0526/k6,S14,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,Medium,Final,scene_10/sample_0526/k6,S14,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_11/sample_0001/k6,S03,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_11/sample_0001/k6,S03,6,0,1 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_11/sample_0053/k6,S03,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_11/sample_0053/k6,S03,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_11/sample_0105/k6,S03,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_11/sample_0105/k6,S03,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_11/sample_0167/k6,S03,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_11/sample_0167/k6,S03,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_11/sample_0208/k6,S03,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_11/sample_0208/k6,S03,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_11/sample_0240/k6,S03,6,0,1 0 0 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_11/sample_0240/k6,S03,6,0,1 0 0 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_11/sample_0256/k6,S03,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,Medium,Final,scene_11/sample_0256/k6,S03,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_11/sample_0312/k6,S03,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_11/sample_0312/k6,S03,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_11/sample_0394/k6,S03,6,0,1 1 0 0 1 1
+Gemini 3.8 Flash,Medium,Final,scene_11/sample_0394/k6,S03,6,0,1 1 0 0 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_11/sample_0499/k6,S03,6,0,0 1 0 0 1 0
+Gemini 3.8 Flash,Medium,Final,scene_11/sample_0499/k6,S03,6,0,0 1 0 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_12/sample_0002/k6,S04,6,0,1 1 0 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_12/sample_0002/k6,S04,6,0,1 1 0 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_12/sample_0107/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_12/sample_0107/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_12/sample_0133/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_12/sample_0133/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_12/sample_0254/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_12/sample_0254/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_12/sample_0278/k6,S04,6,0,1 1 1 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_12/sample_0278/k6,S04,6,0,1 1 1 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_12/sample_0316/k6,S04,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_12/sample_0316/k6,S04,6,0,1 1 0 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_12/sample_0411/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_12/sample_0411/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_12/sample_0439/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_12/sample_0439/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_12/sample_0455/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_12/sample_0455/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_12/sample_0490/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_12/sample_0490/k6,S04,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_13/sample_0007/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_13/sample_0007/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_13/sample_0022/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_13/sample_0022/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_13/sample_0096/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_13/sample_0096/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_13/sample_0145/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_13/sample_0145/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_13/sample_0154/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_13/sample_0154/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_13/sample_0182/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_13/sample_0182/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_13/sample_0237/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_13/sample_0237/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_13/sample_0351/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_13/sample_0351/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_13/sample_0441/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_13/sample_0441/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_13/sample_0454/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_13/sample_0454/k6,S11,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_14/sample_0001/k6,S12,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_14/sample_0001/k6,S12,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_14/sample_0003/k6,S12,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_14/sample_0003/k6,S12,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_14/sample_0004/k6,S12,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_14/sample_0004/k6,S12,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_14/sample_0010/k6,S12,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_14/sample_0010/k6,S12,6,0,0 0 0 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_14/sample_0014/k6,S12,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_14/sample_0014/k6,S12,6,0,1 1 1 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_14/sample_0017/k6,S12,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_14/sample_0017/k6,S12,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_14/sample_0018/k6,S12,6,0,1 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_14/sample_0018/k6,S12,6,0,1 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_14/sample_0081/k6,S12,6,0,1 1 0 0 1 0
+Gemini 3.8 Flash,Medium,Final,scene_14/sample_0081/k6,S12,6,0,1 1 0 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_14/sample_0222/k6,S12,6,0,0 1 0 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_14/sample_0222/k6,S12,6,0,0 1 0 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_14/sample_0425/k6,S12,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,Medium,Final,scene_14/sample_0425/k6,S12,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_15/sample_0001/k6,S07,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Medium,Final,scene_15/sample_0001/k6,S07,6,0,0 0 0 0 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_15/sample_0052/k6,S07,6,0,1 0 1 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_15/sample_0052/k6,S07,6,0,1 0 1 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_15/sample_0168/k6,S07,6,0,1 0 1 1 1 0
+Gemini 3.8 Flash,Medium,Final,scene_15/sample_0168/k6,S07,6,0,1 0 1 1 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_15/sample_0184/k6,S07,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,Medium,Final,scene_15/sample_0184/k6,S07,6,0,1 0 1 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_15/sample_0207/k6,S07,6,0,0 1 0 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_15/sample_0207/k6,S07,6,0,0 1 0 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_15/sample_0305/k6,S07,6,0,1 1 0 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_15/sample_0305/k6,S07,6,0,1 1 0 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_15/sample_0323/k6,S07,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_15/sample_0323/k6,S07,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_15/sample_0360/k6,S07,6,0,1 1 1 1 0 1
+Gemini 3.8 Flash,Medium,Final,scene_15/sample_0360/k6,S07,6,0,1 1 1 1 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_15/sample_0439/k6,S07,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,Medium,Final,scene_15/sample_0439/k6,S07,6,0,1 1 1 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_15/sample_0526/k6,S07,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_15/sample_0526/k6,S07,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_16/sample_0004/k6,S08,6,0,1 1 1 1 1 0
+Gemini 3.8 Flash,Medium,Final,scene_16/sample_0004/k6,S08,6,0,1 1 1 1 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_16/sample_0006/k6,S08,6,0,0 1 0 1 1 0
+Gemini 3.8 Flash,Medium,Final,scene_16/sample_0006/k6,S08,6,0,0 1 0 1 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_16/sample_0073/k6,S08,6,0,1 1 0 1 1 0
+Gemini 3.8 Flash,Medium,Final,scene_16/sample_0073/k6,S08,6,0,1 1 0 1 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_16/sample_0145/k6,S08,6,0,0 1 0 1 1 0
+Gemini 3.8 Flash,Medium,Final,scene_16/sample_0145/k6,S08,6,0,0 1 0 1 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_16/sample_0150/k6,S08,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_16/sample_0150/k6,S08,6,0,0 0 0 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_16/sample_0219/k6,S08,6,0,0 1 0 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_16/sample_0219/k6,S08,6,0,0 1 0 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_16/sample_0228/k6,S08,6,0,1 1 0 0 1 0
+Gemini 3.8 Flash,Medium,Final,scene_16/sample_0228/k6,S08,6,0,1 1 0 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_16/sample_0357/k6,S08,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_16/sample_0357/k6,S08,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_16/sample_0396/k6,S08,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_16/sample_0396/k6,S08,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_16/sample_0397/k6,S08,6,0,0 1 0 0 1 0
+Gemini 3.8 Flash,Medium,Final,scene_16/sample_0397/k6,S08,6,0,0 1 0 0 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_17/sample_0001/k6,S19,6,0,1 0 0 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_17/sample_0001/k6,S19,6,0,1 0 0 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_17/sample_0055/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_17/sample_0055/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_17/sample_0060/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_17/sample_0060/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_17/sample_0067/k6,S19,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_17/sample_0067/k6,S19,6,0,0 1 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_17/sample_0069/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_17/sample_0069/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_17/sample_0119/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_17/sample_0119/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_17/sample_0342/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_17/sample_0342/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_17/sample_0454/k6,S19,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_17/sample_0454/k6,S19,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_17/sample_0469/k6,S19,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Medium,Final,scene_17/sample_0469/k6,S19,6,0,0 0 1 0 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_17/sample_0472/k6,S19,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_17/sample_0472/k6,S19,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_18/sample_0007/k6,S20,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_18/sample_0007/k6,S20,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_18/sample_0061/k6,S20,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_18/sample_0061/k6,S20,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_18/sample_0120/k6,S20,6,0,0 0 0 1 0 1
+Gemini 3.8 Flash,Medium,Final,scene_18/sample_0120/k6,S20,6,0,0 0 0 1 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_18/sample_0128/k6,S20,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_18/sample_0128/k6,S20,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_18/sample_0203/k6,S20,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_18/sample_0203/k6,S20,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_18/sample_0336/k6,S20,6,0,1 0 0 1 1 0
+Gemini 3.8 Flash,Medium,Final,scene_18/sample_0336/k6,S20,6,0,1 0 0 1 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_18/sample_0394/k6,S20,6,0,1 0 0 1 0 1
+Gemini 3.8 Flash,Medium,Final,scene_18/sample_0394/k6,S20,6,0,1 0 0 1 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_18/sample_0482/k6,S20,6,0,0 0 0 1 1 0
+Gemini 3.8 Flash,Medium,Final,scene_18/sample_0482/k6,S20,6,0,0 0 0 1 1 0
+Gemini 3.8 Flash,Medium,Primary,scene_18/sample_0505/k6,S20,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_18/sample_0505/k6,S20,6,0,0 0 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_18/sample_0509/k6,S20,6,0,0 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_18/sample_0509/k6,S20,6,0,0 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_19/sample_0001/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_19/sample_0001/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_19/sample_0190/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_19/sample_0190/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_19/sample_0329/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_19/sample_0329/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_19/sample_0346/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_19/sample_0346/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_19/sample_0358/k6,S15,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,Medium,Final,scene_19/sample_0358/k6,S15,6,0,1 0 1 0 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_19/sample_0403/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_19/sample_0403/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_19/sample_0405/k6,S15,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_19/sample_0405/k6,S15,6,0,1 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_19/sample_0457/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_19/sample_0457/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_19/sample_0462/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Final,scene_19/sample_0462/k6,S15,6,1,1 1 1 1 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_19/sample_0494/k6,S15,6,0,0 1 0 1 0 1
+Gemini 3.8 Flash,Medium,Final,scene_19/sample_0494/k6,S15,6,0,0 1 0 1 0 1
+Gemini 3.8 Flash,Medium,Primary,scene_20/sample_0001/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_20/sample_0001/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_20/sample_0079/k6,S16,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_20/sample_0079/k6,S16,6,0,0 0 1 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_20/sample_0103/k6,S16,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Final,scene_20/sample_0103/k6,S16,6,0,0 0 0 1 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_20/sample_0262/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_20/sample_0262/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_20/sample_0397/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_20/sample_0397/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_20/sample_0431/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_20/sample_0431/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_20/sample_0435/k6,S16,6,0,1 1 1 0 1 1
+Gemini 3.8 Flash,Medium,Final,scene_20/sample_0435/k6,S16,6,0,1 1 1 0 1 1
+Gemini 3.8 Flash,Medium,Primary,scene_20/sample_0476/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_20/sample_0476/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_20/sample_0501/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_20/sample_0501/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Primary,scene_20/sample_0509/k6,S16,6,0,0 0 0 0 0 0
+Gemini 3.8 Flash,Medium,Final,scene_20/sample_0509/k6,S16,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Primary,scene_01/sample_0001/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_01/sample_0001/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_01/sample_0008/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_01/sample_0008/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_01/sample_0052/k6,S01,6,0,1 0 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_01/sample_0052/k6,S01,6,0,1 0 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_01/sample_0095/k6,S01,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_01/sample_0095/k6,S01,6,0,0 1 1 1 0 1
+GPT-6.1 Sol,High,Primary,scene_01/sample_0112/k6,S01,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_01/sample_0112/k6,S01,6,0,1 1 1 0 0 0
+GPT-6.1 Sol,High,Primary,scene_01/sample_0154/k6,S01,6,0,1 0 1 0 0 0
+GPT-6.1 Sol,High,Final,scene_01/sample_0154/k6,S01,6,0,1 0 1 0 0 0
+GPT-6.1 Sol,High,Primary,scene_01/sample_0166/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_01/sample_0166/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_01/sample_0181/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_01/sample_0181/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_01/sample_0243/k6,S01,6,0,1 1 0 1 1 0
+GPT-6.1 Sol,High,Final,scene_01/sample_0243/k6,S01,6,0,1 1 0 1 1 0
+GPT-6.1 Sol,High,Primary,scene_01/sample_0428/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_01/sample_0428/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_02/sample_0001/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_02/sample_0001/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_02/sample_0002/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_02/sample_0002/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_02/sample_0006/k6,S09,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_02/sample_0006/k6,S09,6,0,0 1 0 0 1 1
+GPT-6.1 Sol,High,Primary,scene_02/sample_0015/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_02/sample_0015/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_02/sample_0017/k6,S09,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_02/sample_0017/k6,S09,6,0,1 1 0 0 0 1
+GPT-6.1 Sol,High,Primary,scene_02/sample_0070/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_02/sample_0070/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_02/sample_0095/k6,S09,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_02/sample_0095/k6,S09,6,0,1 1 0 1 0 1
+GPT-6.1 Sol,High,Primary,scene_02/sample_0273/k6,S09,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_02/sample_0273/k6,S09,6,0,1 1 0 1 0 1
+GPT-6.1 Sol,High,Primary,scene_02/sample_0305/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_02/sample_0305/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_02/sample_0391/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_02/sample_0391/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_03/sample_0025/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_03/sample_0025/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_03/sample_0130/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_03/sample_0130/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_03/sample_0255/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_03/sample_0255/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_03/sample_0308/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_03/sample_0308/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_03/sample_0337/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_03/sample_0337/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_03/sample_0366/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_03/sample_0366/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_03/sample_0379/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_03/sample_0379/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_03/sample_0433/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_03/sample_0433/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_03/sample_0461/k6,S05,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,High,Final,scene_03/sample_0461/k6,S05,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,High,Primary,scene_03/sample_0507/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_03/sample_0507/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_04/sample_0007/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_04/sample_0007/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_04/sample_0066/k6,S17,6,0,0 1 0 1 0 1
+GPT-6.1 Sol,High,Final,scene_04/sample_0066/k6,S17,6,0,0 1 0 1 0 1
+GPT-6.1 Sol,High,Primary,scene_04/sample_0125/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_04/sample_0125/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_04/sample_0163/k6,S17,6,0,1 0 0 0 1 1
+GPT-6.1 Sol,High,Final,scene_04/sample_0163/k6,S17,6,0,1 0 0 0 1 1
+GPT-6.1 Sol,High,Primary,scene_04/sample_0166/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_04/sample_0166/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_04/sample_0246/k6,S17,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,High,Final,scene_04/sample_0246/k6,S17,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,High,Primary,scene_04/sample_0252/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_04/sample_0252/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_04/sample_0359/k6,S17,6,0,1 0 1 0 0 1
+GPT-6.1 Sol,High,Final,scene_04/sample_0359/k6,S17,6,0,1 0 1 0 0 1
+GPT-6.1 Sol,High,Primary,scene_04/sample_0392/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_04/sample_0392/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_04/sample_0466/k6,S17,6,0,0 0 1 0 0 1
+GPT-6.1 Sol,High,Final,scene_04/sample_0466/k6,S17,6,0,0 0 1 0 0 1
+GPT-6.1 Sol,High,Primary,scene_05/sample_0030/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_05/sample_0030/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_05/sample_0049/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_05/sample_0049/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_05/sample_0058/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_05/sample_0058/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_05/sample_0191/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_05/sample_0191/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_05/sample_0241/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_05/sample_0241/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_05/sample_0243/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_05/sample_0243/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_05/sample_0298/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_05/sample_0298/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_05/sample_0354/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_05/sample_0354/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_05/sample_0526/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_05/sample_0526/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_05/sample_0537/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_05/sample_0537/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_06/sample_0001/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_06/sample_0001/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_06/sample_0002/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_06/sample_0002/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_06/sample_0003/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_06/sample_0003/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_06/sample_0004/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_06/sample_0004/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_06/sample_0006/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_06/sample_0006/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_06/sample_0013/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_06/sample_0013/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_06/sample_0015/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_06/sample_0015/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_06/sample_0022/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_06/sample_0022/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_06/sample_0024/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_06/sample_0024/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_06/sample_0070/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_06/sample_0070/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_07/sample_0009/k6,S10,6,0,0 0 0 0 1 1
+GPT-6.1 Sol,High,Final,scene_07/sample_0009/k6,S10,6,0,0 0 0 0 1 1
+GPT-6.1 Sol,High,Primary,scene_07/sample_0011/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_07/sample_0011/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_07/sample_0052/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_07/sample_0052/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_07/sample_0146/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_07/sample_0146/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_07/sample_0273/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_07/sample_0273/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_07/sample_0275/k6,S10,6,0,1 1 0 1 0 0
+GPT-6.1 Sol,High,Final,scene_07/sample_0275/k6,S10,6,0,1 1 0 1 0 0
+GPT-6.1 Sol,High,Primary,scene_07/sample_0298/k6,S10,6,0,0 0 1 1 0 1
+GPT-6.1 Sol,High,Final,scene_07/sample_0298/k6,S10,6,0,0 0 1 1 0 1
+GPT-6.1 Sol,High,Primary,scene_07/sample_0387/k6,S10,6,0,1 1 1 0 0 1
+GPT-6.1 Sol,High,Final,scene_07/sample_0387/k6,S10,6,0,1 1 1 0 0 1
+GPT-6.1 Sol,High,Primary,scene_07/sample_0474/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_07/sample_0474/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_07/sample_0510/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_07/sample_0510/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_08/sample_0001/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_08/sample_0001/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_08/sample_0027/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_08/sample_0027/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_08/sample_0032/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_08/sample_0032/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_08/sample_0038/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_08/sample_0038/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_08/sample_0354/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_08/sample_0354/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_08/sample_0373/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_08/sample_0373/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_08/sample_0404/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_08/sample_0404/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_08/sample_0424/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_08/sample_0424/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_08/sample_0461/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_08/sample_0461/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_08/sample_0507/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_08/sample_0507/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_09/sample_0003/k6,S18,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_09/sample_0003/k6,S18,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_09/sample_0004/k6,S18,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_09/sample_0004/k6,S18,6,0,0 1 0 0 0 1
+GPT-6.1 Sol,High,Primary,scene_09/sample_0087/k6,S18,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_09/sample_0087/k6,S18,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_09/sample_0125/k6,S18,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_09/sample_0125/k6,S18,6,0,1 1 1 0 0 0
+GPT-6.1 Sol,High,Primary,scene_09/sample_0172/k6,S18,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_09/sample_0172/k6,S18,6,0,1 1 0 0 1 0
+GPT-6.1 Sol,High,Primary,scene_09/sample_0178/k6,S18,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_09/sample_0178/k6,S18,6,0,1 0 1 0 1 0
+GPT-6.1 Sol,High,Primary,scene_09/sample_0199/k6,S18,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_09/sample_0199/k6,S18,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_09/sample_0296/k6,S18,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_09/sample_0296/k6,S18,6,0,0 1 1 0 1 1
+GPT-6.1 Sol,High,Primary,scene_09/sample_0300/k6,S18,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_09/sample_0300/k6,S18,6,0,0 1 1 0 1 1
+GPT-6.1 Sol,High,Primary,scene_09/sample_0361/k6,S18,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_09/sample_0361/k6,S18,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_10/sample_0002/k6,S14,6,0,1 0 0 0 1 1
+GPT-6.1 Sol,High,Final,scene_10/sample_0002/k6,S14,6,0,1 0 0 0 1 1
+GPT-6.1 Sol,High,Primary,scene_10/sample_0027/k6,S14,6,0,1 1 1 1 0 1
+GPT-6.1 Sol,High,Final,scene_10/sample_0027/k6,S14,6,0,1 1 1 1 0 1
+GPT-6.1 Sol,High,Primary,scene_10/sample_0053/k6,S14,6,0,1 1 0 1 0 0
+GPT-6.1 Sol,High,Final,scene_10/sample_0053/k6,S14,6,0,1 1 0 1 0 0
+GPT-6.1 Sol,High,Primary,scene_10/sample_0129/k6,S14,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_10/sample_0129/k6,S14,6,0,1 0 1 1 1 0
+GPT-6.1 Sol,High,Primary,scene_10/sample_0280/k6,S14,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_10/sample_0280/k6,S14,6,0,1 0 0 0 0 0
+GPT-6.1 Sol,High,Primary,scene_10/sample_0335/k6,S14,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_10/sample_0335/k6,S14,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_10/sample_0388/k6,S14,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_10/sample_0388/k6,S14,6,0,1 1 1 1 0 1
+GPT-6.1 Sol,High,Primary,scene_10/sample_0501/k6,S14,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_10/sample_0501/k6,S14,6,0,1 1 0 1 0 1
+GPT-6.1 Sol,High,Primary,scene_10/sample_0524/k6,S14,6,0,1 1 0 1 0 1
+GPT-6.1 Sol,High,Final,scene_10/sample_0524/k6,S14,6,0,1 1 0 1 0 1
+GPT-6.1 Sol,High,Primary,scene_10/sample_0526/k6,S14,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,High,Final,scene_10/sample_0526/k6,S14,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,High,Primary,scene_11/sample_0001/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_11/sample_0001/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_11/sample_0053/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_11/sample_0053/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_11/sample_0105/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_11/sample_0105/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_11/sample_0167/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_11/sample_0167/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_11/sample_0208/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_11/sample_0208/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_11/sample_0240/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_11/sample_0240/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_11/sample_0256/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_11/sample_0256/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_11/sample_0312/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_11/sample_0312/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_11/sample_0394/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_11/sample_0394/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_11/sample_0499/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_11/sample_0499/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_12/sample_0002/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_12/sample_0002/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_12/sample_0107/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_12/sample_0107/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_12/sample_0133/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_12/sample_0133/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_12/sample_0254/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_12/sample_0254/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_12/sample_0278/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_12/sample_0278/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_12/sample_0316/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_12/sample_0316/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_12/sample_0411/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_12/sample_0411/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_12/sample_0439/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_12/sample_0439/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_12/sample_0455/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_12/sample_0455/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_12/sample_0490/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_12/sample_0490/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_13/sample_0007/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_13/sample_0007/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_13/sample_0022/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_13/sample_0022/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_13/sample_0096/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_13/sample_0096/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_13/sample_0145/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_13/sample_0145/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_13/sample_0154/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_13/sample_0154/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_13/sample_0182/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_13/sample_0182/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_13/sample_0237/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_13/sample_0237/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_13/sample_0351/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_13/sample_0351/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_13/sample_0441/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_13/sample_0441/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_13/sample_0454/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_13/sample_0454/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_14/sample_0001/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_14/sample_0001/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_14/sample_0003/k6,S12,6,0,1 1 1 0 0 1
+GPT-6.1 Sol,High,Final,scene_14/sample_0003/k6,S12,6,0,1 1 1 0 0 1
+GPT-6.1 Sol,High,Primary,scene_14/sample_0004/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_14/sample_0004/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_14/sample_0010/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_14/sample_0010/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_14/sample_0014/k6,S12,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,High,Final,scene_14/sample_0014/k6,S12,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,High,Primary,scene_14/sample_0017/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_14/sample_0017/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_14/sample_0018/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_14/sample_0018/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_14/sample_0081/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_14/sample_0081/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_14/sample_0222/k6,S12,6,0,1 0 1 0 1 1
+GPT-6.1 Sol,High,Final,scene_14/sample_0222/k6,S12,6,0,1 0 1 0 1 1
+GPT-6.1 Sol,High,Primary,scene_14/sample_0425/k6,S12,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,High,Final,scene_14/sample_0425/k6,S12,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,High,Primary,scene_15/sample_0001/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_15/sample_0001/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_15/sample_0052/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_15/sample_0052/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_15/sample_0168/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_15/sample_0168/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_15/sample_0184/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_15/sample_0184/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_15/sample_0207/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_15/sample_0207/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_15/sample_0305/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_15/sample_0305/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_15/sample_0323/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_15/sample_0323/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_15/sample_0360/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_15/sample_0360/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_15/sample_0439/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_15/sample_0439/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_15/sample_0526/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_15/sample_0526/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_16/sample_0004/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_16/sample_0004/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_16/sample_0006/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_16/sample_0006/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_16/sample_0073/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_16/sample_0073/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_16/sample_0145/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_16/sample_0145/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_16/sample_0150/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_16/sample_0150/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_16/sample_0219/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_16/sample_0219/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_16/sample_0228/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_16/sample_0228/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_16/sample_0357/k6,S08,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_16/sample_0357/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_16/sample_0396/k6,S08,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_16/sample_0396/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_16/sample_0397/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_16/sample_0397/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_17/sample_0001/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_17/sample_0001/k6,S19,6,0,0 0 0 1 1 0
+GPT-6.1 Sol,High,Primary,scene_17/sample_0055/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_17/sample_0055/k6,S19,6,0,0 0 0 0 0 1
+GPT-6.1 Sol,High,Primary,scene_17/sample_0060/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_17/sample_0060/k6,S19,6,0,0 0 0 0 0 1
+GPT-6.1 Sol,High,Primary,scene_17/sample_0067/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_17/sample_0067/k6,S19,6,0,0 1 0 0 1 0
+GPT-6.1 Sol,High,Primary,scene_17/sample_0069/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_17/sample_0069/k6,S19,6,0,0 0 0 0 1 0
+GPT-6.1 Sol,High,Primary,scene_17/sample_0119/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_17/sample_0119/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Primary,scene_17/sample_0342/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_17/sample_0342/k6,S19,6,0,0 0 0 1 0 0
+GPT-6.1 Sol,High,Primary,scene_17/sample_0454/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_17/sample_0454/k6,S19,6,0,0 0 1 0 1 0
+GPT-6.1 Sol,High,Primary,scene_17/sample_0469/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_17/sample_0469/k6,S19,6,0,0 1 1 1 0 1
+GPT-6.1 Sol,High,Primary,scene_17/sample_0472/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,High,Final,scene_17/sample_0472/k6,S19,6,0,1 0 1 0 1 1
+GPT-6.1 Sol,High,Primary,scene_18/sample_0007/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_18/sample_0007/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_18/sample_0061/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_18/sample_0061/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_18/sample_0120/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_18/sample_0120/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_18/sample_0128/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_18/sample_0128/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_18/sample_0203/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_18/sample_0203/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_18/sample_0336/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_18/sample_0336/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_18/sample_0394/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_18/sample_0394/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_18/sample_0482/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_18/sample_0482/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_18/sample_0505/k6,S20,6,0,0 0 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_18/sample_0505/k6,S20,6,0,0 0 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_18/sample_0509/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_18/sample_0509/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_19/sample_0001/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_19/sample_0001/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_19/sample_0190/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_19/sample_0190/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_19/sample_0329/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_19/sample_0329/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_19/sample_0346/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_19/sample_0346/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_19/sample_0358/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_19/sample_0358/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_19/sample_0403/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_19/sample_0403/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_19/sample_0405/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_19/sample_0405/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_19/sample_0457/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_19/sample_0457/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_19/sample_0462/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_19/sample_0462/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_19/sample_0494/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_19/sample_0494/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_20/sample_0001/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_20/sample_0001/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_20/sample_0079/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_20/sample_0079/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_20/sample_0103/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_20/sample_0103/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_20/sample_0262/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_20/sample_0262/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_20/sample_0397/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_20/sample_0397/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_20/sample_0431/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_20/sample_0431/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_20/sample_0435/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_20/sample_0435/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_20/sample_0476/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_20/sample_0476/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_20/sample_0501/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_20/sample_0501/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Primary,scene_20/sample_0509/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,High,Final,scene_20/sample_0509/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_01/sample_0001/k6,S01,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Low,Final,scene_01/sample_0001/k6,S01,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Low,Primary,scene_01/sample_0008/k6,S01,6,0,1 1 1 0 1 0
+GPT-6.1 Sol,Low,Final,scene_01/sample_0008/k6,S01,6,0,1 1 1 0 1 0
+GPT-6.1 Sol,Low,Primary,scene_01/sample_0052/k6,S01,6,0,1 0 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_01/sample_0052/k6,S01,6,0,1 0 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_01/sample_0095/k6,S01,6,0,1 0 1 1 0 0
+GPT-6.1 Sol,Low,Final,scene_01/sample_0095/k6,S01,6,0,1 0 1 1 0 0
+GPT-6.1 Sol,Low,Primary,scene_01/sample_0112/k6,S01,6,0,1 1 1 0 0 0
+GPT-6.1 Sol,Low,Final,scene_01/sample_0112/k6,S01,6,0,1 1 1 0 0 0
+GPT-6.1 Sol,Low,Primary,scene_01/sample_0154/k6,S01,6,0,1 0 0 0 0 0
+GPT-6.1 Sol,Low,Final,scene_01/sample_0154/k6,S01,6,0,1 0 0 0 0 0
+GPT-6.1 Sol,Low,Primary,scene_01/sample_0166/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_01/sample_0166/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_01/sample_0181/k6,S01,6,0,1 1 0 1 1 1
+GPT-6.1 Sol,Low,Final,scene_01/sample_0181/k6,S01,6,0,1 1 0 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_01/sample_0243/k6,S01,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Low,Final,scene_01/sample_0243/k6,S01,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Low,Primary,scene_01/sample_0428/k6,S01,6,0,1 1 0 0 1 0
+GPT-6.1 Sol,Low,Final,scene_01/sample_0428/k6,S01,6,0,1 1 0 0 1 0
+GPT-6.1 Sol,Low,Primary,scene_02/sample_0001/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_02/sample_0001/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_02/sample_0002/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_02/sample_0002/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_02/sample_0006/k6,S09,6,0,0 1 0 0 1 1
+GPT-6.1 Sol,Low,Final,scene_02/sample_0006/k6,S09,6,0,0 1 0 0 1 1
+GPT-6.1 Sol,Low,Primary,scene_02/sample_0015/k6,S09,6,0,0 0 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_02/sample_0015/k6,S09,6,0,0 0 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_02/sample_0017/k6,S09,6,0,1 1 0 0 0 1
+GPT-6.1 Sol,Low,Final,scene_02/sample_0017/k6,S09,6,0,1 1 0 0 0 1
+GPT-6.1 Sol,Low,Primary,scene_02/sample_0070/k6,S09,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Low,Final,scene_02/sample_0070/k6,S09,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Low,Primary,scene_02/sample_0095/k6,S09,6,0,1 1 0 1 0 1
+GPT-6.1 Sol,Low,Final,scene_02/sample_0095/k6,S09,6,0,1 1 0 1 0 1
+GPT-6.1 Sol,Low,Primary,scene_02/sample_0273/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_02/sample_0273/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_02/sample_0305/k6,S09,6,0,1 1 1 1 0 1
+GPT-6.1 Sol,Low,Final,scene_02/sample_0305/k6,S09,6,0,1 1 1 1 0 1
+GPT-6.1 Sol,Low,Primary,scene_02/sample_0391/k6,S09,6,0,1 1 0 1 1 1
+GPT-6.1 Sol,Low,Final,scene_02/sample_0391/k6,S09,6,0,1 1 0 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_03/sample_0025/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_03/sample_0025/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_03/sample_0130/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_03/sample_0130/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_03/sample_0255/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_03/sample_0255/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_03/sample_0308/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_03/sample_0308/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_03/sample_0337/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_03/sample_0337/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_03/sample_0366/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_03/sample_0366/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_03/sample_0379/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_03/sample_0379/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_03/sample_0433/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_03/sample_0433/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_03/sample_0461/k6,S05,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Low,Final,scene_03/sample_0461/k6,S05,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Low,Primary,scene_03/sample_0507/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_03/sample_0507/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_04/sample_0007/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_04/sample_0007/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_04/sample_0066/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_04/sample_0066/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_04/sample_0125/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_04/sample_0125/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_04/sample_0163/k6,S17,6,0,1 0 0 0 1 1
+GPT-6.1 Sol,Low,Final,scene_04/sample_0163/k6,S17,6,0,1 0 0 0 1 1
+GPT-6.1 Sol,Low,Primary,scene_04/sample_0166/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_04/sample_0166/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_04/sample_0246/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_04/sample_0246/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_04/sample_0252/k6,S17,6,0,1 1 1 1 0 0
+GPT-6.1 Sol,Low,Final,scene_04/sample_0252/k6,S17,6,0,1 1 1 1 0 0
+GPT-6.1 Sol,Low,Primary,scene_04/sample_0359/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_04/sample_0359/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_04/sample_0392/k6,S17,6,0,0 0 1 1 1 0
+GPT-6.1 Sol,Low,Final,scene_04/sample_0392/k6,S17,6,0,0 0 1 1 1 0
+GPT-6.1 Sol,Low,Primary,scene_04/sample_0466/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_04/sample_0466/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_05/sample_0030/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_05/sample_0030/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_05/sample_0049/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_05/sample_0049/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_05/sample_0058/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_05/sample_0058/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_05/sample_0191/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_05/sample_0191/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_05/sample_0241/k6,S13,6,0,1 1 1 0 0 1
+GPT-6.1 Sol,Low,Final,scene_05/sample_0241/k6,S13,6,0,1 1 1 0 0 1
+GPT-6.1 Sol,Low,Primary,scene_05/sample_0243/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_05/sample_0243/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_05/sample_0298/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_05/sample_0298/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_05/sample_0354/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_05/sample_0354/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_05/sample_0526/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_05/sample_0526/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_05/sample_0537/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_05/sample_0537/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_06/sample_0001/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_06/sample_0001/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_06/sample_0002/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_06/sample_0002/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_06/sample_0003/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_06/sample_0003/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_06/sample_0004/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_06/sample_0004/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_06/sample_0006/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_06/sample_0006/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_06/sample_0013/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_06/sample_0013/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_06/sample_0015/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_06/sample_0015/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_06/sample_0022/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_06/sample_0022/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_06/sample_0024/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_06/sample_0024/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_06/sample_0070/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_06/sample_0070/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_07/sample_0009/k6,S10,6,0,0 0 0 0 1 1
+GPT-6.1 Sol,Low,Final,scene_07/sample_0009/k6,S10,6,0,0 0 0 0 1 1
+GPT-6.1 Sol,Low,Primary,scene_07/sample_0011/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_07/sample_0011/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_07/sample_0052/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_07/sample_0052/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_07/sample_0146/k6,S10,6,0,1 0 0 1 0 0
+GPT-6.1 Sol,Low,Final,scene_07/sample_0146/k6,S10,6,0,1 0 0 1 0 0
+GPT-6.1 Sol,Low,Primary,scene_07/sample_0273/k6,S10,6,0,0 0 1 0 0 0
+GPT-6.1 Sol,Low,Final,scene_07/sample_0273/k6,S10,6,0,0 0 1 0 0 0
+GPT-6.1 Sol,Low,Primary,scene_07/sample_0275/k6,S10,6,0,1 1 0 1 0 0
+GPT-6.1 Sol,Low,Final,scene_07/sample_0275/k6,S10,6,0,1 1 0 1 0 0
+GPT-6.1 Sol,Low,Primary,scene_07/sample_0298/k6,S10,6,0,0 0 1 1 0 1
+GPT-6.1 Sol,Low,Final,scene_07/sample_0298/k6,S10,6,0,0 0 1 1 0 1
+GPT-6.1 Sol,Low,Primary,scene_07/sample_0387/k6,S10,6,0,1 1 1 0 0 1
+GPT-6.1 Sol,Low,Final,scene_07/sample_0387/k6,S10,6,0,1 1 1 0 0 1
+GPT-6.1 Sol,Low,Primary,scene_07/sample_0474/k6,S10,6,0,0 1 1 1 0 1
+GPT-6.1 Sol,Low,Final,scene_07/sample_0474/k6,S10,6,0,0 1 1 1 0 1
+GPT-6.1 Sol,Low,Primary,scene_07/sample_0510/k6,S10,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_07/sample_0510/k6,S10,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_08/sample_0001/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_08/sample_0001/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_08/sample_0027/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_08/sample_0027/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_08/sample_0032/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_08/sample_0032/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_08/sample_0038/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_08/sample_0038/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_08/sample_0354/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_08/sample_0354/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_08/sample_0373/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_08/sample_0373/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_08/sample_0404/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_08/sample_0404/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_08/sample_0424/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_08/sample_0424/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_08/sample_0461/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_08/sample_0461/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_08/sample_0507/k6,S06,6,0,0 0 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_08/sample_0507/k6,S06,6,0,0 0 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_09/sample_0003/k6,S18,6,0,1 0 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_09/sample_0003/k6,S18,6,0,1 0 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_09/sample_0004/k6,S18,6,0,1 1 0 1 0 0
+GPT-6.1 Sol,Low,Final,scene_09/sample_0004/k6,S18,6,0,1 1 0 1 0 0
+GPT-6.1 Sol,Low,Primary,scene_09/sample_0087/k6,S18,6,0,0 1 1 0 0 0
+GPT-6.1 Sol,Low,Final,scene_09/sample_0087/k6,S18,6,0,0 1 1 0 0 0
+GPT-6.1 Sol,Low,Primary,scene_09/sample_0125/k6,S18,6,0,0 1 1 1 0 1
+GPT-6.1 Sol,Low,Final,scene_09/sample_0125/k6,S18,6,0,0 1 1 1 0 1
+GPT-6.1 Sol,Low,Primary,scene_09/sample_0172/k6,S18,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_09/sample_0172/k6,S18,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_09/sample_0178/k6,S18,6,0,0 1 0 0 0 1
+GPT-6.1 Sol,Low,Final,scene_09/sample_0178/k6,S18,6,0,0 1 0 0 0 1
+GPT-6.1 Sol,Low,Primary,scene_09/sample_0199/k6,S18,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_09/sample_0199/k6,S18,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_09/sample_0296/k6,S18,6,0,1 0 1 1 1 0
+GPT-6.1 Sol,Low,Final,scene_09/sample_0296/k6,S18,6,0,1 0 1 1 1 0
+GPT-6.1 Sol,Low,Primary,scene_09/sample_0300/k6,S18,6,0,0 0 0 0 1 1
+GPT-6.1 Sol,Low,Final,scene_09/sample_0300/k6,S18,6,0,0 0 0 0 1 1
+GPT-6.1 Sol,Low,Primary,scene_09/sample_0361/k6,S18,6,0,1 1 0 0 1 0
+GPT-6.1 Sol,Low,Final,scene_09/sample_0361/k6,S18,6,0,1 1 0 0 1 0
+GPT-6.1 Sol,Low,Primary,scene_10/sample_0002/k6,S14,6,0,1 0 1 1 0 0
+GPT-6.1 Sol,Low,Final,scene_10/sample_0002/k6,S14,6,0,1 0 1 1 0 0
+GPT-6.1 Sol,Low,Primary,scene_10/sample_0027/k6,S14,6,0,1 1 1 0 1 0
+GPT-6.1 Sol,Low,Final,scene_10/sample_0027/k6,S14,6,0,1 1 1 0 1 0
+GPT-6.1 Sol,Low,Primary,scene_10/sample_0053/k6,S14,6,0,1 1 0 0 0 0
+GPT-6.1 Sol,Low,Final,scene_10/sample_0053/k6,S14,6,0,1 1 0 0 0 0
+GPT-6.1 Sol,Low,Primary,scene_10/sample_0129/k6,S14,6,0,1 0 0 1 1 0
+GPT-6.1 Sol,Low,Final,scene_10/sample_0129/k6,S14,6,0,1 0 0 1 1 0
+GPT-6.1 Sol,Low,Primary,scene_10/sample_0280/k6,S14,6,0,1 0 0 0 0 0
+GPT-6.1 Sol,Low,Final,scene_10/sample_0280/k6,S14,6,0,1 0 0 0 0 0
+GPT-6.1 Sol,Low,Primary,scene_10/sample_0335/k6,S14,6,0,1 0 0 1 0 1
+GPT-6.1 Sol,Low,Final,scene_10/sample_0335/k6,S14,6,0,1 0 0 1 0 1
+GPT-6.1 Sol,Low,Primary,scene_10/sample_0388/k6,S14,6,0,1 1 1 1 0 1
+GPT-6.1 Sol,Low,Final,scene_10/sample_0388/k6,S14,6,0,1 1 1 1 0 1
+GPT-6.1 Sol,Low,Primary,scene_10/sample_0501/k6,S14,6,0,1 1 1 1 0 1
+GPT-6.1 Sol,Low,Final,scene_10/sample_0501/k6,S14,6,0,1 1 1 1 0 1
+GPT-6.1 Sol,Low,Primary,scene_10/sample_0524/k6,S14,6,0,1 0 0 1 1 0
+GPT-6.1 Sol,Low,Final,scene_10/sample_0524/k6,S14,6,0,1 0 0 1 1 0
+GPT-6.1 Sol,Low,Primary,scene_10/sample_0526/k6,S14,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_10/sample_0526/k6,S14,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_11/sample_0001/k6,S03,6,0,1 1 0 0 0 0
+GPT-6.1 Sol,Low,Final,scene_11/sample_0001/k6,S03,6,0,1 1 0 0 0 0
+GPT-6.1 Sol,Low,Primary,scene_11/sample_0053/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_11/sample_0053/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_11/sample_0105/k6,S03,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Low,Final,scene_11/sample_0105/k6,S03,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Low,Primary,scene_11/sample_0167/k6,S03,6,0,1 0 0 0 0 0
+GPT-6.1 Sol,Low,Final,scene_11/sample_0167/k6,S03,6,0,1 0 0 0 0 0
+GPT-6.1 Sol,Low,Primary,scene_11/sample_0208/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_11/sample_0208/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_11/sample_0240/k6,S03,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Low,Final,scene_11/sample_0240/k6,S03,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Low,Primary,scene_11/sample_0256/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_11/sample_0256/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_11/sample_0312/k6,S03,6,0,1 0 1 1 0 1
+GPT-6.1 Sol,Low,Final,scene_11/sample_0312/k6,S03,6,0,1 0 1 1 0 1
+GPT-6.1 Sol,Low,Primary,scene_11/sample_0394/k6,S03,6,0,1 1 1 0 1 0
+GPT-6.1 Sol,Low,Final,scene_11/sample_0394/k6,S03,6,0,1 1 1 0 1 0
+GPT-6.1 Sol,Low,Primary,scene_11/sample_0499/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_11/sample_0499/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_12/sample_0002/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_12/sample_0002/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_12/sample_0107/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_12/sample_0107/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_12/sample_0133/k6,S04,6,0,0 0 1 0 1 0
+GPT-6.1 Sol,Low,Final,scene_12/sample_0133/k6,S04,6,0,0 0 1 0 1 0
+GPT-6.1 Sol,Low,Primary,scene_12/sample_0254/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_12/sample_0254/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_12/sample_0278/k6,S04,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,Low,Final,scene_12/sample_0278/k6,S04,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,Low,Primary,scene_12/sample_0316/k6,S04,6,0,0 0 1 0 1 0
+GPT-6.1 Sol,Low,Final,scene_12/sample_0316/k6,S04,6,0,0 0 1 0 1 0
+GPT-6.1 Sol,Low,Primary,scene_12/sample_0411/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_12/sample_0411/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_12/sample_0439/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_12/sample_0439/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_12/sample_0455/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_12/sample_0455/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_12/sample_0490/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_12/sample_0490/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_13/sample_0007/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_13/sample_0007/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_13/sample_0022/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_13/sample_0022/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_13/sample_0096/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_13/sample_0096/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_13/sample_0145/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_13/sample_0145/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_13/sample_0154/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_13/sample_0154/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_13/sample_0182/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_13/sample_0182/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_13/sample_0237/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_13/sample_0237/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_13/sample_0351/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_13/sample_0351/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_13/sample_0441/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_13/sample_0441/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_13/sample_0454/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_13/sample_0454/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_14/sample_0001/k6,S12,6,0,1 1 0 1 1 0
+GPT-6.1 Sol,Low,Final,scene_14/sample_0001/k6,S12,6,0,1 1 0 1 1 0
+GPT-6.1 Sol,Low,Primary,scene_14/sample_0003/k6,S12,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,Low,Final,scene_14/sample_0003/k6,S12,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,Low,Primary,scene_14/sample_0004/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_14/sample_0004/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_14/sample_0010/k6,S12,6,0,1 0 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_14/sample_0010/k6,S12,6,0,1 0 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_14/sample_0014/k6,S12,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,Low,Final,scene_14/sample_0014/k6,S12,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,Low,Primary,scene_14/sample_0017/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_14/sample_0017/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_14/sample_0018/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_14/sample_0018/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_14/sample_0081/k6,S12,6,0,1 1 0 0 1 1
+GPT-6.1 Sol,Low,Final,scene_14/sample_0081/k6,S12,6,0,1 1 0 0 1 1
+GPT-6.1 Sol,Low,Primary,scene_14/sample_0222/k6,S12,6,0,1 0 1 0 1 0
+GPT-6.1 Sol,Low,Final,scene_14/sample_0222/k6,S12,6,0,1 0 1 0 1 0
+GPT-6.1 Sol,Low,Primary,scene_14/sample_0425/k6,S12,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,Low,Final,scene_14/sample_0425/k6,S12,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,Low,Primary,scene_15/sample_0001/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_15/sample_0001/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_15/sample_0052/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_15/sample_0052/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_15/sample_0168/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_15/sample_0168/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_15/sample_0184/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_15/sample_0184/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_15/sample_0207/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_15/sample_0207/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_15/sample_0305/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_15/sample_0305/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_15/sample_0323/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_15/sample_0323/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_15/sample_0360/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_15/sample_0360/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_15/sample_0439/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_15/sample_0439/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_15/sample_0526/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_15/sample_0526/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_16/sample_0004/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_16/sample_0004/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_16/sample_0006/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_16/sample_0006/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_16/sample_0073/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_16/sample_0073/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_16/sample_0145/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_16/sample_0145/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_16/sample_0150/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_16/sample_0150/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_16/sample_0219/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_16/sample_0219/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_16/sample_0228/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_16/sample_0228/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_16/sample_0357/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_16/sample_0357/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_16/sample_0396/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_16/sample_0396/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_16/sample_0397/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_16/sample_0397/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_17/sample_0001/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,Low,Final,scene_17/sample_0001/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,Low,Primary,scene_17/sample_0055/k6,S19,6,0,0 0 0 1 1 1
+GPT-6.1 Sol,Low,Final,scene_17/sample_0055/k6,S19,6,0,0 0 0 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_17/sample_0060/k6,S19,6,0,0 0 0 0 0 1
+GPT-6.1 Sol,Low,Final,scene_17/sample_0060/k6,S19,6,0,0 0 0 0 0 1
+GPT-6.1 Sol,Low,Primary,scene_17/sample_0067/k6,S19,6,0,0 1 1 0 1 0
+GPT-6.1 Sol,Low,Final,scene_17/sample_0067/k6,S19,6,0,0 1 1 0 1 0
+GPT-6.1 Sol,Low,Primary,scene_17/sample_0069/k6,S19,6,0,0 0 0 0 1 0
+GPT-6.1 Sol,Low,Final,scene_17/sample_0069/k6,S19,6,0,0 0 0 0 1 0
+GPT-6.1 Sol,Low,Primary,scene_17/sample_0119/k6,S19,6,0,0 1 1 0 0 0
+GPT-6.1 Sol,Low,Final,scene_17/sample_0119/k6,S19,6,0,0 1 1 0 0 0
+GPT-6.1 Sol,Low,Primary,scene_17/sample_0342/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,Low,Final,scene_17/sample_0342/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,Low,Primary,scene_17/sample_0454/k6,S19,6,0,1 1 0 1 0 1
+GPT-6.1 Sol,Low,Final,scene_17/sample_0454/k6,S19,6,0,1 1 0 1 0 1
+GPT-6.1 Sol,Low,Primary,scene_17/sample_0469/k6,S19,6,0,0 1 0 1 0 0
+GPT-6.1 Sol,Low,Final,scene_17/sample_0469/k6,S19,6,0,0 1 0 1 0 0
+GPT-6.1 Sol,Low,Primary,scene_17/sample_0472/k6,S19,6,0,1 0 1 0 1 1
+GPT-6.1 Sol,Low,Final,scene_17/sample_0472/k6,S19,6,0,1 0 1 0 1 1
+GPT-6.1 Sol,Low,Primary,scene_18/sample_0007/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_18/sample_0007/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_18/sample_0061/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_18/sample_0061/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_18/sample_0120/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_18/sample_0120/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_18/sample_0128/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_18/sample_0128/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_18/sample_0203/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_18/sample_0203/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_18/sample_0336/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_18/sample_0336/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_18/sample_0394/k6,S20,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_18/sample_0394/k6,S20,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_18/sample_0482/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_18/sample_0482/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_18/sample_0505/k6,S20,6,0,0 0 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_18/sample_0505/k6,S20,6,0,0 0 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_18/sample_0509/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_18/sample_0509/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_19/sample_0001/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_19/sample_0001/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_19/sample_0190/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_19/sample_0190/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_19/sample_0329/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_19/sample_0329/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_19/sample_0346/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_19/sample_0346/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_19/sample_0358/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_19/sample_0358/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_19/sample_0403/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_19/sample_0403/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_19/sample_0405/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_19/sample_0405/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_19/sample_0457/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_19/sample_0457/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_19/sample_0462/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_19/sample_0462/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_19/sample_0494/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_19/sample_0494/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_20/sample_0001/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_20/sample_0001/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_20/sample_0079/k6,S16,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,Low,Final,scene_20/sample_0079/k6,S16,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,Low,Primary,scene_20/sample_0103/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_20/sample_0103/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_20/sample_0262/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_20/sample_0262/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_20/sample_0397/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_20/sample_0397/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_20/sample_0431/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_20/sample_0431/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_20/sample_0435/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_20/sample_0435/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_20/sample_0476/k6,S16,6,0,1 1 0 1 1 1
+GPT-6.1 Sol,Low,Final,scene_20/sample_0476/k6,S16,6,0,1 1 0 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_20/sample_0501/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_20/sample_0501/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Primary,scene_20/sample_0509/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Low,Final,scene_20/sample_0509/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_01/sample_0001/k6,S01,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Medium,Final,scene_01/sample_0001/k6,S01,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Medium,Primary,scene_01/sample_0008/k6,S01,6,0,1 1 1 0 1 0
+GPT-6.1 Sol,Medium,Final,scene_01/sample_0008/k6,S01,6,0,1 1 1 0 1 0
+GPT-6.1 Sol,Medium,Primary,scene_01/sample_0052/k6,S01,6,0,1 0 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_01/sample_0052/k6,S01,6,0,1 0 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_01/sample_0095/k6,S01,6,0,1 0 1 1 0 1
+GPT-6.1 Sol,Medium,Final,scene_01/sample_0095/k6,S01,6,0,1 0 1 1 0 1
+GPT-6.1 Sol,Medium,Primary,scene_01/sample_0112/k6,S01,6,0,1 1 1 0 0 0
+GPT-6.1 Sol,Medium,Final,scene_01/sample_0112/k6,S01,6,0,1 1 1 0 0 0
+GPT-6.1 Sol,Medium,Primary,scene_01/sample_0154/k6,S01,6,0,1 0 0 0 0 0
+GPT-6.1 Sol,Medium,Final,scene_01/sample_0154/k6,S01,6,0,1 0 0 0 0 0
+GPT-6.1 Sol,Medium,Primary,scene_01/sample_0166/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_01/sample_0166/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_01/sample_0181/k6,S01,6,0,1 1 0 0 0 1
+GPT-6.1 Sol,Medium,Final,scene_01/sample_0181/k6,S01,6,0,1 1 0 0 0 1
+GPT-6.1 Sol,Medium,Primary,scene_01/sample_0243/k6,S01,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Medium,Final,scene_01/sample_0243/k6,S01,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Medium,Primary,scene_01/sample_0428/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_01/sample_0428/k6,S01,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_02/sample_0001/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_02/sample_0001/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_02/sample_0002/k6,S09,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Medium,Final,scene_02/sample_0002/k6,S09,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Medium,Primary,scene_02/sample_0006/k6,S09,6,0,0 1 0 0 1 1
+GPT-6.1 Sol,Medium,Final,scene_02/sample_0006/k6,S09,6,0,0 1 0 0 1 1
+GPT-6.1 Sol,Medium,Primary,scene_02/sample_0015/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_02/sample_0015/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_02/sample_0017/k6,S09,6,0,1 1 0 0 1 0
+GPT-6.1 Sol,Medium,Final,scene_02/sample_0017/k6,S09,6,0,1 1 0 0 1 0
+GPT-6.1 Sol,Medium,Primary,scene_02/sample_0070/k6,S09,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Medium,Final,scene_02/sample_0070/k6,S09,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Medium,Primary,scene_02/sample_0095/k6,S09,6,0,1 1 0 0 0 1
+GPT-6.1 Sol,Medium,Final,scene_02/sample_0095/k6,S09,6,0,1 1 0 0 0 1
+GPT-6.1 Sol,Medium,Primary,scene_02/sample_0273/k6,S09,6,0,1 1 1 1 0 0
+GPT-6.1 Sol,Medium,Final,scene_02/sample_0273/k6,S09,6,0,1 1 1 1 0 0
+GPT-6.1 Sol,Medium,Primary,scene_02/sample_0305/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_02/sample_0305/k6,S09,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_02/sample_0391/k6,S09,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,Medium,Final,scene_02/sample_0391/k6,S09,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,Medium,Primary,scene_03/sample_0025/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_03/sample_0025/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_03/sample_0130/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_03/sample_0130/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_03/sample_0255/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_03/sample_0255/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_03/sample_0308/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_03/sample_0308/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_03/sample_0337/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_03/sample_0337/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_03/sample_0366/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_03/sample_0366/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_03/sample_0379/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_03/sample_0379/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_03/sample_0433/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_03/sample_0433/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_03/sample_0461/k6,S05,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Medium,Final,scene_03/sample_0461/k6,S05,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Medium,Primary,scene_03/sample_0507/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_03/sample_0507/k6,S05,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_04/sample_0007/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_04/sample_0007/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_04/sample_0066/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_04/sample_0066/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_04/sample_0125/k6,S17,6,0,0 0 0 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_04/sample_0125/k6,S17,6,0,0 0 0 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_04/sample_0163/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_04/sample_0163/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_04/sample_0166/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_04/sample_0166/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_04/sample_0246/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_04/sample_0246/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_04/sample_0252/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_04/sample_0252/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_04/sample_0359/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_04/sample_0359/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_04/sample_0392/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_04/sample_0392/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_04/sample_0466/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_04/sample_0466/k6,S17,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_05/sample_0030/k6,S13,6,0,1 0 0 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_05/sample_0030/k6,S13,6,0,1 0 0 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_05/sample_0049/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_05/sample_0049/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_05/sample_0058/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_05/sample_0058/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_05/sample_0191/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_05/sample_0191/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_05/sample_0241/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_05/sample_0241/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_05/sample_0243/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_05/sample_0243/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_05/sample_0298/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_05/sample_0298/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_05/sample_0354/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_05/sample_0354/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_05/sample_0526/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_05/sample_0526/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_05/sample_0537/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_05/sample_0537/k6,S13,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_06/sample_0001/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_06/sample_0001/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_06/sample_0002/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_06/sample_0002/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_06/sample_0003/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_06/sample_0003/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_06/sample_0004/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_06/sample_0004/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_06/sample_0006/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_06/sample_0006/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_06/sample_0013/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_06/sample_0013/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_06/sample_0015/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_06/sample_0015/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_06/sample_0022/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_06/sample_0022/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_06/sample_0024/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_06/sample_0024/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_06/sample_0070/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_06/sample_0070/k6,S02,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_07/sample_0009/k6,S10,6,0,0 0 0 0 1 1
+GPT-6.1 Sol,Medium,Final,scene_07/sample_0009/k6,S10,6,0,0 0 0 0 1 1
+GPT-6.1 Sol,Medium,Primary,scene_07/sample_0011/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_07/sample_0011/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_07/sample_0052/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_07/sample_0052/k6,S10,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_07/sample_0146/k6,S10,6,0,1 0 0 1 0 0
+GPT-6.1 Sol,Medium,Final,scene_07/sample_0146/k6,S10,6,0,1 0 0 1 0 0
+GPT-6.1 Sol,Medium,Primary,scene_07/sample_0273/k6,S10,6,0,0 0 1 0 0 0
+GPT-6.1 Sol,Medium,Final,scene_07/sample_0273/k6,S10,6,0,0 0 1 0 0 0
+GPT-6.1 Sol,Medium,Primary,scene_07/sample_0275/k6,S10,6,0,1 1 0 1 0 0
+GPT-6.1 Sol,Medium,Final,scene_07/sample_0275/k6,S10,6,0,1 1 0 1 0 0
+GPT-6.1 Sol,Medium,Primary,scene_07/sample_0298/k6,S10,6,0,0 0 1 1 0 1
+GPT-6.1 Sol,Medium,Final,scene_07/sample_0298/k6,S10,6,0,0 0 1 1 0 1
+GPT-6.1 Sol,Medium,Primary,scene_07/sample_0387/k6,S10,6,0,1 1 1 0 0 1
+GPT-6.1 Sol,Medium,Final,scene_07/sample_0387/k6,S10,6,0,1 1 1 0 0 1
+GPT-6.1 Sol,Medium,Primary,scene_07/sample_0474/k6,S10,6,0,0 1 1 1 0 0
+GPT-6.1 Sol,Medium,Final,scene_07/sample_0474/k6,S10,6,0,0 1 1 1 0 0
+GPT-6.1 Sol,Medium,Primary,scene_07/sample_0510/k6,S10,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_07/sample_0510/k6,S10,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_08/sample_0001/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_08/sample_0001/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_08/sample_0027/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_08/sample_0027/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_08/sample_0032/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_08/sample_0032/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_08/sample_0038/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_08/sample_0038/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_08/sample_0354/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_08/sample_0354/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_08/sample_0373/k6,S06,6,0,1 0 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_08/sample_0373/k6,S06,6,0,1 0 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_08/sample_0404/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_08/sample_0404/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_08/sample_0424/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_08/sample_0424/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_08/sample_0461/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_08/sample_0461/k6,S06,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_08/sample_0507/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_08/sample_0507/k6,S06,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_09/sample_0003/k6,S18,6,0,1 1 1 0 0 1
+GPT-6.1 Sol,Medium,Final,scene_09/sample_0003/k6,S18,6,0,1 1 1 0 0 1
+GPT-6.1 Sol,Medium,Primary,scene_09/sample_0004/k6,S18,6,0,0 1 1 1 0 0
+GPT-6.1 Sol,Medium,Final,scene_09/sample_0004/k6,S18,6,0,0 1 1 1 0 0
+GPT-6.1 Sol,Medium,Primary,scene_09/sample_0087/k6,S18,6,0,1 1 1 1 0 1
+GPT-6.1 Sol,Medium,Final,scene_09/sample_0087/k6,S18,6,0,1 1 1 1 0 1
+GPT-6.1 Sol,Medium,Primary,scene_09/sample_0125/k6,S18,6,0,0 1 1 1 0 1
+GPT-6.1 Sol,Medium,Final,scene_09/sample_0125/k6,S18,6,0,0 1 1 1 0 1
+GPT-6.1 Sol,Medium,Primary,scene_09/sample_0172/k6,S18,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_09/sample_0172/k6,S18,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_09/sample_0178/k6,S18,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_09/sample_0178/k6,S18,6,0,0 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_09/sample_0199/k6,S18,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,Medium,Final,scene_09/sample_0199/k6,S18,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,Medium,Primary,scene_09/sample_0296/k6,S18,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Medium,Final,scene_09/sample_0296/k6,S18,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Medium,Primary,scene_09/sample_0300/k6,S18,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Medium,Final,scene_09/sample_0300/k6,S18,6,0,1 1 1 1 1 0
+GPT-6.1 Sol,Medium,Primary,scene_09/sample_0361/k6,S18,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_09/sample_0361/k6,S18,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_10/sample_0002/k6,S14,6,0,1 0 0 0 0 1
+GPT-6.1 Sol,Medium,Final,scene_10/sample_0002/k6,S14,6,0,1 0 0 0 0 1
+GPT-6.1 Sol,Medium,Primary,scene_10/sample_0027/k6,S14,6,0,1 1 1 0 1 0
+GPT-6.1 Sol,Medium,Final,scene_10/sample_0027/k6,S14,6,0,1 1 1 0 1 0
+GPT-6.1 Sol,Medium,Primary,scene_10/sample_0053/k6,S14,6,0,1 1 0 0 0 0
+GPT-6.1 Sol,Medium,Final,scene_10/sample_0053/k6,S14,6,0,1 1 0 0 0 0
+GPT-6.1 Sol,Medium,Primary,scene_10/sample_0129/k6,S14,6,0,1 0 0 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_10/sample_0129/k6,S14,6,0,1 0 0 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_10/sample_0280/k6,S14,6,0,1 1 0 0 0 0
+GPT-6.1 Sol,Medium,Final,scene_10/sample_0280/k6,S14,6,0,1 1 0 0 0 0
+GPT-6.1 Sol,Medium,Primary,scene_10/sample_0335/k6,S14,6,0,1 0 1 0 1 1
+GPT-6.1 Sol,Medium,Final,scene_10/sample_0335/k6,S14,6,0,1 0 1 0 1 1
+GPT-6.1 Sol,Medium,Primary,scene_10/sample_0388/k6,S14,6,0,1 1 0 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_10/sample_0388/k6,S14,6,0,1 1 0 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_10/sample_0501/k6,S14,6,0,1 1 0 1 0 0
+GPT-6.1 Sol,Medium,Final,scene_10/sample_0501/k6,S14,6,0,1 1 0 1 0 0
+GPT-6.1 Sol,Medium,Primary,scene_10/sample_0524/k6,S14,6,0,1 0 0 1 0 1
+GPT-6.1 Sol,Medium,Final,scene_10/sample_0524/k6,S14,6,0,1 0 0 1 0 1
+GPT-6.1 Sol,Medium,Primary,scene_10/sample_0526/k6,S14,6,0,1 1 0 1 0 0
+GPT-6.1 Sol,Medium,Final,scene_10/sample_0526/k6,S14,6,0,1 1 0 1 0 0
+GPT-6.1 Sol,Medium,Primary,scene_11/sample_0001/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_11/sample_0001/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_11/sample_0053/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_11/sample_0053/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_11/sample_0105/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_11/sample_0105/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_11/sample_0167/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_11/sample_0167/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_11/sample_0208/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_11/sample_0208/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_11/sample_0240/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_11/sample_0240/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_11/sample_0256/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_11/sample_0256/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_11/sample_0312/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_11/sample_0312/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_11/sample_0394/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_11/sample_0394/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_11/sample_0499/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_11/sample_0499/k6,S03,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_12/sample_0002/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_12/sample_0002/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_12/sample_0107/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_12/sample_0107/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_12/sample_0133/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_12/sample_0133/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_12/sample_0254/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_12/sample_0254/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_12/sample_0278/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_12/sample_0278/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_12/sample_0316/k6,S04,6,0,0 0 1 0 1 0
+GPT-6.1 Sol,Medium,Final,scene_12/sample_0316/k6,S04,6,0,0 0 1 0 1 0
+GPT-6.1 Sol,Medium,Primary,scene_12/sample_0411/k6,S04,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,Medium,Final,scene_12/sample_0411/k6,S04,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,Medium,Primary,scene_12/sample_0439/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_12/sample_0439/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_12/sample_0455/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_12/sample_0455/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_12/sample_0490/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_12/sample_0490/k6,S04,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_13/sample_0007/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_13/sample_0007/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_13/sample_0022/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_13/sample_0022/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_13/sample_0096/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_13/sample_0096/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_13/sample_0145/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_13/sample_0145/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_13/sample_0154/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_13/sample_0154/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_13/sample_0182/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_13/sample_0182/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_13/sample_0237/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_13/sample_0237/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_13/sample_0351/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_13/sample_0351/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_13/sample_0441/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_13/sample_0441/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_13/sample_0454/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_13/sample_0454/k6,S11,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_14/sample_0001/k6,S12,6,0,1 1 0 1 1 0
+GPT-6.1 Sol,Medium,Final,scene_14/sample_0001/k6,S12,6,0,1 1 0 1 1 0
+GPT-6.1 Sol,Medium,Primary,scene_14/sample_0003/k6,S12,6,0,1 1 1 0 0 1
+GPT-6.1 Sol,Medium,Final,scene_14/sample_0003/k6,S12,6,0,1 1 1 0 0 1
+GPT-6.1 Sol,Medium,Primary,scene_14/sample_0004/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_14/sample_0004/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_14/sample_0010/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_14/sample_0010/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_14/sample_0014/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_14/sample_0014/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_14/sample_0017/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_14/sample_0017/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_14/sample_0018/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_14/sample_0018/k6,S12,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_14/sample_0081/k6,S12,6,0,1 1 0 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_14/sample_0081/k6,S12,6,0,1 1 0 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_14/sample_0222/k6,S12,6,0,1 0 1 1 1 0
+GPT-6.1 Sol,Medium,Final,scene_14/sample_0222/k6,S12,6,0,1 0 1 1 1 0
+GPT-6.1 Sol,Medium,Primary,scene_14/sample_0425/k6,S12,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,Medium,Final,scene_14/sample_0425/k6,S12,6,0,1 1 1 0 1 1
+GPT-6.1 Sol,Medium,Primary,scene_15/sample_0001/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_15/sample_0001/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_15/sample_0052/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_15/sample_0052/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_15/sample_0168/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_15/sample_0168/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_15/sample_0184/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_15/sample_0184/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_15/sample_0207/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_15/sample_0207/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_15/sample_0305/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_15/sample_0305/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_15/sample_0323/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_15/sample_0323/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_15/sample_0360/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_15/sample_0360/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_15/sample_0439/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_15/sample_0439/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_15/sample_0526/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_15/sample_0526/k6,S07,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_16/sample_0004/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_16/sample_0004/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_16/sample_0006/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_16/sample_0006/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_16/sample_0073/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_16/sample_0073/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_16/sample_0145/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_16/sample_0145/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_16/sample_0150/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_16/sample_0150/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_16/sample_0219/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_16/sample_0219/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_16/sample_0228/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_16/sample_0228/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_16/sample_0357/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_16/sample_0357/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_16/sample_0396/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_16/sample_0396/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_16/sample_0397/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_16/sample_0397/k6,S08,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_17/sample_0001/k6,S19,6,0,0 0 0 0 1 1
+GPT-6.1 Sol,Medium,Final,scene_17/sample_0001/k6,S19,6,0,0 0 0 0 1 1
+GPT-6.1 Sol,Medium,Primary,scene_17/sample_0055/k6,S19,6,0,0 0 1 1 1 0
+GPT-6.1 Sol,Medium,Final,scene_17/sample_0055/k6,S19,6,0,0 0 1 1 1 0
+GPT-6.1 Sol,Medium,Primary,scene_17/sample_0060/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,Medium,Final,scene_17/sample_0060/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,Medium,Primary,scene_17/sample_0067/k6,S19,6,0,1 0 0 0 0 0
+GPT-6.1 Sol,Medium,Final,scene_17/sample_0067/k6,S19,6,0,1 0 0 0 0 0
+GPT-6.1 Sol,Medium,Primary,scene_17/sample_0069/k6,S19,6,0,0 1 0 0 0 1
+GPT-6.1 Sol,Medium,Final,scene_17/sample_0069/k6,S19,6,0,0 1 0 0 0 1
+GPT-6.1 Sol,Medium,Primary,scene_17/sample_0119/k6,S19,6,0,0 1 1 0 0 1
+GPT-6.1 Sol,Medium,Final,scene_17/sample_0119/k6,S19,6,0,0 1 1 0 0 1
+GPT-6.1 Sol,Medium,Primary,scene_17/sample_0342/k6,S19,6,0,1 0 1 0 0 1
+GPT-6.1 Sol,Medium,Final,scene_17/sample_0342/k6,S19,6,0,1 0 1 0 0 1
+GPT-6.1 Sol,Medium,Primary,scene_17/sample_0454/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,Medium,Final,scene_17/sample_0454/k6,S19,6,0,0 0 0 0 0 0
+GPT-6.1 Sol,Medium,Primary,scene_17/sample_0469/k6,S19,6,0,0 1 0 1 0 0
+GPT-6.1 Sol,Medium,Final,scene_17/sample_0469/k6,S19,6,0,0 1 0 1 0 0
+GPT-6.1 Sol,Medium,Primary,scene_17/sample_0472/k6,S19,6,0,0 0 0 0 1 1
+GPT-6.1 Sol,Medium,Final,scene_17/sample_0472/k6,S19,6,0,0 0 0 0 1 1
+GPT-6.1 Sol,Medium,Primary,scene_18/sample_0007/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_18/sample_0007/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_18/sample_0061/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_18/sample_0061/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_18/sample_0120/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_18/sample_0120/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_18/sample_0128/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_18/sample_0128/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_18/sample_0203/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_18/sample_0203/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_18/sample_0336/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_18/sample_0336/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_18/sample_0394/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_18/sample_0394/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_18/sample_0482/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_18/sample_0482/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_18/sample_0505/k6,S20,6,0,0 0 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_18/sample_0505/k6,S20,6,0,0 0 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_18/sample_0509/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_18/sample_0509/k6,S20,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_19/sample_0001/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_19/sample_0001/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_19/sample_0190/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_19/sample_0190/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_19/sample_0329/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_19/sample_0329/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_19/sample_0346/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_19/sample_0346/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_19/sample_0358/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_19/sample_0358/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_19/sample_0403/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_19/sample_0403/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_19/sample_0405/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_19/sample_0405/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_19/sample_0457/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_19/sample_0457/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_19/sample_0462/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_19/sample_0462/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_19/sample_0494/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_19/sample_0494/k6,S15,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_20/sample_0001/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_20/sample_0001/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_20/sample_0079/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_20/sample_0079/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_20/sample_0103/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_20/sample_0103/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_20/sample_0262/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_20/sample_0262/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_20/sample_0397/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_20/sample_0397/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_20/sample_0431/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_20/sample_0431/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_20/sample_0435/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_20/sample_0435/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_20/sample_0476/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_20/sample_0476/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_20/sample_0501/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_20/sample_0501/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Primary,scene_20/sample_0509/k6,S16,6,1,1 1 1 1 1 1
+GPT-6.1 Sol,Medium,Final,scene_20/sample_0509/k6,S16,6,1,1 1 1 1 1 1
