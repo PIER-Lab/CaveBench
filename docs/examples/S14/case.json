@@ -1,0 +1,127 @@
+{
+  "id": "S14",
+  "title": "Wave scattering",
+  "domain": "Acoustics",
+  "question_id": "scene_10/sample_0002/k6",
+  "sample_id": "sample_0002",
+  "model": "GPT-6.1 Sol",
+  "model_id": "openai/gpt-6.1-sol",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nAPPARATUS\nA fixed overhead camera views a rectangular blue-grey elastic-wave surface, 5.4 m wide and 4.6 m from near to far. Image-right is +x and image-up is +z. Two to four stationary cylindrical columns stand inside it. The surface is a damped elastic membrane represented by a scalar wave model, not a liquid flow simulation. Its calibrated propagation speed is 1.8 m/s and velocity-damping coefficient is 0.08 per second; its rim and column boundaries are reflective. The interior camera shows the surface, rim and columns. Four mechanical strikers are outside the left, right, near/bottom and far/top edges; they are outside the interior camera view. Each strike applies one short inward mechanical pulse lasting approximately 0.4 s. The surface is not reset between events.\n\nCONTROLS\npulse_left: activate the striker at the left edge.\npulse_right: activate the striker at the right edge.\npulse_front: activate the striker at the near/bottom edge.\npulse_back: activate the striker at the far/top edge.\nAn event may activate one striker or two strikers simultaneously. Return all activated controls for each event.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nCommands are spaced 5.0 s apart. Each event image is the first native 30-fps interior frame at least 1.4 s after the latest actual striker contact in that event and before the next event. These are post-contact response images, not images taken at the instant of impact.\nCapture times (physical/native capture time in seconds): F0=2.333333 s; F1=4.200000 s; F2=9.233334 s; F3=14.233334 s; F4=19.233334 s; F5=24.233334 s; F6=29.233334 s.\nSupplied event start times: 2.4 s, 7.4 s, 12.4 s, 17.4 s, 22.4 s, 27.4 s.\n\nALLOWED ATOMIC LABELS\npulse_left, pulse_right, pulse_front, pulse_back\n\nALLOWED EVENT LABEL SETS\n[[\"pulse_left\"],[\"pulse_right\"],[\"pulse_front\"],[\"pulse_back\"],[\"pulse_back\",\"pulse_front\"],[\"pulse_back\",\"pulse_left\"],[\"pulse_back\",\"pulse_right\"],[\"pulse_front\",\"pulse_left\"],[\"pulse_front\",\"pulse_right\"],[\"pulse_left\",\"pulse_right\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"pulse_left\"], [\"pulse_right\"], [\"pulse_front\"], [\"pulse_back\"], [\"pulse_back\", \"pulse_front\"], [\"pulse_back\", \"pulse_left\"], [\"pulse_back\", \"pulse_right\"], [\"pulse_front\", \"pulse_left\"], [\"pulse_front\", \"pulse_right\"], [\"pulse_left\", \"pulse_right\"]].",
+  "frame_labels": [
+    "Frame F0",
+    "Frame F1",
+    "Frame F2",
+    "Frame F3",
+    "Frame F4",
+    "Frame F5",
+    "Frame F6"
+  ],
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "response": "{\"operations\":[[\"pulse_back\",\"pulse_left\"],[\"pulse_front\",\"pulse_right\"],[\"pulse_back\",\"pulse_right\"],[\"pulse_back\",\"pulse_left\"],[\"pulse_front\",\"pulse_right\"],[\"pulse_back\",\"pulse_right\"]]}",
+  "reference": [
+    [
+      "pulse_back",
+      "pulse_left"
+    ],
+    [
+      "pulse_front"
+    ],
+    [
+      "pulse_back"
+    ],
+    [
+      "pulse_back",
+      "pulse_right"
+    ],
+    [
+      "pulse_front",
+      "pulse_right"
+    ],
+    [
+      "pulse_back",
+      "pulse_right"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "pulse_back",
+        "pulse_left"
+      ],
+      "predicted": [
+        "pulse_back",
+        "pulse_left"
+      ],
+      "correct": true
+    },
+    {
+      "event": 2,
+      "expected": [
+        "pulse_front"
+      ],
+      "predicted": [
+        "pulse_front",
+        "pulse_right"
+      ],
+      "correct": false
+    },
+    {
+      "event": 3,
+      "expected": [
+        "pulse_back"
+      ],
+      "predicted": [
+        "pulse_back",
+        "pulse_right"
+      ],
+      "correct": false
+    },
+    {
+      "event": 4,
+      "expected": [
+        "pulse_back",
+        "pulse_right"
+      ],
+      "predicted": [
+        "pulse_back",
+        "pulse_left"
+      ],
+      "correct": false
+    },
+    {
+      "event": 5,
+      "expected": [
+        "pulse_front",
+        "pulse_right"
+      ],
+      "predicted": [
+        "pulse_front",
+        "pulse_right"
+      ],
+      "correct": true
+    },
+    {
+      "event": 6,
+      "expected": [
+        "pulse_back",
+        "pulse_right"
+      ],
+      "predicted": [
+        "pulse_back",
+        "pulse_right"
+      ],
+      "correct": true
+    }
+  ],
+  "exact_match": false
+}

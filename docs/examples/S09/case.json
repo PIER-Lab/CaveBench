@@ -1,0 +1,113 @@
+{
+  "id": "S09",
+  "title": "Magnetic coils",
+  "domain": "Electromagnetism",
+  "question_id": "scene_02/sample_0001/k6",
+  "sample_id": "sample_0001",
+  "model": "GPT-6.1 Sol",
+  "model_id": "openai/gpt-6.1-sol",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nAPPARATUS\nThe interior camera looks down at red-and-blue compass needles on brass pivots and fixed circular bases. The red end is NORTH and the blue end is SOUTH. Image-right is table +x; the far edge of the table is +z; upward from the tabletop is +y. The nominal compass slots form three columns at x=-2.60, 0 and +2.60 m and near/middle/far rows at z=-1.40, +0.45 and +2.30 m. Installed bases can have up to 0.06 m of horizontal placement variation. Some slots may be empty. The needle magnetic centres are at y=0.970 m. Base positions and needle identities remain fixed within an experiment.\n\nThree external electromagnets are outside the interior view. Coil1 is beyond the left-near side of the table, Coil2 is beyond the middle of the near edge, and Coil3 is beyond the right-near side. Their centres, in the same table coordinates, are approximately (-7.20, 2.42, -3.26), (0, 3.55, -5.95) and (+7.20, 2.42, -3.26) m. Their magnetic axes are horizontal. With Positive current, Coil1's north end points rightward and toward the far edge, along (0.84, 0, 0.55); Coil2's north end points toward the far edge, along (0, 0, 1); Coil3's north end points leftward and toward the far edge, along (-0.84, 0, 0.55). Negative current reverses the named coil's pole orientation. These are fixed winding and connection conventions, not observations of the hidden events.\n\nAll installed compass rotors have the same mechanical response: mass 0.12 kg, yaw inertia approximately 0.0164 kg m^2, angular damping 1.40/s and the same magnetic moment setting. The simulation uses three softened dipole sources with common distance softening 0.72 m and normalized-field scale 70. The common rotor torque scale is 0.030 N m per normalized field unit, with a field-magnitude cap of 2.4 units and a rotor angular-speed limit of 5.5 rad/s. Powered Coil1 and Coil3 approach current magnitude 2.00 A; Coil2 approaches 2.05 A. Current has a second-order electrical response with natural frequency 9.2/s and damping ratio 0.92. Positions, currents and residual needle motion are not reset between events.\n\nCONTROLS\nCoil1Positive and Coil1Negative energize Coil1 with the respective polarity. Coil2Positive and Coil2Negative do the same for Coil2; Coil3Positive and Coil3Negative do the same for Coil3. Exactly one coil is selected in each event; the other selectors remain in their unpowered neutral positions. Each selected contact is commanded for 2.4 s, followed by 3.2 s with all selectors neutral. Actual current and needle motion evolve continuously rather than being reset when a selector returns to neutral.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nThe recording starts with a 2.0 s initial hold. Each event image is a native interior frame from its powered response window. A contact is commanded for 2.4 s, followed by 3.2 s with selectors neutral; currents and compass motion continue evolving.\nCapture times (physical simulation clock; the F0 image precedes event 1): F1=4.133356 s; F2=9.733271 s; F3=15.333185 s; F4=20.933100 s; F5=26.533014 s; F6=32.132957 s.\nSupplied event start times: 2 s, 7.6 s, 13.2 s, 18.8 s, 24.4 s, 30 s.\n\nALLOWED ATOMIC LABELS\nCoil1Positive, Coil1Negative, Coil2Positive, Coil2Negative, Coil3Positive, Coil3Negative\n\nALLOWED EVENT LABEL SETS\n[[\"Coil1Positive\"],[\"Coil1Negative\"],[\"Coil2Positive\"],[\"Coil2Negative\"],[\"Coil3Positive\"],[\"Coil3Negative\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"Coil1Positive\"], [\"Coil1Negative\"], [\"Coil2Positive\"], [\"Coil2Negative\"], [\"Coil3Positive\"], [\"Coil3Negative\"]].",
+  "frame_labels": [
+    "Frame F0",
+    "Frame F1",
+    "Frame F2",
+    "Frame F3",
+    "Frame F4",
+    "Frame F5",
+    "Frame F6"
+  ],
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "response": "{\"operations\":[[\"Coil1Negative\"],[\"Coil1Positive\"],[\"Coil3Positive\"],[\"Coil2Negative\"],[\"Coil2Positive\"],[\"Coil3Negative\"]]}",
+  "reference": [
+    [
+      "Coil1Negative"
+    ],
+    [
+      "Coil1Positive"
+    ],
+    [
+      "Coil3Positive"
+    ],
+    [
+      "Coil2Negative"
+    ],
+    [
+      "Coil2Positive"
+    ],
+    [
+      "Coil3Negative"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "Coil1Negative"
+      ],
+      "predicted": [
+        "Coil1Negative"
+      ],
+      "correct": true
+    },
+    {
+      "event": 2,
+      "expected": [
+        "Coil1Positive"
+      ],
+      "predicted": [
+        "Coil1Positive"
+      ],
+      "correct": true
+    },
+    {
+      "event": 3,
+      "expected": [
+        "Coil3Positive"
+      ],
+      "predicted": [
+        "Coil3Positive"
+      ],
+      "correct": true
+    },
+    {
+      "event": 4,
+      "expected": [
+        "Coil2Negative"
+      ],
+      "predicted": [
+        "Coil2Negative"
+      ],
+      "correct": true
+    },
+    {
+      "event": 5,
+      "expected": [
+        "Coil2Positive"
+      ],
+      "predicted": [
+        "Coil2Positive"
+      ],
+      "correct": true
+    },
+    {
+      "event": 6,
+      "expected": [
+        "Coil3Negative"
+      ],
+      "predicted": [
+        "Coil3Negative"
+      ],
+      "correct": true
+    }
+  ],
+  "exact_match": true
+}

@@ -1,0 +1,126 @@
+{
+  "id": "S10",
+  "title": "Electric dipoles",
+  "domain": "Electromagnetism",
+  "question_id": "scene_07/sample_0009/k6",
+  "sample_id": "sample_0009",
+  "model": "GPT-6.1 Sol",
+  "model_id": "openai/gpt-6.1-sol",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nAPPARATUS\nThe fixed camera looks at two horizontal rows; image-right is world +x and image-up is +y. The upper row is Dipole A and the lower row is Dipole B. Each row has a light probe on the left and a dark probe on the right, both sliding horizontally between fixed outer spring anchors. A and B are separate, spatially distinct dipoles. In each dipole, the copper electrode is on the left and the blue electrode is on the right. A small neutral ivory body is fixed between the rows. The dipoles and the neutral body remain part of the apparatus throughout the sequence.\n\nCALIBRATION FACTS FOR THIS APPARATUS\nAt the start of every sample, the hidden source magnitudes are A=37.5 microC and B=75.0 microC. A single source control changes A by 25.0 microC or B by 50.0 microC in the indicated direction; the sign of each source does not change. The four light probes have charge signs +, -, +, - from upper-left to lower-right. The two upper probes have mass 0.025 kg and spring damping 0.305 N s/m; the two lower probes have mass 0.550 kg and damping 1.20 N s/m. The neutral ivory body has mass 0.120 kg. These values are calibration information about the fixed apparatus, not labels for the hidden events.\n\nALLOWED LABELS\nIncreaseChargeA: increase the magnitude of upper Dipole A while preserving its electrode signs.\nDecreaseChargeA: decrease the magnitude of upper Dipole A while preserving its electrode signs.\nIncreaseChargeB: increase the magnitude of lower Dipole B while preserving its electrode signs.\nDecreaseChargeB: decrease the magnitude of lower Dipole B while preserving its electrode signs.\nAn event contains one label or one A label together with one B label. Do not add a label merely because a probe is still moving from an earlier event.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nThe evidence frame is taken about 3.5 s after its corresponding event, before the next one. Use fixed anchors, row identity, probe signs, relative displacement and persistent motion; one probe or colour alone does not identify an event.\nCapture times (physical/native capture time in seconds): F0=1.966667 s; F1=5.500000 s; F2=11.000000 s; F3=16.500000 s; F4=22.000000 s; F5=27.500000 s; F6=33.000000 s.\n\nALLOWED ATOMIC LABELS\nIncreaseChargeA, DecreaseChargeA, IncreaseChargeB, DecreaseChargeB\n\nALLOWED EVENT LABEL SETS\n[[\"IncreaseChargeA\"],[\"DecreaseChargeA\"],[\"IncreaseChargeB\"],[\"DecreaseChargeB\"],[\"IncreaseChargeA\",\"IncreaseChargeB\"],[\"DecreaseChargeB\",\"IncreaseChargeA\"],[\"DecreaseChargeA\",\"IncreaseChargeB\"],[\"DecreaseChargeA\",\"DecreaseChargeB\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"IncreaseChargeA\"], [\"DecreaseChargeA\"], [\"IncreaseChargeB\"], [\"DecreaseChargeB\"], [\"IncreaseChargeA\", \"IncreaseChargeB\"], [\"DecreaseChargeB\", \"IncreaseChargeA\"], [\"DecreaseChargeA\", \"IncreaseChargeB\"], [\"DecreaseChargeA\", \"DecreaseChargeB\"]].",
+  "frame_labels": [
+    "Frame F0",
+    "Frame F1",
+    "Frame F2",
+    "Frame F3",
+    "Frame F4",
+    "Frame F5",
+    "Frame F6"
+  ],
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "response": "{\"operations\":[[\"DecreaseChargeB\"],[\"IncreaseChargeB\"],[\"DecreaseChargeB\"],[\"IncreaseChargeA\",\"IncreaseChargeB\"],[\"IncreaseChargeA\",\"IncreaseChargeB\"],[\"DecreaseChargeA\",\"DecreaseChargeB\"]]}",
+  "reference": [
+    [
+      "DecreaseChargeB",
+      "IncreaseChargeA"
+    ],
+    [
+      "DecreaseChargeA",
+      "IncreaseChargeB"
+    ],
+    [
+      "DecreaseChargeB",
+      "IncreaseChargeA"
+    ],
+    [
+      "IncreaseChargeB"
+    ],
+    [
+      "IncreaseChargeA",
+      "IncreaseChargeB"
+    ],
+    [
+      "DecreaseChargeA",
+      "DecreaseChargeB"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "DecreaseChargeB",
+        "IncreaseChargeA"
+      ],
+      "predicted": [
+        "DecreaseChargeB"
+      ],
+      "correct": false
+    },
+    {
+      "event": 2,
+      "expected": [
+        "DecreaseChargeA",
+        "IncreaseChargeB"
+      ],
+      "predicted": [
+        "IncreaseChargeB"
+      ],
+      "correct": false
+    },
+    {
+      "event": 3,
+      "expected": [
+        "DecreaseChargeB",
+        "IncreaseChargeA"
+      ],
+      "predicted": [
+        "DecreaseChargeB"
+      ],
+      "correct": false
+    },
+    {
+      "event": 4,
+      "expected": [
+        "IncreaseChargeB"
+      ],
+      "predicted": [
+        "IncreaseChargeA",
+        "IncreaseChargeB"
+      ],
+      "correct": false
+    },
+    {
+      "event": 5,
+      "expected": [
+        "IncreaseChargeA",
+        "IncreaseChargeB"
+      ],
+      "predicted": [
+        "IncreaseChargeA",
+        "IncreaseChargeB"
+      ],
+      "correct": true
+    },
+    {
+      "event": 6,
+      "expected": [
+        "DecreaseChargeA",
+        "DecreaseChargeB"
+      ],
+      "predicted": [
+        "DecreaseChargeA",
+        "DecreaseChargeB"
+      ],
+      "correct": true
+    }
+  ],
+  "exact_match": false
+}

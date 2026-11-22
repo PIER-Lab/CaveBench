@@ -1,0 +1,125 @@
+{
+  "id": "S08",
+  "title": "Bimetal supports",
+  "domain": "Thermal",
+  "question_id": "scene_16/sample_0004/k6",
+  "sample_id": "sample_0004",
+  "model": "GPT-6.1 Sol",
+  "model_id": "openai/gpt-6.1-sol",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nApparatus and view: three radial bonded-metal strips surround a central brass annulus. The left-front strip has a lower layer of 6061-T6 aluminium, the right-front strip a lower layer of C110 half-hard copper, and the rear strip a lower layer of 304 stainless steel. All three have an Invar 36 upper layer bonded to the lower layer. Their outer ends are clamped to the fixed base; their inner free ends support the annulus through three small ceramic balls. The annulus and its ungraduated central pointer form one rigid assembly. A central sliding/tilting bearing allows its height and tilt to vary while keeping its centre horizontally located. The base and outer clamps remain fixed. The camera is inside the observation area, above and in front of the apparatus, with a small rightward offset; rear means farther from the camera. The strips, ceramic supports, ring and pointer are visible. The exposed metal finishes are fixed, not temperature colours.\n\nThree external radiant heaters stand to the left, behind, and to the right of the apparatus. Each is directed at the corresponding strip: left at the aluminium strip, rear at the stainless-steel strip, and right at the copper strip. The heaters and power sliders are outside the supplied interior view. The three lamps have identical nominal radiant output when fully on. The initial apparatus temperature is 22 degrees Celsius. Physical temperatures, positions and loads are not reset between events. Small installation-angle and radius differences can occur between experiments, but the installation stays fixed within one sequence.\n\nControls: SelectLeftLamp selects only the left heater; SelectRearLamp selects only the rear heater; SelectRightLamp selects only the right heater. SelectLeftLamp+SelectRearLamp, SelectLeftLamp+SelectRightLamp and SelectRearLamp+SelectRightLamp select the named two heaters simultaneously. Each event specifies the complete set of powered heaters; the other heater or heaters are off. The selected setting remains until the next event. Events may mix single-heater and two-heater settings.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nEach event image is one actual frame from that event's 4.0-6.15 s response window, with the selected heater setting established. Event commands are 6.2 s apart. Temperatures and support/ring motion continue evolving.\nCapture times (physical/native capture time in seconds): F0=2.383333 s; F1=8.550000 s; F2=14.733335 s; F3=20.933334 s; F4=27.133335 s; F5=33.333336 s; F6=39.533337 s.\nSupplied event start times: 2.4 s, 8.6 s, 14.8 s, 21 s, 27.2 s, 33.4 s.\n\nALLOWED ATOMIC LABELS\nSelectLeftLamp, SelectRearLamp, SelectRightLamp\n\nALLOWED EVENT LABEL SETS\n[[\"SelectLeftLamp\"],[\"SelectRearLamp\"],[\"SelectRightLamp\"],[\"SelectLeftLamp\",\"SelectRearLamp\"],[\"SelectLeftLamp\",\"SelectRightLamp\"],[\"SelectRearLamp\",\"SelectRightLamp\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"SelectLeftLamp\"], [\"SelectRearLamp\"], [\"SelectRightLamp\"], [\"SelectLeftLamp\", \"SelectRearLamp\"], [\"SelectLeftLamp\", \"SelectRightLamp\"], [\"SelectRearLamp\", \"SelectRightLamp\"]].",
+  "frame_labels": [
+    "Frame F0",
+    "Frame F1",
+    "Frame F2",
+    "Frame F3",
+    "Frame F4",
+    "Frame F5",
+    "Frame F6"
+  ],
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "response": "{\"operations\":[[\"SelectLeftLamp\",\"SelectRearLamp\"],[\"SelectLeftLamp\"],[\"SelectRearLamp\",\"SelectRightLamp\"],[\"SelectLeftLamp\",\"SelectRightLamp\"],[\"SelectRightLamp\"],[\"SelectLeftLamp\",\"SelectRightLamp\"]]}",
+  "reference": [
+    [
+      "SelectLeftLamp",
+      "SelectRearLamp"
+    ],
+    [
+      "SelectLeftLamp"
+    ],
+    [
+      "SelectRearLamp",
+      "SelectRightLamp"
+    ],
+    [
+      "SelectLeftLamp",
+      "SelectRightLamp"
+    ],
+    [
+      "SelectRightLamp"
+    ],
+    [
+      "SelectLeftLamp",
+      "SelectRightLamp"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "SelectLeftLamp",
+        "SelectRearLamp"
+      ],
+      "predicted": [
+        "SelectLeftLamp",
+        "SelectRearLamp"
+      ],
+      "correct": true
+    },
+    {
+      "event": 2,
+      "expected": [
+        "SelectLeftLamp"
+      ],
+      "predicted": [
+        "SelectLeftLamp"
+      ],
+      "correct": true
+    },
+    {
+      "event": 3,
+      "expected": [
+        "SelectRearLamp",
+        "SelectRightLamp"
+      ],
+      "predicted": [
+        "SelectRearLamp",
+        "SelectRightLamp"
+      ],
+      "correct": true
+    },
+    {
+      "event": 4,
+      "expected": [
+        "SelectLeftLamp",
+        "SelectRightLamp"
+      ],
+      "predicted": [
+        "SelectLeftLamp",
+        "SelectRightLamp"
+      ],
+      "correct": true
+    },
+    {
+      "event": 5,
+      "expected": [
+        "SelectRightLamp"
+      ],
+      "predicted": [
+        "SelectRightLamp"
+      ],
+      "correct": true
+    },
+    {
+      "event": 6,
+      "expected": [
+        "SelectLeftLamp",
+        "SelectRightLamp"
+      ],
+      "predicted": [
+        "SelectLeftLamp",
+        "SelectRightLamp"
+      ],
+      "correct": true
+    }
+  ],
+  "exact_match": true
+}

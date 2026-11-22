@@ -1,0 +1,113 @@
+{
+  "id": "S12",
+  "title": "Conducting wires",
+  "domain": "Electromagnetism",
+  "question_id": "scene_14/sample_0001/k6",
+  "sample_id": "sample_0001",
+  "model": "GPT-6.1 Sol",
+  "model_id": "openai/gpt-6.1-sol",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nApparatus and view: three parallel, horizontal hollow copper conductors hang from pairs of nonmagnetic rods. A has red collars and leads, B amber-yellow collars and leads, and C blue collars and leads. These colours identify the conductor, not current polarity. The conductors occupy three left/middle/right installation slots, spaced 0.12 m apart; their suspension heights differ by increments of 0.009 m. Identity-to-slot and identity-to-height assignments can vary between samples, but remain fixed within one sample. The camera looks obliquely from the front at the suspended bars and their supports; image-right is approximately laboratory right and image-up approximately upward. The external switchboard is to the left of the apparatus and is not included in the supplied interior images. Each bar has two real flexible copper-braid connections to its closed circuit. The overhead anchors, support frame and background fixtures are fixed parts. The small colours and material finishes are constant.\n\nEach copper bar is 0.235 m long, and each suspension rod is 0.162 m long. A selected pair has a 350 A supply preset when its initial centre-to-centre distance is at most 0.18 m, otherwise 500 A; the same magnitude rule applies to both relative current directions. The external isolated supplies have 8 V compliance and 3 mH series inductance. A branch whose supply is not selected remains connected through a passive 0.001 ohm flyback load; it is not an open circuit. These are lumped circuit elements of the simulated apparatus. The experiment does not reset its conductor positions, velocities, currents or temperatures between events.\n\nControls: ABSame selects the A and B supplies with their currents commanded in the same direction along the two bars; ABOpposite selects A and B with opposite directions. BCSame and BCOpposite do the same for B and C; ACSame and ACOpposite for A and C. Each event chooses one of these six complete settings. The actual contacts change over before establishing the newly selected sources.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nEach event image is the native interior frame nearest 2.00 s into its event period, after selected contacts and currents are established. Inherited bar motion, currents and temperature remain physical state, so the image need not be a fresh equilibrium.\nCapture times (physical/native capture time in seconds): F0=0.333333 s; F1=2.000000 s; F2=5.600000 s; F3=9.200000 s; F4=15.200000 s; F5=18.799999 s; F6=24.799999 s.\nDurations of the supplied event periods: 3.6 s, 3.6 s, 6 s, 3.6 s, 6 s, 9.6 s.\n\nALLOWED ATOMIC LABELS\nABSame, ABOpposite, BCSame, BCOpposite, ACSame, ACOpposite\n\nALLOWED EVENT LABEL SETS\n[[\"ABSame\"],[\"ABOpposite\"],[\"BCSame\"],[\"BCOpposite\"],[\"ACSame\"],[\"ACOpposite\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"ABSame\"], [\"ABOpposite\"], [\"BCSame\"], [\"BCOpposite\"], [\"ACSame\"], [\"ACOpposite\"]].",
+  "frame_labels": [
+    "Frame F0",
+    "Frame F1",
+    "Frame F2",
+    "Frame F3",
+    "Frame F4",
+    "Frame F5",
+    "Frame F6"
+  ],
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "response": "{\"operations\":[[\"BCSame\"],[\"ACSame\"],[\"ACOpposite\"],[\"BCOpposite\"],[\"ABSame\"],[\"ACOpposite\"]]}",
+  "reference": [
+    [
+      "BCSame"
+    ],
+    [
+      "ACSame"
+    ],
+    [
+      "ABOpposite"
+    ],
+    [
+      "BCOpposite"
+    ],
+    [
+      "ABSame"
+    ],
+    [
+      "ACOpposite"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "BCSame"
+      ],
+      "predicted": [
+        "BCSame"
+      ],
+      "correct": true
+    },
+    {
+      "event": 2,
+      "expected": [
+        "ACSame"
+      ],
+      "predicted": [
+        "ACSame"
+      ],
+      "correct": true
+    },
+    {
+      "event": 3,
+      "expected": [
+        "ABOpposite"
+      ],
+      "predicted": [
+        "ACOpposite"
+      ],
+      "correct": false
+    },
+    {
+      "event": 4,
+      "expected": [
+        "BCOpposite"
+      ],
+      "predicted": [
+        "BCOpposite"
+      ],
+      "correct": true
+    },
+    {
+      "event": 5,
+      "expected": [
+        "ABSame"
+      ],
+      "predicted": [
+        "ABSame"
+      ],
+      "correct": true
+    },
+    {
+      "event": 6,
+      "expected": [
+        "ACOpposite"
+      ],
+      "predicted": [
+        "ACOpposite"
+      ],
+      "correct": true
+    }
+  ],
+  "exact_match": false
+}
