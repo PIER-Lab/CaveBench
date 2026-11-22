@@ -7,7 +7,7 @@ Guanxin Lin<sup>*</sup>, Chen Yang<sup>*</sup>, Shenxiang Zeng, Honghui Zhu, Xin
 Tsinghua University  
 <sup>*</sup> Equal contribution · <sup>†</sup> Corresponding author
 
-[Project page](docs/index.html) · [Scene examples](docs/examples/index.json) · [Results](results/question_scores.csv)
+[Project page](https://lingx22.github.io/CaveBench/) · [Paper](docs/papers/CaveBench.pdf) · [Supplement](docs/papers/Supplement.pdf) · [Dataset](https://huggingface.co/datasets/linguanxin/CaveBench) · [Scene examples](docs/examples/index.json) · [Results](results/question_scores.csv)
 
 CaveBench evaluates whether a vision–language model can reconstruct the external controls applied to a physical apparatus from its internal observations. Each question contains the apparatus description, its permitted controls and an ordered sequence of images. The model identifies the set of controls applied at each event. The 20 apparatuses cover dynamics, thermal physics, electromagnetism, acoustics and optics.
 
@@ -26,6 +26,8 @@ Across the 200 six-event questions, GPT-6.1 Sol scores 68.0% exact match. The be
 | Seven adaptation methods and their baselines | [Adaptation table](docs/assets/methods.csv) |
 
 ## Evaluation
+
+With `huggingface_hub` installed, `python prepare_media.py --repo linguanxin/CaveBench --data ./dataset` downloads the question and label files and reconstructs all test input frames. Add `--all` to download the development episodes and dual-view videos.
 
 Use Python 3.9 or newer. Place the dataset in a local directory containing `questions.jsonl`, `labels.jsonl` and the media paths named in the questions. The runner and scorer use the Python standard library.
 

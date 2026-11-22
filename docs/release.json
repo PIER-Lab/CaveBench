@@ -1,6 +1,20 @@
 {
-  "authors": ["Guanxin Lin*", "Chen Yang*", "Shenxiang Zeng", "Honghui Zhu", "Xin Li", "Wenbo Deng", "Jiansheng Fan", "Chen Wang†"],
-  "affiliations": ["Tsinghua University"],
+  "authors": [
+    "Guanxin Lin*",
+    "Chen Yang*",
+    "Shenxiang Zeng",
+    "Honghui Zhu",
+    "Xin Li",
+    "Wenbo Deng",
+    "Jiansheng Fan",
+    "Chen Wang†"
+  ],
+  "affiliations": [
+    "Tsinghua University"
+  ],
   "authorNote": "* Equal contribution   ·   † Corresponding author",
-  "github": "https://github.com/lingx22/CaveBench"
+  "github": "https://github.com/lingx22/CaveBench",
+  "paper": "papers/CaveBench.pdf",
+  "supplement": "papers/Supplement.pdf",
+  "dataset": "https://huggingface.co/datasets/linguanxin/CaveBench"
 }

@@ -1,0 +1,28 @@
+model_key,display_name
+01_openai_gpt_6_1_sol,GPT-6.1 Sol
+02_openai_gpt_6_1_terra,GPT-6.1 Terra
+03_openai_gpt_6_luna,GPT-6 Luna
+04_openai_gpt_5_6_luna,GPT-5.6 Luna
+05_google_gemini_3_8_flash,Gemini 3.8 Flash
+06_google_gemini_3_6_flash,Gemini 3.6 Flash
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5
+10_anthropic_claude_sonnet_5,Claude Sonnet 5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash
+12_qwen_qwen3_8_27b,Qwen3.8 27B
+13_qwen_qwen3_7_plus,Qwen3.7 Plus
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash
+15_z_ai_glm_5v_turbo,GLM 5V Turbo
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash
+18_minimax_minimax_m3,MiniMax M3
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini
+22_moonshotai_kimi_k2_6,Kimi K2.6
+23_moonshotai_kimi_k2_5,Kimi K2.5
+25_google_gemma_4_31b_it,Gemma 4 31B
+26_meta_llama_llama_4_maverick,Llama 4 Maverick
+27_qwen_qwen3_5_9b,Qwen3.5-9B
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash

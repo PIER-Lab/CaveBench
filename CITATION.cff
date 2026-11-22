@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use CaveBench, please cite the accompanying paper."
+title: "CaveBench: Benchmarking Abductive Physical Reasoning from Internal Observations"
+type: dataset
+authors:
+  - given-names: Guanxin
+    family-names: Lin
+  - given-names: Chen
+    family-names: Yang
+  - given-names: Shenxiang
+    family-names: Zeng
+  - given-names: Honghui
+    family-names: Zhu
+  - given-names: Xin
+    family-names: Li
+  - given-names: Wenbo
+    family-names: Deng
+  - given-names: Jiansheng
+    family-names: Fan
+  - given-names: Chen
+    family-names: Wang
+url: "https://lingx22.github.io/CaveBench/"
+repository-code: "https://github.com/lingx22/CaveBench"
