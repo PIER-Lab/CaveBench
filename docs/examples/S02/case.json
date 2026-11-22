@@ -1,0 +1,113 @@
+{
+  "id": "S02",
+  "title": "Rotation & gas",
+  "domain": "Dynamics",
+  "question_id": "scene_06/sample_0001/k6",
+  "sample_id": "sample_0001",
+  "model": "GPT-6.1 Sol",
+  "model_id": "openai/gpt-6.1-sol",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nApparatus and view: a circular deck rotates about its vertical central shaft inside an opaque cabin. The interior camera is fixed above the deck, looking downward; it does not rotate with the deck. Two or three radial assemblies lie inside the rim. Each contains a solid coloured load on a sliding carriage, a radial guide, and a spring connecting the carriage to an inner anchor. Red, blue and amber load assemblies have masses of 0.65, 0.80 and 1.00 kg and spring stiffnesses of 1.0625, 1.53 and 2.21 N/m respectively. A small mechanical pointer near the central spindle is mounted on the stationary shaft, with a torsion spring and viscous coupling to the deck.\n\nA transparent, sealed, water-filled semicircular channel is fixed near the outer edge of the deck. Its ends are closed. It contains one small red, gas-filled thin-shell sphere, approximately 96 mm in diameter and 4 g in combined shell-and-gas mass. The sphere is separate from the larger loads on the radial carriages. The outer motor and its four-detent controller are outside the supplied interior view. The deck starts at rest. No positions, velocities, spring states or liquid-object states are reset between events.\n\nControls: clockwise and counterclockwise are defined as viewed from above. ClockwiseAccelerate sets the motor to the clockwise high-speed detent, nominally 30 degrees/s. ClockwiseDecelerate changes clockwise rotation to the low-speed detent, nominally 12 degrees/s. CounterclockwiseAccelerate sets the counterclockwise high-speed detent, nominally 30 degrees/s. CounterclockwiseDecelerate changes counterclockwise rotation to the low-speed detent, nominally 12 degrees/s. Selecting a high-speed detent may reverse the previous direction. Each event selects one complete motor setting.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nThe evidence frame for each event is selected from its 2.2-4.0 s response window. Motor commands are 5.0 s apart. The deck starts at rest and all mechanical and liquid-object states subsequently continue as described above.\nCapture times (physical/native capture time in seconds): F0=1.966667 s; F1=6.000000 s; F2=11.000000 s; F3=16.000000 s; F4=21.000000 s; F5=26.000000 s; F6=31.000000 s.\nSupplied event start times: 2 s, 7 s, 12 s, 17 s, 22 s, 27 s.\n\nALLOWED ATOMIC LABELS\nClockwiseAccelerate, ClockwiseDecelerate, CounterclockwiseAccelerate, CounterclockwiseDecelerate\n\nALLOWED EVENT LABEL SETS\n[[\"ClockwiseAccelerate\"],[\"ClockwiseDecelerate\"],[\"CounterclockwiseAccelerate\"],[\"CounterclockwiseDecelerate\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"ClockwiseAccelerate\"], [\"ClockwiseDecelerate\"], [\"CounterclockwiseAccelerate\"], [\"CounterclockwiseDecelerate\"]].",
+  "frame_labels": [
+    "Frame F0",
+    "Frame F1",
+    "Frame F2",
+    "Frame F3",
+    "Frame F4",
+    "Frame F5",
+    "Frame F6"
+  ],
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "response": "{\"operations\":[[\"ClockwiseAccelerate\"],[\"ClockwiseDecelerate\"],[\"ClockwiseAccelerate\"],[\"CounterclockwiseAccelerate\"],[\"CounterclockwiseDecelerate\"],[\"ClockwiseAccelerate\"]]}",
+  "reference": [
+    [
+      "ClockwiseAccelerate"
+    ],
+    [
+      "ClockwiseDecelerate"
+    ],
+    [
+      "ClockwiseAccelerate"
+    ],
+    [
+      "CounterclockwiseAccelerate"
+    ],
+    [
+      "CounterclockwiseDecelerate"
+    ],
+    [
+      "ClockwiseAccelerate"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "ClockwiseAccelerate"
+      ],
+      "predicted": [
+        "ClockwiseAccelerate"
+      ],
+      "correct": true
+    },
+    {
+      "event": 2,
+      "expected": [
+        "ClockwiseDecelerate"
+      ],
+      "predicted": [
+        "ClockwiseDecelerate"
+      ],
+      "correct": true
+    },
+    {
+      "event": 3,
+      "expected": [
+        "ClockwiseAccelerate"
+      ],
+      "predicted": [
+        "ClockwiseAccelerate"
+      ],
+      "correct": true
+    },
+    {
+      "event": 4,
+      "expected": [
+        "CounterclockwiseAccelerate"
+      ],
+      "predicted": [
+        "CounterclockwiseAccelerate"
+      ],
+      "correct": true
+    },
+    {
+      "event": 5,
+      "expected": [
+        "CounterclockwiseDecelerate"
+      ],
+      "predicted": [
+        "CounterclockwiseDecelerate"
+      ],
+      "correct": true
+    },
+    {
+      "event": 6,
+      "expected": [
+        "ClockwiseAccelerate"
+      ],
+      "predicted": [
+        "ClockwiseAccelerate"
+      ],
+      "correct": true
+    }
+  ],
+  "exact_match": true
+}

@@ -1,0 +1,122 @@
+{
+  "id": "S07",
+  "title": "Heated gas bulbs",
+  "domain": "Thermal",
+  "question_id": "scene_15/sample_0001/k6",
+  "sample_id": "sample_0001",
+  "model": "GPT-6.1 Sol",
+  "model_id": "openai/gpt-6.1-sol",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nA fixed oblique camera shows three connected glass bulbs arranged left, middle, and right, each with a visible meniscus. Bulb envelopes, glass network, backboard and supports are fixed references. Warm-water contact caps are outside the interior view. Gas composition can vary between experiments; do not assume a sample-specific gas identity that is not visible. heat_bulb_1, heat_bulb_2 and heat_bulb_3 mean heating the left, middle and right bulb respectively. An event heats one or two bulbs simultaneously. The apparatus is continuous and thermal states are not reset.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nEach event image shows the active response after one thermal-contact event. Compare each meniscus with its own glass envelope, accounting for the oblique view and retained thermal history. No unobserved gas assignment is supplied.\nCapture times (physical/native capture time in seconds): F0=1.966667 s; F1=7.300000 s; F2=12.800000 s; F3=18.300000 s; F4=23.800000 s; F5=29.300000 s; F6=34.800000 s.\n\nALLOWED ATOMIC LABELS\nheat_bulb_1, heat_bulb_2, heat_bulb_3\n\nALLOWED EVENT LABEL SETS\n[[\"heat_bulb_1\"],[\"heat_bulb_2\"],[\"heat_bulb_3\"],[\"heat_bulb_1\",\"heat_bulb_2\"],[\"heat_bulb_1\",\"heat_bulb_3\"],[\"heat_bulb_2\",\"heat_bulb_3\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"heat_bulb_1\"], [\"heat_bulb_2\"], [\"heat_bulb_3\"], [\"heat_bulb_1\", \"heat_bulb_2\"], [\"heat_bulb_1\", \"heat_bulb_3\"], [\"heat_bulb_2\", \"heat_bulb_3\"]].",
+  "frame_labels": [
+    "Frame F0",
+    "Frame F1",
+    "Frame F2",
+    "Frame F3",
+    "Frame F4",
+    "Frame F5",
+    "Frame F6"
+  ],
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "response": "{\"operations\":[[\"heat_bulb_1\",\"heat_bulb_2\"],[\"heat_bulb_3\"],[\"heat_bulb_1\",\"heat_bulb_3\"],[\"heat_bulb_2\"],[\"heat_bulb_2\",\"heat_bulb_3\"],[\"heat_bulb_1\"]]}",
+  "reference": [
+    [
+      "heat_bulb_1",
+      "heat_bulb_2"
+    ],
+    [
+      "heat_bulb_3"
+    ],
+    [
+      "heat_bulb_1",
+      "heat_bulb_3"
+    ],
+    [
+      "heat_bulb_2"
+    ],
+    [
+      "heat_bulb_2",
+      "heat_bulb_3"
+    ],
+    [
+      "heat_bulb_1"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "heat_bulb_1",
+        "heat_bulb_2"
+      ],
+      "predicted": [
+        "heat_bulb_1",
+        "heat_bulb_2"
+      ],
+      "correct": true
+    },
+    {
+      "event": 2,
+      "expected": [
+        "heat_bulb_3"
+      ],
+      "predicted": [
+        "heat_bulb_3"
+      ],
+      "correct": true
+    },
+    {
+      "event": 3,
+      "expected": [
+        "heat_bulb_1",
+        "heat_bulb_3"
+      ],
+      "predicted": [
+        "heat_bulb_1",
+        "heat_bulb_3"
+      ],
+      "correct": true
+    },
+    {
+      "event": 4,
+      "expected": [
+        "heat_bulb_2"
+      ],
+      "predicted": [
+        "heat_bulb_2"
+      ],
+      "correct": true
+    },
+    {
+      "event": 5,
+      "expected": [
+        "heat_bulb_2",
+        "heat_bulb_3"
+      ],
+      "predicted": [
+        "heat_bulb_2",
+        "heat_bulb_3"
+      ],
+      "correct": true
+    },
+    {
+      "event": 6,
+      "expected": [
+        "heat_bulb_1"
+      ],
+      "predicted": [
+        "heat_bulb_1"
+      ],
+      "correct": true
+    }
+  ],
+  "exact_match": true
+}

@@ -1,0 +1,131 @@
+{
+  "id": "S01",
+  "title": "Cabin inertia",
+  "domain": "Dynamics",
+  "question_id": "scene_01/sample_0001/k6",
+  "sample_id": "sample_0001",
+  "model": "GPT-6.1 Sol",
+  "model_id": "openai/gpt-6.1-sol",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nApparatus and coordinates. A fixed camera near the rear of a closed cabin looks toward its front. Vehicle-local+z is forward, away from the camera; +x is the vehicle's right. Image-left/right roughly follow vehicle-left/right, but perspective and object height affect projection. An upward image displacement is not by itself a forward displacement. Fixed cabin edges, table, bowl, roof supports and tether base are spatial references. The blue ball and its shallow bowl are on the central longitudinal line of the table, not on its right side. A red pendulum bob, when present, hangs from a roof support toward the far-left; a green helium balloon, when present, is tethered to a fixed anchor toward the far-right. There is NO yellow block, slider tray, linear guide or passive slider spring in any sample. A sample contains all three response bodies, or omits one complete red-bob, green-balloon or blue-ball body/force assembly before the experiment starts. An empty bowl may remain when the blue ball is absent. Establish which bodies actually exist in F0, track those same bodies and their fixed supports, and never infer a control from an absent object. Body existence is fixed throughout one sample and is not itself an event. Small supported module positions and initial positions can vary between experiments.\n\nPhysics. Gravity is downward. The vehicle moves forward throughout and never reverses or resets between events. The dense bob and ball respond through inertia, gravity, their suspension or bowl constraints, friction and real contacts. The lighter-than-air balloon responds to cabin-air acceleration, the associated pressure gradient, drag and its tether; its transient need not follow a dense body. Air/buoyancy is a reduced-order physical model, not full CFD. Steering and speed changes can act simultaneously. Pendulum oscillation, rolling, balloon motion and real contacts persist into later events. No object is repositioned at an event boundary. The ball's curved support and the pendulum/tether constraints turn different components of effective acceleration into different movements, so compare fore-aft and lateral changes relative to supports, combine the remaining response bodies and account for inherited motion. A coloured body is not a direction lamp or a painted operation label. In a single still, neither one body's largest image displacement nor its apparent height uniquely specifies both controls.\n\nHidden controls. The only allowed labels are Accelerate, Brake, TurnLeft and TurnRight. Accelerate increases forward speed; Brake reduces it without reversing. TurnLeft and TurnRight steer relative to the vehicle's own forward direction. In a top view with forward upward, left steering is counterclockwise and right steering clockwise. An event applies one primitive or two simultaneous primitives. A pair contains at most one longitudinal control, Accelerate or Brake, and at most one steering control, TurnLeft or TurnRight. Duplicate or opposite controls on the same axis never occur together. For each event report the unordered set, including both labels if two controls occurred. No fixed ordering or repetition pattern is promised.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nEach evidence image is a true single-camera frame from the corresponding active response window, starting 0.30 s after onset and ending before ramp-down. A fixed geometric visibility rule chooses a frame with available bodies moving, balancing fore-aft and lateral clues. The images are not deliberately delayed settled snapshots; capture times are not uniformly spaced. Constraints, inherited motion, rotation, perspective and absent bodies still require interpretation.\nCapture times (physical simulation clock; the F0 image precedes event 1): F1=3.133347 s; F2=7.399973 s; F3=12.266565 s; F4=18.233141 s; F5=21.333094 s; F6=27.366335 s.\n\nALLOWED ATOMIC LABELS\nAccelerate, Brake, TurnLeft, TurnRight\n\nALLOWED EVENT LABEL SETS\n[[\"Accelerate\"],[\"Brake\"],[\"TurnLeft\"],[\"TurnRight\"],[\"Accelerate\",\"TurnLeft\"],[\"Accelerate\",\"TurnRight\"],[\"Brake\",\"TurnLeft\"],[\"Brake\",\"TurnRight\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"Accelerate\"], [\"Brake\"], [\"TurnLeft\"], [\"TurnRight\"], [\"Accelerate\", \"TurnLeft\"], [\"Accelerate\", \"TurnRight\"], [\"Brake\", \"TurnLeft\"], [\"Brake\", \"TurnRight\"]].",
+  "frame_labels": [
+    "Frame F0",
+    "Frame F1",
+    "Frame F2",
+    "Frame F3",
+    "Frame F4",
+    "Frame F5",
+    "Frame F6"
+  ],
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "response": "{\"operations\":[[\"Accelerate\",\"TurnLeft\"],[\"Brake\",\"TurnRight\"],[\"Accelerate\",\"TurnLeft\"],[\"Brake\",\"TurnLeft\"],[\"Accelerate\",\"TurnRight\"],[\"Brake\",\"TurnRight\"]]}",
+  "reference": [
+    [
+      "Accelerate",
+      "TurnLeft"
+    ],
+    [
+      "Brake",
+      "TurnRight"
+    ],
+    [
+      "Accelerate",
+      "TurnLeft"
+    ],
+    [
+      "Brake",
+      "TurnLeft"
+    ],
+    [
+      "Accelerate",
+      "TurnRight"
+    ],
+    [
+      "Brake",
+      "TurnLeft"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "Accelerate",
+        "TurnLeft"
+      ],
+      "predicted": [
+        "Accelerate",
+        "TurnLeft"
+      ],
+      "correct": true
+    },
+    {
+      "event": 2,
+      "expected": [
+        "Brake",
+        "TurnRight"
+      ],
+      "predicted": [
+        "Brake",
+        "TurnRight"
+      ],
+      "correct": true
+    },
+    {
+      "event": 3,
+      "expected": [
+        "Accelerate",
+        "TurnLeft"
+      ],
+      "predicted": [
+        "Accelerate",
+        "TurnLeft"
+      ],
+      "correct": true
+    },
+    {
+      "event": 4,
+      "expected": [
+        "Brake",
+        "TurnLeft"
+      ],
+      "predicted": [
+        "Brake",
+        "TurnLeft"
+      ],
+      "correct": true
+    },
+    {
+      "event": 5,
+      "expected": [
+        "Accelerate",
+        "TurnRight"
+      ],
+      "predicted": [
+        "Accelerate",
+        "TurnRight"
+      ],
+      "correct": true
+    },
+    {
+      "event": 6,
+      "expected": [
+        "Brake",
+        "TurnLeft"
+      ],
+      "predicted": [
+        "Brake",
+        "TurnRight"
+      ],
+      "correct": false
+    }
+  ],
+  "exact_match": false
+}

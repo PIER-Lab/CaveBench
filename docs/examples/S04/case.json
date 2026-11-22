@@ -1,0 +1,125 @@
+{
+  "id": "S04",
+  "title": "Tray impact",
+  "domain": "Dynamics",
+  "question_id": "scene_12/sample_0002/k6",
+  "sample_id": "sample_0002",
+  "model": "GPT-6.1 Sol",
+  "model_id": "openai/gpt-6.1-sol",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nThe rigid rectangular tray supports eight free physical response bodies: a tall burgundy tower toward the upper-left, a teal sphere toward the upper-middle/right, an ivory body toward the upper-right that can be a sphere, box, or cylinder, an ochre sliding drum toward the lower-left, a low brass puck toward the lower-middle, a short teal block right of the middle, a rolling ivory barrel toward the lower-right, and a ruby-colored ball toward the upper-middle/left. Those positions are approximate and can vary; establish the actual identities and positions from F0 and track them through the sequence. Fixed tray lines and the rim are spatial references, not control indicators. Small colored pieces near the upper-left or upper-right rim are stationary, non-colliding layout references rather than response bodies; their count and arrangement can vary across samples but do not change with the hidden controls. The camera is rigidly carried by the struck tray, looks straight down, and preserves its tray-relative pose. Image-right is tray-local +x, image-up is tray-local +z. Screen-left/right/up/down are not world gravitational up/down.\n\nFour exterior hammers can strike four different sides of the tray. IMPORTANT: operation names indicate the struck side, not the direction of the inward force. LeftImpact means the west/left hammer strikes inward toward +x; RightImpact means the east/right hammer strikes inward toward -x. UpImpact means the far/top (+z) hammer strikes inward toward -z; DownImpact means the near/bottom (-z) hammer strikes inward toward +z. An event contains either one primitive or two different perpendicular primitives applied simultaneously. The first event always uses two perpendicular primitives so the tower can fall clear of the adjacent wall; each later event may use one or two. This is a common protocol constraint, not a cue to either first-event direction. Opposite pairs and repeated identical primitives within one event are not permitted. The permitted primitive labels are LeftImpact, RightImpact, UpImpact, and DownImpact.\n\nThe hammers physically collide with the dynamically supported tray; they do not directly push the free response bodies. The tray recoils, and its carried camera observes how the bodies lag relative to the accelerating tray through inertia, contact friction, rolling, sliding, and possible tipping. Two hammers can jointly produce two recoil components. The tray's passive return springs and dampers also affect the later trajectory. A sphere can retain rolling velocity and a toppled tower remains toppled; no body is reset between events. Do not identify later events from the already fallen tower alone. Compare new tray-relative changes in several separated low bodies with rolling-body changes, while accounting for history and contacts. Neither one instantaneous position nor a world-frame displacement alone determines the hidden controls.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nThe experiment has an initial 3.0 s hold, then 5.5 s event intervals. Hammer contact occurs about 2.067 s into an interval. Images show the evolving tray-carried view, not contact instants or guaranteed equilibrium. Existing rolling velocity, contacts and a fallen tower persist.\nCapture times (physical/native capture time in seconds): F0=2.966667 s; F1=7.333333 s; F2=11.500000 s; F3=17.000000 s; F4=22.500000 s; F5=28.000000 s; F6=33.500000 s.\nSupplied event start times: 3 s, 8.5 s, 14 s, 19.5 s, 25 s, 30.5 s. The first event's evidence is sampled about 4.333 s into its interval; the other supplied event images are about 3.000 s into their intervals.\n\nALLOWED ATOMIC LABELS\nLeftImpact, RightImpact, UpImpact, DownImpact\n\nALLOWED EVENT LABEL SETS\n[[\"LeftImpact\"],[\"RightImpact\"],[\"UpImpact\"],[\"DownImpact\"],[\"LeftImpact\",\"UpImpact\"],[\"DownImpact\",\"LeftImpact\"],[\"RightImpact\",\"UpImpact\"],[\"DownImpact\",\"RightImpact\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"LeftImpact\"], [\"RightImpact\"], [\"UpImpact\"], [\"DownImpact\"], [\"LeftImpact\", \"UpImpact\"], [\"DownImpact\", \"LeftImpact\"], [\"RightImpact\", \"UpImpact\"], [\"DownImpact\", \"RightImpact\"]].",
+  "frame_labels": [
+    "Frame F0",
+    "Frame F1",
+    "Frame F2",
+    "Frame F3",
+    "Frame F4",
+    "Frame F5",
+    "Frame F6"
+  ],
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "response": "{\"operations\":[[\"DownImpact\",\"LeftImpact\"],[\"RightImpact\",\"UpImpact\"],[\"LeftImpact\",\"UpImpact\"],[\"DownImpact\"],[\"DownImpact\",\"RightImpact\"],[\"UpImpact\"]]}",
+  "reference": [
+    [
+      "LeftImpact",
+      "UpImpact"
+    ],
+    [
+      "DownImpact",
+      "RightImpact"
+    ],
+    [
+      "DownImpact",
+      "LeftImpact"
+    ],
+    [
+      "UpImpact"
+    ],
+    [
+      "RightImpact",
+      "UpImpact"
+    ],
+    [
+      "DownImpact"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "LeftImpact",
+        "UpImpact"
+      ],
+      "predicted": [
+        "DownImpact",
+        "LeftImpact"
+      ],
+      "correct": false
+    },
+    {
+      "event": 2,
+      "expected": [
+        "DownImpact",
+        "RightImpact"
+      ],
+      "predicted": [
+        "RightImpact",
+        "UpImpact"
+      ],
+      "correct": false
+    },
+    {
+      "event": 3,
+      "expected": [
+        "DownImpact",
+        "LeftImpact"
+      ],
+      "predicted": [
+        "LeftImpact",
+        "UpImpact"
+      ],
+      "correct": false
+    },
+    {
+      "event": 4,
+      "expected": [
+        "UpImpact"
+      ],
+      "predicted": [
+        "DownImpact"
+      ],
+      "correct": false
+    },
+    {
+      "event": 5,
+      "expected": [
+        "RightImpact",
+        "UpImpact"
+      ],
+      "predicted": [
+        "DownImpact",
+        "RightImpact"
+      ],
+      "correct": false
+    },
+    {
+      "event": 6,
+      "expected": [
+        "DownImpact"
+      ],
+      "predicted": [
+        "UpImpact"
+      ],
+      "correct": false
+    }
+  ],
+  "exact_match": false
+}
