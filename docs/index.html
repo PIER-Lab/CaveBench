@@ -10,6 +10,7 @@
   <script defer src="assets/tables.js"></script>
   <script defer src="assets/catalog.js"></script>
   <script defer src="assets/site.js"></script>
+  <script defer src="assets/results.js"></script>
 </head>
 <body>
 <a href="#main" class="skip">Skip to content</a>
@@ -41,28 +42,50 @@
       <figure><a class="zoom" href="assets/resonance.png"><img loading="lazy" src="assets/resonance.png" alt="Resonant rods illustrate reasoning from an observed response back to a hidden control."></a><figcaption>Abductive reasoning with resonant rods. The source frequency is 100 Hz.</figcaption></figure>
       <figure><a class="zoom" href="assets/questions.png"><img loading="lazy" src="assets/questions.png" alt="Example control-inference questions and choices from the benchmark."></a><figcaption>Representative questions. The viewer above includes the full prompts and initial observations.</figcaption></figure>
     </details>
+    <p class="related-tables"><a href="#detailed-results" data-detail="scene_controls">Apparatus statistics</a> · <a href="#detailed-results" data-detail="benchmark_comparison">Comparison with related benchmarks</a></p>
   </section>
   <section class="section" id="leaderboard">
     <h2>Leaderboard</h2>
     <p>An answer earns credit when it gives every control at every event in the correct sequence. The order of simultaneous controls within an event does not affect the score.</p>
-    <div class="tabs" aria-label="Leaderboard view"><button data-table="domains" aria-pressed="true">By physical domain</button><button data-table="length" aria-pressed="false">By question length</button><button data-table="methods" aria-pressed="false">Adaptation methods</button></div>
-    <div class="table-lede"><p id="table-note"></p><a id="download" download>Download CSV ↓</a></div>
-    <div class="tablewrap" tabindex="0" role="region" aria-label="Scrollable results table"><table id="results"></table></div>
+    <div class="tabs" aria-label="Leaderboard view"><button data-table="domains" aria-pressed="true">By physical domain</button><button data-table="scenes" aria-pressed="false">By apparatus</button><button data-table="length" aria-pressed="false">By question length</button><button data-table="methods" aria-pressed="false">Adaptation methods</button></div>
+    <div id="leaderboard-filters" class="result-controls">
+      <fieldset id="k-filter"><legend>Events per question</legend><div class="k-options"></div></fieldset>
+      <label id="apparatus-filter" hidden>Apparatus<select id="result-apparatus"></select></label>
+    </div>
+    <div class="table-lede"><p id="table-note"></p><a id="download" href="assets/domains.csv" download>Download table CSV</a></div>
+    <div class="tablewrap" tabindex="0" role="region" aria-label="Sortable leaderboard"><table id="results"></table></div>
+    <p class="result-status" id="leaderboard-status" role="status"></p>
+    <div id="detailed-results">
+      <h3>Detailed tables</h3>
+      <div class="detail-bar">
+        <label>Result table<select id="detail-view"></select></label>
+        <div id="detail-filters"></div>
+        <a id="detail-download" download>Download full CSV</a>
+      </div>
+      <p class="table-description" id="detail-note"></p>
+      <div class="tablewrap" id="detail-wrapper" tabindex="0" role="region" aria-label="Detailed results"><table id="detail-table"></table></div>
+      <p id="detail-status" class="result-status" role="status"></p>
+      <p class="related-tables">Question-level scores for the <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/question_scores.csv">main comparison</a>, <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_question_scores.csv">adaptation methods</a> and <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/effort_question_scores.csv">reasoning-effort experiment</a>.</p>
+    </div>
   </section>
   <section class="section" id="analysis">
     <h2>Analysis</h2>
     <h3>Physical reasoning across domains and events</h3>
     <p>GPT-6.1 Sol and Terra recover the complete six-event sequence on 68.0% and 65.0% of test episodes. GPT-6 Luna follows at 28.5%. All 27 model configurations score lower on six-event questions than on single-event questions. Gemini 3.8 Flash drops from 60.5% to 21.5%, and MiniMax M3.1 Flash drops from 38.4% to 12.5%.</p>
     <p>Electromagnetism is the strongest domain for MiniMax M3.1 Flash at 27.5%. It is the lowest-scoring domain for both Sol and Terra, at 57.5% and 37.5%, respectively.</p>
+    <p class="related-tables"><a href="#table-figure1" data-detail="figure1">View the six-event scores in Figure 1</a> · <a href="#table-compound_by_length" data-detail="compound_by_length">Compare single- and two-label events</a></p>
     <h3>Learning to recover a sequence</h3>
     <p>On Qwen3.5-9B, supervised fine-tuning raises six-event accuracy from 0.5% to 20.0%. Adding SimPO brings it to 31.8%. KTO reaches a similar single-event score to SimPO, yet recovers only 14.5% of complete sequences.</p>
     <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" src="assets/adaptation.png" alt="Comparison of Qwen3.5-9B predictions for the same input across adaptation methods."></a><figcaption>Qwen3.5-9B responses under different training conditions. Annotations explain how the predictions differ.</figcaption></figure>
+    <p class="related-tables"><a href="#detailed-results" data-detail="training_case">Inspect the predictions in this figure</a> · <a href="#detailed-results" data-detail="adaptation_by_length">Compare adaptation runs</a></p>
     <h3>Reasoning effort</h3>
     <p>With the same ten episodes per scene, increasing effort from low to high raises Sol’s six-event accuracy from 59.5% to 74.0%. Gemini 3.8 Flash moves from 15.5% to 8.0% on the same comparison.</p>
     <figure><a class="zoom" href="assets/effort.png"><img loading="lazy" src="assets/effort.png" alt="Accuracy by reasoning effort, model and apparatus."></a><figcaption>Effect of reasoning effort. Scores include conditional answer completion.</figcaption></figure>
+    <p class="related-tables"><a href="#detailed-results" data-detail="effort_results">View the model and apparatus scores</a></p>
     <h3>Error analysis</h3>
     <p>Among 100 selected erroneous responses, 38 failures concern visual identification, 24 physical inference, 31 evidence integration and seven action composition. Each response receives one primary category.</p>
     <figure><a class="zoom" href="assets/errors.png"><img loading="lazy" src="assets/errors.png" alt="Four illustrative failures with the relevant visual observations, controls and predictions."></a><figcaption>Representative error cases. The diagnoses compare the model’s public response with the input images and recorded controls.</figcaption></figure>
+    <p class="related-tables"><a href="#detailed-results" data-detail="error_categories">View counts by error category</a></p>
   </section>
 </main>
 <footer><div><strong>CaveBench</strong><a href="#top">Back to top ↑</a></div></footer>
