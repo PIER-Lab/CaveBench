@@ -13,7 +13,7 @@
     "Tsinghua University"
   ],
   "authorNote": "* Equal contribution   ·   † Corresponding author",
-  "github": "https://github.com/lingx22/CaveBench",
+  "github": "https://github.com/PIER-Lab/CaveBench",
   "paper": "papers/CaveBench.pdf",
   "supplement": "papers/Supplement.pdf",
   "dataset": "https://huggingface.co/datasets/linguanxin/CaveBench"

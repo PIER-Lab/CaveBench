@@ -7,7 +7,7 @@ Guanxin Lin<sup>*</sup>, Chen Yang<sup>*</sup>, Shenxiang Zeng, Honghui Zhu, Xin
 Tsinghua University  
 <sup>*</sup> Equal contribution · <sup>†</sup> Corresponding author
 
-[Project page](https://lingx22.github.io/CaveBench/) · [Paper](docs/papers/CaveBench.pdf) · [Supplement](docs/papers/Supplement.pdf) · [Dataset](https://huggingface.co/datasets/linguanxin/CaveBench) · [Scene examples](docs/examples/index.json) · [Results](results/question_scores.csv)
+[Project page](https://pier-lab.github.io/CaveBench/) · [Paper](docs/papers/CaveBench.pdf) · [Supplement](docs/papers/Supplement.pdf) · [Dataset](https://huggingface.co/datasets/linguanxin/CaveBench) · [Scene examples](docs/examples/index.json) · [Results](results/question_scores.csv)
 
 CaveBench evaluates whether a vision–language model can reconstruct the external controls applied to a physical apparatus from its internal observations. Each question contains the apparatus description, its permitted controls and an ordered sequence of images. The model identifies the set of controls applied at each event. The 20 apparatuses cover dynamics, thermal physics, electromagnetism, acoustics and optics.
 
