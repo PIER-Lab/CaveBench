@@ -17,13 +17,29 @@ The fixed evaluation contains 1,180 questions drawn from 200 episodes. Each ques
 
 ## Results
 
-Across the 200 six-event questions, GPT-6.1 Sol scores 68.0% exact match. The best open-weight configuration reaches 12.5%. The repository includes 31,860 question-level scores across 27 configurations.
+Across the 200 six-event questions, GPT-6.1 Sol recovers 136 complete sequences (68.0%). The best open-weight configuration recovers 25 (12.5%). The release includes 31,860 question-level scores across 27 model configurations.
 
-| Comparison | Results |
+**Accuracy by physical domain.** Each of the six tables gives the accuracy of all 27 configurations in dynamics, thermal physics, electromagnetism, acoustics and optics. For one and two events, 190 questions contribute to each table. Each longer question length has 200 questions. The project page can download each displayed table as a CSV.
+
+| Events per question | One | Two | Three | Four | Five | Six |
+|---|---|---|---|---|---|---|
+| Domain table | [k = 1](https://pier-lab.github.io/CaveBench/#domain-k1) | [k = 2](https://pier-lab.github.io/CaveBench/#domain-k2) | [k = 3](https://pier-lab.github.io/CaveBench/#domain-k3) | [k = 4](https://pier-lab.github.io/CaveBench/#domain-k4) | [k = 5](https://pier-lab.github.io/CaveBench/#domain-k5) | [k = 6](https://pier-lab.github.io/CaveBench/#domain-k6) |
+
+**Accuracy by apparatus.** Select any of the 20 apparatuses to compare models at all six question lengths. Each reported cell has ten eligible questions. S11 (dielectric response) begins at three events, so its one- and two-event cells have zero eligible questions and empty accuracy fields. [Browse the apparatus tables](https://pier-lab.github.io/CaveBench/#apparatus-S01)
+
+| Results and underlying counts | Data |
 |---|---|
-| Six-event accuracy by physical domain | [Domain table](docs/assets/domains.csv) |
-| Exact match by question length | [Question-length table](docs/assets/length.csv) |
-| Seven adaptation methods and their baselines | [Adaptation table](docs/assets/methods.csv) |
+| Main leaderboard by domain, apparatus and question length | [Domain × length](docs/assets/results/domain_by_length.csv) · [Apparatus × length](docs/assets/results/scene_by_length.csv) · [Overall by length](docs/assets/length.csv) |
+| SFT, DPO, SimPO and KTO on Qwen3.5-9B, plus ReAct, Visual Sketchpad and ViperGPT on Gemini 3.8 Flash | [Full results by run and length](docs/assets/results/adaptation_by_length.csv) · [By apparatus](docs/assets/results/adaptation_by_scene.csv) · [Published summary](docs/assets/methods.csv) |
+| Figure 1 comparison, Figure 5 dielectric-response predictions and Figure 6 reasoning-effort experiment | [Figure 1 counts](docs/assets/results/figure1.csv) · [Figure 5 event-by-event predictions](docs/assets/results/training_case.csv) · [Figure 6 scores by model, effort and apparatus](docs/assets/results/effort_results.csv) |
+| Event-position accuracy on six-event questions, single- and two-label questions, and error classifications | [Event positions](docs/assets/results/event_positions.csv) · [Control composition](docs/assets/results/compound_by_length.csv) · [Error counts](docs/assets/results/error_categories.csv) |
+| Candidate-control vocabulary, uniform-choice probability and related benchmark tasks | [Apparatus statistics](docs/assets/results/scene_controls.csv) · [Uniform-choice reference](docs/assets/results/uniform_reference.csv) · [Benchmark comparison with sources](docs/assets/results/benchmark_comparison.csv) |
+
+Exact match requires the correct control set at every event. Event accuracy counts correctly predicted sets at individual positions. The adaptation files list the training runs separately, including the two runs and their mean for each of SimPO and KTO. The reasoning-effort file gives both initial and final answers at Low, Medium and High effort. The [detailed tables](https://pier-lab.github.io/CaveBench/#detailed-results) offer both metrics.
+
+Individual question scores are available for the [main comparison](results/question_scores.csv), [11 adaptation runs and baselines](results/adaptation_question_scores.csv), and [reasoning-effort experiment](results/effort_question_scores.csv).
+
+From the repository root, run `python verify_results.py` to recompute the main evaluation, adaptation and reasoning-effort tables from these scores and check their numerators and denominators offline.
 
 ## Evaluation
 
