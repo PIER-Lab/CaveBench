@@ -153,55 +153,6 @@ renderScene(initial.id);
 if (sceneFromHash()) requestAnimationFrame(()=>$('#viewer').scrollIntoView({block:'start'}));
 window.addEventListener('hashchange',()=>{ const item=sceneFromHash(); if(item){chooseScene(item);$('#viewer').scrollIntoView({block:'start'});} });
 
-const notes={
-  domains:'Six-event exact-match accuracy (%) on 200 questions, 40 per domain.',
-  length:'Exact-match accuracy (%) by event count k. Overall pools all 1,180 questions.',
-  methods:'Exact-match accuracy (%) by event count k. Overall pools all 1,180 questions.'
-};
-let tableKey='domains', sortColumn=null, ascending=false;
-function renderTable() {
-  const config=tables[tableKey];
-  const table=$('#results');
-  table.replaceChildren();
-  const hrow=table.createTHead().insertRow();
-  [tableKey==='methods'?'Method':'Model',...config.columns].forEach((name,i)=>{
-    const col=i-1;
-    const head=node('th'); head.scope='col';
-    head.setAttribute('aria-sort',sortColumn===col?(ascending?'ascending':'descending'):'none');
-    const btn=node('button',name+(sortColumn===col?(ascending?' ↑':' ↓'):''));
-    btn.type='button'; btn.title='Sort by '+name;
-    btn.onclick=()=>{
-      ascending=sortColumn===col ? !ascending : col===-1;
-      sortColumn=col; renderTable(); $('#results thead').querySelectorAll('button')[i].focus();
-    };
-    head.append(btn);hrow.append(head);
-  });
-  const groups=[...new Set(config.rows.map(r=>r.group))];
-  for (const group of groups) {
-    const body=table.createTBody(); const groupRow=body.insertRow();
-    groupRow.className='group';
-    const label=node('th',group); label.scope='rowgroup'; label.colSpan=config.columns.length+1; groupRow.append(label);
-    const values=config.rows.filter(r=>r.group===group);
-    const maxima=config.columns.map((_,i)=>Math.max(...values.map(r=>r.values[i])));
-    if(sortColumn!==null) values.sort((a,b)=>(ascending?1:-1)*(sortColumn===-1?a.name.localeCompare(b.name):a.values[sortColumn]-b.values[sortColumn]));
-    for (const result of values) {
-      const row=body.insertRow(); const title=node('th',result.name); title.scope='row'; row.append(title);
-      result.values.forEach((value,i)=>row.append(node('td',value.toFixed(1),value===maxima[i]?'best':'')));
-    }
-  }
-  $('#table-note').textContent=notes[tableKey]+' Select a column to sort within groups.';
-  $('#download').href='assets/'+tableKey+'.csv';
-}
-document.querySelectorAll('[data-table]').forEach(button=>{
-  button.onclick=()=>{
-    tableKey=button.dataset.table;
-    sortColumn=null; ascending=false;
-    document.querySelectorAll('[data-table]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
-    renderTable();
-  };
-});
-renderTable();
-
 const lightbox=$('#lightbox');
 document.addEventListener('click',e=>{
   const target=e.target.closest('a.zoom');
