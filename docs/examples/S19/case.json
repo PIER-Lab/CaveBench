@@ -1,0 +1,113 @@
+{
+  "id": "S19",
+  "title": "Graded refraction",
+  "domain": "Optics",
+  "question_id": "scene_17/sample_0001/k6",
+  "sample_id": "sample_0001",
+  "model": "GPT-6.1 Sol",
+  "model_id": "openai/gpt-6.1-sol",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nAPPARATUS\nThree fixed collimated rays travel from a source assembly on the left toward one finite receiver panel on the right. The receiver is a fixed rectangular screen with a visible border and fixed reference marks; the three visible spots come from the same rays in every frame. A single finite transparent graded-index insert lies between source and receiver and all three rays pass through it. The insert starts near the optical centre, is supported by one rigid carriage, and retains its accumulated pose between events. The camera is near the receiver looking back toward the source: image-right is the receiver/source-axis direction and image-up is laboratory +y; the near transverse side is toward the camera and the far side is away from it. The insert has approximate half-extents 0.90 m along the beam, 0.39 m vertically and 0.54 m transversely, with a smooth superellipsoidal boundary.\n\nThe effective index inside the insert follows the calibrated finite profile n=1+0.10(1-q)^2 where q is the superellipsoidal normalized radius (and n=1 outside). The three rays are integrated through this field and then meet the same finite receiver. This calibration describes the apparatus; it does not give a direct answer mapping from one spot displacement to one label. Small shape changes between samples are physical radius/exponent variations, not extra events.\n\nALLOWED LABELS\nmedium_left: translate the insert toward the source side along the optical axis.\nmedium_right: translate it toward the receiver side along the optical axis.\nmedium_near: translate it toward the camera-side transverse direction.\nmedium_far: translate it away from the camera-side transverse direction.\nmedium_rotate: rotate the insert with positive yaw about the laboratory vertical axis.\nmedium_counterrotate: rotate it with negative yaw about that same axis.\nEach transition contains exactly one of these controls. The insert is not reset between transitions. Motion can leave residual pose or optical response from an earlier transition.\n\n\n\nCURRENT INTERIOR DISPLAY\nIn the current delivered interior images, all three spots have a similar yellow/amber appearance. Their colours do not identify separate rays. Track the three-spot geometry relative to the fixed receiver border and reference marks; do not assume red, amber and blue identities are visibly available.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nEach event image shows the response to exactly one new insert-control event. The insert retains its accumulated pose. Track the shared three-spot geometry relative to the fixed receiver border and reference marks, including the preceding state.\nCapture times (physical/native capture time in seconds): F0=0.000000 s; F1=8.500000 s; F2=14.666667 s; F3=20.866669 s; F4=27.066668 s; F5=33.266670 s; F6=39.466667 s.\n\nALLOWED ATOMIC LABELS\nmedium_left, medium_right, medium_near, medium_far, medium_rotate, medium_counterrotate\n\nALLOWED EVENT LABEL SETS\n[[\"medium_left\"],[\"medium_right\"],[\"medium_near\"],[\"medium_far\"],[\"medium_rotate\"],[\"medium_counterrotate\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"medium_left\"], [\"medium_right\"], [\"medium_near\"], [\"medium_far\"], [\"medium_rotate\"], [\"medium_counterrotate\"]].",
+  "frame_labels": [
+    "Frame F0",
+    "Frame F1",
+    "Frame F2",
+    "Frame F3",
+    "Frame F4",
+    "Frame F5",
+    "Frame F6"
+  ],
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "response": "{\"operations\":[[\"medium_near\"],[\"medium_left\"],[\"medium_rotate\"],[\"medium_far\"],[\"medium_counterrotate\"],[\"medium_right\"]]}",
+  "reference": [
+    [
+      "medium_rotate"
+    ],
+    [
+      "medium_far"
+    ],
+    [
+      "medium_left"
+    ],
+    [
+      "medium_near"
+    ],
+    [
+      "medium_counterrotate"
+    ],
+    [
+      "medium_right"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "medium_rotate"
+      ],
+      "predicted": [
+        "medium_near"
+      ],
+      "correct": false
+    },
+    {
+      "event": 2,
+      "expected": [
+        "medium_far"
+      ],
+      "predicted": [
+        "medium_left"
+      ],
+      "correct": false
+    },
+    {
+      "event": 3,
+      "expected": [
+        "medium_left"
+      ],
+      "predicted": [
+        "medium_rotate"
+      ],
+      "correct": false
+    },
+    {
+      "event": 4,
+      "expected": [
+        "medium_near"
+      ],
+      "predicted": [
+        "medium_far"
+      ],
+      "correct": false
+    },
+    {
+      "event": 5,
+      "expected": [
+        "medium_counterrotate"
+      ],
+      "predicted": [
+        "medium_counterrotate"
+      ],
+      "correct": true
+    },
+    {
+      "event": 6,
+      "expected": [
+        "medium_right"
+      ],
+      "predicted": [
+        "medium_right"
+      ],
+      "correct": true
+    }
+  ],
+  "exact_match": false
+}

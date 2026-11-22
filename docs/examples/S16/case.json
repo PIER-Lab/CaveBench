@@ -1,0 +1,131 @@
+{
+  "id": "S16",
+  "title": "Two-source ripples",
+  "domain": "Acoustics",
+  "question_id": "scene_20/sample_0001/k6",
+  "sample_id": "sample_0001",
+  "model": "GPT-6.1 Sol",
+  "model_id": "openai/gpt-6.1-sol",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nApparatus: a rectangular 4.8 m by 3.6 m ripple tank contains two fixed, circular, vertically moving plungers. Node A is the left-hand blue plunger and node B is the right-hand orange plunger in the overhead interior view; their positions and body colours do not exchange. Each plunger is connected to its own supported external actuator. Two external knobs set the phase of A and the phase difference B minus A. The knobs and actuator housings are outside the interior view. Both nodes run at 1.00 Hz with 0.021 m displacement amplitude. This is a calibrated linear surface-wave analogue with wave speed 0.66 m/s, damping and reflecting tank boundaries, not a calibrated simulation of sound propagating through water. The surrounding surface uses one continuous signed-height colour display: orange/brown is above mean height, blue is below, and grey is near mean height. Colours do not identify control labels. The state is not reset between events.\n\nControls: every event sets two values simultaneously. PhaseA_0deg, PhaseA_90deg and PhaseA_180deg set A's absolute phase offset to 0, 90 and 180 degrees. DeltaBA_0deg, DeltaBA_90deg and DeltaBA_180deg set B's phase minus A's phase to 0, 90 and 180 degrees. Either value may equal its previous setting. To specify the phase convention, after the actuator's 1.00 s smooth transition its vertical displacement is y_A(t)=0.021 sin(2*pi*t+phi_A), y_B(t)=0.021 sin(2*pi*t+phi_A+delta_BA), in metres, with upward positive, angles in radians in these formulas, and t the global elapsed time in seconds. The phase clock is not restarted at event boundaries. These formulas define the actuator commands, not the water-surface response.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nThe initial image is the unpowered flat surface at physical time zero. Commands are 6.0 s apart. Each event image is sampled at physical time 5.64 s after its command begins. The phase formulas use the global physical clock printed below, never a clock restarted at event boundaries. The wave field retains its physical history.\nCapture times (physical/native capture time in seconds): F0=0.000000 s; F1=7.640000 s; F2=13.640000 s; F3=19.639999 s; F4=25.639999 s; F5=31.639999 s; F6=37.639999 s.\nSupplied event start times: 2 s, 8 s, 14 s, 20 s, 26 s, 32 s.\n\nALLOWED ATOMIC LABELS\nPhaseA_0deg, PhaseA_90deg, PhaseA_180deg, DeltaBA_0deg, DeltaBA_90deg, DeltaBA_180deg\n\nALLOWED EVENT LABEL SETS\n[[\"DeltaBA_0deg\",\"PhaseA_0deg\"],[\"DeltaBA_90deg\",\"PhaseA_0deg\"],[\"DeltaBA_180deg\",\"PhaseA_0deg\"],[\"DeltaBA_0deg\",\"PhaseA_90deg\"],[\"DeltaBA_90deg\",\"PhaseA_90deg\"],[\"DeltaBA_180deg\",\"PhaseA_90deg\"],[\"DeltaBA_0deg\",\"PhaseA_180deg\"],[\"DeltaBA_90deg\",\"PhaseA_180deg\"],[\"DeltaBA_180deg\",\"PhaseA_180deg\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"DeltaBA_0deg\", \"PhaseA_0deg\"], [\"DeltaBA_90deg\", \"PhaseA_0deg\"], [\"DeltaBA_180deg\", \"PhaseA_0deg\"], [\"DeltaBA_0deg\", \"PhaseA_90deg\"], [\"DeltaBA_90deg\", \"PhaseA_90deg\"], [\"DeltaBA_180deg\", \"PhaseA_90deg\"], [\"DeltaBA_0deg\", \"PhaseA_180deg\"], [\"DeltaBA_90deg\", \"PhaseA_180deg\"], [\"DeltaBA_180deg\", \"PhaseA_180deg\"]].",
+  "frame_labels": [
+    "Frame F0",
+    "Frame F1",
+    "Frame F2",
+    "Frame F3",
+    "Frame F4",
+    "Frame F5",
+    "Frame F6"
+  ],
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "response": "{\"operations\":[[\"DeltaBA_180deg\",\"PhaseA_180deg\"],[\"DeltaBA_180deg\",\"PhaseA_0deg\"],[\"DeltaBA_180deg\",\"PhaseA_90deg\"],[\"DeltaBA_0deg\",\"PhaseA_0deg\"],[\"DeltaBA_90deg\",\"PhaseA_0deg\"],[\"DeltaBA_90deg\",\"PhaseA_90deg\"]]}",
+  "reference": [
+    [
+      "DeltaBA_180deg",
+      "PhaseA_180deg"
+    ],
+    [
+      "DeltaBA_180deg",
+      "PhaseA_0deg"
+    ],
+    [
+      "DeltaBA_180deg",
+      "PhaseA_90deg"
+    ],
+    [
+      "DeltaBA_0deg",
+      "PhaseA_0deg"
+    ],
+    [
+      "DeltaBA_90deg",
+      "PhaseA_0deg"
+    ],
+    [
+      "DeltaBA_90deg",
+      "PhaseA_90deg"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "DeltaBA_180deg",
+        "PhaseA_180deg"
+      ],
+      "predicted": [
+        "DeltaBA_180deg",
+        "PhaseA_180deg"
+      ],
+      "correct": true
+    },
+    {
+      "event": 2,
+      "expected": [
+        "DeltaBA_180deg",
+        "PhaseA_0deg"
+      ],
+      "predicted": [
+        "DeltaBA_180deg",
+        "PhaseA_0deg"
+      ],
+      "correct": true
+    },
+    {
+      "event": 3,
+      "expected": [
+        "DeltaBA_180deg",
+        "PhaseA_90deg"
+      ],
+      "predicted": [
+        "DeltaBA_180deg",
+        "PhaseA_90deg"
+      ],
+      "correct": true
+    },
+    {
+      "event": 4,
+      "expected": [
+        "DeltaBA_0deg",
+        "PhaseA_0deg"
+      ],
+      "predicted": [
+        "DeltaBA_0deg",
+        "PhaseA_0deg"
+      ],
+      "correct": true
+    },
+    {
+      "event": 5,
+      "expected": [
+        "DeltaBA_90deg",
+        "PhaseA_0deg"
+      ],
+      "predicted": [
+        "DeltaBA_90deg",
+        "PhaseA_0deg"
+      ],
+      "correct": true
+    },
+    {
+      "event": 6,
+      "expected": [
+        "DeltaBA_90deg",
+        "PhaseA_90deg"
+      ],
+      "predicted": [
+        "DeltaBA_90deg",
+        "PhaseA_90deg"
+      ],
+      "correct": true
+    }
+  ],
+  "exact_match": true
+}

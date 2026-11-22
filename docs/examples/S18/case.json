@@ -1,0 +1,122 @@
+{
+  "id": "S18",
+  "title": "Double reflection",
+  "domain": "Optics",
+  "question_id": "scene_09/sample_0003/k6",
+  "sample_id": "sample_0003",
+  "model": "GPT-6.1 Sol",
+  "model_id": "openai/gpt-6.1-sol",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nAPPARATUS\nThree fixed sources produce red, green and blue rays. Each ray travels from its source to Mirror1, then Mirror2, then one flat receiver screen. Mirror1 is left of and upstream of Mirror2; the screen is farther downstream. Both plane mirrors are 1.90 m wide and 1.40 m high and rotate about fixed centres without translating. The interior camera shows only the receiver screen and three spots, not the sources or mirrors. The screen grid spacing is 0.50 m. Colours distinguish rays, not operations.\n\nUse the apparatus frame: +x is image-right, +y image-up, and +z downstream toward the screen. The screen centre is (0, 1.55, 4.675640) m; the camera faces approximately along +z with a small fixed calibration offset. Mirror1 is centred at (-1.20, 1.55, 0) m; Mirror2 at (1.00, 1.55, 1.80) m. Both stages have zero yaw and pitch at F0. Their oriented unit normals at zero are:\nMirror1: (-0.903670, 0.000000, 0.428230)\nMirror2: (0.962371, 0.000000, -0.271739)\nThe sources have these fixed positions in metres and unit launch directions:\nRed: position (-1.200000, 1.550000, -3.000000); direction (-0.000000, 0.000000, 1.000000)\nGreen: position (-1.739703, 0.787610, -3.331593); direction (0.118216, 0.157859, 0.980360)\nBlue: position (-0.429980, 2.619942, -2.446326); direction (-0.194988, -0.260376, 0.945613)\nThese rounded values specify the fixed apparatus, including geometry outside the camera view, not any event measurement.\n\nCONTROLS\nAn event applies one action to one mirror, or one action on each mirror simultaneously. Mirror1's yaw and pitch increments are both 1.00 degree. Mirror2's yaw increment is 2.00 degrees and its pitch increment is 1.50 degrees. A selected stage completes its increment in 1.20 seconds; simultaneously selected stages start together. All settings accumulate without resets.\n\nMirror1Right and Mirror2Right increase the selected mirror's yaw about +y, the rotation taking +z toward +x; Mirror1Left and Mirror2Left decrease it. Mirror1Up and Mirror2Up increase pitch, tilting the chosen oriented normal toward +y from its horizontal zero-pitch heading; Mirror1Down and Mirror2Down decrease pitch. Unselected axes retain their settings.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nEach event image is a native interior frame 3.50 s after its command begins. Event commands are 5.50 s apart. Mirror settings accumulate, and a single event may change both mirrors.\nCapture times (physical/native capture time in seconds): F0=1.966667 s; F1=5.500000 s; F2=11.000000 s; F3=16.500000 s; F4=22.000000 s; F5=27.500000 s; F6=33.000000 s.\nSupplied event start times: 2 s, 7.5 s, 13 s, 18.5 s, 24 s, 29.5 s.\n\nALLOWED ATOMIC LABELS\nMirror1Left, Mirror1Right, Mirror1Up, Mirror1Down, Mirror2Left, Mirror2Right, Mirror2Up, Mirror2Down\n\nALLOWED EVENT LABEL SETS\n[[\"Mirror1Left\"],[\"Mirror1Right\"],[\"Mirror1Up\"],[\"Mirror1Down\"],[\"Mirror2Left\"],[\"Mirror2Right\"],[\"Mirror2Up\"],[\"Mirror2Down\"],[\"Mirror1Left\",\"Mirror2Left\"],[\"Mirror1Left\",\"Mirror2Right\"],[\"Mirror1Left\",\"Mirror2Up\"],[\"Mirror1Left\",\"Mirror2Down\"],[\"Mirror1Right\",\"Mirror2Left\"],[\"Mirror1Right\",\"Mirror2Right\"],[\"Mirror1Right\",\"Mirror2Up\"],[\"Mirror1Right\",\"Mirror2Down\"],[\"Mirror1Up\",\"Mirror2Left\"],[\"Mirror1Up\",\"Mirror2Right\"],[\"Mirror1Up\",\"Mirror2Up\"],[\"Mirror1Up\",\"Mirror2Down\"],[\"Mirror1Down\",\"Mirror2Left\"],[\"Mirror1Down\",\"Mirror2Right\"],[\"Mirror1Down\",\"Mirror2Up\"],[\"Mirror1Down\",\"Mirror2Down\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"Mirror1Left\"], [\"Mirror1Right\"], [\"Mirror1Up\"], [\"Mirror1Down\"], [\"Mirror2Left\"], [\"Mirror2Right\"], [\"Mirror2Up\"], [\"Mirror2Down\"], [\"Mirror1Left\", \"Mirror2Left\"], [\"Mirror1Left\", \"Mirror2Right\"], [\"Mirror1Left\", \"Mirror2Up\"], [\"Mirror1Left\", \"Mirror2Down\"], [\"Mirror1Right\", \"Mirror2Left\"], [\"Mirror1Right\", \"Mirror2Right\"], [\"Mirror1Right\", \"Mirror2Up\"], [\"Mirror1Right\", \"Mirror2Down\"], [\"Mirror1Up\", \"Mirror2Left\"], [\"Mirror1Up\", \"Mirror2Right\"], [\"Mirror1Up\", \"Mirror2Up\"], [\"Mirror1Up\", \"Mirror2Down\"], [\"Mirror1Down\", \"Mirror2Left\"], [\"Mirror1Down\", \"Mirror2Right\"], [\"Mirror1Down\", \"Mirror2Up\"], [\"Mirror1Down\", \"Mirror2Down\"]].",
+  "frame_labels": [
+    "Frame F0",
+    "Frame F1",
+    "Frame F2",
+    "Frame F3",
+    "Frame F4",
+    "Frame F5",
+    "Frame F6"
+  ],
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "response": "{\"operations\":[[\"Mirror1Right\",\"Mirror2Left\"],[\"Mirror1Down\",\"Mirror2Left\"],[\"Mirror1Left\",\"Mirror2Down\"],[\"Mirror1Right\"],[\"Mirror1Left\"],[\"Mirror2Down\"]]}",
+  "reference": [
+    [
+      "Mirror1Right",
+      "Mirror2Left"
+    ],
+    [
+      "Mirror1Down",
+      "Mirror2Left"
+    ],
+    [
+      "Mirror1Left",
+      "Mirror2Down"
+    ],
+    [
+      "Mirror1Right"
+    ],
+    [
+      "Mirror1Left"
+    ],
+    [
+      "Mirror2Down"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "Mirror1Right",
+        "Mirror2Left"
+      ],
+      "predicted": [
+        "Mirror1Right",
+        "Mirror2Left"
+      ],
+      "correct": true
+    },
+    {
+      "event": 2,
+      "expected": [
+        "Mirror1Down",
+        "Mirror2Left"
+      ],
+      "predicted": [
+        "Mirror1Down",
+        "Mirror2Left"
+      ],
+      "correct": true
+    },
+    {
+      "event": 3,
+      "expected": [
+        "Mirror1Left",
+        "Mirror2Down"
+      ],
+      "predicted": [
+        "Mirror1Left",
+        "Mirror2Down"
+      ],
+      "correct": true
+    },
+    {
+      "event": 4,
+      "expected": [
+        "Mirror1Right"
+      ],
+      "predicted": [
+        "Mirror1Right"
+      ],
+      "correct": true
+    },
+    {
+      "event": 5,
+      "expected": [
+        "Mirror1Left"
+      ],
+      "predicted": [
+        "Mirror1Left"
+      ],
+      "correct": true
+    },
+    {
+      "event": 6,
+      "expected": [
+        "Mirror2Down"
+      ],
+      "predicted": [
+        "Mirror2Down"
+      ],
+      "correct": true
+    }
+  ],
+  "exact_match": true
+}

@@ -1,0 +1,113 @@
+{
+  "id": "S15",
+  "title": "Doppler response",
+  "domain": "Acoustics",
+  "question_id": "scene_19/sample_0001/k6",
+  "sample_id": "sample_0001",
+  "model": "GPT-6.1 Sol",
+  "model_id": "openai/gpt-6.1-sol",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nApparatus: a siren mounted on a rail cart emits a steady 100 Hz tone. A stationary receiving horn is beyond one end of the straight rail; the cart stays on the same side of this horn throughout the experiment. The cart, rail and control lever are outside the interior camera view. The camera faces a fixed listening cabinet containing either 9 or 11 vertical, narrow-band indicator rods with orange paper flags, fixed bottom supports and a back wall. Rod heights are not ordered from left to right; alternate supports occupy slightly different depths. Count the installed rods in the initial image. From shortest rod to longest rod, a 9-rod bank is calibrated at 100.8, 100.6, 100.4, 100.2, 100.0, 99.8, 99.6, 99.4, 99.2 Hz; an 11-rod bank is calibrated at 101.0, 100.8, 100.6, 100.4, 100.2, 100.0, 99.8, 99.6, 99.4, 99.2, 99.0 Hz. Do not assume frequency order follows left-to-right screen position. These are calibrated amplitude indicators: their slow, camera-visible motion displays each channel's response envelope, rather than literal 100 Hz displacement. There is no audio input. The cart is stationary before the first event. The apparatus state is not reset between events.\n\nExternal controls: each event selects exactly one of four cart settings. SlowApproach means low-speed travel toward the receiving horn; FastApproach means high-speed travel toward the horn; SlowRecede means low-speed travel away from the horn; FastRecede means high-speed travel away from the horn. Low and high nominal speeds are approximately 0.64 and 2.15 m/s. The source tone itself is unchanged.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nThe initial image is taken before the first cart setting; the cart is initially stationary. Each later image is one native response frame for the next cart setting. Indicator rods display slow response envelopes, with previous envelope motion retained. No audio or exterior cart image is supplied.\nCapture times (physical/native capture time in seconds): F0=2.383333 s; F1=8.533334 s; F2=14.433334 s; F3=18.566668 s; F4=26.933334 s; F5=30.916668 s; F6=37.116669 s.\n\nALLOWED ATOMIC LABELS\nSlowApproach, FastApproach, FastRecede, SlowRecede\n\nALLOWED EVENT LABEL SETS\n[[\"SlowApproach\"],[\"FastApproach\"],[\"FastRecede\"],[\"SlowRecede\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"SlowApproach\"], [\"FastApproach\"], [\"FastRecede\"], [\"SlowRecede\"]].",
+  "frame_labels": [
+    "Frame F0",
+    "Frame F1",
+    "Frame F2",
+    "Frame F3",
+    "Frame F4",
+    "Frame F5",
+    "Frame F6"
+  ],
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "response": "{\"operations\":[[\"FastApproach\"],[\"SlowApproach\"],[\"SlowRecede\"],[\"SlowApproach\"],[\"SlowRecede\"],[\"FastRecede\"]]}",
+  "reference": [
+    [
+      "FastApproach"
+    ],
+    [
+      "SlowApproach"
+    ],
+    [
+      "SlowRecede"
+    ],
+    [
+      "SlowApproach"
+    ],
+    [
+      "SlowRecede"
+    ],
+    [
+      "FastRecede"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "FastApproach"
+      ],
+      "predicted": [
+        "FastApproach"
+      ],
+      "correct": true
+    },
+    {
+      "event": 2,
+      "expected": [
+        "SlowApproach"
+      ],
+      "predicted": [
+        "SlowApproach"
+      ],
+      "correct": true
+    },
+    {
+      "event": 3,
+      "expected": [
+        "SlowRecede"
+      ],
+      "predicted": [
+        "SlowRecede"
+      ],
+      "correct": true
+    },
+    {
+      "event": 4,
+      "expected": [
+        "SlowApproach"
+      ],
+      "predicted": [
+        "SlowApproach"
+      ],
+      "correct": true
+    },
+    {
+      "event": 5,
+      "expected": [
+        "SlowRecede"
+      ],
+      "predicted": [
+        "SlowRecede"
+      ],
+      "correct": true
+    },
+    {
+      "event": 6,
+      "expected": [
+        "FastRecede"
+      ],
+      "predicted": [
+        "FastRecede"
+      ],
+      "correct": true
+    }
+  ],
+  "exact_match": true
+}
