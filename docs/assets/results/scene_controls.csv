@@ -1,0 +1,21 @@
+scene,apparatus,domain,episodes,labels,candidate_sets,single_events,paired_events,events
+S01,Cabin inertia,Dynamics,10,4,8,0,60,60
+S02,Rotation & gas,Dynamics,10,4,4,60,0,60
+S03,Driven pendulums,Dynamics,10,3,3,60,0,60
+S04,Tray impact,Dynamics,10,4,8,20,40,60
+S05,Moving heat source,Thermal,10,4,8,18,42,60
+S06,Layered liquids,Thermal,10,4,4,0,60,60
+S07,Heated gas bulbs,Thermal,10,3,6,30,30,60
+S08,Bimetal supports,Thermal,10,3,6,20,40,60
+S09,Magnetic coils,Electromagnetism,10,6,6,60,0,60
+S10,Electric dipoles,Electromagnetism,10,4,8,23,37,60
+S11,Dielectric response,Electromagnetism,10,3,3,60,0,60
+S12,Conducting wires,Electromagnetism,10,6,6,60,0,60
+S13,Standing waves,Acoustics,10,4,8,17,43,60
+S14,Wave scattering,Acoustics,10,4,10,31,29,60
+S15,Doppler response,Acoustics,10,4,4,60,0,60
+S16,Two-source ripples,Acoustics,10,6,9,0,60,60
+S17,Photoelastic load,Optics,10,4,4,60,0,60
+S18,Double reflection,Optics,10,8,24,26,34,60
+S19,Graded refraction,Optics,10,6,6,60,0,60
+S20,Double-slit fringes,Optics,10,4,8,33,27,60

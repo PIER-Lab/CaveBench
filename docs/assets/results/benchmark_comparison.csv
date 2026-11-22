@@ -1,0 +1,7 @@
+benchmark,evidence,task,response,source
+Galileo,Videos of interacting objects,Infer physical properties from motion,Object properties such as mass or friction,https://proceedings.neurips.cc/paper/2015/file/d09bf41544a3365a46c9077ebb5e35c3-Paper.pdf
+Physion,Initial segment of a simulated video,Predict future contact,Whether a designated pair of objects will touch,https://physion-benchmark.github.io/
+CLEVRER,Video of moving and colliding objects,"Describe, explain or predict an event, or reason about a counterfactual",Answer to a question about the scene or its events,https://clevrer.csail.mit.edu/
+NL-Eye,One premise image and two hypothesis images,Compare the plausibility of the hypotheses,Selected hypothesis and explanation,https://venturamor.github.io/NLEye/
+SSI-Bench,Images of structures with marked components,Compare geometric or topological relations,Ranking of candidate components,https://ssi-bench.github.io/
+CaveBench,Apparatus description and ordered internal frames,Recover the external interventions,Ordered sequence of complete control-label sets,

@@ -1,0 +1,6 @@
+model,correct,total,accuracy_pct
+GPT-6.1 Sol,136,200,68.0
+Gemini 3.8 Flash,43,200,21.5
+Claude Sonnet 5.5,33,200,16.5
+Qwen3.8 Flash,28,200,14.0
+MiniMax M3.1 Flash,25,200,12.5

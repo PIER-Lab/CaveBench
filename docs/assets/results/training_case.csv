@@ -1,0 +1,7 @@
+event,reference,baseline,simpo_20261108,simpo_20261109
+1,InsertFully,InsertHalf,InsertFully,InsertFully
+2,WithdrawDielectric,WithdrawDielectric,WithdrawDielectric,WithdrawDielectric
+3,InsertHalf,InsertFully,InsertHalf,InsertHalf
+4,WithdrawDielectric,WithdrawDielectric,WithdrawDielectric,WithdrawDielectric
+5,InsertHalf,InsertHalf,InsertHalf,InsertHalf
+6,WithdrawDielectric,WithdrawDielectric,WithdrawDielectric,WithdrawDielectric

@@ -1,0 +1,325 @@
+model_key,model,k,composition,correct,total,accuracy_pct
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,1,Single-label events only,85,100,85.000000
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,1,Includes a two-label event,74,90,82.222222
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,2,Single-label events only,57,78,73.076923
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,2,Includes a two-label event,86,112,76.785714
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,3,Single-label events only,66,81,81.481481
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,3,Includes a two-label event,87,119,73.109244
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,4,Single-label events only,57,80,71.250000
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,4,Includes a two-label event,85,120,70.833333
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,5,Single-label events only,56,80,70.000000
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,5,Includes a two-label event,85,120,70.833333
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,6,Single-label events only,57,80,71.250000
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,6,Includes a two-label event,79,120,65.833333
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,1,Single-label events only,83,100,83.000000
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,1,Includes a two-label event,71,90,78.888889
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,2,Single-label events only,50,78,64.102564
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,2,Includes a two-label event,92,112,82.142857
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,3,Single-label events only,59,81,72.839506
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,3,Includes a two-label event,84,119,70.588235
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,4,Single-label events only,55,80,68.750000
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,4,Includes a two-label event,80,120,66.666667
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,5,Single-label events only,47,80,58.750000
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,5,Includes a two-label event,86,120,71.666667
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,6,Single-label events only,48,80,60.000000
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,6,Includes a two-label event,82,120,68.333333
+03_openai_gpt_6_luna,GPT-6 Luna,1,Single-label events only,61,100,61.000000
+03_openai_gpt_6_luna,GPT-6 Luna,1,Includes a two-label event,49,90,54.444444
+03_openai_gpt_6_luna,GPT-6 Luna,2,Single-label events only,38,78,48.717949
+03_openai_gpt_6_luna,GPT-6 Luna,2,Includes a two-label event,44,112,39.285714
+03_openai_gpt_6_luna,GPT-6 Luna,3,Single-label events only,40,81,49.382716
+03_openai_gpt_6_luna,GPT-6 Luna,3,Includes a two-label event,33,119,27.731092
+03_openai_gpt_6_luna,GPT-6 Luna,4,Single-label events only,33,80,41.250000
+03_openai_gpt_6_luna,GPT-6 Luna,4,Includes a two-label event,30,120,25.000000
+03_openai_gpt_6_luna,GPT-6 Luna,5,Single-label events only,31,80,38.750000
+03_openai_gpt_6_luna,GPT-6 Luna,5,Includes a two-label event,23,120,19.166667
+03_openai_gpt_6_luna,GPT-6 Luna,6,Single-label events only,31,80,38.750000
+03_openai_gpt_6_luna,GPT-6 Luna,6,Includes a two-label event,26,120,21.666667
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,1,Single-label events only,64,100,64.000000
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,1,Includes a two-label event,43,90,47.777778
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,2,Single-label events only,38,78,48.717949
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,2,Includes a two-label event,39,112,34.821429
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,3,Single-label events only,39,81,48.148148
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,3,Includes a two-label event,27,119,22.689076
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,4,Single-label events only,27,80,33.750000
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,4,Includes a two-label event,17,120,14.166667
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,5,Single-label events only,26,80,32.500000
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,5,Includes a two-label event,13,120,10.833333
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,6,Single-label events only,27,80,33.750000
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,6,Includes a two-label event,12,120,10.000000
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,1,Single-label events only,69,100,69.000000
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,1,Includes a two-label event,46,90,51.111111
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,2,Single-label events only,38,78,48.717949
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,2,Includes a two-label event,35,112,31.250000
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,3,Single-label events only,43,81,53.086420
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,3,Includes a two-label event,29,119,24.369748
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,4,Single-label events only,37,80,46.250000
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,4,Includes a two-label event,20,120,16.666667
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,5,Single-label events only,37,80,46.250000
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,5,Includes a two-label event,14,120,11.666667
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,6,Single-label events only,29,80,36.250000
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,6,Includes a two-label event,14,120,11.666667
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,1,Single-label events only,64,100,64.000000
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,1,Includes a two-label event,37,90,41.111111
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,2,Single-label events only,32,78,41.025641
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,2,Includes a two-label event,31,112,27.678571
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,3,Single-label events only,32,81,39.506173
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,3,Includes a two-label event,17,119,14.285714
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,4,Single-label events only,27,80,33.750000
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,4,Includes a two-label event,17,120,14.166667
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,5,Single-label events only,26,80,32.500000
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,5,Includes a two-label event,15,120,12.500000
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,6,Single-label events only,25,80,31.250000
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,6,Includes a two-label event,9,120,7.500000
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,1,Single-label events only,37,100,37.000000
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,1,Includes a two-label event,21,90,23.333333
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,2,Single-label events only,13,78,16.666667
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,2,Includes a two-label event,6,112,5.357143
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,3,Single-label events only,13,81,16.049383
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,3,Includes a two-label event,3,119,2.521008
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,4,Single-label events only,6,80,7.500000
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,4,Includes a two-label event,0,120,0.000000
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,5,Single-label events only,5,80,6.250000
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,5,Includes a two-label event,0,120,0.000000
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,6,Single-label events only,1,80,1.250000
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,6,Includes a two-label event,1,120,0.833333
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,1,Single-label events only,68,100,68.000000
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,1,Includes a two-label event,44,90,48.888889
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,2,Single-label events only,46,78,58.974359
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,2,Includes a two-label event,45,112,40.178571
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,3,Single-label events only,37,81,45.679012
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,3,Includes a two-label event,25,119,21.008403
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,4,Single-label events only,35,80,43.750000
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,4,Includes a two-label event,23,120,19.166667
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,5,Single-label events only,28,80,35.000000
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,5,Includes a two-label event,21,120,17.500000
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,6,Single-label events only,25,80,31.250000
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,6,Includes a two-label event,8,120,6.666667
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,1,Single-label events only,62,100,62.000000
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,1,Includes a two-label event,35,90,38.888889
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,2,Single-label events only,21,78,26.923077
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,2,Includes a two-label event,35,112,31.250000
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,3,Single-label events only,28,81,34.567901
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,3,Includes a two-label event,30,119,25.210084
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,4,Single-label events only,18,80,22.500000
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,4,Includes a two-label event,22,120,18.333333
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,5,Single-label events only,14,80,17.500000
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,5,Includes a two-label event,13,120,10.833333
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,6,Single-label events only,17,80,21.250000
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,6,Includes a two-label event,10,120,8.333333
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,1,Single-label events only,49,100,49.000000
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,1,Includes a two-label event,18,90,20.000000
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,2,Single-label events only,23,78,29.487179
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,2,Includes a two-label event,9,112,8.035714
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,3,Single-label events only,20,81,24.691358
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,3,Includes a two-label event,2,119,1.680672
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,4,Single-label events only,12,80,15.000000
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,4,Includes a two-label event,1,120,0.833333
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,5,Single-label events only,8,80,10.000000
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,5,Includes a two-label event,0,120,0.000000
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,6,Single-label events only,6,80,7.500000
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,6,Includes a two-label event,0,120,0.000000
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,1,Single-label events only,47,100,47.000000
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,1,Includes a two-label event,36,90,40.000000
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,2,Single-label events only,27,78,34.615385
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,2,Includes a two-label event,29,112,25.892857
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,3,Single-label events only,22,81,27.160494
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,3,Includes a two-label event,22,119,18.487395
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,4,Single-label events only,21,80,26.250000
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,4,Includes a two-label event,17,120,14.166667
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,5,Single-label events only,20,80,25.000000
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,5,Includes a two-label event,11,120,9.166667
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,6,Single-label events only,13,80,16.250000
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,6,Includes a two-label event,15,120,12.500000
+12_qwen_qwen3_8_27b,Qwen3.8 27B,1,Single-label events only,46,100,46.000000
+12_qwen_qwen3_8_27b,Qwen3.8 27B,1,Includes a two-label event,21,90,23.333333
+12_qwen_qwen3_8_27b,Qwen3.8 27B,2,Single-label events only,25,78,32.051282
+12_qwen_qwen3_8_27b,Qwen3.8 27B,2,Includes a two-label event,17,112,15.178571
+12_qwen_qwen3_8_27b,Qwen3.8 27B,3,Single-label events only,26,81,32.098765
+12_qwen_qwen3_8_27b,Qwen3.8 27B,3,Includes a two-label event,8,119,6.722689
+12_qwen_qwen3_8_27b,Qwen3.8 27B,4,Single-label events only,17,80,21.250000
+12_qwen_qwen3_8_27b,Qwen3.8 27B,4,Includes a two-label event,7,120,5.833333
+12_qwen_qwen3_8_27b,Qwen3.8 27B,5,Single-label events only,17,80,21.250000
+12_qwen_qwen3_8_27b,Qwen3.8 27B,5,Includes a two-label event,7,120,5.833333
+12_qwen_qwen3_8_27b,Qwen3.8 27B,6,Single-label events only,13,80,16.250000
+12_qwen_qwen3_8_27b,Qwen3.8 27B,6,Includes a two-label event,8,120,6.666667
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,1,Single-label events only,47,100,47.000000
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,1,Includes a two-label event,42,90,46.666667
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,2,Single-label events only,32,78,41.025641
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,2,Includes a two-label event,14,112,12.500000
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,3,Single-label events only,28,81,34.567901
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,3,Includes a two-label event,10,119,8.403361
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,4,Single-label events only,16,80,20.000000
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,4,Includes a two-label event,7,120,5.833333
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,5,Single-label events only,15,80,18.750000
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,5,Includes a two-label event,7,120,5.833333
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,6,Single-label events only,17,80,21.250000
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,6,Includes a two-label event,6,120,5.000000
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,1,Single-label events only,48,100,48.000000
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,1,Includes a two-label event,32,90,35.555556
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,2,Single-label events only,25,78,32.051282
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,2,Includes a two-label event,20,112,17.857143
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,3,Single-label events only,28,81,34.567901
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,3,Includes a two-label event,14,119,11.764706
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,4,Single-label events only,19,80,23.750000
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,4,Includes a two-label event,7,120,5.833333
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,5,Single-label events only,14,80,17.500000
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,5,Includes a two-label event,5,120,4.166667
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,6,Single-label events only,13,80,16.250000
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,6,Includes a two-label event,5,120,4.166667
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,1,Single-label events only,39,100,39.000000
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,1,Includes a two-label event,21,90,23.333333
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,2,Single-label events only,18,78,23.076923
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,2,Includes a two-label event,7,112,6.250000
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,3,Single-label events only,15,81,18.518519
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,3,Includes a two-label event,4,119,3.361345
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,4,Single-label events only,11,80,13.750000
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,4,Includes a two-label event,1,120,0.833333
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,5,Single-label events only,10,80,12.500000
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,5,Includes a two-label event,0,120,0.000000
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,6,Single-label events only,5,80,6.250000
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,6,Includes a two-label event,0,120,0.000000
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,1,Single-label events only,42,100,42.000000
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,1,Includes a two-label event,29,90,32.222222
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,2,Single-label events only,14,78,17.948718
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,2,Includes a two-label event,20,112,17.857143
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,3,Single-label events only,21,81,25.925926
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,3,Includes a two-label event,9,119,7.563025
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,4,Single-label events only,16,80,20.000000
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,4,Includes a two-label event,8,120,6.666667
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,5,Single-label events only,19,80,23.750000
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,5,Includes a two-label event,4,120,3.333333
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,6,Single-label events only,10,80,12.500000
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,6,Includes a two-label event,3,120,2.500000
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,1,Single-label events only,46,100,46.000000
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,1,Includes a two-label event,27,90,30.000000
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,2,Single-label events only,23,78,29.487179
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,2,Includes a two-label event,22,112,19.642857
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,3,Single-label events only,29,81,35.802469
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,3,Includes a two-label event,17,119,14.285714
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,4,Single-label events only,17,80,21.250000
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,4,Includes a two-label event,10,120,8.333333
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,5,Single-label events only,22,80,27.500000
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,5,Includes a two-label event,5,120,4.166667
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,6,Single-label events only,21,80,26.250000
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,6,Includes a two-label event,4,120,3.333333
+18_minimax_minimax_m3,MiniMax M3,1,Single-label events only,38,100,38.000000
+18_minimax_minimax_m3,MiniMax M3,1,Includes a two-label event,20,90,22.222222
+18_minimax_minimax_m3,MiniMax M3,2,Single-label events only,18,78,23.076923
+18_minimax_minimax_m3,MiniMax M3,2,Includes a two-label event,10,112,8.928571
+18_minimax_minimax_m3,MiniMax M3,3,Single-label events only,14,81,17.283951
+18_minimax_minimax_m3,MiniMax M3,3,Includes a two-label event,3,119,2.521008
+18_minimax_minimax_m3,MiniMax M3,4,Single-label events only,8,80,10.000000
+18_minimax_minimax_m3,MiniMax M3,4,Includes a two-label event,4,120,3.333333
+18_minimax_minimax_m3,MiniMax M3,5,Single-label events only,3,80,3.750000
+18_minimax_minimax_m3,MiniMax M3,5,Includes a two-label event,1,120,0.833333
+18_minimax_minimax_m3,MiniMax M3,6,Single-label events only,9,80,11.250000
+18_minimax_minimax_m3,MiniMax M3,6,Includes a two-label event,1,120,0.833333
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,1,Single-label events only,46,100,46.000000
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,1,Includes a two-label event,27,90,30.000000
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,2,Single-label events only,13,78,16.666667
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,2,Includes a two-label event,12,112,10.714286
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,3,Single-label events only,18,81,22.222222
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,3,Includes a two-label event,3,119,2.521008
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,4,Single-label events only,12,80,15.000000
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,4,Includes a two-label event,1,120,0.833333
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,5,Single-label events only,8,80,10.000000
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,5,Includes a two-label event,0,120,0.000000
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,6,Single-label events only,7,80,8.750000
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,6,Includes a two-label event,1,120,0.833333
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,1,Single-label events only,48,100,48.000000
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,1,Includes a two-label event,33,90,36.666667
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,2,Single-label events only,26,78,33.333333
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,2,Includes a two-label event,16,112,14.285714
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,3,Single-label events only,26,81,32.098765
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,3,Includes a two-label event,9,119,7.563025
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,4,Single-label events only,18,80,22.500000
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,4,Includes a two-label event,3,120,2.500000
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,5,Single-label events only,13,80,16.250000
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,5,Includes a two-label event,1,120,0.833333
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,6,Single-label events only,11,80,13.750000
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,6,Includes a two-label event,0,120,0.000000
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,1,Single-label events only,37,100,37.000000
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,1,Includes a two-label event,21,90,23.333333
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,2,Single-label events only,16,78,20.512821
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,2,Includes a two-label event,11,112,9.821429
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,3,Single-label events only,13,81,16.049383
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,3,Includes a two-label event,2,119,1.680672
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,4,Single-label events only,7,80,8.750000
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,4,Includes a two-label event,0,120,0.000000
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,5,Single-label events only,9,80,11.250000
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,5,Includes a two-label event,0,120,0.000000
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,6,Single-label events only,6,80,7.500000
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,6,Includes a two-label event,0,120,0.000000
+22_moonshotai_kimi_k2_6,Kimi K2.6,1,Single-label events only,42,100,42.000000
+22_moonshotai_kimi_k2_6,Kimi K2.6,1,Includes a two-label event,23,90,25.555556
+22_moonshotai_kimi_k2_6,Kimi K2.6,2,Single-label events only,6,78,7.692308
+22_moonshotai_kimi_k2_6,Kimi K2.6,2,Includes a two-label event,5,112,4.464286
+22_moonshotai_kimi_k2_6,Kimi K2.6,3,Single-label events only,12,81,14.814815
+22_moonshotai_kimi_k2_6,Kimi K2.6,3,Includes a two-label event,1,119,0.840336
+22_moonshotai_kimi_k2_6,Kimi K2.6,4,Single-label events only,8,80,10.000000
+22_moonshotai_kimi_k2_6,Kimi K2.6,4,Includes a two-label event,0,120,0.000000
+22_moonshotai_kimi_k2_6,Kimi K2.6,5,Single-label events only,9,80,11.250000
+22_moonshotai_kimi_k2_6,Kimi K2.6,5,Includes a two-label event,0,120,0.000000
+22_moonshotai_kimi_k2_6,Kimi K2.6,6,Single-label events only,7,80,8.750000
+22_moonshotai_kimi_k2_6,Kimi K2.6,6,Includes a two-label event,0,120,0.000000
+23_moonshotai_kimi_k2_5,Kimi K2.5,1,Single-label events only,35,100,35.000000
+23_moonshotai_kimi_k2_5,Kimi K2.5,1,Includes a two-label event,13,90,14.444444
+23_moonshotai_kimi_k2_5,Kimi K2.5,2,Single-label events only,9,78,11.538462
+23_moonshotai_kimi_k2_5,Kimi K2.5,2,Includes a two-label event,4,112,3.571429
+23_moonshotai_kimi_k2_5,Kimi K2.5,3,Single-label events only,10,81,12.345679
+23_moonshotai_kimi_k2_5,Kimi K2.5,3,Includes a two-label event,1,119,0.840336
+23_moonshotai_kimi_k2_5,Kimi K2.5,4,Single-label events only,4,80,5.000000
+23_moonshotai_kimi_k2_5,Kimi K2.5,4,Includes a two-label event,3,120,2.500000
+23_moonshotai_kimi_k2_5,Kimi K2.5,5,Single-label events only,6,80,7.500000
+23_moonshotai_kimi_k2_5,Kimi K2.5,5,Includes a two-label event,0,120,0.000000
+23_moonshotai_kimi_k2_5,Kimi K2.5,6,Single-label events only,4,80,5.000000
+23_moonshotai_kimi_k2_5,Kimi K2.5,6,Includes a two-label event,0,120,0.000000
+25_google_gemma_4_31b_it,Gemma 4 31B,1,Single-label events only,34,100,34.000000
+25_google_gemma_4_31b_it,Gemma 4 31B,1,Includes a two-label event,19,90,21.111111
+25_google_gemma_4_31b_it,Gemma 4 31B,2,Single-label events only,14,78,17.948718
+25_google_gemma_4_31b_it,Gemma 4 31B,2,Includes a two-label event,5,112,4.464286
+25_google_gemma_4_31b_it,Gemma 4 31B,3,Single-label events only,13,81,16.049383
+25_google_gemma_4_31b_it,Gemma 4 31B,3,Includes a two-label event,2,119,1.680672
+25_google_gemma_4_31b_it,Gemma 4 31B,4,Single-label events only,12,80,15.000000
+25_google_gemma_4_31b_it,Gemma 4 31B,4,Includes a two-label event,2,120,1.666667
+25_google_gemma_4_31b_it,Gemma 4 31B,5,Single-label events only,13,80,16.250000
+25_google_gemma_4_31b_it,Gemma 4 31B,5,Includes a two-label event,0,120,0.000000
+25_google_gemma_4_31b_it,Gemma 4 31B,6,Single-label events only,9,80,11.250000
+25_google_gemma_4_31b_it,Gemma 4 31B,6,Includes a two-label event,0,120,0.000000
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,1,Single-label events only,23,100,23.000000
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,1,Includes a two-label event,15,90,16.666667
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,2,Single-label events only,5,78,6.410256
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,2,Includes a two-label event,4,112,3.571429
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,3,Single-label events only,8,81,9.876543
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,3,Includes a two-label event,1,119,0.840336
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,4,Single-label events only,4,80,5.000000
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,4,Includes a two-label event,2,120,1.666667
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,5,Single-label events only,1,80,1.250000
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,5,Includes a two-label event,0,120,0.000000
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,6,Single-label events only,1,80,1.250000
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,6,Includes a two-label event,0,120,0.000000
+27_qwen_qwen3_5_9b,Qwen3.5-9B,1,Single-label events only,30,100,30.000000
+27_qwen_qwen3_5_9b,Qwen3.5-9B,1,Includes a two-label event,15,90,16.666667
+27_qwen_qwen3_5_9b,Qwen3.5-9B,2,Single-label events only,3,78,3.846154
+27_qwen_qwen3_5_9b,Qwen3.5-9B,2,Includes a two-label event,3,112,2.678571
+27_qwen_qwen3_5_9b,Qwen3.5-9B,3,Single-label events only,7,81,8.641975
+27_qwen_qwen3_5_9b,Qwen3.5-9B,3,Includes a two-label event,1,119,0.840336
+27_qwen_qwen3_5_9b,Qwen3.5-9B,4,Single-label events only,2,80,2.500000
+27_qwen_qwen3_5_9b,Qwen3.5-9B,4,Includes a two-label event,0,120,0.000000
+27_qwen_qwen3_5_9b,Qwen3.5-9B,5,Single-label events only,2,80,2.500000
+27_qwen_qwen3_5_9b,Qwen3.5-9B,5,Includes a two-label event,0,120,0.000000
+27_qwen_qwen3_5_9b,Qwen3.5-9B,6,Single-label events only,1,80,1.250000
+27_qwen_qwen3_5_9b,Qwen3.5-9B,6,Includes a two-label event,0,120,0.000000
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,1,Single-label events only,28,100,28.000000
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,1,Includes a two-label event,12,90,13.333333
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,2,Single-label events only,3,78,3.846154
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,2,Includes a two-label event,1,112,0.892857
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,3,Single-label events only,6,81,7.407407
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,3,Includes a two-label event,1,119,0.840336
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,4,Single-label events only,2,80,2.500000
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,4,Includes a two-label event,2,120,1.666667
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,5,Single-label events only,2,80,2.500000
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,5,Includes a two-label event,1,120,0.833333
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,6,Single-label events only,1,80,1.250000
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,6,Includes a two-label event,0,120,0.000000

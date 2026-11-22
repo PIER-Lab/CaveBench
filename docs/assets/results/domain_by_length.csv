@@ -1,0 +1,973 @@
+model_key,model,group,k,domain,correct,total,accuracy_pct
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,1,Dynamics,39,40,97.5
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,1,Thermal,36,40,90.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,1,Electromagnetism,25,30,83.33333333
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,1,Acoustics,34,40,85.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,1,Optics,25,40,62.5
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,1,Overall,159,190,83.68421053
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,2,Dynamics,30,40,75.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,2,Thermal,36,40,90.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,2,Electromagnetism,19,30,63.33333333
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,2,Acoustics,30,40,75.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,2,Optics,28,40,70.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,2,Overall,143,190,75.26315789
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,3,Dynamics,35,40,87.5
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,3,Thermal,36,40,90.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,3,Electromagnetism,30,40,75.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,3,Acoustics,28,40,70.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,3,Optics,24,40,60.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,3,Overall,153,200,76.5
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,4,Dynamics,33,40,82.5
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,4,Thermal,36,40,90.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,4,Electromagnetism,24,40,60.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,4,Acoustics,27,40,67.5
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,4,Optics,22,40,55.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,4,Overall,142,200,71.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,5,Dynamics,32,40,80.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,5,Thermal,36,40,90.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,5,Electromagnetism,21,40,52.5
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,5,Acoustics,30,40,75.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,5,Optics,22,40,55.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,5,Overall,141,200,70.5
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,6,Dynamics,28,40,70.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,6,Thermal,32,40,80.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,6,Electromagnetism,23,40,57.5
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,6,Acoustics,28,40,70.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,6,Optics,25,40,62.5
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,6,Overall,136,200,68.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,1,Dynamics,40,40,100.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,1,Thermal,36,40,90.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,1,Electromagnetism,19,30,63.33333333
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,1,Acoustics,31,40,77.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,1,Optics,28,40,70.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,1,Overall,154,190,81.05263158
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,2,Dynamics,31,40,77.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,2,Thermal,39,40,97.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,2,Electromagnetism,18,30,60.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,2,Acoustics,31,40,77.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,2,Optics,23,40,57.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,2,Overall,142,190,74.73684211
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,3,Dynamics,30,40,75.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,3,Thermal,38,40,95.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,3,Electromagnetism,24,40,60.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,3,Acoustics,28,40,70.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,3,Optics,23,40,57.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,3,Overall,143,200,71.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,4,Dynamics,32,40,80.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,4,Thermal,34,40,85.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,4,Electromagnetism,19,40,47.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,4,Acoustics,27,40,67.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,4,Optics,23,40,57.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,4,Overall,135,200,67.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,5,Dynamics,30,40,75.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,5,Thermal,34,40,85.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,5,Electromagnetism,16,40,40.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,5,Acoustics,30,40,75.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,5,Optics,23,40,57.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,5,Overall,133,200,66.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,6,Dynamics,30,40,75.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,6,Thermal,34,40,85.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,6,Electromagnetism,15,40,37.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,6,Acoustics,30,40,75.0
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,6,Optics,21,40,52.5
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,6,Overall,130,200,65.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,1,Dynamics,33,40,82.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,1,Thermal,24,40,60.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,1,Electromagnetism,11,30,36.66666667
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,1,Acoustics,28,40,70.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,1,Optics,14,40,35.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,1,Overall,110,190,57.89473684
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,2,Dynamics,24,40,60.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,2,Thermal,19,40,47.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,2,Electromagnetism,7,30,23.33333333
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,2,Acoustics,17,40,42.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,2,Optics,15,40,37.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,2,Overall,82,190,43.15789474
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,3,Dynamics,26,40,65.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,3,Thermal,13,40,32.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,3,Electromagnetism,13,40,32.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,3,Acoustics,10,40,25.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,3,Optics,11,40,27.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,3,Overall,73,200,36.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,4,Dynamics,22,40,55.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,4,Thermal,16,40,40.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,4,Electromagnetism,11,40,27.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,4,Acoustics,7,40,17.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,4,Optics,7,40,17.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,4,Overall,63,200,31.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,5,Dynamics,22,40,55.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,5,Thermal,10,40,25.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,5,Electromagnetism,12,40,30.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,5,Acoustics,7,40,17.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,5,Optics,3,40,7.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,5,Overall,54,200,27.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,6,Dynamics,21,40,52.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,6,Thermal,12,40,30.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,6,Electromagnetism,9,40,22.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,6,Acoustics,11,40,27.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,6,Optics,4,40,10.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,6,Overall,57,200,28.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,1,Dynamics,34,40,85.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,1,Thermal,21,40,52.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,1,Electromagnetism,16,30,53.33333333
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,1,Acoustics,28,40,70.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,1,Optics,16,40,40.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,1,Overall,115,190,60.52631579
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,2,Dynamics,28,40,70.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,2,Thermal,12,40,30.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,2,Electromagnetism,9,30,30.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,2,Acoustics,16,40,40.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,2,Optics,8,40,20.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,2,Overall,73,190,38.42105263
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,3,Dynamics,25,40,62.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,3,Thermal,9,40,22.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,3,Electromagnetism,18,40,45.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,3,Acoustics,15,40,37.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,3,Optics,5,40,12.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,3,Overall,72,200,36.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,4,Dynamics,17,40,42.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,4,Thermal,8,40,20.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,4,Electromagnetism,15,40,37.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,4,Acoustics,10,40,25.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,4,Optics,7,40,17.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,4,Overall,57,200,28.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,5,Dynamics,19,40,47.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,5,Thermal,4,40,10.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,5,Electromagnetism,12,40,30.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,5,Acoustics,11,40,27.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,5,Optics,5,40,12.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,5,Overall,51,200,25.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,6,Dynamics,16,40,40.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,6,Thermal,3,40,7.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,6,Electromagnetism,13,40,32.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,6,Acoustics,6,40,15.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,6,Optics,5,40,12.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,6,Overall,43,200,21.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,1,Dynamics,33,40,82.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,1,Thermal,21,40,52.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,1,Electromagnetism,20,30,66.66666667
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,1,Acoustics,23,40,57.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,1,Optics,15,40,37.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,1,Overall,112,190,58.94736842
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,2,Dynamics,27,40,67.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,2,Thermal,20,40,50.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,2,Electromagnetism,12,30,40.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,2,Acoustics,19,40,47.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,2,Optics,13,40,32.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,2,Overall,91,190,47.89473684
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,3,Dynamics,23,40,57.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,3,Thermal,6,40,15.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,3,Electromagnetism,14,40,35.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,3,Acoustics,9,40,22.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,3,Optics,10,40,25.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,3,Overall,62,200,31.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,4,Dynamics,20,40,50.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,4,Thermal,5,40,12.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,4,Electromagnetism,13,40,32.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,4,Acoustics,10,40,25.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,4,Optics,10,40,25.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,4,Overall,58,200,29.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,5,Dynamics,19,40,47.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,5,Thermal,2,40,5.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,5,Electromagnetism,12,40,30.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,5,Acoustics,8,40,20.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,5,Optics,8,40,20.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,5,Overall,49,200,24.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,6,Dynamics,7,40,17.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,6,Thermal,2,40,5.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,6,Electromagnetism,12,40,30.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,6,Acoustics,7,40,17.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,6,Optics,5,40,12.5
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,6,Overall,33,200,16.5
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,1,Dynamics,34,40,85.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,1,Thermal,20,40,50.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,1,Electromagnetism,13,30,43.33333333
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,1,Acoustics,24,40,60.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,1,Optics,16,40,40.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,1,Overall,107,190,56.31578947
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,2,Dynamics,26,40,65.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,2,Thermal,15,40,37.5
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,2,Electromagnetism,8,30,26.66666667
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,2,Acoustics,18,40,45.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,2,Optics,10,40,25.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,2,Overall,77,190,40.52631579
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,3,Dynamics,21,40,52.5
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,3,Thermal,10,40,25.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,3,Electromagnetism,14,40,35.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,3,Acoustics,10,40,25.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,3,Optics,11,40,27.5
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,3,Overall,66,200,33.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,4,Dynamics,19,40,47.5
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,4,Thermal,8,40,20.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,4,Electromagnetism,8,40,20.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,4,Acoustics,7,40,17.5
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,4,Optics,2,40,5.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,4,Overall,44,200,22.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,5,Dynamics,18,40,45.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,5,Thermal,4,40,10.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,5,Electromagnetism,10,40,25.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,5,Acoustics,4,40,10.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,5,Optics,3,40,7.5
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,5,Overall,39,200,19.5
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,6,Dynamics,17,40,42.5
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,6,Thermal,4,40,10.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,6,Electromagnetism,9,40,22.5
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,6,Acoustics,7,40,17.5
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,6,Optics,2,40,5.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,6,Overall,39,200,19.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,1,Dynamics,32,40,80.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,1,Thermal,19,40,47.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,1,Electromagnetism,13,30,43.33333333
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,1,Acoustics,23,40,57.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,1,Optics,14,40,35.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,1,Overall,101,190,53.15789474
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,2,Dynamics,25,40,62.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,2,Thermal,14,40,35.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,2,Electromagnetism,5,30,16.66666667
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,2,Acoustics,13,40,32.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,2,Optics,6,40,15.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,2,Overall,63,190,33.15789474
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,3,Dynamics,17,40,42.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,3,Thermal,10,40,25.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,3,Electromagnetism,11,40,27.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,3,Acoustics,6,40,15.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,3,Optics,5,40,12.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,3,Overall,49,200,24.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,4,Dynamics,11,40,27.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,4,Thermal,11,40,27.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,4,Electromagnetism,10,40,25.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,4,Acoustics,7,40,17.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,4,Optics,5,40,12.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,4,Overall,44,200,22.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,5,Dynamics,13,40,32.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,5,Thermal,10,40,25.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,5,Electromagnetism,10,40,25.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,5,Acoustics,4,40,10.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,5,Optics,4,40,10.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,5,Overall,41,200,20.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,6,Dynamics,10,40,25.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,6,Thermal,3,40,7.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,6,Electromagnetism,10,40,25.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,6,Acoustics,7,40,17.5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,6,Optics,4,40,10.0
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,6,Overall,34,200,17.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,1,Dynamics,34,40,85.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,1,Thermal,23,40,57.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,1,Electromagnetism,13,30,43.33333333
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,1,Acoustics,13,40,32.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,1,Optics,14,40,35.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,1,Overall,97,190,51.05263158
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,2,Dynamics,25,40,62.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,2,Thermal,15,40,37.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,2,Electromagnetism,5,30,16.66666667
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,2,Acoustics,2,40,5.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,2,Optics,9,40,22.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,2,Overall,56,190,29.47368421
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,3,Dynamics,19,40,47.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,3,Thermal,15,40,37.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,3,Electromagnetism,10,40,25.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,3,Acoustics,4,40,10.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,3,Optics,10,40,25.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,3,Overall,58,200,29.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,4,Dynamics,14,40,35.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,4,Thermal,10,40,25.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,4,Electromagnetism,8,40,20.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,4,Acoustics,1,40,2.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,4,Optics,7,40,17.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,4,Overall,40,200,20.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,5,Dynamics,5,40,12.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,5,Thermal,10,40,25.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,5,Electromagnetism,9,40,22.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,5,Acoustics,0,40,0.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,5,Optics,3,40,7.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,5,Overall,27,200,13.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,6,Dynamics,8,40,20.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,6,Thermal,7,40,17.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,6,Electromagnetism,9,40,22.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,6,Acoustics,0,40,0.0
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,6,Optics,3,40,7.5
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,6,Overall,27,200,13.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,1,Dynamics,27,40,67.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,1,Thermal,16,40,40.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,1,Electromagnetism,10,30,33.33333333
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,1,Acoustics,20,40,50.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,1,Optics,10,40,25.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,1,Overall,83,190,43.68421053
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,2,Dynamics,25,40,62.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,2,Thermal,10,40,25.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,2,Electromagnetism,4,30,13.33333333
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,2,Acoustics,9,40,22.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,2,Optics,8,40,20.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,2,Overall,56,190,29.47368421
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,3,Dynamics,12,40,30.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,3,Thermal,9,40,22.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,3,Electromagnetism,11,40,27.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,3,Acoustics,6,40,15.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,3,Optics,6,40,15.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,3,Overall,44,200,22.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,4,Dynamics,11,40,27.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,4,Thermal,7,40,17.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,4,Electromagnetism,10,40,25.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,4,Acoustics,3,40,7.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,4,Optics,7,40,17.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,4,Overall,38,200,19.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,5,Dynamics,9,40,22.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,5,Thermal,1,40,2.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,5,Electromagnetism,10,40,25.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,5,Acoustics,6,40,15.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,5,Optics,5,40,12.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,5,Overall,31,200,15.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,6,Dynamics,9,40,22.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,6,Thermal,3,40,7.5
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,6,Electromagnetism,10,40,25.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,6,Acoustics,4,40,10.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,6,Optics,2,40,5.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,6,Overall,28,200,14.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,1,Dynamics,34,40,85.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,1,Thermal,18,40,45.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,1,Electromagnetism,10,30,33.33333333
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,1,Acoustics,20,40,50.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,1,Optics,7,40,17.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,1,Overall,89,190,46.84210526
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,2,Dynamics,18,40,45.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,2,Thermal,7,40,17.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,2,Electromagnetism,8,30,26.66666667
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,2,Acoustics,7,40,17.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,2,Optics,6,40,15.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,2,Overall,46,190,24.21052632
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,3,Dynamics,9,40,22.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,3,Thermal,6,40,15.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,3,Electromagnetism,13,40,32.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,3,Acoustics,5,40,12.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,3,Optics,5,40,12.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,3,Overall,38,200,19.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,4,Dynamics,5,40,12.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,4,Thermal,5,40,12.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,4,Electromagnetism,10,40,25.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,4,Acoustics,2,40,5.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,4,Optics,1,40,2.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,4,Overall,23,200,11.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,5,Dynamics,5,40,12.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,5,Thermal,2,40,5.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,5,Electromagnetism,10,40,25.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,5,Acoustics,2,40,5.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,5,Optics,3,40,7.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,5,Overall,22,200,11.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,6,Dynamics,4,40,10.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,6,Thermal,2,40,5.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,6,Electromagnetism,11,40,27.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,6,Acoustics,2,40,5.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,6,Optics,4,40,10.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,6,Overall,23,200,11.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,1,Dynamics,26,40,65.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,1,Thermal,18,40,45.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,1,Electromagnetism,14,30,46.66666667
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,1,Acoustics,11,40,27.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,1,Optics,12,40,30.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,1,Overall,81,190,42.63157895
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,2,Dynamics,14,40,35.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,2,Thermal,3,40,7.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,2,Electromagnetism,8,30,26.66666667
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,2,Acoustics,9,40,22.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,2,Optics,8,40,20.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,2,Overall,42,190,22.10526316
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,3,Dynamics,6,40,15.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,3,Thermal,5,40,12.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,3,Electromagnetism,16,40,40.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,3,Acoustics,5,40,12.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,3,Optics,3,40,7.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,3,Overall,35,200,17.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,4,Dynamics,3,40,7.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,4,Thermal,2,40,5.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,4,Electromagnetism,14,40,35.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,4,Acoustics,0,40,0.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,4,Optics,2,40,5.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,4,Overall,21,200,10.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,5,Dynamics,1,40,2.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,5,Thermal,1,40,2.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,5,Electromagnetism,10,40,25.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,5,Acoustics,1,40,2.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,5,Optics,1,40,2.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,5,Overall,14,200,7.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,6,Dynamics,0,40,0.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,6,Thermal,0,40,0.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,6,Electromagnetism,11,40,27.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,6,Acoustics,0,40,0.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,6,Optics,0,40,0.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,6,Overall,11,200,5.5
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,1,Dynamics,24,40,60.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,1,Thermal,9,40,22.5
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,1,Electromagnetism,9,30,30.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,1,Acoustics,14,40,35.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,1,Optics,11,40,27.5
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,1,Overall,67,190,35.26315789
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,2,Dynamics,17,40,42.5
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,2,Thermal,1,40,2.5
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,2,Electromagnetism,2,30,6.66666667
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,2,Acoustics,9,40,22.5
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,2,Optics,3,40,7.5
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,2,Overall,32,190,16.84210526
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,3,Dynamics,12,40,30.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,3,Thermal,0,40,0.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,3,Electromagnetism,8,40,20.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,3,Acoustics,1,40,2.5
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,3,Optics,1,40,2.5
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,3,Overall,22,200,11.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,4,Dynamics,11,40,27.5
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,4,Thermal,0,40,0.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,4,Electromagnetism,2,40,5.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,4,Acoustics,0,40,0.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,4,Optics,0,40,0.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,4,Overall,13,200,6.5
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,5,Dynamics,6,40,15.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,5,Thermal,0,40,0.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,5,Electromagnetism,2,40,5.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,5,Acoustics,0,40,0.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,5,Optics,0,40,0.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,5,Overall,8,200,4.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,6,Dynamics,4,40,10.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,6,Thermal,0,40,0.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,6,Electromagnetism,2,40,5.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,6,Acoustics,0,40,0.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,6,Optics,0,40,0.0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,6,Overall,6,200,3.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,1,Dynamics,23,40,57.5
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,1,Thermal,10,40,25.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,1,Electromagnetism,7,30,23.33333333
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,1,Acoustics,18,40,45.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,1,Optics,15,40,37.5
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,1,Overall,73,190,38.42105263
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,2,Dynamics,4,40,10.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,2,Thermal,7,40,17.5
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,2,Electromagnetism,2,30,6.66666667
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,2,Acoustics,4,40,10.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,2,Optics,8,40,20.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,2,Overall,25,190,13.15789474
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,3,Dynamics,3,40,7.5
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,3,Thermal,2,40,5.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,3,Electromagnetism,11,40,27.5
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,3,Acoustics,2,40,5.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,3,Optics,3,40,7.5
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,3,Overall,21,200,10.5
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,4,Dynamics,2,40,5.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,4,Thermal,1,40,2.5
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,4,Electromagnetism,9,40,22.5
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,4,Acoustics,0,40,0.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,4,Optics,1,40,2.5
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,4,Overall,13,200,6.5
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,5,Dynamics,0,40,0.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,5,Thermal,0,40,0.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,5,Electromagnetism,8,40,20.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,5,Acoustics,0,40,0.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,5,Optics,0,40,0.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,5,Overall,8,200,4.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,6,Dynamics,0,40,0.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,6,Thermal,0,40,0.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,6,Electromagnetism,7,40,17.5
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,6,Acoustics,0,40,0.0
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,6,Optics,1,40,2.5
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,6,Overall,8,200,4.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,1,Dynamics,17,40,42.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,1,Thermal,15,40,37.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,1,Electromagnetism,8,30,26.66666667
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,1,Acoustics,9,40,22.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,1,Optics,11,40,27.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,1,Overall,60,190,31.57894737
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,2,Dynamics,13,40,32.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,2,Thermal,3,40,7.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,2,Electromagnetism,2,30,6.66666667
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,2,Acoustics,4,40,10.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,2,Optics,3,40,7.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,2,Overall,25,190,13.15789474
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,3,Dynamics,3,40,7.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,3,Thermal,2,40,5.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,3,Electromagnetism,11,40,27.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,3,Acoustics,2,40,5.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,3,Optics,1,40,2.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,3,Overall,19,200,9.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,4,Dynamics,4,40,10.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,4,Thermal,1,40,2.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,4,Electromagnetism,7,40,17.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,4,Acoustics,0,40,0.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,4,Optics,0,40,0.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,4,Overall,12,200,6.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,5,Dynamics,2,40,5.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,5,Thermal,0,40,0.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,5,Electromagnetism,7,40,17.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,5,Acoustics,0,40,0.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,5,Optics,1,40,2.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,5,Overall,10,200,5.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,6,Dynamics,2,40,5.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,6,Thermal,0,40,0.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,6,Electromagnetism,3,40,7.5
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,6,Acoustics,0,40,0.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,6,Optics,0,40,0.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,6,Overall,5,200,2.5
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,1,Dynamics,17,40,42.5
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,1,Thermal,13,40,32.5
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,1,Electromagnetism,12,30,40.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,1,Acoustics,8,40,20.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,1,Optics,8,40,20.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,1,Overall,58,190,30.52631579
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,2,Dynamics,10,40,25.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,2,Thermal,6,40,15.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,2,Electromagnetism,6,30,20.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,2,Acoustics,2,40,5.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,2,Optics,3,40,7.5
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,2,Overall,27,190,14.21052632
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,3,Dynamics,3,40,7.5
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,3,Thermal,1,40,2.5
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,3,Electromagnetism,8,40,20.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,3,Acoustics,2,40,5.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,3,Optics,1,40,2.5
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,3,Overall,15,200,7.5
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,4,Dynamics,2,40,5.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,4,Thermal,0,40,0.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,4,Electromagnetism,4,40,10.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,4,Acoustics,1,40,2.5
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,4,Optics,0,40,0.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,4,Overall,7,200,3.5
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,5,Dynamics,1,40,2.5
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,5,Thermal,0,40,0.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,5,Electromagnetism,6,40,15.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,5,Acoustics,0,40,0.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,5,Optics,2,40,5.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,5,Overall,9,200,4.5
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,6,Dynamics,0,40,0.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,6,Thermal,0,40,0.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,6,Electromagnetism,6,40,15.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,6,Acoustics,0,40,0.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,6,Optics,0,40,0.0
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,6,Overall,6,200,3.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,1,Dynamics,19,40,47.5
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,1,Thermal,12,40,30.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,1,Electromagnetism,6,30,20.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,1,Acoustics,13,40,32.5
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,1,Optics,8,40,20.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,1,Overall,58,190,30.52631579
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,2,Dynamics,3,40,7.5
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,2,Thermal,4,40,10.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,2,Electromagnetism,2,30,6.66666667
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,2,Acoustics,8,40,20.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,2,Optics,2,40,5.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,2,Overall,19,190,10.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,3,Dynamics,4,40,10.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,3,Thermal,3,40,7.5
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,3,Electromagnetism,7,40,17.5
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,3,Acoustics,2,40,5.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,3,Optics,0,40,0.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,3,Overall,16,200,8.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,4,Dynamics,2,40,5.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,4,Thermal,0,40,0.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,4,Electromagnetism,3,40,7.5
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,4,Acoustics,1,40,2.5
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,4,Optics,0,40,0.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,4,Overall,6,200,3.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,5,Dynamics,2,40,5.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,5,Thermal,0,40,0.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,5,Electromagnetism,2,40,5.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,5,Acoustics,1,40,2.5
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,5,Optics,0,40,0.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,5,Overall,5,200,2.5
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,6,Dynamics,1,40,2.5
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,6,Thermal,1,40,2.5
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,6,Electromagnetism,0,40,0.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,6,Acoustics,0,40,0.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,6,Optics,0,40,0.0
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,6,Overall,2,200,1.0
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,1,Dynamics,23,40,57.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,1,Thermal,9,40,22.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,1,Electromagnetism,14,30,46.66666667
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,1,Acoustics,17,40,42.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,1,Optics,10,40,25.0
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,1,Overall,73,190,38.42105263
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,2,Dynamics,16,40,40.0
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,2,Thermal,11,40,27.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,2,Electromagnetism,6,30,20.0
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,2,Acoustics,5,40,12.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,2,Optics,7,40,17.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,2,Overall,45,190,23.68421053
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,3,Dynamics,16,40,40.0
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,3,Thermal,5,40,12.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,3,Electromagnetism,11,40,27.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,3,Acoustics,8,40,20.0
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,3,Optics,6,40,15.0
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,3,Overall,46,200,23.0
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,4,Dynamics,10,40,25.0
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,4,Thermal,3,40,7.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,4,Electromagnetism,10,40,25.0
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,4,Acoustics,3,40,7.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,4,Optics,1,40,2.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,4,Overall,27,200,13.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,5,Dynamics,9,40,22.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,5,Thermal,2,40,5.0
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,5,Electromagnetism,10,40,25.0
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,5,Acoustics,5,40,12.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,5,Optics,1,40,2.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,5,Overall,27,200,13.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,6,Dynamics,6,40,15.0
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,6,Thermal,0,40,0.0
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,6,Electromagnetism,11,40,27.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,6,Acoustics,5,40,12.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,6,Optics,3,40,7.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,6,Overall,25,200,12.5
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,1,Dynamics,28,40,70.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,1,Thermal,18,40,45.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,1,Electromagnetism,11,30,36.66666667
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,1,Acoustics,10,40,25.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,1,Optics,13,40,32.5
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,1,Overall,80,190,42.10526316
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,2,Dynamics,22,40,55.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,2,Thermal,5,40,12.5
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,2,Electromagnetism,7,30,23.33333333
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,2,Acoustics,2,40,5.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,2,Optics,9,40,22.5
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,2,Overall,45,190,23.68421053
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,3,Dynamics,16,40,40.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,3,Thermal,3,40,7.5
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,3,Electromagnetism,12,40,30.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,3,Acoustics,5,40,12.5
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,3,Optics,6,40,15.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,3,Overall,42,200,21.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,4,Dynamics,7,40,17.5
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,4,Thermal,1,40,2.5
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,4,Electromagnetism,10,40,25.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,4,Acoustics,2,40,5.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,4,Optics,6,40,15.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,4,Overall,26,200,13.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,5,Dynamics,7,40,17.5
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,5,Thermal,3,40,7.5
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,5,Electromagnetism,6,40,15.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,5,Acoustics,1,40,2.5
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,5,Optics,2,40,5.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,5,Overall,19,200,9.5
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,6,Dynamics,6,40,15.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,6,Thermal,0,40,0.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,6,Electromagnetism,7,40,17.5
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,6,Acoustics,2,40,5.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,6,Optics,3,40,7.5
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,6,Overall,18,200,9.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,1,Dynamics,25,40,62.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,1,Thermal,11,40,27.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,1,Electromagnetism,10,30,33.33333333
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,1,Acoustics,10,40,25.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,1,Optics,11,40,27.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,1,Overall,67,190,35.26315789
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,2,Dynamics,23,40,57.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,2,Thermal,3,40,7.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,2,Electromagnetism,3,30,10.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,2,Acoustics,6,40,15.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,2,Optics,7,40,17.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,2,Overall,42,190,22.10526316
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,3,Dynamics,14,40,35.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,3,Thermal,1,40,2.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,3,Electromagnetism,13,40,32.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,3,Acoustics,2,40,5.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,3,Optics,4,40,10.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,3,Overall,34,200,17.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,4,Dynamics,11,40,27.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,4,Thermal,1,40,2.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,4,Electromagnetism,10,40,25.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,4,Acoustics,0,40,0.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,4,Optics,2,40,5.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,4,Overall,24,200,12.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,5,Dynamics,10,40,25.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,5,Thermal,3,40,7.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,5,Electromagnetism,9,40,22.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,5,Acoustics,2,40,5.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,5,Optics,0,40,0.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,5,Overall,24,200,12.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,6,Dynamics,7,40,17.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,6,Thermal,1,40,2.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,6,Electromagnetism,10,40,25.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,6,Acoustics,0,40,0.0
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,6,Optics,3,40,7.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,6,Overall,21,200,10.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,1,Dynamics,23,40,57.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,1,Thermal,14,40,35.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,1,Electromagnetism,10,30,33.33333333
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,1,Acoustics,14,40,35.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,1,Optics,10,40,25.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,1,Overall,71,190,37.36842105
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,2,Dynamics,15,40,37.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,2,Thermal,5,40,12.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,2,Electromagnetism,3,30,10.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,2,Acoustics,6,40,15.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,2,Optics,5,40,12.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,2,Overall,34,190,17.89473684
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,3,Dynamics,10,40,25.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,3,Thermal,4,40,10.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,3,Electromagnetism,11,40,27.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,3,Acoustics,4,40,10.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,3,Optics,1,40,2.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,3,Overall,30,200,15.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,4,Dynamics,7,40,17.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,4,Thermal,3,40,7.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,4,Electromagnetism,10,40,25.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,4,Acoustics,1,40,2.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,4,Optics,3,40,7.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,4,Overall,24,200,12.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,5,Dynamics,7,40,17.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,5,Thermal,1,40,2.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,5,Electromagnetism,10,40,25.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,5,Acoustics,2,40,5.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,5,Optics,3,40,7.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,5,Overall,23,200,11.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,6,Dynamics,2,40,5.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,6,Thermal,2,40,5.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,6,Electromagnetism,8,40,20.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,6,Acoustics,0,40,0.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,6,Optics,1,40,2.5
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,6,Overall,13,200,6.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,1,Dynamics,22,40,55.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,1,Thermal,9,40,22.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,1,Electromagnetism,5,30,16.66666667
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,1,Acoustics,14,40,35.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,1,Optics,8,40,20.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,1,Overall,58,190,30.52631579
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,2,Dynamics,14,40,35.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,2,Thermal,2,40,5.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,2,Electromagnetism,5,30,16.66666667
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,2,Acoustics,5,40,12.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,2,Optics,2,40,5.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,2,Overall,28,190,14.73684211
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,3,Dynamics,4,40,10.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,3,Thermal,1,40,2.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,3,Electromagnetism,7,40,17.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,3,Acoustics,1,40,2.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,3,Optics,4,40,10.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,3,Overall,17,200,8.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,4,Dynamics,3,40,7.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,4,Thermal,2,40,5.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,4,Electromagnetism,5,40,12.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,4,Acoustics,1,40,2.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,4,Optics,1,40,2.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,4,Overall,12,200,6.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,5,Dynamics,0,40,0.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,5,Thermal,1,40,2.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,5,Electromagnetism,3,40,7.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,5,Acoustics,0,40,0.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,5,Optics,0,40,0.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,5,Overall,4,200,2.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,6,Dynamics,1,40,2.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,6,Thermal,0,40,0.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,6,Electromagnetism,8,40,20.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,6,Acoustics,1,40,2.5
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,6,Optics,0,40,0.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,6,Overall,10,200,5.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,1,Dynamics,20,40,50.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,1,Thermal,10,40,25.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,1,Electromagnetism,5,30,16.66666667
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,1,Acoustics,8,40,20.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,1,Optics,10,40,25.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,1,Overall,53,190,27.89473684
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,2,Dynamics,8,40,20.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,2,Thermal,1,40,2.5
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,2,Electromagnetism,2,30,6.66666667
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,2,Acoustics,5,40,12.5
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,2,Optics,3,40,7.5
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,2,Overall,19,190,10.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,3,Dynamics,3,40,7.5
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,3,Thermal,1,40,2.5
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,3,Electromagnetism,9,40,22.5
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,3,Acoustics,1,40,2.5
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,3,Optics,1,40,2.5
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,3,Overall,15,200,7.5
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,4,Dynamics,4,40,10.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,4,Thermal,1,40,2.5
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,4,Electromagnetism,8,40,20.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,4,Acoustics,0,40,0.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,4,Optics,1,40,2.5
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,4,Overall,14,200,7.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,5,Dynamics,4,40,10.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,5,Thermal,0,40,0.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,5,Electromagnetism,7,40,17.5
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,5,Acoustics,2,40,5.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,5,Optics,0,40,0.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,5,Overall,13,200,6.5
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,6,Dynamics,2,40,5.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,6,Thermal,0,40,0.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,6,Electromagnetism,6,40,15.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,6,Acoustics,1,40,2.5
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,6,Optics,0,40,0.0
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,6,Overall,9,200,4.5
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,1,Dynamics,21,40,52.5
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,1,Thermal,14,40,35.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,1,Electromagnetism,7,30,23.33333333
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,1,Acoustics,12,40,30.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,1,Optics,11,40,27.5
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,1,Overall,65,190,34.21052632
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,2,Dynamics,2,40,5.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,2,Thermal,3,40,7.5
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,2,Electromagnetism,1,30,3.33333333
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,2,Acoustics,2,40,5.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,2,Optics,3,40,7.5
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,2,Overall,11,190,5.78947368
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,3,Dynamics,2,40,5.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,3,Thermal,0,40,0.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,3,Electromagnetism,9,40,22.5
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,3,Acoustics,0,40,0.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,3,Optics,2,40,5.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,3,Overall,13,200,6.5
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,4,Dynamics,0,40,0.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,4,Thermal,0,40,0.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,4,Electromagnetism,7,40,17.5
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,4,Acoustics,0,40,0.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,4,Optics,1,40,2.5
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,4,Overall,8,200,4.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,5,Dynamics,0,40,0.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,5,Thermal,0,40,0.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,5,Electromagnetism,7,40,17.5
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,5,Acoustics,2,40,5.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,5,Optics,0,40,0.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,5,Overall,9,200,4.5
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,6,Dynamics,0,40,0.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,6,Thermal,0,40,0.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,6,Electromagnetism,6,40,15.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,6,Acoustics,0,40,0.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,6,Optics,1,40,2.5
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,6,Overall,7,200,3.5
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,1,Dynamics,11,40,27.5
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,1,Thermal,7,40,17.5
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,1,Electromagnetism,9,30,30.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,1,Acoustics,14,40,35.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,1,Optics,7,40,17.5
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,1,Overall,48,190,25.26315789
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,2,Dynamics,3,40,7.5
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,2,Thermal,1,40,2.5
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,2,Electromagnetism,4,30,13.33333333
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,2,Acoustics,2,40,5.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,2,Optics,3,40,7.5
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,2,Overall,13,190,6.84210526
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,3,Dynamics,0,40,0.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,3,Thermal,0,40,0.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,3,Electromagnetism,8,40,20.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,3,Acoustics,1,40,2.5
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,3,Optics,2,40,5.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,3,Overall,11,200,5.5
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,4,Dynamics,0,40,0.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,4,Thermal,1,40,2.5
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,4,Electromagnetism,3,40,7.5
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,4,Acoustics,1,40,2.5
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,4,Optics,2,40,5.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,4,Overall,7,200,3.5
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,5,Dynamics,2,40,5.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,5,Thermal,0,40,0.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,5,Electromagnetism,4,40,10.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,5,Acoustics,0,40,0.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,5,Optics,0,40,0.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,5,Overall,6,200,3.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,6,Dynamics,0,40,0.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,6,Thermal,0,40,0.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,6,Electromagnetism,4,40,10.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,6,Acoustics,0,40,0.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,6,Optics,0,40,0.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,6,Overall,4,200,2.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,1,Dynamics,9,40,22.5
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,1,Thermal,11,40,27.5
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,1,Electromagnetism,6,30,20.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,1,Acoustics,10,40,25.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,1,Optics,2,40,5.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,1,Overall,38,190,20.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,2,Dynamics,2,40,5.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,2,Thermal,2,40,5.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,2,Electromagnetism,0,30,0.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,2,Acoustics,2,40,5.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,2,Optics,3,40,7.5
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,2,Overall,9,190,4.73684211
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,3,Dynamics,2,40,5.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,3,Thermal,1,40,2.5
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,3,Electromagnetism,4,40,10.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,3,Acoustics,0,40,0.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,3,Optics,2,40,5.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,3,Overall,9,200,4.5
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,4,Dynamics,2,40,5.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,4,Thermal,2,40,5.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,4,Electromagnetism,1,40,2.5
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,4,Acoustics,1,40,2.5
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,4,Optics,0,40,0.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,4,Overall,6,200,3.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,5,Dynamics,1,40,2.5
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,5,Thermal,0,40,0.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,5,Electromagnetism,0,40,0.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,5,Acoustics,0,40,0.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,5,Optics,0,40,0.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,5,Overall,1,200,0.5
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,6,Dynamics,1,40,2.5
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,6,Thermal,0,40,0.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,6,Electromagnetism,0,40,0.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,6,Acoustics,0,40,0.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,6,Optics,0,40,0.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,6,Overall,1,200,0.5
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,1,Dynamics,10,40,25.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,1,Thermal,10,40,25.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,1,Electromagnetism,2,30,6.66666667
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,1,Acoustics,10,40,25.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,1,Optics,13,40,32.5
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,1,Overall,45,190,23.68421053
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,2,Dynamics,1,40,2.5
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,2,Thermal,1,40,2.5
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,2,Electromagnetism,0,30,0.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,2,Acoustics,1,40,2.5
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,2,Optics,3,40,7.5
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,2,Overall,6,190,3.15789474
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,3,Dynamics,1,40,2.5
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,3,Thermal,1,40,2.5
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,3,Electromagnetism,4,40,10.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,3,Acoustics,1,40,2.5
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,3,Optics,1,40,2.5
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,3,Overall,8,200,4.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,4,Dynamics,0,40,0.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,4,Thermal,0,40,0.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,4,Electromagnetism,2,40,5.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,4,Acoustics,0,40,0.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,4,Optics,0,40,0.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,4,Overall,2,200,1.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,5,Dynamics,0,40,0.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,5,Thermal,0,40,0.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,5,Electromagnetism,2,40,5.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,5,Acoustics,0,40,0.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,5,Optics,0,40,0.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,5,Overall,2,200,1.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,6,Dynamics,0,40,0.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,6,Thermal,0,40,0.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,6,Electromagnetism,1,40,2.5
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,6,Acoustics,0,40,0.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,6,Optics,0,40,0.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,6,Overall,1,200,0.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,1,Dynamics,18,40,45.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,1,Thermal,5,40,12.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,1,Electromagnetism,4,30,13.33333333
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,1,Acoustics,7,40,17.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,1,Optics,6,40,15.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,1,Overall,40,190,21.05263158
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,2,Dynamics,1,40,2.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,2,Thermal,1,40,2.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,2,Electromagnetism,0,30,0.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,2,Acoustics,0,40,0.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,2,Optics,2,40,5.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,2,Overall,4,190,2.10526316
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,3,Dynamics,1,40,2.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,3,Thermal,1,40,2.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,3,Electromagnetism,2,40,5.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,3,Acoustics,1,40,2.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,3,Optics,2,40,5.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,3,Overall,7,200,3.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,4,Dynamics,0,40,0.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,4,Thermal,2,40,5.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,4,Electromagnetism,1,40,2.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,4,Acoustics,1,40,2.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,4,Optics,0,40,0.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,4,Overall,4,200,2.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,5,Dynamics,1,40,2.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,5,Thermal,1,40,2.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,5,Electromagnetism,1,40,2.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,5,Acoustics,0,40,0.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,5,Optics,0,40,0.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,5,Overall,3,200,1.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,6,Dynamics,0,40,0.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,6,Thermal,0,40,0.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,6,Electromagnetism,1,40,2.5
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,6,Acoustics,0,40,0.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,6,Optics,0,40,0.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,6,Overall,1,200,0.5
