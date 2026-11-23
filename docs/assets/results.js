@@ -1,6 +1,13 @@
 'use strict';
 
 const resultDirectory = 'assets/results/';
+// Match the paper's nearest-even formatting for nonnegative binary floats.
+// At one decimal, .25 is the only exact halfway fraction that toFixed rounds to an odd digit.
+function percent(value) {
+  if (value === '' || value === undefined || value === null) return '—';
+  const number = Number(value);
+  return number % 1 === 0.25 ? Math.floor(number) + '.2' : number.toFixed(1);
+}
 const cachedResults = new Map();
 const lengths = [1, 2, 3, 4, 5, 6];
 const physicalDomains = ['Dynamics', 'Thermal', 'Electromagnetism', 'Acoustics', 'Optics', 'Overall'];
@@ -62,7 +69,7 @@ function setDownload(table, filename) {
   const quote = value => '"' + String(value ?? '').replaceAll('"', '""') + '"';
   const lines = [['Group', table.label, ...table.columns]];
   for (const row of table.rows) {
-    lines.push([row.group, row.name, ...row.values.map(v => v === null ? '' : v.toFixed(1))]);
+    lines.push([row.group, row.name, ...row.values.map(v => v === null ? '' : percent(v))]);
   }
   const csv = lines.map(line => line.map(quote).join(',')).join('\r\n') + '\r\n';
   csvDownloadUrl = URL.createObjectURL(new Blob([csv], {type:'text/csv;charset=utf-8'}));
@@ -124,7 +131,7 @@ function renderLeaderboard(table, note, filename) {
       model.scope = 'row';
       tr.append(model);
       row.values.forEach((value, i) => {
-        const td = node('td', value === null ? '—' : value.toFixed(1));
+        const td = node('td', percent(value));
         if (value === null) td.className = 'missing';
         else if (value === best[i]) td.className = 'best';
         else if (value === second[i]) td.className = 'runner-up';
@@ -234,6 +241,7 @@ const views = {
   training_case: ['Recorded predictions in Figure 5', 'Training and adaptation'],
   effort_results: ['Reasoning effort in Figure 6', 'Model analysis'],
   figure1: ['Six-event scores in Figure 1', 'Model analysis'],
+  model_protocols: ['Evaluation settings by model', 'Model analysis'],
   error_categories: ['Error categories', 'Model analysis'],
   event_positions: ['Accuracy by event position', 'Model analysis'],
   compound_by_length: ['Single- and two-label events', 'Model analysis'],
@@ -251,10 +259,9 @@ for (const group of new Set(Object.values(views).map(view => view[1]))) {
   detailSelect.append(options);
 }
 
-const percent = value => value === '' || value === undefined ? '—' : Number(value).toFixed(1);
 const unique = values => [...new Set(values)];
 const setSelectOptions = (entries, current) => entries.map(([value, name]) => new Option(name, value, false, value === current));
-const detailState = {scene:'S01', k:'6', metric:'accuracy_pct', stage:'Final'};
+const detailState = {scene:'S01', k:'6', metric:'accuracy_pct', stage:'Final', model:''};
 let detailVersion = 0;
 function detailFilter(key, title, options, rerender) {
   const label = node('label', title);
@@ -353,6 +360,13 @@ function displayDetailed(view, records) {
     detailTable(['Model','Correct','Questions','Exact match (%)'],
       records.map(r => [r.model,r.correct,r.total,percent(r.accuracy_pct)]), [0],
       'Six-event exact-match accuracy for the model configurations shown in Figure 1.');
+  } else if (view === 'model_protocols') {
+    const models = new Map(records.map(r => [r.model_key,r.model]));
+    detailFilter('model', 'Model', [['','All ' + models.size + ' models'], ...models], rerender);
+    const rows = records.filter(r => !detailState.model || r.model_key === detailState.model);
+    detailTable(['Model','Visual input','Reasoning setting','Initial token cap','Answer completion','Completion token cap','Questions','Completion answers scored'],
+      rows.map(r => [r.model,r.input_format,r.reasoning,r.primary_token_cap,r.completion_policy,r.completion_token_cap,r.questions,r.completion_selected]), [0,1,2,4],
+      'Each row shows the settings used for a group of scored questions. The last column counts questions for which the completion answer was selected for scoring.');
   } else if (view === 'event_positions') {
     const columns = lengths.map(String);
     const table = pivotRows(records, r => r.model_key, r => r.position, columns, 'accuracy_pct', r => [r.model]);
