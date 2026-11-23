@@ -4,7 +4,7 @@ Sequence exact match counts questions with every event correct. Event accuracy c
 
 Question length (`k`) ranges from one to six events. There are ten questions per apparatus at each available length. Dielectric response (S11) begins at three events, giving 190 questions each at one and two events and 200 each at three through six.
 
-[Counts by run and length](../docs/assets/results/adaptation_by_length.csv) · [Counts by run and apparatus](../docs/assets/results/adaptation_by_scene.csv) · [Question-level scores](adaptation_question_scores.csv)
+[Counts by run and length](../docs/assets/results/adaptation_by_length.csv) · [Counts by run and apparatus](../docs/assets/results/adaptation_by_scene.csv) · [Question-level scores](adaptation_question_scores.csv) · [Six-event results by event position](#event-positions)
 
 ## All runs
 
@@ -45,6 +45,30 @@ Question length (`k`) ranges from one to six events. There are ten questions per
 | Gemini 3.8 Flash · ViperGPT | 57.4 | 44.7 | 47.8 | 43.2 | 39.0 | 37.3 | 42.0 |
 
 </details>
+
+<a name="event-positions"></a>
+
+## Event accuracy by position on six-event questions
+
+Each column scores one position in the same 200 six-event questions. An event is correct when the predicted controls match the full recorded set. Each training seed has its own row.
+
+| Model and method | Event 1 (%) | Event 2 (%) | Event 3 (%) | Event 4 (%) | Event 5 (%) | Event 6 (%) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Qwen3.5-9B · Baseline | 25.5 | 14.0 | 23.0 | 19.0 | 14.5 | 18.5 |
+| Qwen3.5-9B · SFT · seed 20261102 | 81.5 | 73.5 | 57.5 | 41.0 | 36.0 | 37.5 |
+| Qwen3.5-9B · SFT + DPO · seed 20261106 | 86.0 | 84.0 | 82.0 | 60.0 | 45.0 | 47.0 |
+| Qwen3.5-9B · SFT + SimPO · seed 20261108 | 86.5 | 83.0 | 81.0 | 57.0 | 48.0 | 49.5 |
+| Qwen3.5-9B · SFT + SimPO · seed 20261109 | 85.0 | 82.5 | 78.5 | 60.0 | 46.5 | 49.0 |
+| Qwen3.5-9B · SFT + KTO · seed 20261107 | 86.0 | 78.5 | 73.5 | 46.0 | 26.0 | 32.0 |
+| Qwen3.5-9B · SFT + KTO · seed 20261108 | 84.5 | 78.5 | 75.0 | 48.5 | 27.0 | 37.0 |
+| Gemini 3.8 Flash · Baseline | 58.5 | 53.5 | 52.0 | 53.5 | 54.0 | 48.5 |
+| Gemini 3.8 Flash · ReAct | 62.0 | 53.5 | 57.0 | 52.5 | 55.0 | 53.5 |
+| Gemini 3.8 Flash · Visual Sketchpad | 46.5 | 38.0 | 34.5 | 33.0 | 35.5 | 24.5 |
+| Gemini 3.8 Flash · ViperGPT | 46.0 | 37.5 | 39.0 | 36.0 | 32.0 | 33.5 |
+
+At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 questions after SFT (57.5%) and in 164 after DPO (82.0%).
+
+[Counts and denominators](../docs/assets/results/adaptation_by_position.csv) · [Interactive table](https://pier-lab.github.io/CaveBench/#table-adaptation_by_position)
 
 <a name="qwen3-5-9b-baseline-baseline"></a>
 

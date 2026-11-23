@@ -76,7 +76,7 @@ function setDownload(table, filename) {
   const quote = value => '"' + String(value ?? '').replaceAll('"', '""') + '"';
   const lines = [['Group', table.label, ...table.columns]];
   for (const row of table.rows) {
-    lines.push([row.group, row.name, ...row.values.map(v => v === null ? '' : percent(v))]);
+    lines.push([row.group, row.name, ...row.values.map((value, i) => value === null ? '' : cellValue(table, row, i))]);
   }
   const csv = lines.map(line => line.map(quote).join(',')).join('\r\n') + '\r\n';
   csvDownloadUrl = URL.createObjectURL(new Blob([csv], {type:'text/csv;charset=utf-8'}));
@@ -85,12 +85,29 @@ function setDownload(table, filename) {
   link.download = 'CaveBench-' + filename + '.csv';
 }
 
+function cellValue(table, row, col) {
+  if (row.values[col] === null) return '—';
+  return table.showCounts ? row.counts[col].replace(' correct', '') : percent(row.values[col]);
+}
+
 function renderLeaderboard(table, note, filename) {
   const element = $('#results');
   const visibleRows = [];
   element.replaceChildren();
   element.setAttribute('aria-label', note);
-  const head = element.createTHead().insertRow();
+  const thead = element.createTHead();
+  if (table.apparatuses) {
+    const domains = thead.insertRow();
+    domains.className = 'matrix-domains';
+    domains.append(node('td','Domain'));
+    for (const domain of new Set(table.apparatuses.map(c => c.domain))) {
+      const header = node('th', nameFor(domain));
+      header.scope = 'colgroup';
+      header.colSpan = table.apparatuses.filter(c => c.domain === domain).length;
+      domains.append(header);
+    }
+  }
+  const head = thead.insertRow();
   [table.label, ...table.columns].forEach((name, i) => {
     const col = i - 1;
     const sorted = leaderboard.sort === col;
@@ -98,6 +115,10 @@ function renderLeaderboard(table, note, filename) {
     th.scope = 'col';
     th.setAttribute('aria-sort', sorted ? (leaderboard.ascending ? 'ascending' : 'descending') : 'none');
     const button = node('button', name + (sorted ? (leaderboard.ascending ? ' ↑' : ' ↓') : ''));
+    if (table.apparatuses && col >= 0) {
+      const item = table.apparatuses[col];
+      button.replaceChildren(node('small',item.id), node('span',item.title + (sorted ? (leaderboard.ascending ? ' ↑' : ' ↓') : '')));
+    }
     button.type = 'button';
     button.title = 'Sort by ' + name;
     button.onclick = () => {
@@ -109,7 +130,7 @@ function renderLeaderboard(table, note, filename) {
     th.append(button);
     head.append(th);
   });
-  const allRanks = leaderboard.view === 'domains' ? table.columns.map((_, i) =>
+  const allRanks = ['domains','tasks'].includes(leaderboard.view) ? table.columns.map((_, i) =>
     [...new Set(table.rows.map(row => row.values[i]).filter(value => value !== null))].sort((a,b) => b-a)) : null;
   for (const group of new Set(table.rows.map(row => row.group))) {
     const body = element.createTBody();
@@ -138,7 +159,7 @@ function renderLeaderboard(table, note, filename) {
       model.scope = 'row';
       tr.append(model);
       row.values.forEach((value, i) => {
-        const td = node('td', percent(value));
+        const td = node('td', cellValue(table, row, i));
         if (value === null) td.className = 'missing';
         else if (value === best[i]) td.className = 'best';
         else if (value === second[i]) td.className = 'runner-up';
@@ -175,7 +196,10 @@ function scoreMatrix(records, columns, keyOf) {
 async function updateLeaderboard() {
   const version = ++leaderboardVersion;
   const {view, k, scene} = leaderboard;
-  $('#k-filter').hidden = view !== 'domains';
+  const isTaskMatrix = view === 'tasks';
+  $('#k-filter').hidden = view !== 'domains' && !isTaskMatrix;
+  $('#matrix-filter').hidden = !isTaskMatrix;
+  $('#results').parentElement.classList.toggle('task-matrix',isTaskMatrix);
   $('#apparatus-filter').hidden = view !== 'scenes';
   document.querySelectorAll('[data-table]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.table === view)));
   document.querySelectorAll('[data-events]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.events) === k)));
@@ -187,11 +211,16 @@ async function updateLeaderboard() {
   }
   const source = view === 'domains' ? 'domain_by_length' : 'scene_by_length';
   const isDomain = view === 'domains';
-  const note = isDomain
+  let note = isDomain
     ? 'Exact-match accuracy (%) on ' + k + '-event questions. ' + (k < 3 ? '190 questions, including 30 in electromagnetism and 40 in each other domain.' : '200 questions, 40 per domain.') +
       ' The highest score in each column is bold and the runner-up is underlined.'
     : 'Exact-match accuracy (%) for ' + scene + ' · ' + cases.find(c => c.id === scene).title + '. ' +
       (scene === 'S11' ? 'Ten questions at each length (k = 3–6 events).' : 'Ten questions at each length (k = 1–6 events).');
+  if (isTaskMatrix) {
+    note = 'Complete sequences on ' + k + '-event questions · ten questions per apparatus. ' +
+      (k < 3 ? 'S11 begins at three events (—). ' : '') +
+      'Bold and underlined scores rank first and second within each column.';
+  }
   if (isDomain && k === 6) {
     const rows = tables.domains.rows.map(row => ({
       ...row,
@@ -211,6 +240,14 @@ async function updateLeaderboard() {
   try {
     const records = await readResults(source);
     if (version !== leaderboardVersion) return;
+    if (isTaskMatrix) {
+      const matrix = scoreMatrix(records.filter(r => Number(r.k) === k), cases.map(item => item.id), r => r.scene);
+      matrix.columns = cases.map(item => item.id + ' · ' + item.title);
+      matrix.apparatuses = cases;
+      matrix.showCounts = $('#matrix-values').value === 'counts';
+      renderLeaderboard(matrix, note, 'tasks-k'+k+(matrix.showCounts ? '-counts' : ''));
+      return;
+    }
     const matrix = isDomain
       ? scoreMatrix(records.filter(r => Number(r.k) === k), physicalDomains, r => r.domain)
       : scoreMatrix(records.filter(r => r.scene === scene), lengths, r => Number(r.k));
@@ -231,7 +268,8 @@ function chooseView(view, updateHash = true) {
   leaderboard.sort = view === 'domains' || view === 'scenes' ? 5 : null;
   leaderboard.ascending = false;
   if (updateHash) {
-    const fragment = view === 'domains' ? 'domain-k' + leaderboard.k : view === 'scenes' ? 'apparatus-' + leaderboard.scene : 'scores-' + view;
+    const fragments = {domains:'domain-k'+leaderboard.k, tasks:'tasks-k'+leaderboard.k, scenes:'apparatus-'+leaderboard.scene};
+    const fragment = fragments[view] || 'scores-' + view;
     history.replaceState(null, '', '#' + fragment);
   }
   updateLeaderboard();
@@ -241,17 +279,19 @@ for (const k of lengths) {
   button.type = 'button';
   button.dataset.events = k;
   button.setAttribute('aria-label', k + (k === 1 ? ' event' : ' events'));
-  button.onclick = () => { leaderboard.k = k; chooseView('domains'); };
+  button.onclick = () => { leaderboard.k = k; chooseView(leaderboard.view); };
   $('.k-options').append(button);
 }
 for (const item of cases) $('#result-apparatus').add(new Option(item.id + ' · ' + item.title, item.id));
 $('#result-apparatus').onchange = event => { leaderboard.scene = event.target.value; chooseView('scenes'); };
+$('#matrix-values').onchange = updateLeaderboard;
 document.querySelectorAll('[data-table]').forEach(button => { button.onclick = () => chooseView(button.dataset.table); });
 
 const views = {
   adaptation_by_length: ['Adaptation by run and question length', 'Training and adaptation'],
   adaptation_by_domain: ['Adaptation by physical domain', 'Training and adaptation'],
   adaptation_by_scene: ['Adaptation by apparatus', 'Training and adaptation'],
+  adaptation_by_position: ['Adaptation by event position', 'Training and adaptation'],
   paired_training: ['Paired outcomes against SFT', 'Training and adaptation'],
   training_case: ['Recorded predictions in Figure 5', 'Training and adaptation'],
   effort_results: ['Reasoning effort in Figure 6', 'Model analysis'],
@@ -387,6 +427,11 @@ function displayDetailed(view, records) {
       detailTable(['Model','Method','Run',...physicalDomains.map(d => nameFor(d) + ' (n = ' + total(d) + ')')],table,[0,1,2],
         title + '. Column headings give ' + unit + ' per run. Mean rows combine the two training seeds.');
     }
+  } else if (view === 'adaptation_by_position') {
+    const labels = r => [r.model,r.method,r.run];
+    const rows = pivotRows(records, r => JSON.stringify(labels(r)), r => Number(r.position), lengths, 'accuracy_pct', labels);
+    detailTable(['Model','Method','Run',...lengths.map(k => 'Event '+k)], rows, [0,1,2],
+      'Each position is scored on 200 six-event questions. At event 3, Qwen3.5-9B rises from 57.5% with SFT to 82.0% with SFT + DPO.');
   } else if (view.startsWith('adaptation_by_')) {
     const rows = records.filter(r => view === 'adaptation_by_length' || r.scene === detailState.scene);
     const ks = [...lengths.map(String), 'Overall'];
@@ -495,11 +540,11 @@ document.querySelectorAll('a[data-detail]').forEach(link => {
 });
 function openResultAnchor() {
   const key = location.hash.slice(1);
-  const domain = /^domain-k([1-6])$/.exec(key);
+  const byLength = /^(domain|tasks)-k([1-6])$/.exec(key);
   const adaptation = /^table-adaptation_by_domain(?:-k([1-6]))?(?:\?(.+))?$/.exec(key);
-  if (domain) {
-    leaderboard.k = Number(domain[1]);
-    chooseView('domains', false);
+  if (byLength) {
+    leaderboard.k = Number(byLength[2]);
+    chooseView(byLength[1] === 'tasks' ? 'tasks' : 'domains', false);
   } else if (key.startsWith('apparatus-') && cases.some(c => c.id === key.slice(10))) {
     leaderboard.scene = key.slice(10);
     $('#result-apparatus').value = leaderboard.scene;
@@ -523,7 +568,8 @@ function openResultAnchor() {
   } else {
     return;
   }
-  requestAnimationFrame(() => $('#leaderboard').scrollIntoView({block:'start',behavior:'instant'}));
+  const target = key.startsWith('tasks-k') ? $('#leaderboard .tabs') : $('#leaderboard');
+  requestAnimationFrame(() => target.scrollIntoView({block:'start',behavior:'instant'}));
 }
 window.addEventListener('hashchange', openResultAnchor);
 openResultAnchor();

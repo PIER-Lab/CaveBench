@@ -186,12 +186,20 @@ python score.py --data ./dataset --predictions predictions-vlmevalkit.jsonl
 
 **Accuracy by apparatus.** Each apparatus contributes ten questions at each available length. Dielectric response (S11) begins at three events. [GitHub tables](results/apparatus_tables.md) · [Interactive tables](https://pier-lab.github.io/CaveBench/#apparatus-S01)
 
+To compare the 20 apparatuses at one question length, choose a column below. Each view shows the 27 models against the same apparatuses.
+
+| All apparatuses at one length | 1 event | 2 events | 3 events | 4 events | 5 events | 6 events |
+|---|---|---|---|---|---|---|
+| GitHub | [k = 1](results/tasks_by_length.md#tasks-k1) | [k = 2](results/tasks_by_length.md#tasks-k2) | [k = 3](results/tasks_by_length.md#tasks-k3) | [k = 4](results/tasks_by_length.md#tasks-k4) | [k = 5](results/tasks_by_length.md#tasks-k5) | [k = 6](results/tasks_by_length.md#tasks-k6) |
+| Project page | [k = 1](https://pier-lab.github.io/CaveBench/#tasks-k1) | [k = 2](https://pier-lab.github.io/CaveBench/#tasks-k2) | [k = 3](https://pier-lab.github.io/CaveBench/#tasks-k3) | [k = 4](https://pier-lab.github.io/CaveBench/#tasks-k4) | [k = 5](https://pier-lab.github.io/CaveBench/#tasks-k5) | [k = 6](https://pier-lab.github.io/CaveBench/#tasks-k6) |
+
 | Results and underlying counts | Data |
 |---|---|
 | Main leaderboard by domain, apparatus and question length | [Domain × length](docs/assets/results/domain_by_length.csv) · [Apparatus × length](docs/assets/results/scene_by_length.csv) · [Overall by length](docs/assets/length.csv) |
 | Correct control sets at each question length, across 4,170 event predictions per model | [Event accuracy for all 27 models](results/domain_tables.md#event-by-length) · [Correct and scored event counts](docs/assets/results/main_event_by_length.csv) |
 | SFT, DPO, SimPO and KTO on Qwen3.5-9B, plus ReAct, Visual Sketchpad and ViperGPT on Gemini 3.8 Flash | [Domains](results/adaptation_domains.md) · [Individual apparatuses](results/adaptation_tables.md) · [Domain counts (CSV)](docs/assets/results/adaptation_by_domain.csv) · [Run and length (CSV)](docs/assets/results/adaptation_by_length.csv) · [Apparatus (CSV)](docs/assets/results/adaptation_by_scene.csv) · [Method summary](docs/assets/methods.csv) |
 | Preference training vs. SFT on matched question IDs | [Paired outcomes for each seed and question length](docs/assets/results/paired_training.csv) · [Interactive comparison](https://pier-lab.github.io/CaveBench/#table-paired_training) |
+| Accuracy at events 1–6 for the 11 adaptation runs and baselines | [Per-run table](results/adaptation_tables.md#event-positions) · [Interactive comparison](https://pier-lab.github.io/CaveBench/#table-adaptation_by_position) · [Correct events and denominators (CSV)](docs/assets/results/adaptation_by_position.csv) |
 | Evaluation settings for the 27 leaderboard configurations | [Browse model protocols](https://pier-lab.github.io/CaveBench/#table-model_protocols) · [Download CSV](docs/assets/results/model_protocols.csv) |
 | Data for the figures | [Figure 1 · model scores](results/figure_tables.md#figure-1) · [Figure 3 · dataset construction](results/figure_tables.md#figure-3) · [Figure 5 · dielectric-response predictions](results/figure_tables.md#figure-5) · [Figure 6 · reasoning effort](results/figure_tables.md#figure-6) · [Error categories](results/figure_tables.md#error-categories) |
 | Event-position accuracy on six-event questions, single- and two-label questions, and error classifications | [Event positions](docs/assets/results/event_positions.csv) · [Control composition](docs/assets/results/compound_by_length.csv) · [Error counts](docs/assets/results/error_categories.csv) |

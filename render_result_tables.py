@@ -1,10 +1,14 @@
 """Generate the GitHub result tables from the published CaveBench data."""
 import argparse
 import csv
+import io
 import re
+from collections import defaultdict
 from decimal import Decimal, ROUND_HALF_UP
 from fractions import Fraction
 from pathlib import Path
+
+from verify_results import scored_rows
 
 
 ROOT = Path(__file__).resolve().parent
@@ -52,6 +56,18 @@ def measured(record):
     return Fraction(int(record["correct"]), int(record["total"]))
 
 
+def ranked_percent(record, leaders):
+    text = percent(record)
+    if not record["accuracy_pct"]:
+        return text
+    value = measured(record)
+    if value == leaders[0]:
+        return f"**{text}**"
+    if value in leaders[1:]:
+        return f"<ins>{text}</ins>"
+    return text
+
+
 def count_percent(record, correct="correct", total="total"):
     value = Decimal(100) * Decimal(record[correct]) / Decimal(record[total])
     text = format(value.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP), "f")
@@ -89,16 +105,7 @@ def domain_tables(order):
         top_two = {d: sorted({measured(records[m["Model"], k, d]) for m in order}, reverse=True)[:2]
                    for d in DOMAINS}
         def values(model):
-            cells = []
-            for d in DOMAINS:
-                r = records[model, k, d]
-                text, value = percent(r), measured(r)
-                if value == top_two[d][0]:
-                    text = f"**{text}**"
-                elif value in top_two[d][1:]:
-                    text = f"<ins>{text}</ins>"
-                cells.append(text)
-            return cells
+            return [ranked_percent(records[model, k, d], top_two[d]) for d in DOMAINS]
         lines.extend([*model_rows(order, DOMAINS, values), ""])
     events = index("main_event_by_length", ["model", "k"])
     lengths = (*LENGTHS, "Overall")
@@ -133,6 +140,54 @@ def scene_tables(order, scenes):
                                 lambda m: [percent(records[m, sid, k]) for k in LENGTHS]))
         lines.append("")
     return lines
+
+
+def task_matrices(order, scenes):
+    records = index("scene_by_length", ["model", "k", "scene"])
+    lines = ["# Apparatus accuracy at each question length", "",
+             "Each column is an apparatus and each row is a model. A cell gives the percentage of ten questions "
+             "with every event correct. Dielectric response (S11) uses three reference states and starts at three events. "
+             "A dash marks its two untested lengths. Bold and underlining mark the two highest distinct scores in each column.", "",
+             " · ".join(f"[k = {k}](#tasks-k{k})" for k in LENGTHS), "",
+             "[Counts and percentages (CSV)](../docs/assets/results/scene_by_length.csv) · "
+             "[Follow one apparatus across lengths](apparatus_tables.md)", ""]
+    for domain in DOMAINS[:-1]:
+        names = [f"[{s['scene']} {s['apparatus']}](apparatus_tables.md#{s['scene'].lower()})"
+                 for s in scenes if s['domain'] == domain]
+        lines.append(f"- **{domain}** · " + " · ".join(names))
+    lines.append("")
+    for k in LENGTHS:
+        lines.extend(heading(f"tasks-k{k}", f"{k} {'event' if k == '1' else 'events'} per question"))
+        lines.extend([f"[Interactive table](https://pier-lab.github.io/CaveBench/#tasks-k{k})", ""])
+        for panel in (scenes[:10], scenes[10:]):
+            ids = [s['scene'] for s in panel]
+            leaders = {}
+            for sid in ids:
+                column = [records[m['Model'], k, sid] for m in order]
+                scores = {measured(r) for r in column if int(r['total'])}
+                leaders[sid] = sorted(scores, reverse=True)[:2]
+            lines.extend(model_rows(order, ids, lambda m: [ranked_percent(records[m, k, sid], leaders[sid]) for sid in ids]))
+            lines.append("")
+    return lines
+
+
+def adaptation_position_csv():
+    """Summarize the scored control sets at the six positions of each six-event run."""
+    counts = defaultdict(lambda: [0, 0])
+    for r, events in scored_rows('adaptation_question_scores.csv', ['model', 'method', 'run']):
+        if r['k'] != '6':
+            continue
+        for position, correct in enumerate(events, 1):
+            key = (r['model'], r['group'], r['method'], r['run'], position)
+            totals = counts[key]
+            totals[0] += correct
+            totals[1] += 1
+    stream = io.StringIO()
+    writer = csv.writer(stream, lineterminator='\n')
+    writer.writerow(['model', 'group', 'method', 'run', 'position', 'correct', 'total', 'accuracy_pct'])
+    for key, (correct, total) in counts.items():
+        writer.writerow([*key, correct, total, f'{100 * correct / total:.1f}'])
+    return stream.getvalue()
 
 
 def method_title(configuration):
@@ -251,7 +306,7 @@ def adaptation_tables(scenes):
              "190 questions each at one and two events and 200 each at three through six.", "",
              "[Counts by run and length](../docs/assets/results/adaptation_by_length.csv) · "
              "[Counts by run and apparatus](../docs/assets/results/adaptation_by_scene.csv) · "
-             "[Question-level scores](adaptation_question_scores.csv)", "",
+             "[Question-level scores](adaptation_question_scores.csv) · [Six-event results by event position](#event-positions)", "",
              "## All runs", "", "**Sequence exact match (%)**", "", *table("Model and method", cols)]
     for run in runs:
         link = f"[{method_title(run)}](#{run_anchor(run)})"
@@ -261,6 +316,19 @@ def adaptation_tables(scenes):
     for run in runs:
         lines.append(row([method_title(run), *[percent(summaries[run + (k,)], True) for k in lengths]]))
     lines.extend(["", "</details>", ""])
+    lines.extend(heading("event-positions", "Event accuracy by position on six-event questions"))
+    lines.extend(["Each column scores one position in the same 200 six-event questions. An event is correct "
+                  "when the predicted controls match the full recorded set. Each training seed has its own row.", "",
+                  *table("Model and method", [f"Event {i} (%)" for i in LENGTHS])])
+    positions = index('adaptation_by_position', ['model', 'method', 'run', 'position'])
+    for run in dict.fromkeys(key[:3] for key in positions):
+        lines.append(row([method_title(run), *[percent(positions[run + (i,)]) for i in LENGTHS]]))
+    sft = positions['Qwen3.5-9B', 'SFT', '20261102', '3']
+    dpo = positions['Qwen3.5-9B', 'SFT + DPO', '20261106', '3']
+    lines.extend(["", f"At event 3, Qwen3.5-9B recovered the complete control set in {sft['correct']} of "
+                  f"{sft['total']} questions after SFT ({percent(sft)}%) and in {dpo['correct']} after DPO ({percent(dpo)}%).",
+                  "", "[Counts and denominators](../docs/assets/results/adaptation_by_position.csv) · "
+                  "[Interactive table](https://pier-lab.github.io/CaveBench/#table-adaptation_by_position)", ""])
     for run in runs:
         lines.extend(heading(run_anchor(run), method_title(run)))
         for event in (False, True):
@@ -279,24 +347,29 @@ def adaptation_tables(scenes):
     return lines
 
 
+def output(target, content, check):
+    if check:
+        if content != target.read_text(encoding="utf8"):
+            raise SystemExit(f"Regenerate {target.name} with python render_result_tables.py")
+    else:
+        target.write_bytes(content.encode("utf8"))
+    print(target.name)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="Compare the Markdown tables with the source CSV files")
     args = parser.parse_args()
     order = read(ASSETS / "domains.csv")
     scenes = read(DATA / "scene_controls.csv")
+    output(DATA / 'adaptation_by_position.csv', adaptation_position_csv(), args.check)
     documents = {"domain_tables.md": domain_tables(order), "apparatus_tables.md": scene_tables(order, scenes),
+                 "tasks_by_length.md": task_matrices(order, scenes),
                  "adaptation_tables.md": adaptation_tables(scenes), "adaptation_domains.md": adaptation_domains(),
                  "figure_tables.md": figure_tables(order, scenes)}
     for name, lines in documents.items():
         content = "\n".join(lines).rstrip() + "\n"
-        target = OUT / name
-        if args.check:
-            if content != target.read_text(encoding="utf8"):
-                raise SystemExit(f"Regenerate {name} with python render_result_tables.py")
-        else:
-            target.write_bytes(content.encode("utf8"))
-        print(name)
+        output(OUT / name, content, args.check)
 
 
 if __name__ == "__main__":

@@ -35,7 +35,8 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    const version = ['assets/results.js', 'assets/case-reader.js'].includes(path) ? 'reader2' : 'atlas3';
+    const versions = {'assets/results.js':'matrix1', 'assets/offline-results.js':'matrix1', 'assets/case-reader.js':'reader2'};
+    const version = versions[path] || 'atlas3';
     tag.src = path + '?v=' + version;
     tag.onload = resolve;
     tag.onerror = () => { tag.remove(); reject(new Error(path)); };
@@ -338,7 +339,7 @@ async function showViewer() {
 }
 let resultsReady = false;
 async function showResults() {
-  sectionStyle('length-plot-style','assets/length-comparison.css?v=plate1');
+  sectionStyle('length-plot-style','assets/length-comparison.css?v=matrix1');
   try {
     await Promise.all([sceneIndex(),script('assets/tables.js')]);
     await script('assets/results.js');
@@ -356,6 +357,7 @@ function preserveAnchor() {
   const target = document.getElementById(id) ||
     (/^(?:try-)?S\d{2}$/.test(id) ? $('#viewer') :
      id.startsWith('table-') ? $('#detailed-results') :
+     id.startsWith('tasks-k') ? $('#leaderboard .tabs') :
      /^(domain-k|scores-|apparatus-)/.test(id) ? $('#leaderboard') : null);
   if (target) target.scrollIntoView({block:'start',behavior:'instant'});
 }
@@ -381,7 +383,7 @@ function openSection() {
     showViewer();
   } else if (location.hash === '#viewer') {
     showViewer();
-  } else if (/^#(?:domain-k[1-6]|apparatus-S\d{2}|scores-(?:length|methods)|table-[a-z0-9_]+(?:-k[1-6])?(?:\?.*)?|leaderboard|detailed-results)$/.test(location.hash)) {
+  } else if (/^#(?:(?:domain|tasks)-k[1-6]|apparatus-S\d{2}|scores-(?:length|methods)|table-[a-z0-9_]+(?:-k[1-6])?(?:\?.*)?|leaderboard|detailed-results)$/.test(location.hash)) {
     showResults();
   }
 }

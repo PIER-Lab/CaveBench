@@ -94,8 +94,13 @@ def main():
                 add(by_position, (model, str(pos)), hit, [hit])
 
     by_method, by_method_scene, by_method_domain = counts(), counts(), counts()
+    method_positions = counts()
     for row, events in scored_rows("adaptation_question_scores.csv", ["model", "method", "run"]):
         model, method = row["model"], row["method"]
+        if row["k"] == "6":
+            for pos, hit in enumerate(events, 1):
+                key = (model, row["group"], method, row["run"], str(pos))
+                add(method_positions, key, hit, [hit])
         runs = [row["run"]]
         if method in {"SFT + SimPO", "SFT + KTO"}:
             runs.append("Mean")
@@ -120,6 +125,7 @@ def main():
         ("adaptation_by_length.csv", by_method, ["model", "method", "run", "k"], 13 * 7),
         ("adaptation_by_scene.csv", by_method_scene, ["model", "method", "run", "scene", "k"], 13 * 20 * 7),
         ("adaptation_by_domain.csv", by_method_domain, ["model", "method", "run", "domain", "k"], 13 * 6 * 6),
+        ("adaptation_by_position.csv", method_positions, ["model", "group", "method", "run", "position"], 11 * 6),
         ("effort_results.csv", effort, ["model", "effort", "stage", "scene"], 2 * 3 * 2 * 21),
     ]
     for name, totals, fields, expected_rows in tables:

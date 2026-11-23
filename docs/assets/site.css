@@ -232,7 +232,7 @@ pre { padding: 14px; margin: 0 0 14px; border-radius: 4px; background: var(--was
 .tabs button[aria-pressed=true] { background: var(--dark); }
 .result-controls, .detail-bar, .detail-bar > div { display: flex; flex-wrap: wrap; align-items: end; gap: 10px 15px; }
 .result-controls { margin: 12px 0 14px; }
-.result-controls:has(> [hidden]:first-child + [hidden]:last-child) { display: none; }
+.result-controls:not(:has(> :not([hidden]))) { display: none; }
 .result-controls fieldset { border: 0; padding: 0; margin: 0; }
 .result-controls legend, .result-controls label, .detail-bar label { font-size: 13px; font-weight: 600; color: var(--muted); }
 .result-controls label, .detail-bar label { display: grid; gap: 4px; }

@@ -248,7 +248,7 @@ pre { padding: 14px; margin: 0 0 14px; border-radius: 4px; background: var(--was
 .tabs button[aria-pressed=true] { background: var(--dark); }
 .result-controls, .detail-bar, .detail-bar > div { display: flex; flex-wrap: wrap; align-items: end; gap: 10px 15px; }
 .result-controls { margin: 12px 0 14px; }
-.result-controls:has(> [hidden]:first-child + [hidden]:last-child) { display: none; }
+.result-controls:not(:has(> :not([hidden]))) { display: none; }
 .result-controls fieldset { border: 0; padding: 0; margin: 0; }
 .result-controls legend, .result-controls label, .detail-bar label { font-size: 13px; font-weight: 600; color: var(--muted); }
 .result-controls label, .detail-bar label { display: grid; gap: 4px; }
@@ -395,7 +395,7 @@ footer a { color: var(--ivory); font-size: 14px; }
   .statistics dd { font-size: 34px; }
 }
   </style>
-  <script defer src="assets/site.js?v=reader2"></script>
+  <script defer src="assets/site.js?v=matrix1"></script>
 </head>
 <body>
 <a href="#main" class="skip">Skip to content</a>
@@ -410,7 +410,7 @@ footer a { color: var(--ivory); font-size: 14px; }
       <div class="hero-copy">
         <p class="intro">What moved the pendulums?</p>
         <p class="film-question">From seven images of the pendulums, identify which of three drive patterns the carriage ran at each of six events.</p>
-        <div class="hero-actions"><a class="read-paper" href="papers/CaveBench.pdf?v=reader2">Read the paper</a><a class="explore" href="#try-S03">Try this case</a></div>
+        <div class="hero-actions"><a class="read-paper" href="papers/CaveBench.pdf?v=matrix1">Read the paper</a><a class="explore" href="#try-S03">Try this case</a></div>
       </div>
       <figure class="film" id="film" aria-label="Research film">
         <div class="film-frame">
@@ -433,7 +433,7 @@ footer a { color: var(--ivory); font-size: 14px; }
       <p class="institution">Tsinghua University <small><span>* Equal contribution</span> · <span>† Corresponding author</span></small></p>
     </div>
     <div id="resources" class="links" aria-label="Project resources">
-      <a href="https://github.com/PIER-Lab/CaveBench">GitHub</a><a href="https://huggingface.co/datasets/linguanxin/CaveBench">Dataset</a><a href="papers/Supplement.pdf?v=reader2">Supplement</a><a href="https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1">Weights</a>
+      <a href="https://github.com/PIER-Lab/CaveBench">GitHub</a><a href="https://huggingface.co/datasets/linguanxin/CaveBench">Dataset</a><a href="papers/Supplement.pdf?v=matrix1">Supplement</a><a href="https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1">Weights</a>
     </div>
   </div></div>
   <section class="section" id="dataset">
@@ -492,10 +492,11 @@ footer a { color: var(--ivory); font-size: 14px; }
     <h2>Leaderboard</h2>
     <p>Exact match requires the complete set of controls at each event, in chronological order. Simultaneous controls can appear in either order. On six-event questions, GPT-6.1 Sol identified all controls at 1,035 of 1,200 events (86.25%) and recovered 136 of 200 complete sequences (68.0%).</p>
     <figure id="length-comparison" class="length-comparison" hidden></figure>
-    <div class="tabs" aria-label="Leaderboard view"><button data-table="domains" aria-pressed="true">By physical domain</button><button data-table="scenes" aria-pressed="false">By apparatus</button><button data-table="length" aria-pressed="false">By question length</button><button data-table="methods" aria-pressed="false">Adaptation methods</button></div>
+    <div class="tabs" aria-label="Leaderboard view"><button data-table="domains" aria-pressed="true">By physical domain</button><button data-table="tasks" aria-pressed="false">Compare 20 apparatuses</button><button data-table="scenes" aria-pressed="false">By apparatus</button><button data-table="length" aria-pressed="false">By question length</button><button data-table="methods" aria-pressed="false">Adaptation methods</button></div>
     <div id="leaderboard-filters" class="result-controls">
       <fieldset id="k-filter"><legend>Events per question</legend><div class="k-options"></div></fieldset>
       <label id="apparatus-filter" hidden>Apparatus<select id="result-apparatus"></select></label>
+      <label id="matrix-filter" hidden>Cell values<select id="matrix-values"><option value="percent">Exact match (%)</option><option value="counts">Correct / total</option></select></label>
     </div>
     <div class="table-lede"><p id="table-note"></p><a id="download" href="assets/domains.csv" download>Download table CSV</a></div>
     <div class="tablewrap" tabindex="0" role="region" aria-label="Sortable leaderboard"><table id="results"></table></div>
@@ -510,7 +511,7 @@ footer a { color: var(--ivory); font-size: 14px; }
       <p class="table-description" id="detail-note"></p>
       <div class="tablewrap" id="detail-wrapper" tabindex="0" role="region" aria-label="Detailed results"><table id="detail-table"></table></div>
       <p id="detail-status" class="result-status" role="status"></p>
-      <p class="related-tables">Tables on GitHub · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/domain_tables.md">Physical domains</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/apparatus_tables.md">All 20 apparatuses</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_tables.md">All adaptation runs</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_domains.md">Adaptation by domain</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/figure_tables.md">Figure data</a></p>
+      <p class="related-tables">Tables on GitHub · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/domain_tables.md">Physical domains</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/apparatus_tables.md">Individual apparatuses</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/tasks_by_length.md">All apparatuses by question length</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_tables.md">All adaptation runs</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_domains.md">Adaptation by domain</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/figure_tables.md">Figure data</a></p>
       <p class="related-tables"><a href="#table-model_protocols" data-detail="model_protocols">Evaluation settings by model</a> · <a href="assets/results/model_protocols.csv" download>Download evaluation settings</a></p>
       <p class="related-tables">Question-level scores for the <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/question_scores.csv">main comparison</a>, <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_question_scores.csv">adaptation methods</a> and <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/effort_question_scores.csv">reasoning-effort experiment</a>.</p>
     </div>
@@ -532,7 +533,7 @@ footer a { color: var(--ivory); font-size: 14px; }
       <div><h3>Learning to recover a sequence</h3>
     <p>Supervised fine-tuning raises Qwen3.5-9B’s six-event accuracy from 0.5% to 20.0%. Across two training seeds, SimPO and KTO achieve similar single-event accuracy (86.8% and 86.3%). At six events, SimPO reaches 31.8% and KTO scores 14.5%.</p>
     <p>On the 40 six-event dynamics questions, SFT recovers 10 complete sequences. The two SimPO runs recover <a href="#table-adaptation_by_domain-k6?domain=Dynamics" data-detail="adaptation_by_domain">16 and 17</a>. Across all five domains, each run solves 27 sequences that SFT missed. <a href="#table-paired_training" data-detail="paired_training">Compare runs on the same questions</a>.</p>
-    <p class="related-tables"><a href="#table-training_case" data-detail="training_case">Compare predictions for all six events</a> · <a href="#table-adaptation_by_domain-k6" data-detail="adaptation_by_domain">Compare adaptation by physical domain</a> · <a href="#table-adaptation_by_length" data-detail="adaptation_by_length">Compare question lengths</a> · <a href="https://github.com/PIER-Lab/CaveBench#local-qwen-checkpoints">Load the trained checkpoints</a></p>
+    <p class="related-tables"><a href="#table-training_case" data-detail="training_case">Compare predictions for all six events</a> · <a href="#table-adaptation_by_domain-k6" data-detail="adaptation_by_domain">Compare adaptation by physical domain</a> · <a href="#table-adaptation_by_length" data-detail="adaptation_by_length">Compare question lengths</a> · <a href="#table-adaptation_by_position" data-detail="adaptation_by_position">Accuracy at each event by run</a> · <a href="https://github.com/PIER-Lab/CaveBench#local-qwen-checkpoints">Load the trained checkpoints</a></p>
       </div>
     <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" width="1485" height="1707" data-lazy-src="assets/adaptation.png" alt="Frames F0–F3 of the dielectric-response apparatus and the two models’ predictions for event 3."></a><figcaption>At event 3, the electroscope leaves open wider than at full insertion. The baseline predicts full insertion, while both SimPO runs identify half insertion.</figcaption></figure>
     </div>

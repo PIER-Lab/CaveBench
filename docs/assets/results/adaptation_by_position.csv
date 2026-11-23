@@ -1,0 +1,67 @@
+model,group,method,run,position,correct,total,accuracy_pct
+Qwen3.5-9B,Training-based,Baseline,Baseline,1,51,200,25.5
+Qwen3.5-9B,Training-based,Baseline,Baseline,2,28,200,14.0
+Qwen3.5-9B,Training-based,Baseline,Baseline,3,46,200,23.0
+Qwen3.5-9B,Training-based,Baseline,Baseline,4,38,200,19.0
+Qwen3.5-9B,Training-based,Baseline,Baseline,5,29,200,14.5
+Qwen3.5-9B,Training-based,Baseline,Baseline,6,37,200,18.5
+Qwen3.5-9B,Training-based,SFT,20261102,1,163,200,81.5
+Qwen3.5-9B,Training-based,SFT,20261102,2,147,200,73.5
+Qwen3.5-9B,Training-based,SFT,20261102,3,115,200,57.5
+Qwen3.5-9B,Training-based,SFT,20261102,4,82,200,41.0
+Qwen3.5-9B,Training-based,SFT,20261102,5,72,200,36.0
+Qwen3.5-9B,Training-based,SFT,20261102,6,75,200,37.5
+Qwen3.5-9B,Training-based,SFT + DPO,20261106,1,172,200,86.0
+Qwen3.5-9B,Training-based,SFT + DPO,20261106,2,168,200,84.0
+Qwen3.5-9B,Training-based,SFT + DPO,20261106,3,164,200,82.0
+Qwen3.5-9B,Training-based,SFT + DPO,20261106,4,120,200,60.0
+Qwen3.5-9B,Training-based,SFT + DPO,20261106,5,90,200,45.0
+Qwen3.5-9B,Training-based,SFT + DPO,20261106,6,94,200,47.0
+Qwen3.5-9B,Training-based,SFT + SimPO,20261108,1,173,200,86.5
+Qwen3.5-9B,Training-based,SFT + SimPO,20261108,2,166,200,83.0
+Qwen3.5-9B,Training-based,SFT + SimPO,20261108,3,162,200,81.0
+Qwen3.5-9B,Training-based,SFT + SimPO,20261108,4,114,200,57.0
+Qwen3.5-9B,Training-based,SFT + SimPO,20261108,5,96,200,48.0
+Qwen3.5-9B,Training-based,SFT + SimPO,20261108,6,99,200,49.5
+Qwen3.5-9B,Training-based,SFT + SimPO,20261109,1,170,200,85.0
+Qwen3.5-9B,Training-based,SFT + SimPO,20261109,2,165,200,82.5
+Qwen3.5-9B,Training-based,SFT + SimPO,20261109,3,157,200,78.5
+Qwen3.5-9B,Training-based,SFT + SimPO,20261109,4,120,200,60.0
+Qwen3.5-9B,Training-based,SFT + SimPO,20261109,5,93,200,46.5
+Qwen3.5-9B,Training-based,SFT + SimPO,20261109,6,98,200,49.0
+Qwen3.5-9B,Training-based,SFT + KTO,20261107,1,172,200,86.0
+Qwen3.5-9B,Training-based,SFT + KTO,20261107,2,157,200,78.5
+Qwen3.5-9B,Training-based,SFT + KTO,20261107,3,147,200,73.5
+Qwen3.5-9B,Training-based,SFT + KTO,20261107,4,92,200,46.0
+Qwen3.5-9B,Training-based,SFT + KTO,20261107,5,52,200,26.0
+Qwen3.5-9B,Training-based,SFT + KTO,20261107,6,64,200,32.0
+Qwen3.5-9B,Training-based,SFT + KTO,20261108,1,169,200,84.5
+Qwen3.5-9B,Training-based,SFT + KTO,20261108,2,157,200,78.5
+Qwen3.5-9B,Training-based,SFT + KTO,20261108,3,150,200,75.0
+Qwen3.5-9B,Training-based,SFT + KTO,20261108,4,97,200,48.5
+Qwen3.5-9B,Training-based,SFT + KTO,20261108,5,54,200,27.0
+Qwen3.5-9B,Training-based,SFT + KTO,20261108,6,74,200,37.0
+Gemini 3.8 Flash,Training-free,Baseline,Baseline,1,117,200,58.5
+Gemini 3.8 Flash,Training-free,Baseline,Baseline,2,107,200,53.5
+Gemini 3.8 Flash,Training-free,Baseline,Baseline,3,104,200,52.0
+Gemini 3.8 Flash,Training-free,Baseline,Baseline,4,107,200,53.5
+Gemini 3.8 Flash,Training-free,Baseline,Baseline,5,108,200,54.0
+Gemini 3.8 Flash,Training-free,Baseline,Baseline,6,97,200,48.5
+Gemini 3.8 Flash,Training-free,ReAct,Published,1,124,200,62.0
+Gemini 3.8 Flash,Training-free,ReAct,Published,2,107,200,53.5
+Gemini 3.8 Flash,Training-free,ReAct,Published,3,114,200,57.0
+Gemini 3.8 Flash,Training-free,ReAct,Published,4,105,200,52.5
+Gemini 3.8 Flash,Training-free,ReAct,Published,5,110,200,55.0
+Gemini 3.8 Flash,Training-free,ReAct,Published,6,107,200,53.5
+Gemini 3.8 Flash,Training-free,Visual Sketchpad,Published,1,93,200,46.5
+Gemini 3.8 Flash,Training-free,Visual Sketchpad,Published,2,76,200,38.0
+Gemini 3.8 Flash,Training-free,Visual Sketchpad,Published,3,69,200,34.5
+Gemini 3.8 Flash,Training-free,Visual Sketchpad,Published,4,66,200,33.0
+Gemini 3.8 Flash,Training-free,Visual Sketchpad,Published,5,71,200,35.5
+Gemini 3.8 Flash,Training-free,Visual Sketchpad,Published,6,49,200,24.5
+Gemini 3.8 Flash,Training-free,ViperGPT,Published,1,92,200,46.0
+Gemini 3.8 Flash,Training-free,ViperGPT,Published,2,75,200,37.5
+Gemini 3.8 Flash,Training-free,ViperGPT,Published,3,78,200,39.0
+Gemini 3.8 Flash,Training-free,ViperGPT,Published,4,72,200,36.0
+Gemini 3.8 Flash,Training-free,ViperGPT,Published,5,64,200,32.0
+Gemini 3.8 Flash,Training-free,ViperGPT,Published,6,67,200,33.5
