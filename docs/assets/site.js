@@ -144,6 +144,20 @@ function compareSteps(item) {
   box.append(node('p','Sequence exact match: '+(item.exact_match ? 'yes.':'no.')),wrapper);
   return box;
 }
+function episodeMedia(item, strip) {
+  const video=node('video');
+  video.controls=true; video.playsInline=true; video.preload='none';
+  video.setAttribute('aria-label',item.title+' episode video');
+  video.poster='assets/posters/'+encodeURIComponent(item.id)+'.jpg?v=atlas3';
+  video.src=pathFor(item,item.video);
+  const caption=node('div',undefined,'video-caption');
+  const movieLink=node('a','Open video ↗');
+  movieLink.href=video.src;
+  caption.append(node('span','Exterior and interior views'),movieLink);
+  const media=node('details',undefined,'case-media');
+  media.append(node('summary','Episode video and model input frames'),video,caption,node('h4','Model input frames'),strip);
+  return media;
+}
 function trySequence(item) {
   const panel = node('details', undefined, 'try-sequence');
   panel.append(node('summary', 'Try the six-event question'));
@@ -205,8 +219,10 @@ let activeScene = '';
 async function renderScene(id, changeHash=false) {
   const entry=cases.find(i=>i.id===id);
   if (!entry) return;
-  if (changeHash) history.replaceState(null,'','#'+id);
-  activeScene = id;
+  const practice=changeHash ? activeScene.startsWith('try-') : location.hash.startsWith('#try-');
+  const anchor=practice ? 'try-'+id : id;
+  if (changeHash) history.replaceState(null,'','#'+anchor);
+  activeScene = anchor;
   document.querySelectorAll('#atlas button').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.id===id)));
   const example = $('#example');
   example.setAttribute('aria-busy','true');
@@ -216,36 +232,41 @@ async function renderScene(id, changeHash=false) {
   try {
     item = entry.frames ? entry : await jsonFile(pathFor(entry,'worked.json'));
   } catch {
-    if (activeScene === id) {
+    if (activeScene === anchor) {
       example.removeAttribute('data-scene');
       example.removeAttribute('aria-busy');
       loadFailure(example, 'Could not load ' + entry.title + '.', () => renderScene(id));
     }
     return;
   }
-  if (activeScene !== id) return;
+  if (activeScene !== anchor) return;
   const header=node('div',undefined,'sceneinfo');
-  header.append(node('h3',item.id+' · '+item.title));
-  const video=node('video');
-  video.controls=true; video.playsInline=true; video.preload='none';
-  video.setAttribute('aria-label',item.title+' episode video');
-  video.poster='assets/posters/'+encodeURIComponent(item.id)+'.jpg?v=atlas3';
-  video.src=pathFor(item,item.video);
-  const caption=node('div',undefined,'video-caption');
-  const movieLink=node('a','Open video ↗');
-  movieLink.href=video.src;
-  caption.append(node('span','Exterior and interior views'),movieLink);
+  const switchView=node('a',practice ? 'View worked example' : 'Solve this case');
+  switchView.href=practice ? '#'+id : '#try-'+id;
+  header.append(node('h3',item.id+' · '+item.title),switchView);
   const strip=node('div',undefined,'strip');
   item.frames.forEach((filename,n)=>{
     const fig=node('figure'); const zoom=node('a',undefined,'zoom');
     zoom.setAttribute('aria-label', item.title+', '+(n ? 'internal observation after event '+n : 'initial internal observation'));
-    zoom.href=pathFor(item,filename); zoom.append(preview(item,n,'frame-thumb'));
+    zoom.href=pathFor(item,filename);
+    if (practice) {
+      const image=node('img');
+      image.alt=zoom.getAttribute('aria-label'); image.loading='lazy'; image.decoding='async';
+      image.src=zoom.href; zoom.append(image);
+    } else {
+      zoom.append(preview(item,n,'frame-thumb'));
+    }
     fig.append(zoom,node('figcaption',item.frame_labels?.[n] || 'Frame F'+n)); strip.append(fig);
   });
-  const media=node('details',undefined,'case-media');
-  media.append(node('summary','Episode video and model input frames'),video,caption,node('h4','Model input frames'),strip);
-  const parts=[header,caseStudy(item),media,textPanel('Complete prompt',item.prompt),trySequence(item),compareSteps(item)];
-  example.replaceChildren(...parts);
+  const prompt=textPanel(practice ? 'Read the full prompt and control definitions' : 'Complete prompt',item.prompt);
+  const attempt=trySequence(item);
+  if (practice) {
+    attempt.open=true;
+    strip.classList.add('practice-frames');
+    example.replaceChildren(header,node('h4','Model input frames'),strip,prompt,attempt);
+  } else {
+    example.replaceChildren(header,caseStudy(item),episodeMedia(item,strip),prompt,attempt,compareSteps(item));
+  }
   example.dataset.scene=id;
   example.removeAttribute('aria-busy');
 }
@@ -297,8 +318,8 @@ async function showViewer() {
       atlas.append(section);
     }
   }
-  const target = cases.find(item=>'#'+item.id===location.hash);
-  if (!activeScene || (target && target.id !== activeScene)) {
+  const target = cases.find(item=>item.id===location.hash.slice(1).replace(/^try-/, ''));
+  if (!activeScene || (target && location.hash.slice(1) !== activeScene)) {
     const first=target || cases[0];
     if ($('#domain').value && $('#domain').value !== first.domain) $('#domain').value='';
     updateSceneOptions(first.id);
@@ -322,7 +343,7 @@ function preserveAnchor() {
   if (!requestedAnchor || requestedAnchor !== location.hash) return;
   const id = requestedAnchor.slice(1);
   const target = document.getElementById(id) ||
-    (/^S\d{2}$/.test(id) ? $('#viewer') :
+    (/^(?:try-)?S\d{2}$/.test(id) ? $('#viewer') :
      id.startsWith('table-') ? $('#detailed-results') :
      /^(domain-k|scores-|apparatus-)/.test(id) ? $('#leaderboard') : null);
   if (target) target.scrollIntoView({block:'start',behavior:'instant'});
@@ -344,7 +365,7 @@ document.addEventListener('click', event => {
 });
 function openSection() {
   requestedAnchor=location.hash;
-  if (/^#S(?:0[1-9]|1\d|20)$/.test(location.hash)) {
+  if (/^#(?:try-)?S(?:0[1-9]|1\d|20)$/.test(location.hash)) {
     $('#viewer').scrollIntoView({block:'start',behavior:'instant'});
     showViewer();
   } else if (location.hash === '#viewer') {

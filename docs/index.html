@@ -9,8 +9,8 @@
   <link rel="icon" type="image/png" href="assets/cave-mark.png">
   <link rel="preload" as="image" href="assets/observation-cover.webp" media="(min-width: 736px)" fetchpriority="high">
   <link rel="preload" as="image" href="assets/observation-cover-small.webp" media="(max-width: 735px)" fetchpriority="high">
-  <link rel="stylesheet" href="assets/site.css?v=atlas3">
-  <script defer src="assets/site.js?v=domain1"></script>
+  <link rel="stylesheet" href="assets/site.css?v=practice1">
+  <script defer src="assets/site.js?v=practice1"></script>
 </head>
 <body>
 <a href="#main" class="skip">Skip to content</a>
@@ -24,16 +24,16 @@
       <div class="hero-copy">
         <h1><span class="wordmark">CaveBench<span class="title-colon">:</span></span> <span class="paper-title">Benchmarking Abductive Physical Reasoning from Internal Observations</span></h1>
         <p class="intro">Watching from inside an apparatus, can a vision–language model recover the sequence of controls applied outside?</p>
-        <div class="hero-actions"><a class="read-paper" href="papers/CaveBench.pdf">Read the paper <span aria-hidden="true">↗</span></a><a class="explore" href="#viewer">Explore the cases <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-actions"><a class="read-paper" href="papers/CaveBench.pdf">Read the paper <span aria-hidden="true">↗</span></a><a class="explore" href="#try-S03">Solve a case <span aria-hidden="true">↓</span></a></div>
       </div>
       <figure class="film" id="film" aria-label="Research film">
         <div class="film-frame">
           <picture class="film-art"><source media="(max-width: 735px)" srcset="assets/observation-cover-small.webp"><img src="assets/observation-cover.webp" alt="Three superimposed observations show the central pendulum at different angles." width="1600" height="650" fetchpriority="high"></picture>
           <video class="overview-video" controls playsinline preload="none" aria-label="CaveBench research film">
-            <source src="assets/video/CaveBench-overview.mp4?v=field1" type="video/mp4">
-            <track kind="captions" src="assets/video/CaveBench-overview.en.vtt?v=field1" srclang="en" label="English">
+            <source src="assets/video/CaveBench-overview.mp4?v=ssi2" type="video/mp4">
+            <track kind="captions" src="assets/video/CaveBench-overview.en.vtt?v=ssi2" srclang="en" label="English">
           </video>
-          <button type="button" class="film-play" aria-label="Play research film" hidden><span class="play-glyph" aria-hidden="true"></span><span id="film-title">Watch the film</span><small>1:07</small></button>
+          <button type="button" class="film-play" aria-label="Play research film" hidden><span class="play-glyph" aria-hidden="true"></span><span id="film-title">Watch the film</span><small>1:08</small></button>
           <button type="button" id="close-film">Close film ×</button>
         </div>
         <figcaption class="film-foot"><span>S03 · Driven pendulums</span><span>Frames F0, F3 and F6</span></figcaption>
@@ -140,7 +140,7 @@
     <p>Supervised fine-tuning raises Qwen3.5-9B’s six-event accuracy from 0.5% to 20.0%. Across two training seeds, SimPO and KTO achieve similar single-event accuracy (86.8% and 86.3%). At six events, SimPO reaches 31.8% and KTO scores 14.5%.</p>
     <p>On the 40 six-event dynamics questions, SFT recovers 10 complete sequences. The two SimPO runs recover <a href="#table-adaptation_by_domain-k6?domain=Dynamics" data-detail="adaptation_by_domain">16 and 17</a>. Across all five domains, each run solves 27 sequences that SFT missed. <a href="#table-paired_training" data-detail="paired_training">Compare runs on the same questions</a>.</p>
     <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" width="1485" height="1707" data-lazy-src="assets/adaptation.png" alt="Frames F0–F3 of the dielectric-response apparatus and the two models’ predictions for event 3."></a><figcaption>At event 3, the baseline predicts full insertion. The SimPO model identifies half insertion.</figcaption></figure>
-    <p class="related-tables"><a href="#table-training_case" data-detail="training_case">Compare predictions for all six events</a> · <a href="#table-adaptation_by_domain-k6" data-detail="adaptation_by_domain">Compare adaptation by physical domain</a> · <a href="#table-adaptation_by_length" data-detail="adaptation_by_length">Compare question lengths</a></p>
+    <p class="related-tables"><a href="#table-training_case" data-detail="training_case">Compare predictions for all six events</a> · <a href="#table-adaptation_by_domain-k6" data-detail="adaptation_by_domain">Compare adaptation by physical domain</a> · <a href="#table-adaptation_by_length" data-detail="adaptation_by_length">Compare question lengths</a> · <a href="https://github.com/PIER-Lab/CaveBench#local-qwen-checkpoints">Load the trained checkpoints</a></p>
     <h3>Reasoning effort</h3>
     <p>On 200 six-event questions, raising reasoning effort from low to high lifts GPT-6.1 Sol’s accuracy from 59.5% to 74.0%. Gemini 3.8 Flash’s accuracy falls from 15.5% to 8.0%.</p>
     <figure><a class="zoom" href="assets/effort.png"><img loading="lazy" width="1485" height="446" data-lazy-src="assets/effort.png" alt="Accuracy by reasoning effort, model and apparatus."></a><figcaption>Final-answer accuracy across ten episodes per apparatus.</figcaption></figure>

@@ -23,6 +23,8 @@ The dataset contains 9,000 training episodes, 1,000 validation episodes and 200 
 
 ## Case studies
 
+[Solve the driven-pendulum case](https://pier-lab.github.io/CaveBench/#try-S03). Inspect the seven internal observations, read the apparatus description and choose the carriage trajectory for each of the six events. Select another apparatus in the viewer to try its question.
+
 In the driven-pendulum case below, Claude Sonnet 5.5 identifies the carriage trajectory at five of six events. At the second event it predicts trajectory A, while the carriage follows trajectory C. Open any case to see the synchronized inside and outside views, the full question and the model’s explanation.
 
 <a href="https://pier-lab.github.io/CaveBench/#S03"><img src="docs/assets/cases/S03.webp" width="475" alt="Driven pendulums case sheet. Seven internal observations, the question, a passage from the model answer and a six-event comparison."></a>
@@ -149,7 +151,18 @@ For custom predictions, write one JSON object per line with `id` (the question I
 
 ### Local Qwen checkpoints
 
-The [GitHub release](https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1) contains the SFT adapter, the DPO adapter, two SimPO seeds and two KTO seeds. Download the SFT archive and the preference run you want to evaluate. For the first SimPO seed:
+Download the SFT adapter for all trained models. For preference-trained models, also download the adapter for the method and seed you want to evaluate.
+
+| Adapter | Training seed | Six-event exact match | Weights |
+|---|---:|---:|---|
+| SFT | 20261102 | 40/200 (20.0%) | [Download ZIP](https://github.com/PIER-Lab/CaveBench/releases/download/cavebench-qwen35-adapters-v1/CaveBench-Qwen3.5-9B-SFT-20261102.zip) |
+| DPO | 20261106 | 61/200 (30.5%) | [Download ZIP](https://github.com/PIER-Lab/CaveBench/releases/download/cavebench-qwen35-adapters-v1/CaveBench-Qwen3.5-9B-DPO-20261106.zip) |
+| SimPO | 20261108 | 63/200 (31.5%) | [Download ZIP](https://github.com/PIER-Lab/CaveBench/releases/download/cavebench-qwen35-adapters-v1/CaveBench-Qwen3.5-9B-SimPO-20261108.zip) |
+| SimPO | 20261109 | 64/200 (32.0%) | [Download ZIP](https://github.com/PIER-Lab/CaveBench/releases/download/cavebench-qwen35-adapters-v1/CaveBench-Qwen3.5-9B-SimPO-20261109.zip) |
+| KTO | 20261107 | 29/200 (14.5%) | [Download ZIP](https://github.com/PIER-Lab/CaveBench/releases/download/cavebench-qwen35-adapters-v1/CaveBench-Qwen3.5-9B-KTO-20261107.zip) |
+| KTO | 20261108 | 29/200 (14.5%) | [Download ZIP](https://github.com/PIER-Lab/CaveBench/releases/download/cavebench-qwen35-adapters-v1/CaveBench-Qwen3.5-9B-KTO-20261108.zip) |
+
+Run the first SimPO checkpoint with:
 
 ```sh
 python -m pip install -r requirements-local.txt

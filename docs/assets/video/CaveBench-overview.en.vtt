@@ -43,7 +43,7 @@ six-event sequences, or 68%.
 Qwen3.5-9B rose from 0.5% to 20% six-event
 accuracy with supervised fine-tuning.
 
-00:00:59.848 --> 00:01:05.608
-After SimPO, accuracy averaged
-31.8% across two runs.
+00:00:59.848 --> 00:01:07.120
+In dynamics, SFT solved 10 of 40.
+The two SimPO runs solved 16 and 17.
 
