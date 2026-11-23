@@ -45,9 +45,9 @@ window.caveCaseReader = function (item, {node, pathFor, answerText, strip, previ
   const aside=node('div',undefined,'case-reading');
   const meta=node('p',item.sample_id+' / '+item.id,'reading-meta');
   const heading=node('h4',item.model);
-  const locator=node('p',item.display_complete ? 'Model reasoning' : 'Excerpts from the model’s reasoning','reading-subtitle');
+  const locator=node('p',item.display_complete ? 'Model reasoning' : 'Excerpt from the model’s reasoning','reading-subtitle');
   const quote=node('blockquote');
-  answerText(quote,item.display_text);
+  answerText(quote,item.display_paragraphs?.join('\n\n') ?? item.display_text);
   const more=node('details',undefined,'model-text');
   more.append(node('summary','Complete model response'));
   more.addEventListener('toggle',()=>{
@@ -60,7 +60,7 @@ window.caveCaseReader = function (item, {node, pathFor, answerText, strip, previ
   aside.append(meta,heading,locator,quote,more);
   const materials=node('div',undefined,'case-sheet');
   const sheet=node('a','Enlarge case sheet','zoom');
-  sheet.href='assets/cases/'+item.id+'.webp?v=verbal-prompts-3';
+  sheet.href='assets/cases/'+item.id+'.webp?v=qwen-cases-1';
   sheet.setAttribute('aria-label','Enlarge '+item.id+' illustrated case sheet');
   const data=node('a','Download case record'); data.href=pathFor(item,'illustrated_response.json');
   data.download=item.id+'-illustrated-response.json';
