@@ -14,6 +14,7 @@
   ],
   "authorNote": "* Equal contribution   ·   † Corresponding author",
   "github": "https://github.com/PIER-Lab/CaveBench",
+  "weights": "https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1",
   "paper": "papers/CaveBench.pdf",
   "supplement": "papers/Supplement.pdf",
   "dataset": "https://huggingface.co/datasets/linguanxin/CaveBench"
