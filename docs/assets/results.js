@@ -303,7 +303,7 @@ const views = {
   training_case: ['Recorded predictions in Figure 5', 'Training and adaptation'],
   effort_results: ['Reasoning effort in Figure 6', 'Model analysis'],
   figure1: ['Six-event scores in Figure 1', 'Model analysis'],
-  model_protocols: ['Evaluation settings by model', 'Model analysis'],
+  model_protocols: ['Main-evaluation reasoning mode', 'Model analysis'],
   main_event_by_length: ['Event accuracy by question length', 'Model analysis'],
   error_categories: ['Error categories', 'Model analysis'],
   event_positions: ['Accuracy by event position', 'Model analysis'],
@@ -470,12 +470,9 @@ function displayDetailed(view, records) {
       records.map(r => [r.model,r.correct,r.total,percent(r.accuracy_pct)]), [0],
       'Figure 1. Exact matches on 200 six-event questions.');
   } else if (view === 'model_protocols') {
-    const models = new Map(records.map(r => [r.model_key,r.model]));
-    detailFilter('model', 'Model', [['','All ' + models.size + ' models'], ...models], rerender);
-    const rows = records.filter(r => !detailState.model || r.model_key === detailState.model);
-    detailTable(['Model','Visual input','Reasoning setting','Initial token cap','Answer completion','Completion token cap','Questions','Questions scored from a completion'],
-      rows.map(r => [r.model,r.input_format,r.reasoning,r.primary_token_cap,r.completion_policy,r.completion_token_cap,r.questions,r.completion_selected]), [0,1,2,4],
-      'Token limits apply per request.');
+    detailFilter('model', 'Model', [['','All ' + records.length + ' models'], ...records.map(r => [r.model,r.model])], rerender);
+    const rows = records.filter(r => !detailState.model || r.model === detailState.model);
+    detailTable(['Model','Reasoning mode'], rows.map(r => [r.model,r.reasoning]), [0,1], '');
   } else if (view === 'main_event_by_length') {
     const columns = [...lengths.map(String), 'Overall'];
     const table = pivotRows(records, r => r.model_key, r => r.k, columns, 'event_accuracy_pct', r => [r.model], detailedPercent);
@@ -521,13 +518,14 @@ function displayDetailed(view, records) {
 async function loadDetail() {
   const version = ++detailVersion;
   const view = detailSelect.value;
+  const source = view === 'model_protocols' ? 'model_reasoning' : view;
   $('#detail-wrapper').hidden = true;
   $('#detail-filters').replaceChildren();
   $('#detail-note').textContent = '';
-  $('#detail-download').href = resultDirectory + view + '.csv';
+  $('#detail-download').href = resultDirectory + source + '.csv';
   $('#detail-status').textContent = 'Loading results…';
   try {
-    const records = await readResults(view);
+    const records = await readResults(source);
     if (version === detailVersion) displayDetailed(view, records);
   } catch {
     if (version === detailVersion) $('#detail-status').textContent = 'Open the CSV to view this table.';
