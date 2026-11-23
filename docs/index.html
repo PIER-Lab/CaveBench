@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#102621">
+  <meta name="theme-color" content="#14232d">
   <meta name="description" content="CaveBench evaluates abductive physical reasoning from internal observations. Explore twenty apparatuses, video examples and results from 27 vision–language model configurations.">
   <title>CaveBench · Abductive Physical Reasoning from Internal Observations</title>
   <meta property="og:title" content="CaveBench · Abductive Physical Reasoning from Internal Observations">
@@ -16,8 +16,8 @@
   <style id="project-styles">
 * { box-sizing: border-box; }
 :root {
-  color-scheme:light; --ink:#183a35; --text:#303d39; --muted:#53605a; --accent:#145c55; --dark:#143d37;
-  --edge:#c6c6b6; --wash:#e8e8da; --paper:#f3f1e7; --ivory:#fff4d9; --gold:#efbb7b; --night:#102822;
+  color-scheme:light; --ink:#243a45; --text:#303d39; --muted:#53605a; --accent:#205b65; --dark:#143d37;
+  --edge:#c6c6b6; --wash:#e8e8da; --paper:#f4f4ed; --ivory:#fff4d9; --gold:#efbb7b; --night:#102822;
   --serif:Georgia,"Times New Roman",serif; --sans:"Segoe UI",Arial,sans-serif;
   --display:"Bahnschrift","Arial Narrow",Arial,sans-serif; --mono:Consolas,"Courier New",monospace;
   --margin:clamp(18px,5.5vw,88px); --measure:1192px;
@@ -32,8 +32,8 @@ button,summary { cursor:pointer; }
 [hidden] { display:none!important; }
 .skip { position:fixed;top:-80px;left:12px;z-index:20;background:var(--ivory);padding:.5em 1em; }
 .skip:focus { top:5px; }
-.nav { position:sticky;top:0;z-index:6;background:#102621;border-bottom:1px solid #adba9854; }
-.nav nav,.hero-inner,.credits-inner,.section,footer>div { width:min(calc(100% - 2 * var(--margin)),var(--measure));margin-inline:auto; }
+.nav { position:sticky;top:0;z-index:6;background:#13212a;border-bottom:1px solid #adba9854; }
+.nav nav,.hero-inner,.section,footer>div { width:min(calc(100% - 2 * var(--margin)),var(--measure));margin-inline:auto; }
 .nav nav,footer>div { display:flex;align-items:center;justify-content:space-between;gap:12px; }
 .nav nav { min-height:54px; }
 nav a,footer a { text-decoration:none; }
@@ -44,45 +44,60 @@ nav a,footer a { text-decoration:none; }
 .nav a:hover,footer a:hover { color:var(--gold); }
 h1,h2,h3,h4,p,figure,dl,dd { margin:0; }
 h1,h2,h3,h4 { text-wrap:balance; }
-.hero { position:relative;isolation:isolate;overflow:clip;color:var(--ivory);background:#172b26; }
-.hero::before { content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;background:linear-gradient(95deg,#10231faa,#1228233b 53%,#11211c33),var(--relief) center / cover no-repeat; }
-.hero-inner { padding-block:clamp(24px,3.35vw,50px) clamp(18px,2vw,29px); }
-.hero h1 { display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:clamp(25px,5.5vw,85px);margin-bottom:clamp(21px,2.45vw,35px); }
-.wordmark { display:block;font:730 clamp(72px,8.55vw,129px)/.9 var(--display);letter-spacing:-.087em; }
-.title-colon { position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden; }
-.paper-title { max-width:28ch;color:#f6ebd2;font:400 clamp(23px,2.55vw,39px)/1.1 var(--serif);letter-spacing:-.028em; }
-.film { width:100%;min-width:0;scroll-margin-top:68px; }
-.film-frame { isolation:isolate;position:relative;display:flex;align-items:flex-end;width:100%;min-height:260px;aspect-ratio:3.35;border:1px solid #97ab8966;background:#0d211e;box-shadow:0 10px 34px #06181366;overflow:hidden; }
-.film-art,.film-art img,.overview-video { position:absolute;height:100%;width:100%;display:block; }
-.film-art { inset:0 0 0 auto;width:68%;pointer-events:none;z-index:-2; }
-.film-art img { object-fit:cover;object-position:center 55%; }
-.film-frame::before { content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#0a201cf5 0%,#102621 29%,#122723e0 37%,#10252200 56%),linear-gradient(0deg,#07151463,transparent 25%); }
-.film-copy { padding:clamp(23px,3.7vw,54px);max-width:48%;pointer-events:none; }
-.film-copy small { display:block;color:#eac393;font:500 14px/1.3 var(--mono); }
-.film-copy h2 { color:#fff6df;max-width:11ch;font:400 clamp(36px,4.7vw,73px)/.98 var(--serif);letter-spacing:-.055em;margin:12px 0 24px; }
-.film-play { display:inline-flex;align-items:center;gap:10px;min-height:45px;padding:4px 15px 4px 5px;border:1px solid #efbd86;background:#efbd86;color:#242a20;border-radius:30px;font:650 15px/1.25 var(--sans);pointer-events:auto; }
-.film-play:hover { background:#ffe0ac; }
-.play-glyph { display:grid;place-items:center;width:35px;height:35px;border-radius:50%;background:#233b32; }
-.play-glyph::after { content:"";margin-left:3px;border-block:5px solid transparent;border-left:8px solid #fff1d5; }
-.film-foot { display:flex;align-items:center;justify-content:space-between;gap:12px;margin:9px 0 0;color:#dedfc8;font:500 13px/1.5 var(--sans); }
-.film-foot a { color:#ffe4ae;text-decoration-color:#aaae83; }
-.overview-video { inset:0;object-fit:contain;background:#091713; }
-.film:not(.is-playing) .overview-video:not([controls]),.film.is-playing .film-copy,.film.is-playing .film-art { visibility:hidden; }
-.film:not(.is-playing) .film-frame { cursor:pointer; }
-.film.is-playing .film-frame { aspect-ratio:16/9;min-height:0;max-height:calc(100svh - 105px); }
-#close-film { display:none;position:absolute;z-index:1;right:10px;top:10px;background:#0d211ce6;color:white;border:1px solid #e1dfce99;border-radius:3px;padding:7px 12px;font-size:13px; }
+.hero { position:relative; isolation:isolate; color:#edf3f4; background:#16242c; }
+.hero::before { content:""; position:absolute; z-index:-1; inset:0; pointer-events:none; background:linear-gradient(96deg,#14252bbe 10%,#15273366 63%,#1b2936cc),var(--relief) center / cover; }
+.hero-inner { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); grid-template-areas:"title lab" "credits lab"; column-gap:clamp(36px,5vw,83px); align-content:center; align-items:end; padding-block:clamp(42px,5.5vw,91px); }
+.hero h1 { grid-area:title; }
+.wordmark { display:block; color:#fff9e9; font:400 clamp(68px,7.8vw,112px)/.97 var(--serif); letter-spacing:-.085em; }
+.title-colon { position:absolute; clip-path:inset(50%); width:1px; height:1px; overflow:hidden; }
+.paper-title { display:block; max-width:22ch; margin-top:19px; color:#e0eaed; font:450 clamp(21px,2.3vw,34px)/1.15 var(--display); letter-spacing:-.025em; text-wrap:balance; }
+.credits { grid-area:credits; align-self:start; min-width:0; margin-top:clamp(24px,3vw,42px); }
+.authors { font-size:16px; line-height:1.65; color:#e4eae7; }
+.authors span,.institution small span { white-space:nowrap; }
+.authors sup { color:#f3c581; line-height:0; }
+.institution { margin:8px 0 0; font:600 15px/1.4 var(--sans); color:#fff5d9; }
+.institution small { display:block; margin-top:3px; font-size:12px; color:#b8c4c9; font-weight:400; }
+.links { display:flex; flex-wrap:wrap; align-items:center; gap:4px 17px; margin-top:20px; }
+.links a { min-height:38px; display:inline-flex; align-items:center; color:#f4dcaf; font:600 14px/1.3 var(--sans); text-decoration-color:#a9916c; }
+.links .read-paper { padding:7px 15px; border-radius:3px; background:#f5d598; color:#263039; text-decoration:none; }
+.film { grid-area:lab; align-self:center; width:100%; min-width:0; scroll-margin-top:68px; border:1px solid #889aa377; border-radius:12px; padding:clamp(13px,1.45vw,23px); color:#eaf1f1; background:linear-gradient(133deg,#31434f,#22303b 53%,#192b33); box-shadow:0 15px 40px #06111e55,inset 0 1px 0 #ffffff20; }
+.instrument-head,.film-foot,.exposure-question { display:flex; align-items:center; justify-content:space-between; gap:13px; }
+.instrument-head { margin-bottom:15px; }
+.instrument-head h2 { margin:0; color:#f5edd9; font:400 clamp(23px,2vw,29px)/1.16 var(--serif); letter-spacing:-.045em; }
+.instrument-head>span,.film-foot a,.running-time { color:#c7d6dc; font:500 13px/1.35 var(--sans); }
+.film-frame { position:relative; min-width:0; }
+.exposure-reader { --frame-shift:-100%; display:grid; grid-template-columns:minmax(0,1fr) clamp(72px,7.5vw,107px); gap:11px; }
+.exposure-lens { position:relative; aspect-ratio:16/9; align-self:center; overflow:hidden; border-radius:3px; background:#0c171e; outline:1px solid #010b10; }
+.film-art { width:100%; height:100%; display:block; transform:translateX(var(--frame-shift)); }
+.film-art img { display:block; width:300%; max-width:none; height:100%; }
+.viewfinder { position:absolute; inset:9px; pointer-events:none; background:linear-gradient(#f3d8a5,#f3d8a5) left top / 12px 1px,linear-gradient(#f3d8a5,#f3d8a5) left top / 1px 12px,linear-gradient(#f3d8a5,#f3d8a5) right bottom / 12px 1px,linear-gradient(#f3d8a5,#f3d8a5) right bottom / 1px 12px; background-repeat:no-repeat; }
+.exposure-number { position:absolute; left:10px; bottom:9px; padding:3px 7px; background:#111a23de; color:#ffdfa4; border:1px solid #a6b8b455; border-radius:2px; font:600 14px/1.2 var(--mono); }
+.exposure-rail { display:grid; grid-template-rows:repeat(3,minmax(0,1fr)); gap:6px; }
+.exposure-rail button { min-width:0; min-height:32px; padding:0; position:relative; overflow:hidden; display:flex; align-items:flex-end; justify-content:flex-end; border-radius:3px; border:1px solid #8397a2aa; color:#f4f7f6; font:600 12px/1.3 var(--mono); text-shadow:0 1px 3px black; background:#101f29; }
+.exposure-rail button[aria-pressed=true] { border:2px solid #efc77c; color:#ffe0a5; }
+.exposure-rail button::after { content:attr(data-label); position:absolute; bottom:0; right:0; padding:1px 5px; border-radius:1px 0 0; background:#15232de0; }
+.small-frame { width:100%; height:100%; position:absolute; inset:0; object-fit:contain; }
+.exposure-question { align-items:center; padding:16px 0; }
+.exposure-question p { color:#fff4db; font:500 clamp(17px,1.55vw,22px)/1.25 var(--display); }
+.exposure-question span { display:block; color:#c1d1d6; font-size:14px; margin-top:4px; }
+#check-exposure,#close-film { flex:none; padding:8px 13px; min-height:40px; border:1px solid #a99d84; border-radius:3px; background:#253944; color:#ffe3b2; font:600 14px/1.2 var(--sans); }
+#check-exposure:hover,#close-film:hover { background:#374e5c; }
+#exposure-answer { margin:0 0 13px; padding:9px 13px; border-left:2px solid #e4bc78; background:#162932; color:#eef0de; font-size:15px; }
+.film-foot { margin:0; min-height:52px; padding-top:11px; border-top:1px solid #a9b6bc45; }
+.film-foot a { text-decoration-color:#a6b6b8; }
+.film-play { border:0; border-radius:3px; background:none; padding:2px 3px 2px 0; min-height:40px; display:inline-flex; gap:9px; align-items:center; color:#ffdeb0; font:650 15px/1.3 var(--sans); }
+.play-glyph { display:grid; place-items:center; width:31px; height:31px; border:1px solid #d4b680; border-radius:50%; }
+.play-glyph::after { content:""; border-style:solid; border-width:4px 0 4px 7px; border-color:transparent transparent transparent #ffdc98; margin-left:2px; }
+.film-play:hover .play-glyph { background:#465047; }
+.running-time { padding-left:1px; font-size:12px; }
+.overview-video { width:100%; display:block; background:#09151b; }
+.film:not(.is-playing) .overview-video { position:absolute; inset:0; visibility:hidden; }
+.film.is-playing .exposure-reader,.film.is-playing .exposure-question,.film.is-playing #exposure-answer { display:none; }
+.film.is-playing .overview-video { aspect-ratio:16/9; }
+#close-film { position:absolute; top:7px; right:7px; display:none; background:#172731e8; }
 .film.is-playing #close-film { display:block; }
 #film-error,#film-error a { color:#ffe2b6; }
-.credits { border-block:1px solid #adad9366;background:#e5e5d4; }
-.credits-inner { display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px 38px;padding-block:19px; }
-.authors { font-size:15px;line-height:1.6;font-weight:600;color:#243e36; }
-.authors span,.institution small span { white-space:nowrap; }
-.authors sup { color:#7b4a27;line-height:0; }
-.institution { font:600 14px/1.5 var(--sans);margin-top:3px; }
-.institution small { color:var(--muted);font-size:12px;font-weight:400;margin-inline-start:8px; }
-.links { display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:3px 16px; }
-.links a,.case-intro>a { font-size:14px;font-weight:600; }.links a { display:inline-flex;align-items:center;min-height:38px; }
-.links .read-paper { background:#1e443b;border-radius:2px;padding:6px 12px;color:#fff9e9;text-decoration:none; }
+.case-intro>a { font-size:14px; font-weight:600; }
 .section { padding-block:clamp(48px,5.8vw,83px);border-bottom:1px solid var(--edge); }
 h2,h3,h4 { color:var(--ink); }
 .section h2 { font:650 clamp(43px,5.8vw,79px)/.99 var(--display);letter-spacing:-.072em;margin:0 0 15px; }
@@ -92,21 +107,23 @@ h2,h3,h4 { color:var(--ink); }
 .statistics div { flex:1;display:flex;flex-direction:column-reverse;padding:0 clamp(12px,1.8vw,27px);border-left:1px solid #b3ba9d; }
 .statistics dt { white-space:nowrap;font-size:13px;font-weight:550;color:var(--muted); }
 .statistics dd { color:#24584c;font:400 clamp(36px,4.6vw,65px)/1.12 var(--serif);letter-spacing:-.058em; }
-@media(min-width:701px) { :root { --relief:url('assets/cave-relief.webp'); } }
-@media(max-width:850px) { .credits-inner { grid-template-columns:1fr;gap:9px; }.links { justify-content:flex-start; } }
+@media(min-width:701px) { :root { --relief:url('assets/cave-relief-small.webp'); } }
+@media(max-width:900px) and (min-width:701px) { .hero-inner { grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); column-gap:22px; }.wordmark { font-size:61px; }.paper-title{font-size:21px;}.instrument-head { align-items:start; flex-direction:column; gap:3px; }.exposure-reader { grid-template-columns:minmax(0,1fr) 64px; gap:6px; }.exposure-question{align-items:start;}.exposure-question span{font-size:13px;}.links{gap:0 12px;} }
 @media(max-width:700px) {
-  :root { --relief:url('assets/cave-relief-small.webp');--margin:clamp(16px,5vw,30px); }
+  :root { --margin:clamp(14px,4.5vw,25px); }
   html { scroll-padding-top:56px; }.nav nav { min-height:46px; }.nav nav>div { gap:clamp(11px,3vw,18px); }.nav nav>div a { font-size:13px; }.brand { gap:5px;font-size:18px; }.brand img { width:23px;height:23px; }
-  .hero-inner { padding-block:20px 15px; }.hero h1 { grid-template-columns:1fr;gap:9px;margin-bottom:15px; }.wordmark { font-size:clamp(65px,16vw,102px); }.paper-title { max-width:37ch;font-size:clamp(19px,4.7vw,29px);line-height:1.12; }
-  .film-frame { aspect-ratio:1.39;min-height:0; }.film-art { width:100%; }.film-art img { object-position:center 35%; }.film-frame::before { background:linear-gradient(0deg,#0a1c17e8,transparent 58%),linear-gradient(90deg,#0c211d75,transparent 68%); }
-  .film-copy { padding:12px 14px;max-width:100%; }.film-copy small { font-size:12px; }.film-copy h2 { font-size:clamp(26px,6.6vw,40px);max-width:100%;margin:4px 0 8px; }
-  .film-play { min-height:38px;font-size:13px;gap:7px; }.play-glyph { width:28px;height:28px; }.film-foot { font-size:12px;align-items:start; }.film-foot a { white-space:nowrap; }
-  .credits-inner { padding-block:14px; }.authors { font-size:14px; }.links { gap:2px clamp(7px,2.5vw,13px); }.links a { font-size:13px; }
+  .hero::before { background:repeating-radial-gradient(ellipse at 110% -92%,transparent 0 18px,#a4c7ce0c 19px 20px,transparent 21px 31px),linear-gradient(135deg,#1b313b,#162530 58%,#213c43); }
+  .hero-inner { grid-template-columns:minmax(0,1fr); grid-template-areas:"title" "lab" "credits"; padding-block:23px 20px; }
+  .wordmark { font-size:clamp(62px,15vw,87px); }.paper-title{max-width:30ch;font-size:clamp(19px,4.9vw,27px);margin-top:6px;}
+  .film{margin-top:22px;padding:12px;border-radius:8px;}.instrument-head{margin-bottom:10px;gap:6px;}.instrument-head h2{font-size:22px;}.instrument-head>span{font-size:11px;}
+  .exposure-reader{grid-template-columns:minmax(0,1fr) clamp(51px,15vw,80px);gap:6px;}.exposure-rail{gap:3px;}.exposure-rail button{min-height:21px;}
+  .exposure-question{padding:12px 0;gap:9px;}.exposure-question p{font-size:17px;}.exposure-question span{font-size:12px;line-height:1.4;}.film-foot{padding-top:6px;}.film-foot a{font-size:13px;}#check-exposure{padding:7px 9px;font-size:13px;}
+  .credits { margin-top:16px; }.authors { font-size:14px; }.institution { margin-top:4px;font-size:14px; }.institution small{display:inline;font-size:11px;margin-left:6px;}.links {gap:2px clamp(8px,3.5vw,18px);margin-top:8px;}.links a{min-height:32px;font-size:13px;}
   .section-intro { grid-template-columns:1fr;gap:12px; }.statistics div { padding-inline:12px; }.statistics div:first-child { padding-left:0;border:0; }.statistics dd { font-size:38px; }.statistics dt { font-size:12px; }
 }
-@media(max-width:370px) { .brand img { display:none; }.institution small { display:block;margin-left:0; }.statistics dt { white-space:normal; } }
+@media(max-width:370px){.brand img{display:none;}.institution small{display:block;margin-left:0;}.statistics dt{white-space:normal;}.instrument-head{align-items:baseline;flex-wrap:wrap;}.instrument-head h2{font-size:20px;}.film-foot .running-time{display:none;}.exposure-question p{font-size:16px;}}
 </style>
-  <noscript><link rel="stylesheet" href="assets/field-guide.css?v=leaves1"></noscript>
+  <noscript><link rel="stylesheet" href="assets/field-guide.css?v=exposure1"><style>.exposure-reader,.exposure-question{display:none}.film-foot{margin-top:10px}.film:not(.is-playing) .overview-video{position:static;visibility:visible}</style></noscript>
 </head>
 <body>
 <a href="#main" class="skip">Skip to content</a>
@@ -118,35 +135,50 @@ h2,h3,h4 { color:var(--ink); }
   <section class="hero" id="top">
     <div class="hero-inner">
       <h1><span class="wordmark">CaveBench<span class="title-colon">:</span></span> <span class="paper-title">Benchmarking Abductive Physical Reasoning from Internal Observations</span></h1>
-      <figure class="film" id="film" aria-label="Research film">
+      <figure class="film" id="film" aria-label="Gold-leaf electroscope experiment and research film">
+        <div class="instrument-head"><h2>Gold-leaf electroscope</h2><span>S11 · Electromagnetism</span></div>
         <div class="film-frame">
-          <picture class="film-art"><source media="(max-width: 700px)" srcset="assets/electroscope-small.webp"><img src="assets/electroscope-large.webp" width="900" height="506" fetchpriority="high" alt="Two gold leaves diverge inside the electroscope."></picture>
+          <div class="exposure-reader" id="cover-exposures">
+            <div class="exposure-lens">
+              <picture class="film-art"><source media="(max-width: 700px)" srcset="assets/gold-leaf-small.webp"><img src="assets/gold-leaf-large.webp" width="1536" height="288" fetchpriority="high" alt="F2. The leaves are widely separated."></picture>
+              <span class="viewfinder" aria-hidden="true"></span>
+              <span class="exposure-number" aria-hidden="true">F2</span>
+            </div>
+            <div class="exposure-rail" role="group" aria-label="Compare three observations">
+              <button type="button" data-frame="1" data-label="F1" aria-label="View frame F1" aria-pressed="false"><canvas class="small-frame" width="192" height="108" aria-hidden="true"></canvas>F1</button>
+              <button type="button" data-frame="2" data-label="F2" aria-label="View frame F2" aria-pressed="true"><canvas class="small-frame" width="192" height="108" aria-hidden="true"></canvas>F2</button>
+              <button type="button" data-frame="3" data-label="F3" aria-label="View frame F3" aria-pressed="false"><canvas class="small-frame" width="192" height="108" aria-hidden="true"></canvas>F3</button>
+            </div>
+          </div>
           <video class="overview-video" controls playsinline preload="none" aria-label="CaveBench research film">
             <source media="(max-width: 700px)" src="assets/video/CaveBench-overview-mobile.mp4?v=leaves1" type="video/mp4">
             <source src="assets/video/CaveBench-overview.mp4?v=leaves1" type="video/mp4">
             <track kind="captions" src="assets/video/CaveBench-overview.en.vtt?v=leaves1" srclang="en" label="English">
           </video>
-          <div class="film-copy">
-            <small>S11 · Dielectric response</small>
-            <h2>What moved the gold leaves?</h2>
-            <button type="button" class="film-play" aria-label="Play research film" hidden><span class="play-glyph" aria-hidden="true"></span><span id="film-title">Watch the research film</span></button>
-          </div>
           <button type="button" id="close-film">Close film ×</button>
         </div>
-        <figcaption class="film-foot"><span>1 min 28 s · English captions</span><a href="#try-S11">Try the electroscope case</a></figcaption>
+        <div class="exposure-question">
+          <div><p>Which frame shows half insertion?</p><span>Sliding mica between the capacitor plates brings the gold leaves closer together.</span></div>
+          <button type="button" id="check-exposure">Check F2</button>
+        </div>
+        <p id="exposure-answer" role="status" aria-live="polite" hidden></p>
+        <figcaption class="film-foot">
+          <button type="button" class="film-play" aria-label="Play research film" hidden><span class="play-glyph" aria-hidden="true"></span><span id="film-title">Watch film</span><span class="running-time">1:28</span></button>
+          <a href="#try-S11">Try all six events</a>
+        </figcaption>
         <p id="film-error" role="status" hidden>Playback unavailable. <a href="assets/video/CaveBench-overview.mp4?v=leaves1">Open the MP4</a></p>
       </figure>
-    </div>
-  </section>
   <div class="credits" id="release"><div class="credits-inner">
     <div id="byline">
       <p class="authors"><span>Guanxin Lin<sup>*</sup></span>, <span>Chen Yang<sup>*</sup></span>, <span>Shenxiang Zeng</span>, <span>Honghui Zhu</span>, <span>Xin Li</span>, <span>Wenbo Deng</span>, <span>Jiansheng Fan</span>, <span>Chen Wang<sup>†</sup></span></p>
       <p class="institution">Tsinghua University <small><span>* Equal contribution</span> · <span>† Corresponding author</span></small></p>
     </div>
     <div id="resources" class="links" aria-label="Project resources">
-      <a class="read-paper" aria-label="Read the CaveBench paper" href="papers/CaveBench.pdf?v=matrix1">Paper</a><a href="https://github.com/PIER-Lab/CaveBench">GitHub</a><a href="https://huggingface.co/datasets/linguanxin/CaveBench">Dataset</a><a href="papers/Supplement.pdf?v=matrix1">Supplement</a><a href="https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1">Weights</a>
+      <a class="read-paper" aria-label="Read the CaveBench paper" href="papers/CaveBench.pdf?v=portrait2">Paper</a><a href="https://github.com/PIER-Lab/CaveBench">GitHub</a><a href="https://huggingface.co/datasets/linguanxin/CaveBench">Dataset</a><a href="papers/Supplement.pdf?v=portrait2">Supplement</a><a href="https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1">Weights</a>
     </div>
   </div></div>
+    </div>
+  </section>
   <section class="section" id="dataset">
     <div class="section-intro">
       <div><h2>Explore the dataset</h2><p>A camera records the experiment from inside the apparatus. Given an apparatus description and a list of external controls, the model identifies which controls were applied between consecutive frames.</p></div>
@@ -172,7 +204,7 @@ h2,h3,h4 { color:var(--ink); }
         </tbody></table></div>
       <p>In S11, the first three events show full insertion, half insertion and withdrawal in varying order. The three leaf positions provide visual references for distinguishing the settings. All ten S11 episodes contribute questions of lengths three through six. Across apparatuses, there are 190 questions at each of the first two lengths and 200 at each remaining length.</p>
     </details>
-    <div class="case-intro"><h3 id="viewer">Case studies</h3><a href="assets/cases/CaveBench_Case_Studies.pptx?v=plate1" download>Download editable slides</a></div>
+    <div class="case-intro"><h3 id="viewer">Case studies</h3><a href="assets/cases/CaveBench_Case_Studies.pptx?v=portrait2" download>Download editable slides</a></div>
     <div id="browser">
       <div class="selectors">
         <label>Physical domain<select id="domain"></select></label>
@@ -200,8 +232,15 @@ h2,h3,h4 { color:var(--ink); }
     <p class="related-tables"><a href="#table-scene_controls" data-detail="scene_controls">Apparatus statistics</a> · <a href="#table-benchmark_comparison" data-detail="benchmark_comparison">Comparison with related benchmarks</a></p>
   </section>
   <section class="section" id="leaderboard">
-    <div class="results-head"><h2>Leaderboard</h2>
-    <p>Exact match requires the complete set of controls at each event, in chronological order. Simultaneous controls can appear in either order. On six-event questions, GPT-6.1 Sol identified all controls at 1,035 of 1,200 events (86.25%) and recovered 136 of 200 complete sequences (68.0%).</p></div>
+    <div class="results-head">
+      <div><h2>Leaderboard</h2><p>A sequence is correct when every event matches its recorded controls in chronological order. Controls applied together may appear in either order.</p></div>
+      <figure class="exact-readout"><figcaption>GPT-6.1 Sol on six-event questions</figcaption>
+        <dl>
+          <div><dt>Individual events</dt><dd><b>86.25%</b><span>1,035 of 1,200</span></dd><i style="--value:86.25%" aria-hidden="true"></i></div>
+          <div><dt>Complete sequences</dt><dd><b>68.0%</b><span>136 of 200</span></dd><i style="--value:68%" aria-hidden="true"></i></div>
+        </dl>
+      </figure>
+    </div>
     <figure id="length-comparison" class="length-comparison" hidden></figure>
     <div class="tabs" aria-label="Leaderboard view"><button data-table="domains" aria-pressed="true">By physical domain</button><button data-table="tasks" aria-pressed="false">Compare 20 apparatuses</button><button data-table="scenes" aria-pressed="false">By apparatus</button><button data-table="length" aria-pressed="false">By question length</button><button data-table="methods" aria-pressed="false">Adaptation methods</button></div>
     <div id="leaderboard-filters" class="result-controls">
@@ -270,11 +309,47 @@ h2,h3,h4 { color:var(--ink); }
 /* The film and its native controls work before the atlas or leaderboard loads. */
 (() => {
   const panel = document.getElementById('film');
-  const frame = panel.querySelector('.film-frame');
   const video = panel.querySelector('video');
   const play = panel.querySelector('.film-play');
   const close = document.getElementById('close-film');
   const error = document.getElementById('film-error');
+  const reader = document.getElementById('cover-exposures');
+  const check = document.getElementById('check-exposure');
+  const feedback = document.getElementById('exposure-answer');
+  const strip = reader.querySelector('img');
+  function drawThumbnails() {
+    const width=strip.naturalWidth/3, height=strip.naturalHeight;
+    if (!width || !height) return;
+    reader.querySelectorAll('canvas').forEach((canvas,index)=>{
+      const context=canvas.getContext('2d');
+      if (context) context.drawImage(strip,index*width,0,width,height,0,0,canvas.width,canvas.height);
+    });
+  }
+  strip.addEventListener('load',drawThumbnails);
+  if (strip.complete) drawThumbnails();
+  const observations = [
+    ['The leaves are nearly closed.', 'F1 shows full insertion. Bringing the leaves closest together corresponds to the greatest overlap with the mica.'],
+    ['The leaves are widely separated.', 'F2 shows withdrawal. The leaves spread farthest when the mica is outside the capacitor.'],
+    ['The opening is between those in F1 and F2.', 'Correct. F3 shows half insertion. The leaves open farther than in F1 and less than in F2.']
+  ];
+  let selection = 2;
+  reader.addEventListener('click', event => {
+    const target = event.target.closest('button[data-frame]');
+    if (!target) return;
+    selection = Number(target.dataset.frame);
+    for (const button of reader.querySelectorAll('button')) button.setAttribute('aria-pressed', String(button === target));
+    reader.style.setProperty('--frame-shift', -(selection - 1) * 100 + '%');
+    const label = 'F' + selection;
+    reader.querySelector('.exposure-number').textContent = label;
+    reader.querySelector('img').alt = label + '. ' + observations[selection - 1][0];
+    check.textContent = 'Check ' + label;
+    feedback.hidden = true;
+    feedback.textContent = '';
+  });
+  check.addEventListener('click', () => {
+    feedback.hidden = false;
+    feedback.textContent = observations[selection - 1][1];
+  });
   function showPoster() {
     video.controls = false;
     panel.classList.remove('is-playing');
@@ -289,9 +364,6 @@ h2,h3,h4 { color:var(--ink); }
     video.controls = true;
     error.hidden = true;
     video.play().catch(failed);
-  });
-  frame.addEventListener('click', event => {
-    if (event.target === frame && !play.hidden) play.click();
   });
   video.addEventListener('play', () => {
     panel.classList.add('is-playing');
@@ -315,9 +387,9 @@ h2,h3,h4 { color:var(--ink); }
     const css = document.createElement('link');
     css.id = 'guide-style';
     css.rel = 'stylesheet';
-    css.href = 'assets/field-guide.css?v=leaves1';
+    css.href = 'assets/field-guide.css?v=exposure1';
     const app = document.createElement('script');
-    app.src = 'assets/site.js?v=leaves2';
+    app.src = 'assets/site.js?v=exposure1';
     document.head.append(css, app);
   }
   const direct = () => location.hash && !['#top','#film','#release','#resources','#main'].includes(location.hash);

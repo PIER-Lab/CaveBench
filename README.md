@@ -1,7 +1,5 @@
 # CaveBench: Benchmarking Abductive Physical Reasoning from Internal Observations
 
-[![Watch the CaveBench research film on the gold-leaf electroscope.](docs/assets/video/CaveBench-overview.jpg)](https://pier-lab.github.io/CaveBench/#film)
-
 Guanxin Lin<sup>∗</sup>, Chen Yang<sup>∗</sup>, Shenxiang Zeng, Honghui Zhu, Xin Li, Wenbo Deng, Jiansheng Fan, Chen Wang<sup>†</sup>
 
 Tsinghua University  
@@ -9,37 +7,42 @@ Tsinghua University
 
 [Project page](https://pier-lab.github.io/CaveBench/) · [Paper](docs/papers/CaveBench.pdf) · [Supplement](docs/papers/Supplement.pdf) · [Hugging Face dataset](https://huggingface.co/datasets/linguanxin/CaveBench) · [Research film](https://pier-lab.github.io/CaveBench/#film) · [Model weights](https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1)
 
-## News
-
-- **2026-11-23.** Watch the gold leaves of an electroscope move, then see the mica slab that drove the change. [Play the research film](https://pier-lab.github.io/CaveBench/#film) · [Try the same apparatus](https://pier-lab.github.io/CaveBench/#try-S11) · [Explore all 20 apparatuses](docs/assets/cases/README.md)
+[![Internal views of driven pendulums, a heated plate, a gold-leaf electroscope, resonant rods and photoelastic specimens.](docs/assets/repository-cover.webp)](docs/assets/cases/README.md)
 
 ## Introduction
 
-A camera rides on a carriage with three pendulums. As the carriage moves, the pendulums swing through different angles. Which of three motion profiles drove the carriage? In CaveBench, a vision–language model sees the apparatus from the inside, reads how its controls work, and reconstructs the external controls applied between successive frames. More than one control can act at the same time.
-
-## Dataset
-
-The 20 apparatuses cover dynamics, thermal physics, electromagnetism, acoustics and optics. The dataset contains 9,000 training episodes, 1,000 validation episodes and 200 test episodes. The test episodes yield 1,180 questions. A question with six events supplies seven images: the initial state and one observation after each event.
+CaveBench asks what happened outside a physical apparatus, given only images from inside it. Each question supplies the apparatus description, its possible controls and the observations in time order. At each step, the model must identify every control that acted.
 
 ## Case studies
 
-### S11 · Dielectric response
+**Which way did the heater move?** One heater moves beneath a conducting plate while three others stay fixed. The camera sees the temperature field on the surface. Compare the hot spot near the middle of the plate in the two observations below.
 
-The camera sees two gold leaves inside an electroscope. Outside its view, a mica slab slides between the plates of a charged capacitor. Which of the three images shows the slab halfway in?
+[![Initial and subsequent observations of the same plate in S05.](docs/assets/heat-source-event.webp)](https://pier-lab.github.io/CaveBench/#try-S05)
 
-[![S11 observations F1–F3. The leaves have the smallest opening after full insertion, the widest after withdrawal and an intermediate opening after half insertion.](docs/assets/dielectric-sequence.webp)](https://pier-lab.github.io/CaveBench/#S11)
+<details>
+<summary>Reveal the recorded control and Claude Sonnet 5.5’s answer</summary>
 
-**Claude Sonnet 5.5**
+The heater moved left. In its response, Claude Sonnet 5.5 described the first event as follows.
 
-> The leaf opening angle in each frame identifies the dielectric endpoint, since more mica means higher capacitance, lower voltage and a smaller opening.
+> the spot is at about x=500, y=290 in F0 and about x=440, y=295 in F1. It shifted left by about 60 px, with little vertical change. Event 1 is MoveLeft.
 
-In F3 the leaves open wider than in F1 (full insertion) and less than in F2 (withdrawal). The model identified half insertion at F3 and recovered all six operations in the episode. [Read the case sheet](docs/assets/cases/S11.webp) · [Try the question](https://pier-lab.github.io/CaveBench/#try-S11)
+[Read the complete six-event case](docs/assets/cases/thermal-physics.md#s05) · [Watch the original episode](docs/examples/S05/dual_view.mp4)
 
-### Explore the 20 apparatuses
+</details>
 
-[**Illustrated case index**](docs/assets/cases/README.md) · [Dynamics](docs/assets/cases/README.md#dynamics) · [Thermal physics](docs/assets/cases/README.md#thermal-physics) · [Electromagnetism](docs/assets/cases/README.md#electromagnetism) · [Acoustics](docs/assets/cases/README.md#acoustics) · [Optics](docs/assets/cases/README.md#optics)
+| Dynamics | Thermal physics | Electromagnetism | Acoustics | Optics |
+| --- | --- | --- | --- | --- |
+| [S01–S04](docs/assets/cases/dynamics.md) | [S05–S08](docs/assets/cases/thermal-physics.md) | [S09–S12](docs/assets/cases/electromagnetism.md) | [S13–S16](docs/assets/cases/acoustics.md) | [S17–S20](docs/assets/cases/optics.md) |
 
-[Editable PowerPoint](docs/assets/cases/CaveBench_Case_Studies.pptx) · [Supplementary PDF](docs/papers/Supplement.pdf) · [Episode files and full model responses](docs/examples/)
+[Illustrated case index](docs/assets/cases/README.md) · [Editable PowerPoint](docs/assets/cases/CaveBench_Case_Studies.pptx) · [Supplementary PDF](docs/papers/Supplement.pdf)
+
+## Dataset
+
+The 20 apparatuses span five physical domains. The dataset contains 9,000 training episodes, 1,000 validation episodes and 200 test episodes. The test episodes yield 1,180 questions. A six-event question supplies seven images, from the initial state through the observation following the last event.
+
+## News
+
+- **2026-11-23.** The [research film](https://pier-lab.github.io/CaveBench/#film) pairs the inside view of a gold-leaf electroscope with the motion of a mica slab outside the cabinet. [Try the electroscope experiment](https://pier-lab.github.io/CaveBench/#try-S11).
 
 ## Leaderboard
 

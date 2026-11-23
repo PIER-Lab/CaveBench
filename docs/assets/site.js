@@ -39,7 +39,7 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    const versions = {'assets/results.js':'matrix1', 'assets/offline-results.js':'matrix1', 'assets/case-reader.js':'leaves1'};
+    const versions = {'assets/results.js':'matrix1', 'assets/offline-results.js':'matrix1', 'assets/case-reader.js':'portrait2'};
     const version = versions[path] || 'atlas3';
     tag.src = path + '?v=' + version;
     tag.onload = resolve;
@@ -121,7 +121,7 @@ function sectionStyle(id, href) {
   }
 }
 function loadCaseReader() {
-  sectionStyle('reader-style','assets/case-reader.css?v=leaves1');
+  sectionStyle('reader-style','assets/case-reader.css?v=portrait2');
   return script('assets/case-reader.js');
 }
 function compareSteps(item) {

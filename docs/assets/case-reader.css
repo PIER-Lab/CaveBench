@@ -41,5 +41,15 @@
 .instrument-reader .model-text { margin-top:13px; }
 .instrument-reader .case-sheet { grid-column:1/-1; justify-content:flex-start; flex-wrap:wrap; gap:6px 23px; padding:15px 0 0; margin:14px 0 0; border-top:1px solid #c9c5b9; background:none; }
 .instrument-reader .case-sheet a { display:inline-flex; align-items:center; min-height:35px; background:none; padding:0; border:0; color:var(--accent); text-decoration:underline; }
+.case-modes { grid-column:1/-1; display:flex; gap:6px; margin-bottom:20px; }
+.case-modes button { min-height:40px; background:#f8f7ef; color:#354b53; border:1px solid #9ca9a6; padding:7px 13px; border-radius:3px; font:600 14px/1.2 var(--sans); }
+.case-modes button[aria-pressed=true] { background:#273c46; color:#f9efd7; border-color:#273c46; }
+.section .printed-plate { grid-column:1/-1; margin:0; padding:clamp(6px,2vw,26px); background:#deded5; }
+.printed-plate a { max-width:790px; margin:auto; box-shadow:0 5px 18px #19273b28; }
+.printed-plate img { width:100%; height:auto; aspect-ratio:576/745.2; }
+.instrument-reader .case-reading { border-top:1px solid #9aa8a6; }
+.case-reading .reading-meta { color:#4e656c; }
+.instrument-reader .case-reading blockquote { padding-left:15px; border-color:#b99560; color:#213843; font-size:clamp(16px,1.17vw,18px); line-height:1.55; }
+.instrument-reader .case-reading blockquote p { margin:0 0 .85em; }
 @media(max-width:840px){.instrument-reader { grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); column-gap:18px; }.event-verdict { display:block; }.verdict-label { margin-top:6px; }}
 @media(max-width:700px){.instrument-reader { grid-template-columns:minmax(0,1fr); row-gap:18px; }.sceneinfo { margin:12px 0 16px; }.instrument-reader .case-reading { padding-top:14px; }.instrument-reader .case-sheet { margin:0; padding-top:8px; gap:1px 16px; }.event-dial { gap:2px; }.event-dial button { width:clamp(32px,7.8vw,41px); }.observation-pair figcaption { gap:5px; padding:5px 2px 3px; }.contact-strip figcaption { font-size:9px; }.instrument-reader .case-reading blockquote { font-size:17px; line-height:1.49; }}

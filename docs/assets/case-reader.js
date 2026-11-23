@@ -25,7 +25,7 @@ window.caveCaseQuestions = {
 };
 
 // Contiguous character ranges in the released model responses.
-const cavePassageRanges = {"S01": [1631, 2119], "S02": [76, 549], "S03": [481, 1009], "S04": [832, 1408], "S05": [352, 830], "S06": [20, 438], "S07": [507, 1078], "S08": [636, 1228], "S09": [103, 932], "S10": [665, 1093], "S11": [0, 515], "S12": [266, 946], "S13": [1606, 2145], "S14": [81, 651], "S15": [844, 1251], "S16": [762, 1251], "S17": [374, 892], "S18": [1314, 1812], "S19": [615, 1249], "S20": [604, 1175]};
+const cavePassageRanges = {"S01":[1106,2119],"S02":[0,746],"S03":[0,1009],"S04":[832,1913],"S05":[0,1019],"S06":[440,1459],"S07":[480,1301],"S08":[636,1684],"S09":[89,1283],"S10":[638,1691],"S11":[0,876],"S12":[0,1278],"S13":[1370,2509],"S14":[0,753],"S15":[832,1897],"S16":[710,1804],"S17":[0,1011],"S18":[1314,2456],"S19":[575,1514],"S20":[581,1928]};
 
 window.caveCaseReader = function (item, {node, pathFor, answerText, strip, preview}) {
   const reader = node('section', undefined, 'instrument-reader');
@@ -76,18 +76,36 @@ window.caveCaseReader = function (item, {node, pathFor, answerText, strip, previ
   const locator=node('p','From the model’s response','reading-subtitle');
   const quote=node('blockquote');
   const range=cavePassageRanges[item.id];
-  const passage=item.response_text.slice(range[0],range[1]).replace(/^\s*\d+\.\s+/gm,'');
+  const passage=Array.from(item.response_text).slice(range[0],range[1]).join('')
+    .split(/\n\s*\n/).map(paragraph=>paragraph.split(/\r?\n/)
+      .map(line=>line.replace(/^\s*(?:[-*]\s+|\d+\.\s+)/,'').trim()).join(' ')).join('\n\n');
   answerText(quote, passage);
   const more=node('details',undefined,'model-text');
   more.append(node('summary','Full model explanation'));
   const text=node('div',undefined,'full-explanation'); answerText(text,item.response_text); more.append(text);
   aside.append(meta,heading,locator,quote,more);
   const materials=node('div',undefined,'case-sheet');
-  const sheet=node('a','Open one-page case sheet ↗','zoom');
-  sheet.href='assets/cases/'+item.id+'.webp?v=plate1';
+  const sheet=node('a','Enlarge case sheet','zoom');
+  sheet.href='assets/cases/'+item.id+'.webp?v=portrait2';
   sheet.setAttribute('aria-label','Enlarge '+item.id+' illustrated case sheet');
-  const data=node('a','Case record (JSON) ↗'); data.href=pathFor(item,'worked.json');
-  const results=node('a','Apparatus scores →'); results.href='#apparatus-'+item.id;
+  const data=node('a','Download case record'); data.href=pathFor(item,'worked.json');
+  data.download=item.id+'-worked.json';
+  const results=node('a','Apparatus scores'); results.href='#apparatus-'+item.id;
   materials.append(sheet,data,results);
-  reader.append(stage,aside,materials); renderEvent(event); return reader;
+  const modes=node('div',undefined,'case-modes');
+  modes.setAttribute('role','group'); modes.setAttribute('aria-label','Case presentation');
+  const inspect=node('button','Observations and response'), print=node('button','One-page case sheet');
+  const plate=node('figure',undefined,'printed-plate'), open=node('a',undefined,'zoom'), facsimile=node('img');
+  open.href=sheet.href; open.setAttribute('aria-label','Enlarge the '+item.title+' case sheet');
+  facsimile.alt='One-page case sheet for '+item.id+', '+item.title+'.';
+  open.append(facsimile); plate.append(open); plate.hidden=true;
+  const switchMode=printed=>{
+    plate.hidden=!printed; stage.hidden=printed; aside.hidden=printed;
+    inspect.setAttribute('aria-pressed',String(!printed)); print.setAttribute('aria-pressed',String(printed));
+    if (printed && !facsimile.hasAttribute('src')) facsimile.src=sheet.href;
+  };
+  for (const button of [inspect,print]) { button.type='button'; modes.append(button); }
+  inspect.onclick=()=>switchMode(false); print.onclick=()=>switchMode(true);
+  reader.append(modes,stage,aside,plate,materials);
+  renderEvent(event); switchMode(false); return reader;
 };

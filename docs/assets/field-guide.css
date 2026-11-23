@@ -223,9 +223,20 @@ table tbody tr:hover td { background-color:#e5ecde; }
 .tabs { background:#dce4d7;border-color:#b2bfac;border-radius:3px; }
 #results .group th { background:#dbe4d5; }
 td.best { background:#f0d9b4;color:#3c331c; }
-.results-head { --band-art:url("cave-relief.webp");display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(20px,4vw,60px);align-items:center;padding:clamp(24px,4vw,55px);margin-bottom:25px;color:#f6eedb;border-radius:3px;background:linear-gradient(90deg,#16382ee6 5%,#16372fa8 68%,#122c2572),var(--band-art) center/cover; }
+.results-head { --band-art:url("cave-relief-small.webp");display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.94fr);gap:clamp(24px,6vw,87px);align-items:center;padding:clamp(24px,3.5vw,55px);margin-bottom:25px;color:#eef2e8;border-radius:5px;background:linear-gradient(100deg,#1b313be8 5%,#283d46db 62%,#263941af),var(--band-art) center/cover; }
 .results-head h2 { color:#fff1d4;margin:0; }
 .results-head p { margin:0;font:400 clamp(15px,1.32vw,18px)/1.56 var(--sans); }
+.results-head h2 + p { margin-top:16px; }
+.section .exact-readout { margin:0; min-width:0; }
+.exact-readout figcaption { color:#f6d49b; margin:0 0 14px; font:600 16px/1.4 var(--sans); }
+.exact-readout dl>div { display:grid; grid-template-columns:1fr auto; align-items:baseline; gap:4px 12px; margin-top:11px; }
+.exact-readout dt { color:#f0f4ef; font:500 14px/1.4 var(--sans); }
+.exact-readout dd { display:flex; align-items:baseline; gap:10px; }
+.exact-readout b { color:#fff4d8; font:400 clamp(23px,2.1vw,32px)/1.1 var(--serif); letter-spacing:-.04em; }
+.exact-readout dd span { color:#d5e4e4; font:500 12px/1.4 var(--mono); }
+.exact-readout i { grid-column:1/-1; height:5px; background:linear-gradient(to right,#efd197 var(--value),#78858c77 var(--value)); }
+.exact-readout dl>div+div i { background:linear-gradient(to right,#a7d3d5 var(--value),#78858c77 var(--value)); }
+@media(max-width:400px) { .exact-readout dl>div { column-gap:4px; }.exact-readout dd { flex-direction:column;align-items:end;gap:1px; } }
 #analysis { position:relative; }
 .analysis-head { border-bottom:1px solid #acb5a4;padding-bottom:10px;margin-bottom:25px; }
 .analysis-spread { border-color:#b9c2ae; }

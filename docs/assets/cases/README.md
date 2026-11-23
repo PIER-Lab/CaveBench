@@ -1,57 +1,75 @@
 # CaveBench case studies
 
-Select an image to read the one-page case sheet. The apparatus name opens the experiment, full prompt and model response.
+Twenty experiments in five physical domains. Open an apparatus to see its seven observations, the controls applied between them and a model’s account of the sequence.
 
-[Editable PowerPoint](CaveBench_Case_Studies.pptx) · [Supplementary PDF](../../papers/Supplement.pdf)
-
-[Dynamics](#dynamics) · [Thermal physics](#thermal-physics) · [Electromagnetism](#electromagnetism) · [Acoustics](#acoustics) · [Optics](#optics)
+[Editable case plates](CaveBench_Case_Studies.pptx) · [Supplementary PDF](../../papers/Supplement.pdf) · [Interactive cases](https://pier-lab.github.io/CaveBench/#viewer)
 
 ## Dynamics
 
-| [S01 · Cabin inertia](https://pier-lab.github.io/CaveBench/#S01) | [S02 · Rotation & gas](https://pier-lab.github.io/CaveBench/#S02) |
-| --- | --- |
-| [![Cabin inertia, interior image F6](thumbs/S01.webp)](S01.webp) | [![Rotation & gas, interior image F1](thumbs/S02.webp)](S02.webp) |
+<table>
 
-| [S03 · Driven pendulums](https://pier-lab.github.io/CaveBench/#S03) | [S04 · Tray impact](https://pier-lab.github.io/CaveBench/#S04) |
-| --- | --- |
-| [![Driven pendulums, interior image F6](thumbs/S03.webp)](S03.webp) | [![Tray impact, interior image F3](thumbs/S04.webp)](S04.webp) |
+<tr>
+<td><a href="dynamics.md#s01"><img src="thumbs/S01.webp" alt="Cabin inertia" width="320"><br><strong>S01 · Cabin inertia</strong></a></td>
+<td><a href="dynamics.md#s02"><img src="thumbs/S02.webp" alt="Rotation &amp; gas" width="320"><br><strong>S02 · Rotation &amp; gas</strong></a></td>
+</tr>
+<tr>
+<td><a href="dynamics.md#s03"><img src="thumbs/S03.webp" alt="Driven pendulums" width="320"><br><strong>S03 · Driven pendulums</strong></a></td>
+<td><a href="dynamics.md#s04"><img src="thumbs/S04.webp" alt="Tray impact" width="320"><br><strong>S04 · Tray impact</strong></a></td>
+</tr>
+</table>
 
 ## Thermal physics
 
-| [S05 · Moving heat source](https://pier-lab.github.io/CaveBench/#S05) | [S06 · Layered liquids](https://pier-lab.github.io/CaveBench/#S06) |
-| --- | --- |
-| [![Moving heat source, interior image F1](thumbs/S05.webp)](S05.webp) | [![Layered liquids, interior image F1](thumbs/S06.webp)](S06.webp) |
+<table>
 
-| [S07 · Heated gas bulbs](https://pier-lab.github.io/CaveBench/#S07) | [S08 · Bimetal supports](https://pier-lab.github.io/CaveBench/#S08) |
-| --- | --- |
-| [![Heated gas bulbs, interior image F1](thumbs/S07.webp)](S07.webp) | [![Bimetal supports, interior image F1](thumbs/S08.webp)](S08.webp) |
+<tr>
+<td><a href="thermal-physics.md#s05"><img src="thumbs/S05.webp" alt="Moving heat source" width="320"><br><strong>S05 · Moving heat source</strong></a></td>
+<td><a href="thermal-physics.md#s06"><img src="thumbs/S06.webp" alt="Layered liquids" width="320"><br><strong>S06 · Layered liquids</strong></a></td>
+</tr>
+<tr>
+<td><a href="thermal-physics.md#s07"><img src="thumbs/S07.webp" alt="Heated gas bulbs" width="320"><br><strong>S07 · Heated gas bulbs</strong></a></td>
+<td><a href="thermal-physics.md#s08"><img src="thumbs/S08.webp" alt="Bimetal supports" width="320"><br><strong>S08 · Bimetal supports</strong></a></td>
+</tr>
+</table>
 
 ## Electromagnetism
 
-| [S09 · Magnetic coils](https://pier-lab.github.io/CaveBench/#S09) | [S10 · Electric dipoles](https://pier-lab.github.io/CaveBench/#S10) |
-| --- | --- |
-| [![Magnetic coils, interior image F1](thumbs/S09.webp)](S09.webp) | [![Electric dipoles, interior image F1](thumbs/S10.webp)](S10.webp) |
+<table>
 
-| [S11 · Dielectric response](https://pier-lab.github.io/CaveBench/#S11) | [S12 · Conducting wires](https://pier-lab.github.io/CaveBench/#S12) |
-| --- | --- |
-| [![Dielectric response, interior image F1](thumbs/S11.webp)](S11.webp) | [![Conducting wires, interior image F1](thumbs/S12.webp)](S12.webp) |
+<tr>
+<td><a href="electromagnetism.md#s09"><img src="thumbs/S09.webp" alt="Magnetic coils" width="320"><br><strong>S09 · Magnetic coils</strong></a></td>
+<td><a href="electromagnetism.md#s10"><img src="thumbs/S10.webp" alt="Electric dipoles" width="320"><br><strong>S10 · Electric dipoles</strong></a></td>
+</tr>
+<tr>
+<td><a href="electromagnetism.md#s11"><img src="thumbs/S11.webp" alt="Dielectric response" width="320"><br><strong>S11 · Dielectric response</strong></a></td>
+<td><a href="electromagnetism.md#s12"><img src="thumbs/S12.webp" alt="Conducting wires" width="320"><br><strong>S12 · Conducting wires</strong></a></td>
+</tr>
+</table>
 
 ## Acoustics
 
-| [S13 · Standing waves](https://pier-lab.github.io/CaveBench/#S13) | [S14 · Wave scattering](https://pier-lab.github.io/CaveBench/#S14) |
-| --- | --- |
-| [![Standing waves, interior image F2](thumbs/S13.webp)](S13.webp) | [![Wave scattering, interior image F1](thumbs/S14.webp)](S14.webp) |
+<table>
 
-| [S15 · Doppler response](https://pier-lab.github.io/CaveBench/#S15) | [S16 · Two-source ripples](https://pier-lab.github.io/CaveBench/#S16) |
-| --- | --- |
-| [![Doppler response, interior image F1](thumbs/S15.webp)](S15.webp) | [![Two-source ripples, interior image F1](thumbs/S16.webp)](S16.webp) |
+<tr>
+<td><a href="acoustics.md#s13"><img src="thumbs/S13.webp" alt="Standing waves" width="320"><br><strong>S13 · Standing waves</strong></a></td>
+<td><a href="acoustics.md#s14"><img src="thumbs/S14.webp" alt="Wave scattering" width="320"><br><strong>S14 · Wave scattering</strong></a></td>
+</tr>
+<tr>
+<td><a href="acoustics.md#s15"><img src="thumbs/S15.webp" alt="Doppler response" width="320"><br><strong>S15 · Doppler response</strong></a></td>
+<td><a href="acoustics.md#s16"><img src="thumbs/S16.webp" alt="Two-source ripples" width="320"><br><strong>S16 · Two-source ripples</strong></a></td>
+</tr>
+</table>
 
 ## Optics
 
-| [S17 · Photoelastic load](https://pier-lab.github.io/CaveBench/#S17) | [S18 · Double reflection](https://pier-lab.github.io/CaveBench/#S18) |
-| --- | --- |
-| [![Photoelastic load, interior image F1](thumbs/S17.webp)](S17.webp) | [![Double reflection, interior image F2](thumbs/S18.webp)](S18.webp) |
+<table>
 
-| [S19 · Graded refraction](https://pier-lab.github.io/CaveBench/#S19) | [S20 · Double-slit fringes](https://pier-lab.github.io/CaveBench/#S20) |
-| --- | --- |
-| [![Graded refraction, interior image F1](thumbs/S19.webp)](S19.webp) | [![Double-slit fringes, interior image F1](thumbs/S20.webp)](S20.webp) |
+<tr>
+<td><a href="optics.md#s17"><img src="thumbs/S17.webp" alt="Photoelastic load" width="320"><br><strong>S17 · Photoelastic load</strong></a></td>
+<td><a href="optics.md#s18"><img src="thumbs/S18.webp" alt="Double reflection" width="320"><br><strong>S18 · Double reflection</strong></a></td>
+</tr>
+<tr>
+<td><a href="optics.md#s19"><img src="thumbs/S19.webp" alt="Graded refraction" width="320"><br><strong>S19 · Graded refraction</strong></a></td>
+<td><a href="optics.md#s20"><img src="thumbs/S20.webp" alt="Double-slit fringes" width="320"><br><strong>S20 · Double-slit fringes</strong></a></td>
+</tr>
+</table>
