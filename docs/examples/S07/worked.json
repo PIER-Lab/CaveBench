@@ -1,0 +1,152 @@
+{
+  "id": "S07",
+  "title": "Heated gas bulbs",
+  "domain": "Thermal",
+  "model": "Claude Sonnet 5.5",
+  "model_id": "anthropic/claude-sonnet-5.5",
+  "question_id": "scene_15/sample_0001/k6",
+  "sample_id": "sample_0001",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nA fixed oblique camera shows three connected glass bulbs arranged left, middle, and right, each with a visible meniscus. Bulb envelopes, glass network, backboard and supports are fixed references. Warm-water contact caps are outside the interior view. Gas composition can vary between experiments; do not assume a sample-specific gas identity that is not visible. heat_bulb_1, heat_bulb_2 and heat_bulb_3 mean heating the left, middle and right bulb respectively. An event heats one or two bulbs simultaneously. The apparatus is continuous and thermal states are not reset.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nEach event image shows the active response after one thermal-contact event. Compare each meniscus with its own glass envelope, accounting for the oblique view and retained thermal history. No unobserved gas assignment is supplied.\nCapture times (physical/native capture time in seconds): F0=1.966667 s; F1=7.300000 s; F2=12.800000 s; F3=18.300000 s; F4=23.800000 s; F5=29.300000 s; F6=34.800000 s.\n\nALLOWED ATOMIC LABELS\nheat_bulb_1, heat_bulb_2, heat_bulb_3\n\nALLOWED EVENT LABEL SETS\n[[\"heat_bulb_1\"],[\"heat_bulb_2\"],[\"heat_bulb_3\"],[\"heat_bulb_1\",\"heat_bulb_2\"],[\"heat_bulb_1\",\"heat_bulb_3\"],[\"heat_bulb_2\",\"heat_bulb_3\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"heat_bulb_1\"], [\"heat_bulb_2\"], [\"heat_bulb_3\"], [\"heat_bulb_1\", \"heat_bulb_2\"], [\"heat_bulb_1\", \"heat_bulb_3\"], [\"heat_bulb_2\", \"heat_bulb_3\"]].",
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "excerpt": "The right level rose (378 to 362), the left dropped (385 to 395) and the middle dropped (380 to 390). The right bulb is the most likely one heated, so I chose heat_bulb_3.",
+  "excerpt_event": 1,
+  "response_text": "I could not read the meniscus levels reliably, so these six events are a best guess from rough estimates of each frame, not a confident reconstruction.\n\nApproximate meniscus top positions (y in pixels; a lower y means a higher level):\n\n| Frame | Left | Middle | Right |\n|-------|------|--------|-------|\n| F0 | 385 | 380 | 378 |\n| F1 | 395 | 390 | 362 |\n| F2 | 378 | 378 | 382 |\n| F3 | 378 | 362 | 395 |\n| F4 | 378 | 388 | 378 |\n| F5 | 368 | 398 | 380 |\n| F6 | 378 | 380 | 380 |\n\nEvent-by-event reading:\n\n- **F0→F1:** The right level rose (378 to 362), the left dropped (385 to 395) and the middle dropped (380 to 390). The right bulb is the most likely one heated, so I chose heat_bulb_3.\n- **F1→F2:** The left rose (395 to 378), the middle rose (390 to 378) and the right fell (362 to 382). I chose heat_bulb_1 and heat_bulb_2 together.\n- **F2→F3:** The middle rose (378 to 362), the right fell (382 to 395) and the left was unchanged. I chose heat_bulb_2.\n- **F3→F4:** The middle fell (362 to 388), the right rose (395 to 378) and the left was unchanged. I chose heat_bulb_3.\n- **F4→F5:** The left rose (378 to 368) and the middle fell (388 to 398). I chose heat_bulb_1.\n- **F5→F6:** The left fell (368 to 378), the middle rose (398 to 380) and the right was roughly unchanged. I chose heat_bulb_2.",
+  "raw_response": "I could not read the meniscus levels reliably, so these six events are a best guess from rough estimates of each frame, not a confident reconstruction.\n\nApproximate meniscus top positions (y in pixels; a lower y means a higher level):\n\n| Frame | Left | Middle | Right |\n|-------|------|--------|-------|\n| F0 | 385 | 380 | 378 |\n| F1 | 395 | 390 | 362 |\n| F2 | 378 | 378 | 382 |\n| F3 | 378 | 362 | 395 |\n| F4 | 378 | 388 | 378 |\n| F5 | 368 | 398 | 380 |\n| F6 | 378 | 380 | 380 |\n\nEvent-by-event reading:\n\n- **F0→F1:** The right level rose (378 to 362), the left dropped (385 to 395) and the middle dropped (380 to 390). The right bulb is the most likely one heated, so I chose heat_bulb_3.\n- **F1→F2:** The left rose (395 to 378), the middle rose (390 to 378) and the right fell (362 to 382). I chose heat_bulb_1 and heat_bulb_2 together.\n- **F2→F3:** The middle rose (378 to 362), the right fell (382 to 395) and the left was unchanged. I chose heat_bulb_2.\n- **F3→F4:** The middle fell (362 to 388), the right rose (395 to 378) and the left was unchanged. I chose heat_bulb_3.\n- **F4→F5:** The left rose (378 to 368) and the middle fell (388 to 398). I chose heat_bulb_1.\n- **F5→F6:** The left fell (368 to 378), the middle rose (398 to 380) and the right was roughly unchanged. I chose heat_bulb_2.\n\n{\"operations\":[[\"heat_bulb_3\"],[\"heat_bulb_1\",\"heat_bulb_2\"],[\"heat_bulb_2\"],[\"heat_bulb_3\"],[\"heat_bulb_1\"],[\"heat_bulb_2\"]]}",
+  "reference": [
+    [
+      "heat_bulb_1",
+      "heat_bulb_2"
+    ],
+    [
+      "heat_bulb_3"
+    ],
+    [
+      "heat_bulb_1",
+      "heat_bulb_3"
+    ],
+    [
+      "heat_bulb_2"
+    ],
+    [
+      "heat_bulb_2",
+      "heat_bulb_3"
+    ],
+    [
+      "heat_bulb_1"
+    ]
+  ],
+  "prediction": [
+    [
+      "heat_bulb_3"
+    ],
+    [
+      "heat_bulb_1",
+      "heat_bulb_2"
+    ],
+    [
+      "heat_bulb_2"
+    ],
+    [
+      "heat_bulb_3"
+    ],
+    [
+      "heat_bulb_1"
+    ],
+    [
+      "heat_bulb_2"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "heat_bulb_1",
+        "heat_bulb_2"
+      ],
+      "predicted": [
+        "heat_bulb_3"
+      ],
+      "correct": false
+    },
+    {
+      "event": 2,
+      "expected": [
+        "heat_bulb_3"
+      ],
+      "predicted": [
+        "heat_bulb_1",
+        "heat_bulb_2"
+      ],
+      "correct": false
+    },
+    {
+      "event": 3,
+      "expected": [
+        "heat_bulb_1",
+        "heat_bulb_3"
+      ],
+      "predicted": [
+        "heat_bulb_2"
+      ],
+      "correct": false
+    },
+    {
+      "event": 4,
+      "expected": [
+        "heat_bulb_2"
+      ],
+      "predicted": [
+        "heat_bulb_3"
+      ],
+      "correct": false
+    },
+    {
+      "event": 5,
+      "expected": [
+        "heat_bulb_2",
+        "heat_bulb_3"
+      ],
+      "predicted": [
+        "heat_bulb_1"
+      ],
+      "correct": false
+    },
+    {
+      "event": 6,
+      "expected": [
+        "heat_bulb_1"
+      ],
+      "predicted": [
+        "heat_bulb_2"
+      ],
+      "correct": false
+    }
+  ],
+  "exact_match": false,
+  "source": {
+    "stage": "formal primary",
+    "record_sha256": "895e3817325db75ad8696968bd546691e77a0c70f0aed7be70c1d4be16765aa6",
+    "attempt": "0001147.json",
+    "attempt_sha256": "fb06b4db3154fed1c13b6b80ea1a86fb95ff75c68beeb1fdbd5ebf44708fac44",
+    "answer_field": "choices[0].message.content",
+    "response_sha256": "7c7a50c89680deb9ca32d55a7bc8a5cd966af16a9cc580ad4a32db7d4cab857c",
+    "frame_sha256": [
+      "9ab292595fdc0550537209be48983febcaf392fe914f971d3b67df34878eae28",
+      "edb0601795e4518a7c8284afaab63e49aad5b67b21906a76e66004ef45aa2cec",
+      "309261f68838b8a334413fa91de7f66a1d59b56a15ce655608658fe649c770b9",
+      "b5d8828af804b990c7f274c4158cf72e959dd2171bb6f19b163a7e6b5df11270",
+      "374e8e6e3a0fc469e782674f99120582cad3b3689d8fa3fab8e04ed4e882f8d7",
+      "34e0f78aee3e12adc8a48db89167079a68ec4444136314b34f4514dd21764435",
+      "88f2a0cc0e3d7097c04f896affc99c31d884c50336b75782a2beabae3fa8754f"
+    ]
+  }
+}

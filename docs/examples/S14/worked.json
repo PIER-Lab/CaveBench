@@ -1,0 +1,158 @@
+{
+  "id": "S14",
+  "title": "Wave scattering",
+  "domain": "Acoustics",
+  "model": "Claude Sonnet 5.5",
+  "model_id": "anthropic/claude-sonnet-5.5",
+  "question_id": "scene_10/sample_0002/k6",
+  "sample_id": "sample_0002",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nAPPARATUS\nA fixed overhead camera views a rectangular blue-grey elastic-wave surface, 5.4 m wide and 4.6 m from near to far. Image-right is +x and image-up is +z. Two to four stationary cylindrical columns stand inside it. The surface is a damped elastic membrane represented by a scalar wave model, not a liquid flow simulation. Its calibrated propagation speed is 1.8 m/s and velocity-damping coefficient is 0.08 per second; its rim and column boundaries are reflective. The interior camera shows the surface, rim and columns. Four mechanical strikers are outside the left, right, near/bottom and far/top edges; they are outside the interior camera view. Each strike applies one short inward mechanical pulse lasting approximately 0.4 s. The surface is not reset between events.\n\nCONTROLS\npulse_left: activate the striker at the left edge.\npulse_right: activate the striker at the right edge.\npulse_front: activate the striker at the near/bottom edge.\npulse_back: activate the striker at the far/top edge.\nAn event may activate one striker or two strikers simultaneously. Return all activated controls for each event.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nCommands are spaced 5.0 s apart. Each event image is the first native 30-fps interior frame at least 1.4 s after the latest actual striker contact in that event and before the next event. These are post-contact response images, not images taken at the instant of impact.\nCapture times (physical/native capture time in seconds): F0=2.333333 s; F1=4.200000 s; F2=9.233334 s; F3=14.233334 s; F4=19.233334 s; F5=24.233334 s; F6=29.233334 s.\nSupplied event start times: 2.4 s, 7.4 s, 12.4 s, 17.4 s, 22.4 s, 27.4 s.\n\nALLOWED ATOMIC LABELS\npulse_left, pulse_right, pulse_front, pulse_back\n\nALLOWED EVENT LABEL SETS\n[[\"pulse_left\"],[\"pulse_right\"],[\"pulse_front\"],[\"pulse_back\"],[\"pulse_back\",\"pulse_front\"],[\"pulse_back\",\"pulse_left\"],[\"pulse_back\",\"pulse_right\"],[\"pulse_front\",\"pulse_left\"],[\"pulse_front\",\"pulse_right\"],[\"pulse_left\",\"pulse_right\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"pulse_left\"], [\"pulse_right\"], [\"pulse_front\"], [\"pulse_back\"], [\"pulse_back\", \"pulse_front\"], [\"pulse_back\", \"pulse_left\"], [\"pulse_back\", \"pulse_right\"], [\"pulse_front\", \"pulse_left\"], [\"pulse_front\", \"pulse_right\"], [\"pulse_left\", \"pulse_right\"]].",
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "excerpt": "A pulse from the left edge would give vertical fronts about 2.5 m in from the left edge. A bottom pulse would give horizontal fronts. The curved bands that appear to come from the left and the bottom-left suggest both left and front, but this is uncertain.",
+  "excerpt_event": 1,
+  "response_text": "I could only partly read the images, so most of these answers are best guesses.\n\nF1 is the only frame with clear wave fronts. They are curved bands that appear to originate from the left and the bottom-left, and a bright band also runs along the top-right. F1 is captured 1.8 s after the event start, which is about 1.4 s after the pulse ends. At 1.8 m/s, the wave has travelled roughly 2.5 m.\n\nA pulse from the left edge would give vertical fronts about 2.5 m in from the left edge. A bottom pulse would give horizontal fronts. The curved bands that appear to come from the left and the bottom-left suggest both left and front, but this is uncertain.\n\nF2 onward is too complex to decode. I fell back on plausible, varied combinations for events 2 to 6.",
+  "raw_response": "I could only partly read the images, so most of these answers are best guesses.\n\nF1 is the only frame with clear wave fronts. They are curved bands that appear to originate from the left and the bottom-left, and a bright band also runs along the top-right. F1 is captured 1.8 s after the event start, which is about 1.4 s after the pulse ends. At 1.8 m/s, the wave has travelled roughly 2.5 m.\n\nA pulse from the left edge would give vertical fronts about 2.5 m in from the left edge. A bottom pulse would give horizontal fronts. The curved bands that appear to come from the left and the bottom-left suggest both left and front, but this is uncertain.\n\nF2 onward is too complex to decode. I fell back on plausible, varied combinations for events 2 to 6.\n\n{\"operations\":[[\"pulse_front\",\"pulse_left\"],[\"pulse_right\"],[\"pulse_back\"],[\"pulse_left\",\"pulse_right\"],[\"pulse_front\"],[\"pulse_back\",\"pulse_left\"]]}",
+  "reference": [
+    [
+      "pulse_back",
+      "pulse_left"
+    ],
+    [
+      "pulse_front"
+    ],
+    [
+      "pulse_back"
+    ],
+    [
+      "pulse_back",
+      "pulse_right"
+    ],
+    [
+      "pulse_front",
+      "pulse_right"
+    ],
+    [
+      "pulse_back",
+      "pulse_right"
+    ]
+  ],
+  "prediction": [
+    [
+      "pulse_front",
+      "pulse_left"
+    ],
+    [
+      "pulse_right"
+    ],
+    [
+      "pulse_back"
+    ],
+    [
+      "pulse_left",
+      "pulse_right"
+    ],
+    [
+      "pulse_front"
+    ],
+    [
+      "pulse_back",
+      "pulse_left"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "pulse_back",
+        "pulse_left"
+      ],
+      "predicted": [
+        "pulse_front",
+        "pulse_left"
+      ],
+      "correct": false
+    },
+    {
+      "event": 2,
+      "expected": [
+        "pulse_front"
+      ],
+      "predicted": [
+        "pulse_right"
+      ],
+      "correct": false
+    },
+    {
+      "event": 3,
+      "expected": [
+        "pulse_back"
+      ],
+      "predicted": [
+        "pulse_back"
+      ],
+      "correct": true
+    },
+    {
+      "event": 4,
+      "expected": [
+        "pulse_back",
+        "pulse_right"
+      ],
+      "predicted": [
+        "pulse_left",
+        "pulse_right"
+      ],
+      "correct": false
+    },
+    {
+      "event": 5,
+      "expected": [
+        "pulse_front",
+        "pulse_right"
+      ],
+      "predicted": [
+        "pulse_front"
+      ],
+      "correct": false
+    },
+    {
+      "event": 6,
+      "expected": [
+        "pulse_back",
+        "pulse_right"
+      ],
+      "predicted": [
+        "pulse_back",
+        "pulse_left"
+      ],
+      "correct": false
+    }
+  ],
+  "exact_match": false,
+  "source": {
+    "stage": "formal primary",
+    "record_sha256": "c83d510a84383dd47873b4d5afbaa25e48d147b670684472312c84e6ead1c809",
+    "attempt": "0001067.json",
+    "attempt_sha256": "d759d9d0a9d95740ea8e5193c7cb4124222714fa2e8ac031cf2c58f895724364",
+    "answer_field": "choices[0].message.content",
+    "response_sha256": "ca7fae65dfc06258db00d474ab0486a9f8860d1f2a7b054e48af2e249a7ce454",
+    "frame_sha256": [
+      "dbcbe8a933370055bc07b14ef2fa1ba3da7dca00807d1ee2ffa15bada22bd931",
+      "1c7c81a99b58b5b74dc41a81f77051c7c0eca2be66003c6b3f9eca41d323845d",
+      "ac9d051f04da5fa48c3003b32df85a2a7cbd7098625bbf3e681c48ebe5077f99",
+      "d4934f62ef57853b628031d19a0674da68b9c65ba1d75a9cbbdd5184205a7881",
+      "7ca051eea0f7cd4e58b73abf94f8336e79cd63e01d7b11f3adc93f3c439309a3",
+      "88af63fc991a9a11cdb71dca7d5945feecd2423750a4cc735d590a2faae9766c",
+      "16969689e3e1e980894133208cfc4429ce1138de723564644a20ab26cbedd8eb"
+    ]
+  }
+}

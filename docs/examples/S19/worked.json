@@ -1,0 +1,144 @@
+{
+  "id": "S19",
+  "title": "Graded refraction",
+  "domain": "Optics",
+  "model": "Claude Sonnet 5.5",
+  "model_id": "anthropic/claude-sonnet-5.5",
+  "question_id": "scene_17/sample_0001/k6",
+  "sample_id": "sample_0001",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nAPPARATUS\nThree fixed collimated rays travel from a source assembly on the left toward one finite receiver panel on the right. The receiver is a fixed rectangular screen with a visible border and fixed reference marks; the three visible spots come from the same rays in every frame. A single finite transparent graded-index insert lies between source and receiver and all three rays pass through it. The insert starts near the optical centre, is supported by one rigid carriage, and retains its accumulated pose between events. The camera is near the receiver looking back toward the source: image-right is the receiver/source-axis direction and image-up is laboratory +y; the near transverse side is toward the camera and the far side is away from it. The insert has approximate half-extents 0.90 m along the beam, 0.39 m vertically and 0.54 m transversely, with a smooth superellipsoidal boundary.\n\nThe effective index inside the insert follows the calibrated finite profile n=1+0.10(1-q)^2 where q is the superellipsoidal normalized radius (and n=1 outside). The three rays are integrated through this field and then meet the same finite receiver. This calibration describes the apparatus; it does not give a direct answer mapping from one spot displacement to one label. Small shape changes between samples are physical radius/exponent variations, not extra events.\n\nALLOWED LABELS\nmedium_left: translate the insert toward the source side along the optical axis.\nmedium_right: translate it toward the receiver side along the optical axis.\nmedium_near: translate it toward the camera-side transverse direction.\nmedium_far: translate it away from the camera-side transverse direction.\nmedium_rotate: rotate the insert with positive yaw about the laboratory vertical axis.\nmedium_counterrotate: rotate it with negative yaw about that same axis.\nEach transition contains exactly one of these controls. The insert is not reset between transitions. Motion can leave residual pose or optical response from an earlier transition.\n\n\n\nCURRENT INTERIOR DISPLAY\nIn the current delivered interior images, all three spots have a similar yellow/amber appearance. Their colours do not identify separate rays. Track the three-spot geometry relative to the fixed receiver border and reference marks; do not assume red, amber and blue identities are visibly available.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nEach event image shows the response to exactly one new insert-control event. The insert retains its accumulated pose. Track the shared three-spot geometry relative to the fixed receiver border and reference marks, including the preceding state.\nCapture times (physical/native capture time in seconds): F0=0.000000 s; F1=8.500000 s; F2=14.666667 s; F3=20.866669 s; F4=27.066668 s; F5=33.266670 s; F6=39.466667 s.\n\nALLOWED ATOMIC LABELS\nmedium_left, medium_right, medium_near, medium_far, medium_rotate, medium_counterrotate\n\nALLOWED EVENT LABEL SETS\n[[\"medium_left\"],[\"medium_right\"],[\"medium_near\"],[\"medium_far\"],[\"medium_rotate\"],[\"medium_counterrotate\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"medium_left\"], [\"medium_right\"], [\"medium_near\"], [\"medium_far\"], [\"medium_rotate\"], [\"medium_counterrotate\"]].",
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "excerpt": "All spots shift right by about 30 px and the spread shrinks slightly. I read this as a translation along the beam axis, so medium_right.",
+  "excerpt_event": 1,
+  "response_text": "I could not derive these from a quantitative model, so they are best-guess labels based on how the three spots move between frames. I read the spot positions (x, y in image pixels) off each frame.\n\n| Frame | Spot 1 | Spot 2 | Spot 3 |\n|---|---|---|---|\n| F0 | (422, 147) | (404, 207) | (408, 360) |\n| F1 | (452, 170) | (433, 204) | (441, 355) |\n| F2 | (418, 249) | (448, 251) | (470, 307) |\n| F3 | (398, 238) | (438, 259) | (470, 307) |\n| F4 | (518, 107) | (525, 179) | (527, 405) |\n| F5 | (528, 86) | (545, 186) | (541, 405) |\n| F6 | (513, 144) | (526, 207) | (523, 361) |\n\nEach transition, with my reasoning:\n\n1. **F0→F1:** All spots shift right by about 30 px and the spread shrinks slightly. I read this as a translation along the beam axis, so medium_right.\n2. **F1→F2:** The spots converge strongly and move down toward the middle, which looks like a transverse shift. I chose medium_near.\n3. **F2→F3:** Spot 1 moves left and up, spot 2 moves left, and spot 3 stays put. This is a small change in the tilt or yaw of the insert, so I chose medium_counterrotate.\n4. **F3→F4:** The spots spread out vertically and jump right, which looks like the insert moving back to a centred position. That suggests medium_far, undoing the earlier near shift.\n5. **F4→F5:** Spots 1 and 2 shift right and spot 3 shifts slightly right, with the top spot moving up and the spread growing. I chose medium_rotate.\n6. **F5→F6:** The spread shrinks again and the spots move left and down toward the F0 pattern. I chose medium_left.",
+  "raw_response": "I could not derive these from a quantitative model, so they are best-guess labels based on how the three spots move between frames. I read the spot positions (x, y in image pixels) off each frame.\n\n| Frame | Spot 1 | Spot 2 | Spot 3 |\n|---|---|---|---|\n| F0 | (422, 147) | (404, 207) | (408, 360) |\n| F1 | (452, 170) | (433, 204) | (441, 355) |\n| F2 | (418, 249) | (448, 251) | (470, 307) |\n| F3 | (398, 238) | (438, 259) | (470, 307) |\n| F4 | (518, 107) | (525, 179) | (527, 405) |\n| F5 | (528, 86) | (545, 186) | (541, 405) |\n| F6 | (513, 144) | (526, 207) | (523, 361) |\n\nEach transition, with my reasoning:\n\n1. **F0→F1:** All spots shift right by about 30 px and the spread shrinks slightly. I read this as a translation along the beam axis, so medium_right.\n2. **F1→F2:** The spots converge strongly and move down toward the middle, which looks like a transverse shift. I chose medium_near.\n3. **F2→F3:** Spot 1 moves left and up, spot 2 moves left, and spot 3 stays put. This is a small change in the tilt or yaw of the insert, so I chose medium_counterrotate.\n4. **F3→F4:** The spots spread out vertically and jump right, which looks like the insert moving back to a centred position. That suggests medium_far, undoing the earlier near shift.\n5. **F4→F5:** Spots 1 and 2 shift right and spot 3 shifts slightly right, with the top spot moving up and the spread growing. I chose medium_rotate.\n6. **F5→F6:** The spread shrinks again and the spots move left and down toward the F0 pattern. I chose medium_left.\n\n{\"operations\":[[\"medium_right\"],[\"medium_near\"],[\"medium_counterrotate\"],[\"medium_far\"],[\"medium_rotate\"],[\"medium_left\"]]}",
+  "reference": [
+    [
+      "medium_rotate"
+    ],
+    [
+      "medium_far"
+    ],
+    [
+      "medium_left"
+    ],
+    [
+      "medium_near"
+    ],
+    [
+      "medium_counterrotate"
+    ],
+    [
+      "medium_right"
+    ]
+  ],
+  "prediction": [
+    [
+      "medium_right"
+    ],
+    [
+      "medium_near"
+    ],
+    [
+      "medium_counterrotate"
+    ],
+    [
+      "medium_far"
+    ],
+    [
+      "medium_rotate"
+    ],
+    [
+      "medium_left"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "medium_rotate"
+      ],
+      "predicted": [
+        "medium_right"
+      ],
+      "correct": false
+    },
+    {
+      "event": 2,
+      "expected": [
+        "medium_far"
+      ],
+      "predicted": [
+        "medium_near"
+      ],
+      "correct": false
+    },
+    {
+      "event": 3,
+      "expected": [
+        "medium_left"
+      ],
+      "predicted": [
+        "medium_counterrotate"
+      ],
+      "correct": false
+    },
+    {
+      "event": 4,
+      "expected": [
+        "medium_near"
+      ],
+      "predicted": [
+        "medium_far"
+      ],
+      "correct": false
+    },
+    {
+      "event": 5,
+      "expected": [
+        "medium_counterrotate"
+      ],
+      "predicted": [
+        "medium_rotate"
+      ],
+      "correct": false
+    },
+    {
+      "event": 6,
+      "expected": [
+        "medium_right"
+      ],
+      "predicted": [
+        "medium_left"
+      ],
+      "correct": false
+    }
+  ],
+  "exact_match": false,
+  "source": {
+    "stage": "formal primary",
+    "record_sha256": "0a38135a3a54afb093fc55339800c29f26b07761adf02b2811332c6c288afdfc",
+    "attempt": "0001173.json",
+    "attempt_sha256": "e0e915d99f245676a5b7274f1b4efb298395d8e194019cd47bb6d2a96485b517",
+    "answer_field": "choices[0].message.content",
+    "response_sha256": "e83ae8ae1f4c87b6e4587fbb94a586cf2fade63a74d327af9ff6a52e84a259be",
+    "frame_sha256": [
+      "019ff0345bbfbee3920ed8945ba205f0e6f1de0c10959183806cbb227fa65671",
+      "e6dc4d891badc48eeeb5d3d8911cd3ffa3598688b3926244c56a28ac4f270f8a",
+      "4adb4fbd4f40f900f517ae6b8fb9ba93df0f7a71762ac0e6a6d03f5e96c01288",
+      "36f89ec0c36b7c0d6bcad3dfe8eae611ac296e252490eecbac672e1bc285b0a5",
+      "6b11958292c0ddab135ac397413dc7c9c11379474c06a5d9e53f13e7ba528335",
+      "f8abc5fb2e1dff3f86d86b65a1b43284c582588261f5e23e70c522a84f081281",
+      "587066fc1d2c1284499f6a9877b6265fdd91e844123c6820cd26fa3f44aa2d50"
+    ]
+  }
+}

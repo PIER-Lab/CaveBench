@@ -1,0 +1,144 @@
+{
+  "id": "S02",
+  "title": "Rotation & gas",
+  "domain": "Dynamics",
+  "model": "Claude Sonnet 5.5",
+  "model_id": "anthropic/claude-sonnet-5.5",
+  "question_id": "scene_06/sample_0001/k6",
+  "sample_id": "sample_0001",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nApparatus and view: a circular deck rotates about its vertical central shaft inside an opaque cabin. The interior camera is fixed above the deck, looking downward; it does not rotate with the deck. Two or three radial assemblies lie inside the rim. Each contains a solid coloured load on a sliding carriage, a radial guide, and a spring connecting the carriage to an inner anchor. Red, blue and amber load assemblies have masses of 0.65, 0.80 and 1.00 kg and spring stiffnesses of 1.0625, 1.53 and 2.21 N/m respectively. A small mechanical pointer near the central spindle is mounted on the stationary shaft, with a torsion spring and viscous coupling to the deck.\n\nA transparent, sealed, water-filled semicircular channel is fixed near the outer edge of the deck. Its ends are closed. It contains one small red, gas-filled thin-shell sphere, approximately 96 mm in diameter and 4 g in combined shell-and-gas mass. The sphere is separate from the larger loads on the radial carriages. The outer motor and its four-detent controller are outside the supplied interior view. The deck starts at rest. No positions, velocities, spring states or liquid-object states are reset between events.\n\nControls: clockwise and counterclockwise are defined as viewed from above. ClockwiseAccelerate sets the motor to the clockwise high-speed detent, nominally 30 degrees/s. ClockwiseDecelerate changes clockwise rotation to the low-speed detent, nominally 12 degrees/s. CounterclockwiseAccelerate sets the counterclockwise high-speed detent, nominally 30 degrees/s. CounterclockwiseDecelerate changes counterclockwise rotation to the low-speed detent, nominally 12 degrees/s. Selecting a high-speed detent may reverse the previous direction. Each event selects one complete motor setting.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nThe evidence frame for each event is selected from its 2.2-4.0 s response window. Motor commands are 5.0 s apart. The deck starts at rest and all mechanical and liquid-object states subsequently continue as described above.\nCapture times (physical/native capture time in seconds): F0=1.966667 s; F1=6.000000 s; F2=11.000000 s; F3=16.000000 s; F4=21.000000 s; F5=26.000000 s; F6=31.000000 s.\nSupplied event start times: 2 s, 7 s, 12 s, 17 s, 22 s, 27 s.\n\nALLOWED ATOMIC LABELS\nClockwiseAccelerate, ClockwiseDecelerate, CounterclockwiseAccelerate, CounterclockwiseDecelerate\n\nALLOWED EVENT LABEL SETS\n[[\"ClockwiseAccelerate\"],[\"ClockwiseDecelerate\"],[\"CounterclockwiseAccelerate\"],[\"CounterclockwiseDecelerate\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"ClockwiseAccelerate\"], [\"ClockwiseDecelerate\"], [\"CounterclockwiseAccelerate\"], [\"CounterclockwiseDecelerate\"]].",
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "excerpt": "F1 (t=6): red at about 4 o'clock (~ -20°). The deck turned clockwise by about 110°. Event 1 began at 2 s, so 4 s elapsed. Ramping toward 30°/s would give roughly 100°, so event 1 is ClockwiseAccelerate.",
+  "excerpt_event": 1,
+  "response_text": "Estimating deck angle from the red assembly position (viewed from above):\n- F0: red at 12 o'clock (angle 90°). Capture at 1.97 s, before any event, so this is the reference.\n- F1 (t=6): red at about 4 o'clock (~ -20°). The deck turned clockwise by about 110°. Event 1 began at 2 s, so 4 s elapsed. Ramping toward 30°/s would give roughly 100°, so event 1 is ClockwiseAccelerate.\n- F2 (t=11): red at about 6 o'clock (-100°), a further 80° clockwise over 5 s, about 16°/s. The speed fell to roughly the 12°/s detent, so event 2 is ClockwiseDecelerate.\n- F3 (t=16): red at about 11 o'clock (~125°). Going from -100° to 125° clockwise is -100 → -235, i.e. 135° clockwise, about 27°/s. That fits ClockwiseAccelerate, so event 3 is ClockwiseAccelerate.\n- F4 (t=21): red at about 9 o'clock (~180°). From 125° clockwise would go to about 125 - 60 = 65°, but the observed 180° is 55° counterclockwise, which could also be 305° clockwise. The channel position also shifted: the channel in F3 spans the right side, and in F4 it spans the top-left. Using the red assembly (F3 at about 125°, F4 at about 180°), a counterclockwise move of 55° over 5 s is about 11°/s, matching the low detent in the counterclockwise direction. Event 4 would be CounterclockwiseDecelerate, but that would require counterclockwise motion already in progress, so it must be CounterclockwiseAccelerate with the transient still ramping. The measured 55° is less than the 150° expected at 30°/s, so the ramp-up is slow. At 12°/s, 60° would fit well. I'll choose CounterclockwiseAccelerate since a reversal needs a high-speed detent.\n- F5 (t=26): red at about 6 o'clock (-100°=260°). From 180° that is 80° counterclockwise, about 16°/s, which is a lower speed. Event 5 is CounterclockwiseDecelerate.\n- F6 (t=31): red at about 9 o'clock (180°). From 260° to 180° is 80° clockwise, so the direction reversed to clockwise. Event 6 is ClockwiseAccelerate.",
+  "raw_response": "Estimating deck angle from the red assembly position (viewed from above):\n- F0: red at 12 o'clock (angle 90°). Capture at 1.97 s, before any event, so this is the reference.\n- F1 (t=6): red at about 4 o'clock (~ -20°). The deck turned clockwise by about 110°. Event 1 began at 2 s, so 4 s elapsed. Ramping toward 30°/s would give roughly 100°, so event 1 is ClockwiseAccelerate.\n- F2 (t=11): red at about 6 o'clock (-100°), a further 80° clockwise over 5 s, about 16°/s. The speed fell to roughly the 12°/s detent, so event 2 is ClockwiseDecelerate.\n- F3 (t=16): red at about 11 o'clock (~125°). Going from -100° to 125° clockwise is -100 → -235, i.e. 135° clockwise, about 27°/s. That fits ClockwiseAccelerate, so event 3 is ClockwiseAccelerate.\n- F4 (t=21): red at about 9 o'clock (~180°). From 125° clockwise would go to about 125 - 60 = 65°, but the observed 180° is 55° counterclockwise, which could also be 305° clockwise. The channel position also shifted: the channel in F3 spans the right side, and in F4 it spans the top-left. Using the red assembly (F3 at about 125°, F4 at about 180°), a counterclockwise move of 55° over 5 s is about 11°/s, matching the low detent in the counterclockwise direction. Event 4 would be CounterclockwiseDecelerate, but that would require counterclockwise motion already in progress, so it must be CounterclockwiseAccelerate with the transient still ramping. The measured 55° is less than the 150° expected at 30°/s, so the ramp-up is slow. At 12°/s, 60° would fit well. I'll choose CounterclockwiseAccelerate since a reversal needs a high-speed detent.\n- F5 (t=26): red at about 6 o'clock (-100°=260°). From 180° that is 80° counterclockwise, about 16°/s, which is a lower speed. Event 5 is CounterclockwiseDecelerate.\n- F6 (t=31): red at about 9 o'clock (180°). From 260° to 180° is 80° clockwise, so the direction reversed to clockwise. Event 6 is ClockwiseAccelerate.\n\n{\"operations\":[[\"ClockwiseAccelerate\"],[\"ClockwiseDecelerate\"],[\"ClockwiseAccelerate\"],[\"CounterclockwiseAccelerate\"],[\"CounterclockwiseDecelerate\"],[\"ClockwiseAccelerate\"]]}",
+  "reference": [
+    [
+      "ClockwiseAccelerate"
+    ],
+    [
+      "ClockwiseDecelerate"
+    ],
+    [
+      "ClockwiseAccelerate"
+    ],
+    [
+      "CounterclockwiseAccelerate"
+    ],
+    [
+      "CounterclockwiseDecelerate"
+    ],
+    [
+      "ClockwiseAccelerate"
+    ]
+  ],
+  "prediction": [
+    [
+      "ClockwiseAccelerate"
+    ],
+    [
+      "ClockwiseDecelerate"
+    ],
+    [
+      "ClockwiseAccelerate"
+    ],
+    [
+      "CounterclockwiseAccelerate"
+    ],
+    [
+      "CounterclockwiseDecelerate"
+    ],
+    [
+      "ClockwiseAccelerate"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "ClockwiseAccelerate"
+      ],
+      "predicted": [
+        "ClockwiseAccelerate"
+      ],
+      "correct": true
+    },
+    {
+      "event": 2,
+      "expected": [
+        "ClockwiseDecelerate"
+      ],
+      "predicted": [
+        "ClockwiseDecelerate"
+      ],
+      "correct": true
+    },
+    {
+      "event": 3,
+      "expected": [
+        "ClockwiseAccelerate"
+      ],
+      "predicted": [
+        "ClockwiseAccelerate"
+      ],
+      "correct": true
+    },
+    {
+      "event": 4,
+      "expected": [
+        "CounterclockwiseAccelerate"
+      ],
+      "predicted": [
+        "CounterclockwiseAccelerate"
+      ],
+      "correct": true
+    },
+    {
+      "event": 5,
+      "expected": [
+        "CounterclockwiseDecelerate"
+      ],
+      "predicted": [
+        "CounterclockwiseDecelerate"
+      ],
+      "correct": true
+    },
+    {
+      "event": 6,
+      "expected": [
+        "ClockwiseAccelerate"
+      ],
+      "predicted": [
+        "ClockwiseAccelerate"
+      ],
+      "correct": true
+    }
+  ],
+  "exact_match": true,
+  "source": {
+    "stage": "formal primary",
+    "record_sha256": "fd73aefddd640449271c37eb1e320d991ef75111804926f968676b48e2548245",
+    "attempt": "0007165.json",
+    "attempt_sha256": "406bacec20f73df92b7dc56fa0c62c6d55a2cf29fac11d8f9fe04e44190579ae",
+    "answer_field": "choices[0].message.content",
+    "response_sha256": "fd152784ad8cbc3e2c7a79ff01567d90d68bddb9864cedc83294eee875146e10",
+    "frame_sha256": [
+      "881070bb812d7e978399d6cbc5a8b11f0653855b824c405baa55d63955e5440a",
+      "d6d05addb58a96dc92d4519d9ed16a2377f840a64db8068ae54cb1b7c5d353f5",
+      "e08a3bd97bf50e50b9f644ce9da8db11427a5d3504ca2fb117d1d0d004e841d9",
+      "1f91a09a63a0625bdebf14732401a3a3653f705a22cfdb618fbe82df3f89481a",
+      "74b614b6f8854454739db569a098d776697b089c357b0a006c0b3d354ec4a807",
+      "55143e4fee31226feff63500378dc795817b4c740f21ceacd7f6cfbf140187fb",
+      "bdc755a6be1c6cd6418cf87e80da6f4537e8d4a520aeedfda4b10ecdd6752753"
+    ]
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "id": "S13",
+  "title": "Standing waves",
+  "domain": "Acoustics",
+  "model": "Claude Sonnet 5.5",
+  "model_id": "anthropic/claude-sonnet-5.5",
+  "question_id": "scene_05/sample_0030/k6",
+  "sample_id": "sample_0030",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nAPPARATUS\nA horizontal transparent tube contains loose cork granules along its bottom. The tube is 1.80 m long with an internal radius of 0.105 m. Its left end has an externally driven diaphragm; its right end is closed by a fixed piston. The camera looks into the tube from the front side. The external frequency wheel and diaphragm-drive lever are outside this view. No piston or camera movement is a control in this experiment.\n\nA microphone samples the tube near the right end, approximately five-sixths of the distance from the left diaphragm. The black powered RMS detector and its orange spring-loaded indicator are visible on the right/front side of the tube. The orange marker travels vertically on its fixed black rail. The detector converts local RMS sound pressure into coil force with a gain of 0.00066 N/Pa; the return spring is 18 N/m. The indicator has 0.12 m of travel, with zero at its lower rest position. Air density is 1.2 kg/m^3 and nominal sound speed is 343 m/s. The simulated tube uses a uniform linear acoustic momentum-loss rate of 150/s and a 0.115 s field-envelope relaxation. These are apparatus/model parameters, not additional hidden controls. Particle sizes, initial pour and initial frequency may differ between experiments. Positions and physical states are not reset between events.\n\nCONTROLS\nIncreaseFrequency moves the external frequency wheel one setting higher; DecreaseFrequency moves it one setting lower. Its three allowed frequency settings are 381.11, 476.39 and 571.67 Hz. IncreaseDrive moves the external drive lever one setting higher, increasing diaphragm displacement amplitude; DecreaseDrive moves it one setting lower. The three displacement-amplitude settings are 0.420, 0.733 and 1.150 mm. An event may apply one control or two controls simultaneously. Infer the complete set of controls for each event.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nEach event occupies 6.1 s, including 1.1 s for control motion and 5.0 s for observation. Its native evidence frame comes from the mature response window. Residual particle motion and sound-envelope response can persist.\nCapture times (physical simulation clock; the F0 image precedes event 1): F1=4.600000 s; F2=10.700000 s; F3=16.800001 s; F4=22.900000 s; F5=29.000000 s; F6=35.100002 s.\n\nALLOWED ATOMIC LABELS\nIncreaseFrequency, DecreaseFrequency, IncreaseDrive, DecreaseDrive\n\nALLOWED EVENT LABEL SETS\n[[\"IncreaseFrequency\"],[\"DecreaseFrequency\"],[\"IncreaseDrive\"],[\"DecreaseDrive\"],[\"IncreaseDrive\",\"IncreaseFrequency\"],[\"DecreaseDrive\",\"IncreaseFrequency\"],[\"DecreaseFrequency\",\"IncreaseDrive\"],[\"DecreaseDrive\",\"DecreaseFrequency\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"IncreaseFrequency\"], [\"DecreaseFrequency\"], [\"IncreaseDrive\"], [\"DecreaseDrive\"], [\"IncreaseDrive\", \"IncreaseFrequency\"], [\"DecreaseDrive\", \"IncreaseFrequency\"], [\"DecreaseFrequency\", \"IncreaseDrive\"], [\"DecreaseDrive\", \"DecreaseFrequency\"]].",
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "excerpt": "F1 to F2: the harmonic drops to 5, so the frequency decreases. The marker is slightly lower, so I take the drive as unchanged, giving DecreaseFrequency alone. Two decreases would reach the lowest drive setting, which fits the flat cork.",
+  "excerpt_event": 2,
+  "response_text": "The tube resonates at f_n = n·343/(2·1.8) = n·95.28 Hz. The three frequency settings are therefore the 4th, 5th and 6th harmonics (381.11, 476.39 and 571.67 Hz). The number of cork piles tells the harmonic, because there is one pile per half wavelength.\n\n**Pile counts (the pile at each end counts):**\n- F0 shows about 7 piles, at x ≈ 30, 185, 335, 485, 635, 780, 930. This matches the 6th harmonic (571.67 Hz), which has 6 intervals and 7 nodes.\n- F1 shows piles at 55, 210, 395, 570, 750, 915, so also about 6–7 piles. The spacing is about 175 px, which is still the 6th harmonic.\n- F2 shows piles at 50, 255, 483, 705, 920. That is 5 piles with spacing of about 225 px, which is the 5th harmonic (476.39 Hz).\n- F3 shows piles at 60, 220, 395, 565, 745, 918. That is 6 piles, so the 6th harmonic again.\n- F4 shows piles at 40, 210, 390, 570, 750, 920. That is still the 6th harmonic.\n- F5 shows piles at 40, 180, 330, 480, 630, 785, 930. The spacing is about 150 px, which is a higher harmonic and would be 7 if it existed, so I read it as the 6th with finer spacing.\n- F6 looks the same as F5.\n\nI treat the 6th harmonic as the top setting, so the frequency pattern is 6, 6, 5, 6, 6, 6. This is inconsistent at F1 versus F0, so the readings are uncertain. The simplest sequence is F0 at 571.67 Hz, F1 unchanged, F2 down to 476.39 Hz, F3 back up, and F4–F6 unchanged.\n\n**Indicator height (orange marker):** F0 is at 155, F1 at 207, F2 at 214, F3 at 207, F4 at 181, F5 at 104, F6 at 155. A lower marker means lower amplitude, and the particles are flat in F1–F3, so the drive is low there.\n\n**Events:**\n1. F0 to F1: the marker drops and the cork flattens, so the drive decreases. The frequency is unchanged, giving DecreaseDrive.\n2. F1 to F2: the harmonic drops to 5, so the frequency decreases. The marker is slightly lower, so I take the drive as unchanged, giving DecreaseFrequency alone. Two decreases would reach the lowest drive setting, which fits the flat cork.\n3. F2 to F3: the frequency goes back up, giving IncreaseFrequency.\n4. F3 to F4: the particles become active and the marker rises, so the drive increases, giving IncreaseDrive.\n5. F4 to F5: the marker rises strongly, so the drive increases again, giving IncreaseDrive.\n6. F5 to F6: the marker drops and the particles are similar, so the drive decreases, giving DecreaseDrive.\n\nEvent 1 is the weakest call. It sets the drive to the lowest setting, but events 4 and 5 both raise it, which fits only if event 1 started from the middle setting.",
+  "raw_response": "The tube resonates at f_n = n·343/(2·1.8) = n·95.28 Hz. The three frequency settings are therefore the 4th, 5th and 6th harmonics (381.11, 476.39 and 571.67 Hz). The number of cork piles tells the harmonic, because there is one pile per half wavelength.\n\n**Pile counts (the pile at each end counts):**\n- F0 shows about 7 piles, at x ≈ 30, 185, 335, 485, 635, 780, 930. This matches the 6th harmonic (571.67 Hz), which has 6 intervals and 7 nodes.\n- F1 shows piles at 55, 210, 395, 570, 750, 915, so also about 6–7 piles. The spacing is about 175 px, which is still the 6th harmonic.\n- F2 shows piles at 50, 255, 483, 705, 920. That is 5 piles with spacing of about 225 px, which is the 5th harmonic (476.39 Hz).\n- F3 shows piles at 60, 220, 395, 565, 745, 918. That is 6 piles, so the 6th harmonic again.\n- F4 shows piles at 40, 210, 390, 570, 750, 920. That is still the 6th harmonic.\n- F5 shows piles at 40, 180, 330, 480, 630, 785, 930. The spacing is about 150 px, which is a higher harmonic and would be 7 if it existed, so I read it as the 6th with finer spacing.\n- F6 looks the same as F5.\n\nI treat the 6th harmonic as the top setting, so the frequency pattern is 6, 6, 5, 6, 6, 6. This is inconsistent at F1 versus F0, so the readings are uncertain. The simplest sequence is F0 at 571.67 Hz, F1 unchanged, F2 down to 476.39 Hz, F3 back up, and F4–F6 unchanged.\n\n**Indicator height (orange marker):** F0 is at 155, F1 at 207, F2 at 214, F3 at 207, F4 at 181, F5 at 104, F6 at 155. A lower marker means lower amplitude, and the particles are flat in F1–F3, so the drive is low there.\n\n**Events:**\n1. F0 to F1: the marker drops and the cork flattens, so the drive decreases. The frequency is unchanged, giving DecreaseDrive.\n2. F1 to F2: the harmonic drops to 5, so the frequency decreases. The marker is slightly lower, so I take the drive as unchanged, giving DecreaseFrequency alone. Two decreases would reach the lowest drive setting, which fits the flat cork.\n3. F2 to F3: the frequency goes back up, giving IncreaseFrequency.\n4. F3 to F4: the particles become active and the marker rises, so the drive increases, giving IncreaseDrive.\n5. F4 to F5: the marker rises strongly, so the drive increases again, giving IncreaseDrive.\n6. F5 to F6: the marker drops and the particles are similar, so the drive decreases, giving DecreaseDrive.\n\nEvent 1 is the weakest call. It sets the drive to the lowest setting, but events 4 and 5 both raise it, which fits only if event 1 started from the middle setting.\n\n{\"operations\":[[\"DecreaseDrive\"],[\"DecreaseFrequency\"],[\"IncreaseFrequency\"],[\"IncreaseDrive\"],[\"IncreaseDrive\"],[\"DecreaseDrive\"]]}",
+  "reference": [
+    [
+      "DecreaseDrive",
+      "DecreaseFrequency"
+    ],
+    [
+      "DecreaseFrequency",
+      "IncreaseDrive"
+    ],
+    [
+      "DecreaseDrive",
+      "IncreaseFrequency"
+    ],
+    [
+      "IncreaseDrive"
+    ],
+    [
+      "IncreaseDrive",
+      "IncreaseFrequency"
+    ],
+    [
+      "DecreaseDrive"
+    ]
+  ],
+  "prediction": [
+    [
+      "DecreaseDrive"
+    ],
+    [
+      "DecreaseFrequency"
+    ],
+    [
+      "IncreaseFrequency"
+    ],
+    [
+      "IncreaseDrive"
+    ],
+    [
+      "IncreaseDrive"
+    ],
+    [
+      "DecreaseDrive"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "DecreaseDrive",
+        "DecreaseFrequency"
+      ],
+      "predicted": [
+        "DecreaseDrive"
+      ],
+      "correct": false
+    },
+    {
+      "event": 2,
+      "expected": [
+        "DecreaseFrequency",
+        "IncreaseDrive"
+      ],
+      "predicted": [
+        "DecreaseFrequency"
+      ],
+      "correct": false
+    },
+    {
+      "event": 3,
+      "expected": [
+        "DecreaseDrive",
+        "IncreaseFrequency"
+      ],
+      "predicted": [
+        "IncreaseFrequency"
+      ],
+      "correct": false
+    },
+    {
+      "event": 4,
+      "expected": [
+        "IncreaseDrive"
+      ],
+      "predicted": [
+        "IncreaseDrive"
+      ],
+      "correct": true
+    },
+    {
+      "event": 5,
+      "expected": [
+        "IncreaseDrive",
+        "IncreaseFrequency"
+      ],
+      "predicted": [
+        "IncreaseDrive"
+      ],
+      "correct": false
+    },
+    {
+      "event": 6,
+      "expected": [
+        "DecreaseDrive"
+      ],
+      "predicted": [
+        "DecreaseDrive"
+      ],
+      "correct": true
+    }
+  ],
+  "exact_match": false,
+  "source": {
+    "stage": "formal primary",
+    "record_sha256": "31917eee3fa9155215856894e799468023fbf9f9053bc7a74dadc8ee6e7e7751",
+    "attempt": "0002709.json",
+    "attempt_sha256": "ee2d4a478b3284c8999b0cacced469fb45221fa4e67ec55114619a3741855a5b",
+    "answer_field": "choices[0].message.content",
+    "response_sha256": "f92af02949b5ddaa326b4015c12371b2a9ed7585143466d81b797584b34e7ffc",
+    "frame_sha256": [
+      "971346d9a6d45caff03fccfffbca2949b885d9855a4d09f1e9dea4c2042627a1",
+      "a5eb47109fe3f2941fefe836ef2c6722810443a4e21090c4e370bbd62e81abd1",
+      "5831ed4f6cd9f9451e227a8fff9f4c0a01b51f89235f5ebeb4d4826e19fabe78",
+      "e924fb157de0edbe9d83d1e3a2d9bd0dffbf02b90117178e630c30050fa34638",
+      "3339fa8898cc138061155036e82caf51119a87be27f572ae21e70f3e4cdb05de",
+      "858beb56a5774451a909dfea0931cf92e9bfb60959b0451031accf7cb7eabdd8",
+      "6530bacd8741cf87c1f41028877f25ff3179d42144cb3efd4eef18a0389794ec"
+    ]
+  }
+}

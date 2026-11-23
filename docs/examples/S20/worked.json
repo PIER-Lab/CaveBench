@@ -1,0 +1,160 @@
+{
+  "id": "S20",
+  "title": "Double-slit fringes",
+  "domain": "Optics",
+  "model": "Claude Sonnet 5.5",
+  "model_id": "anthropic/claude-sonnet-5.5",
+  "question_id": "scene_18/sample_0007/k6",
+  "sample_id": "sample_0007",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nAPPARATUS AND VIEW\nOne fixed coherent monochromatic light source illuminates two parallel vertical slits made by four real opaque knife edges. The four edges share a width-adjustment mechanism and a separate centre-spacing adjustment mechanism. Both slit widths are equal. A single fixed flat receiver behind the slits shows vertical interference fringes inside a broader diffraction envelope. Source, receiver, wavelength, camera, illumination and exposure are fixed throughout one sample. The two slits are not independently illuminated or independently resized.\n\nLaboratory-up is positive y. Light propagates approximately along positive z from the source toward the receiver; slit width and centre spacing lie along x. The interior camera is at approximately (0,1.99,0.82), looking along positive z toward the receiver centred at (0,1.99,3.78) in scene units. The image is not mirrored: positive x is image-right and positive y is up. The receiver front is5.1 scene units wide and2.76 high. It is an enlarged instrument display of the optical distribution, not a literal5.1m-wide optical propagation experiment. No hidden handwheels, blades or mechanisms are visible in this receiver-only camera. Fixed frame edges and neutral fiducials are stationary references, not answer codes. A fixed source colour may differ between samples but does not change within a sample or encode an operation.\n\nMECHANICS AND DECLARED OPTICAL MODEL\nThe two independent shafts move continuously at up to260 degrees/s. Real shaft angles drive differential screws, followers and links, which determine actual knife-edge positions. The ideal mechanism is backlash-free and completes each permitted gesture in less than0.83s. It does not reset the receiver pattern between events.\n\nFor understanding the scaled apparatus, if the width shaft angle is theta_w and spacing shaft angle theta_d in degrees, the rendered real mechanical gaps are w=0.23+0.00065*theta_w and s=0.68+0.00170*theta_d scene units. The corresponding calibrated optical slit width is a=0.060+0.085*(w-0.14)/0.16 millimetres; optical centre spacing is d=0.30+0.32*(s-0.52)/0.42 millimetres. These are two explicit scale calibrations, not a claim that the large visible knife gaps have microscopic physical size. The sample begins at actual shaft angles within theta_w=-30..30 and theta_d=-22..22 degrees. Their initial values are not necessarily a preceding control endpoint.\n\nThe wavelength lambda is constant within the sample and lies in538..644nm; there is no hidden wavelength-changing control. The receiver represents an optical distance L=2.4m and horizontal optical span95mm from -47.5 to+47.5mm. Its fixed display magnification does not change between images. For optical horizontal coordinate X, sin(theta)=X/sqrt(L^2+X^2). The intensity is proportional to sinc^2(pi*a*sin(theta)/lambda)*cos^2(pi*d*sin(theta)/lambda), where sinc(u)=sin(u)/u and all lengths use matching units. A fixed0.58 brightness gamma, fixed spectral tint and fixed fine surface texture affect appearance, not the spatial scale. This is a declared Fraunhofer instrument model, not a full Maxwell propagation or photometrically calibrated hardware simulation.\n\nThe broad diffraction envelope and its minima constrain a; the fine fringe pitch constrains d. Both affect the same intensity image, including missing orders and the number of visible bright fringes. Counted bright bands or overall brightness alone can be misleading. Compare both the broad envelope and the fine periodic structure relative to fixed screen geometry, including the preceding state. A dual change can combine a wider envelope with tighter fringes, or a narrower envelope with wider fringes; neither control cancels the other's physical change.\n\nALLOWED PRIMITIVE CONTROLS\nNarrowSlits: drive only the width shaft to -123degrees, decreasing both actual slit widths; spacing stays at its previous endpoint unless a spacing control is simultaneously selected.\nWidenSlits: drive only the width shaft to+92degrees, increasing both widths; spacing otherwise persists.\nIncreaseSpacing: drive only the spacing shaft to+135degrees, moving the slit centres farther apart; width otherwise persists.\nDecreaseSpacing: drive only the spacing shaft to-76degrees, moving the slit centres closer; width otherwise persists.\n\nEach event contains either exactly ONE primitive or TWO simultaneous primitives: one from {NarrowSlits,WidenSlits} and one from {IncreaseSpacing,DecreaseSpacing}. Opposite primitives on the same axis are forbidden. An unselected axis remains at its preceding setting. Every selected axis makes a real nonzero change; selecting an already reached endpoint is not counted as an operation. Operation sets are unordered within an event, but the events are ordered. No per-label frequency or sequence is supplied.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nEach event image shows the completed real nonzero change of its selected slit mechanism axes. The pattern is generated by the same fixed optical calibration throughout this sample; an unselected axis retains its preceding setting. Use both the diffraction envelope and fine fringe spacing relative to the receiver geometry.\nCapture times (physical/native capture time in seconds): F0=0.000000 s; F1=8.500000 s; F2=14.683334 s; F3=20.883335 s; F4=27.083334 s; F5=33.283337 s; F6=39.483334 s.\n\nALLOWED ATOMIC LABELS\nNarrowSlits, WidenSlits, IncreaseSpacing, DecreaseSpacing\n\nALLOWED EVENT LABEL SETS\n[[\"NarrowSlits\"],[\"WidenSlits\"],[\"IncreaseSpacing\"],[\"DecreaseSpacing\"],[\"IncreaseSpacing\",\"NarrowSlits\"],[\"DecreaseSpacing\",\"NarrowSlits\"],[\"IncreaseSpacing\",\"WidenSlits\"],[\"DecreaseSpacing\",\"WidenSlits\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"NarrowSlits\"], [\"WidenSlits\"], [\"IncreaseSpacing\"], [\"DecreaseSpacing\"], [\"IncreaseSpacing\", \"NarrowSlits\"], [\"DecreaseSpacing\", \"NarrowSlits\"], [\"IncreaseSpacing\", \"WidenSlits\"], [\"DecreaseSpacing\", \"WidenSlits\"]].",
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "excerpt": "F0→F1: the fringes became tighter, so spacing increased. The envelope in F0 had its first minimum at about ±130 px, and in F1 the minimum is wider at about ±160 px. A wider envelope means the slits widened. This gives IncreaseSpacing and WidenSlits.",
+  "excerpt_event": 1,
+  "response_text": "Reading the frames, F1 and F3 look identical, and F2, F4 and F6 look identical, so the states alternate between a few distinct patterns.\n\n**State estimates**\n- F0 has fringe pitch of about 26 px and an envelope first minimum near ±130 px from center.\n- F1 has finer fringes (about 20 px pitch) and a wider envelope, with the first minimum near ±160 px. Both the envelope and the fringe pitch changed from F0.\n- F2 has coarse fringes (about 37 px pitch) and a narrow central envelope.\n- F5 has fringes of about 36 px pitch and a central envelope roughly 2.5 times wider than F2's.\n\n**Event reasoning**\n1. F0→F1: the fringes became tighter, so spacing increased. The envelope in F0 had its first minimum at about ±130 px, and in F1 the minimum is wider at about ±160 px. A wider envelope means the slits widened. This gives IncreaseSpacing and WidenSlits.\n2. F1→F2: the fringes became coarser (spacing decreased) and the envelope narrowed (slits narrowed). This gives DecreaseSpacing and NarrowSlits.\n3. F2→F3: F3 equals F1, so the change reverses the previous one: IncreaseSpacing and WidenSlits.\n4. F3→F4: F4 equals F2, so the change is again DecreaseSpacing and NarrowSlits.\n5. F4→F5: the fringes are about the same pitch (spacing unchanged), but the envelope is wider, so the slits widened. This gives WidenSlits alone.\n6. F5→F6: F6 returns to the F2 pattern, with a narrower envelope and the same fringe pitch, so NarrowSlits alone.\n\n**Consistency check on endpoints**\nBecause each control drives its shaft to a fixed endpoint, the states are limited to a few shaft angles. The width endpoints are -123 and +92, and the spacing endpoints are +135 and -76.\n- F1 and F3 are width +92 with spacing +135.\n- F2, F4 and F6 are width -123 with spacing -76.\n- F5 is width +92 with spacing -76, which fits the coarse fringes with a wide envelope.\n- F0 has intermediate initial values.\n\nThe sequence is consistent with these endpoints.",
+  "raw_response": "Reading the frames, F1 and F3 look identical, and F2, F4 and F6 look identical, so the states alternate between a few distinct patterns.\n\n**State estimates**\n- F0 has fringe pitch of about 26 px and an envelope first minimum near ±130 px from center.\n- F1 has finer fringes (about 20 px pitch) and a wider envelope, with the first minimum near ±160 px. Both the envelope and the fringe pitch changed from F0.\n- F2 has coarse fringes (about 37 px pitch) and a narrow central envelope.\n- F5 has fringes of about 36 px pitch and a central envelope roughly 2.5 times wider than F2's.\n\n**Event reasoning**\n1. F0→F1: the fringes became tighter, so spacing increased. The envelope in F0 had its first minimum at about ±130 px, and in F1 the minimum is wider at about ±160 px. A wider envelope means the slits widened. This gives IncreaseSpacing and WidenSlits.\n2. F1→F2: the fringes became coarser (spacing decreased) and the envelope narrowed (slits narrowed). This gives DecreaseSpacing and NarrowSlits.\n3. F2→F3: F3 equals F1, so the change reverses the previous one: IncreaseSpacing and WidenSlits.\n4. F3→F4: F4 equals F2, so the change is again DecreaseSpacing and NarrowSlits.\n5. F4→F5: the fringes are about the same pitch (spacing unchanged), but the envelope is wider, so the slits widened. This gives WidenSlits alone.\n6. F5→F6: F6 returns to the F2 pattern, with a narrower envelope and the same fringe pitch, so NarrowSlits alone.\n\n**Consistency check on endpoints**\nBecause each control drives its shaft to a fixed endpoint, the states are limited to a few shaft angles. The width endpoints are -123 and +92, and the spacing endpoints are +135 and -76.\n- F1 and F3 are width +92 with spacing +135.\n- F2, F4 and F6 are width -123 with spacing -76.\n- F5 is width +92 with spacing -76, which fits the coarse fringes with a wide envelope.\n- F0 has intermediate initial values.\n\nThe sequence is consistent with these endpoints.\n\n{\"operations\": [[\"IncreaseSpacing\",\"WidenSlits\"],[\"DecreaseSpacing\",\"NarrowSlits\"],[\"IncreaseSpacing\",\"WidenSlits\"],[\"DecreaseSpacing\",\"NarrowSlits\"],[\"WidenSlits\"],[\"NarrowSlits\"]]}",
+  "reference": [
+    [
+      "IncreaseSpacing",
+      "NarrowSlits"
+    ],
+    [
+      "DecreaseSpacing",
+      "WidenSlits"
+    ],
+    [
+      "IncreaseSpacing",
+      "NarrowSlits"
+    ],
+    [
+      "DecreaseSpacing",
+      "WidenSlits"
+    ],
+    [
+      "NarrowSlits"
+    ],
+    [
+      "WidenSlits"
+    ]
+  ],
+  "prediction": [
+    [
+      "IncreaseSpacing",
+      "WidenSlits"
+    ],
+    [
+      "DecreaseSpacing",
+      "NarrowSlits"
+    ],
+    [
+      "IncreaseSpacing",
+      "WidenSlits"
+    ],
+    [
+      "DecreaseSpacing",
+      "NarrowSlits"
+    ],
+    [
+      "WidenSlits"
+    ],
+    [
+      "NarrowSlits"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "IncreaseSpacing",
+        "NarrowSlits"
+      ],
+      "predicted": [
+        "IncreaseSpacing",
+        "WidenSlits"
+      ],
+      "correct": false
+    },
+    {
+      "event": 2,
+      "expected": [
+        "DecreaseSpacing",
+        "WidenSlits"
+      ],
+      "predicted": [
+        "DecreaseSpacing",
+        "NarrowSlits"
+      ],
+      "correct": false
+    },
+    {
+      "event": 3,
+      "expected": [
+        "IncreaseSpacing",
+        "NarrowSlits"
+      ],
+      "predicted": [
+        "IncreaseSpacing",
+        "WidenSlits"
+      ],
+      "correct": false
+    },
+    {
+      "event": 4,
+      "expected": [
+        "DecreaseSpacing",
+        "WidenSlits"
+      ],
+      "predicted": [
+        "DecreaseSpacing",
+        "NarrowSlits"
+      ],
+      "correct": false
+    },
+    {
+      "event": 5,
+      "expected": [
+        "NarrowSlits"
+      ],
+      "predicted": [
+        "WidenSlits"
+      ],
+      "correct": false
+    },
+    {
+      "event": 6,
+      "expected": [
+        "WidenSlits"
+      ],
+      "predicted": [
+        "NarrowSlits"
+      ],
+      "correct": false
+    }
+  ],
+  "exact_match": false,
+  "source": {
+    "stage": "formal primary",
+    "record_sha256": "6aa3a9f1ab9cc5085017d929cff65361172bc05068e1fdd618e41736e0306161",
+    "attempt": "0001229.json",
+    "attempt_sha256": "42ee98c5325273460945bc7b577d9fa2ce546abad2ca2d9724c1179e154b4ba8",
+    "answer_field": "choices[0].message.content",
+    "response_sha256": "27dde2c6312d93cedd2526dc964d62a9f174a55649a917f12b4c845519a840a1",
+    "frame_sha256": [
+      "5d9f77d10ce2c2494ef2b4bc6d57db4671a6ad973e5cf8ab27dbcd55d63a4271",
+      "30cc3507762827bbebcf1b2d90b44acdb1e0c131f2305b1d580f3498bbdd3722",
+      "c403124db663fa6413e73e8ae57e7d04c7071ad9153bb474d17ae2c0dbb0ebc3",
+      "30cc3507762827bbebcf1b2d90b44acdb1e0c131f2305b1d580f3498bbdd3722",
+      "c403124db663fa6413e73e8ae57e7d04c7071ad9153bb474d17ae2c0dbb0ebc3",
+      "851dd18534f8173a22b557dfceb72e1c55f377b90d7ca0470e0d0fce4bf70387",
+      "c403124db663fa6413e73e8ae57e7d04c7071ad9153bb474d17ae2c0dbb0ebc3"
+    ]
+  }
+}

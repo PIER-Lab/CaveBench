@@ -1,0 +1,144 @@
+{
+  "id": "S12",
+  "title": "Conducting wires",
+  "domain": "Electromagnetism",
+  "model": "Claude Sonnet 5.5",
+  "model_id": "anthropic/claude-sonnet-5.5",
+  "question_id": "scene_14/sample_0001/k6",
+  "sample_id": "sample_0001",
+  "prompt": "Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.\n\nAPPARATUS AND PUBLIC CONTROL DEFINITIONS\nApparatus and view: three parallel, horizontal hollow copper conductors hang from pairs of nonmagnetic rods. A has red collars and leads, B amber-yellow collars and leads, and C blue collars and leads. These colours identify the conductor, not current polarity. The conductors occupy three left/middle/right installation slots, spaced 0.12 m apart; their suspension heights differ by increments of 0.009 m. Identity-to-slot and identity-to-height assignments can vary between samples, but remain fixed within one sample. The camera looks obliquely from the front at the suspended bars and their supports; image-right is approximately laboratory right and image-up approximately upward. The external switchboard is to the left of the apparatus and is not included in the supplied interior images. Each bar has two real flexible copper-braid connections to its closed circuit. The overhead anchors, support frame and background fixtures are fixed parts. The small colours and material finishes are constant.\n\nEach copper bar is 0.235 m long, and each suspension rod is 0.162 m long. A selected pair has a 350 A supply preset when its initial centre-to-centre distance is at most 0.18 m, otherwise 500 A; the same magnitude rule applies to both relative current directions. The external isolated supplies have 8 V compliance and 3 mH series inductance. A branch whose supply is not selected remains connected through a passive 0.001 ohm flyback load; it is not an open circuit. These are lumped circuit elements of the simulated apparatus. The experiment does not reset its conductor positions, velocities, currents or temperatures between events.\n\nControls: ABSame selects the A and B supplies with their currents commanded in the same direction along the two bars; ABOpposite selects A and B with opposite directions. BCSame and BCOpposite do the same for B and C; ACSame and ACOpposite for A and C. Each event chooses one of these six complete settings. The actual contacts change over before establishing the newly selected sources.\n\nOBSERVATION PROTOCOL FOR THIS PREFIX\nEach event image is the native interior frame nearest 2.00 s into its event period, after selected contacts and currents are established. Inherited bar motion, currents and temperature remain physical state, so the image need not be a fresh equilibrium.\nCapture times (physical/native capture time in seconds): F0=0.333333 s; F1=2.000000 s; F2=5.600000 s; F3=9.200000 s; F4=15.200000 s; F5=18.799999 s; F6=24.799999 s.\nDurations of the supplied event periods: 3.6 s, 3.6 s, 6 s, 3.6 s, 6 s, 9.6 s.\n\nALLOWED ATOMIC LABELS\nABSame, ABOpposite, BCSame, BCOpposite, ACSame, ACOpposite\n\nALLOWED EVENT LABEL SETS\n[[\"ABSame\"],[\"ABOpposite\"],[\"BCSame\"],[\"BCOpposite\"],[\"ACSame\"],[\"ACOpposite\"]]\n\nREQUIRED OUTPUT\nReturn only one valid JSON object with exactly one root field, \"operations\". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.\nFINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key \"operations\". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [[\"ABSame\"], [\"ABOpposite\"], [\"BCSame\"], [\"BCOpposite\"], [\"ACSame\"], [\"ACOpposite\"]].",
+  "frames": [
+    "F0.png",
+    "F1.png",
+    "F2.png",
+    "F3.png",
+    "F4.png",
+    "F5.png",
+    "F6.png"
+  ],
+  "video": "dual_view.mp4",
+  "excerpt": "Blue's bottom end moves slightly right, amber's bottom end moves slightly left, and red barely changes. Blue and amber moving toward each other would mean attraction in a same-direction BC pair, so I chose BCSame.",
+  "excerpt_event": 1,
+  "response_text": "I could not extract precise motion data from the images, so this sequence is a best-supported guess rather than a firm reconstruction.\n\nThe slot order is blue (C) on the left, amber (B) in the middle, and red (A) on the right.\n\nWhat I could read from the frames:\n\n- **F0 to F1:** Blue's bottom end moves slightly right, amber's bottom end moves slightly left, and red barely changes. Blue and amber moving toward each other would mean attraction in a same-direction BC pair, so I chose BCSame.\n- **F1 to F2:** Red's end moves left, and its rods lean left at the bottom. Blue and amber look roughly unchanged. A red move toward amber suggests attraction in ABSame.\n- **F2 to F3:** Red moves back right, while blue and amber move back left. Blue returning left, away from amber, suggests repulsion, so I chose BCOpposite. Red moving right, away from amber, would also fit ABOpposite, but BCOpposite also accounts for the blue motion, so I chose it.\n- **F3 to F4:** Blue moves right and amber moves right and forward, with its rods swinging. Red is stable. I could not separate the candidates, so I chose BCSame.\n- **F4 to F5:** Red moves left, and amber and blue change little. I chose ABSame.\n- **F5 to F6:** Red returns right and blue returns slightly right. I chose ABOpposite.",
+  "raw_response": "I could not extract precise motion data from the images, so this sequence is a best-supported guess rather than a firm reconstruction.\n\nThe slot order is blue (C) on the left, amber (B) in the middle, and red (A) on the right.\n\nWhat I could read from the frames:\n\n- **F0 to F1:** Blue's bottom end moves slightly right, amber's bottom end moves slightly left, and red barely changes. Blue and amber moving toward each other would mean attraction in a same-direction BC pair, so I chose BCSame.\n- **F1 to F2:** Red's end moves left, and its rods lean left at the bottom. Blue and amber look roughly unchanged. A red move toward amber suggests attraction in ABSame.\n- **F2 to F3:** Red moves back right, while blue and amber move back left. Blue returning left, away from amber, suggests repulsion, so I chose BCOpposite. Red moving right, away from amber, would also fit ABOpposite, but BCOpposite also accounts for the blue motion, so I chose it.\n- **F3 to F4:** Blue moves right and amber moves right and forward, with its rods swinging. Red is stable. I could not separate the candidates, so I chose BCSame.\n- **F4 to F5:** Red moves left, and amber and blue change little. I chose ABSame.\n- **F5 to F6:** Red returns right and blue returns slightly right. I chose ABOpposite.\n\n{\"operations\":[[\"BCSame\"],[\"ABSame\"],[\"BCOpposite\"],[\"BCSame\"],[\"ABSame\"],[\"ABOpposite\"]]}",
+  "reference": [
+    [
+      "BCSame"
+    ],
+    [
+      "ACSame"
+    ],
+    [
+      "ABOpposite"
+    ],
+    [
+      "BCOpposite"
+    ],
+    [
+      "ABSame"
+    ],
+    [
+      "ACOpposite"
+    ]
+  ],
+  "prediction": [
+    [
+      "BCSame"
+    ],
+    [
+      "ABSame"
+    ],
+    [
+      "BCOpposite"
+    ],
+    [
+      "BCSame"
+    ],
+    [
+      "ABSame"
+    ],
+    [
+      "ABOpposite"
+    ]
+  ],
+  "steps": [
+    {
+      "event": 1,
+      "expected": [
+        "BCSame"
+      ],
+      "predicted": [
+        "BCSame"
+      ],
+      "correct": true
+    },
+    {
+      "event": 2,
+      "expected": [
+        "ACSame"
+      ],
+      "predicted": [
+        "ABSame"
+      ],
+      "correct": false
+    },
+    {
+      "event": 3,
+      "expected": [
+        "ABOpposite"
+      ],
+      "predicted": [
+        "BCOpposite"
+      ],
+      "correct": false
+    },
+    {
+      "event": 4,
+      "expected": [
+        "BCOpposite"
+      ],
+      "predicted": [
+        "BCSame"
+      ],
+      "correct": false
+    },
+    {
+      "event": 5,
+      "expected": [
+        "ABSame"
+      ],
+      "predicted": [
+        "ABSame"
+      ],
+      "correct": true
+    },
+    {
+      "event": 6,
+      "expected": [
+        "ACOpposite"
+      ],
+      "predicted": [
+        "ABOpposite"
+      ],
+      "correct": false
+    }
+  ],
+  "exact_match": false,
+  "source": {
+    "stage": "formal primary",
+    "record_sha256": "b7cab92be0d92f4dfa4be3b33f2063beaa58c70e0b09b964ddaa63d35ccd29f9",
+    "attempt": "0001143.json",
+    "attempt_sha256": "ebe2fa3df7b072e6318aa5c5254e7d80f30886e2314ecff49c088a24b0aac67e",
+    "answer_field": "choices[0].message.content",
+    "response_sha256": "9a39dbf5524bbc0c9f6fe097c339ba71f2d51396ab3ac8d6677f9e4bf4c8f023",
+    "frame_sha256": [
+      "79e252e76fbcf4757a0d48a8284c0eba6bddfc40e407419c05876839cd9b87f5",
+      "954661f69b23093281868b775392ea5889504b53a29cde44e17445605c306909",
+      "fd8f3494d123a12d55e8e63053bf71bb31510f1adf8b53425febd6c6751993f4",
+      "54cdb6853bcfec7dba813294e30b7371121004cba1759171553795a6197460f0",
+      "01a9ab230a8f0a455d90e9302f6cf39130d9819de3a8142b63f6ef2d62c4b7fa",
+      "b7d1b4912a3434013b908ac8d36bedd51514da5b2a3adf43a08c118bda4dde49",
+      "93252a6dbecb554e3adbfcbf071c7d89a81b7417fc4ec4552e94637dfdc637ea"
+    ]
+  }
+}
