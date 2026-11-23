@@ -35,7 +35,7 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    tag.src = path + (path === 'assets/results.js' ? '?v=domain1' : '?v=atlas3');
+    tag.src = path + (path === 'assets/results.js' ? '?v=ssi-prose1' : '?v=atlas3');
     tag.onload = resolve;
     tag.onerror = () => { tag.remove(); reject(new Error(path)); };
     document.head.append(tag);
@@ -125,7 +125,7 @@ function caseStudy(item) {
   const quote=node('blockquote');
   answerText(quote,item.excerpt);
   const more=node('details',undefined,'model-text');
-  more.append(node('summary','Full model explanation'));
+  more.append(node('summary','Full response from '+item.model));
   const text=node('div',undefined,'full-explanation'); answerText(text,item.response_text); more.append(text);
   const link=node('a','Case data (JSON) ↗','record-link'); link.href=pathFor(item,'worked.json');
   aside.append(meta,heading,locator,quote,more,link);
@@ -262,7 +262,7 @@ async function renderScene(id, changeHash=false) {
     }
     fig.append(zoom,node('figcaption',item.frame_labels?.[n] || 'Frame F'+n)); strip.append(fig);
   });
-  const prompt=textPanel(practice ? 'Read the full prompt and control definitions' : 'Complete prompt',item.prompt);
+  const prompt=textPanel('Question and control definitions',item.prompt);
   const attempt=trySequence(item);
   if (practice) {
     attempt.open=true;

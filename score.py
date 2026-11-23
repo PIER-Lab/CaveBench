@@ -1,4 +1,4 @@
-"""Score chronological event sequences using the published CaveBench answer contract."""
+"""Compute exact-match accuracy overall and by question length from a prediction JSONL file."""
 import argparse
 import json
 from collections import defaultdict

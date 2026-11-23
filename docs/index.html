@@ -424,7 +424,7 @@ footer a { color: var(--ivory); font-size: 14px; }
   .statistics dd { font-size: 34px; }
 }
   </style>
-  <script defer src="assets/site.js?v=observatory1"></script>
+  <script defer src="assets/site.js?v=ssi-prose1"></script>
 </head>
 <body>
 <a href="#main" class="skip">Skip to content</a>
@@ -467,7 +467,7 @@ footer a { color: var(--ivory); font-size: 14px; }
   </div></div>
   <section class="section" id="dataset">
     <div class="section-intro">
-      <div><h2>Dataset</h2><p>The model receives an apparatus description, a list of possible controls and a sequence of interior images. It identifies which controls were applied between each pair of consecutive images.</p></div>
+      <div><h2>Dataset</h2><p>Each question pairs a sequence of interior images with an apparatus description and a list of possible external controls. The model selects the controls applied between each pair of consecutive images.</p></div>
       <dl class="statistics"><div><dt>Apparatuses</dt><dd>20</dd></div><div><dt>Physical domains</dt><dd>5</dd></div><div><dt>Test questions</dt><dd>1,180</dd></div></dl>
     </div>
     <nav class="domain-ribbon" aria-label="Case studies by physical domain">
@@ -488,7 +488,7 @@ footer a { color: var(--ivory); font-size: 14px; }
           <tr><th scope="row">Acoustics</th><td>S13–S16</td><td>40</td><td>240</td><td>108</td><td>132</td></tr>
           <tr><th scope="row">Optics</th><td>S17–S20</td><td>40</td><td>240</td><td>179</td><td>61</td></tr>
         </tbody></table></div>
-      <p>Each test episode contains six events. The ten dielectric-response episodes (S11) use questions of three to six events, giving 190 questions at each of the two shortest lengths and 200 at each longer length.</p>
+      <p>In the ten dielectric-response episodes (S11), the first three events show the dielectric fully inserted, partly inserted and withdrawn, in varying order. Questions for this apparatus start at three events. The test set therefore has 190 questions at each of the first two lengths and 200 at each length from three to six.</p>
     </details>
     <div class="case-intro"><h3 id="viewer">Case studies</h3><a href="assets/cases/CaveBench_Case_Studies.pptx" download>Download editable slides</a></div>
     <div id="browser">
@@ -508,7 +508,7 @@ footer a { color: var(--ivory); font-size: 14px; }
     <figure class="lead"><a class="zoom" href="assets/teaser.png" aria-label="Enlarge the CaveBench overview"><img loading="lazy" width="1485" height="705" data-lazy-src="assets/teaser.png" alt="Overview of all twenty apparatuses across five domains, with six-event accuracy for representative models."></a><figcaption><a href="#table-figure1" data-detail="figure1">Figure 1 · correct sequences and accuracy for five models</a></figcaption></figure>
       </div>
       <div><h3>Construction and evaluation</h3>
-    <figure><a class="zoom" href="assets/construction.png"><img loading="lazy" width="1800" height="963" data-lazy-src="assets/construction.png" alt="Episode generation, image and control synchronization, question construction and model evaluation."></a><figcaption>The simulator records the controls applied between consecutive frames. These records supply the reference answers. <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/figure_tables.md#figure-3">Figure 3 · episode and question counts</a></figcaption></figure>
+    <figure><a class="zoom" href="assets/construction.png"><img loading="lazy" width="1800" height="963" data-lazy-src="assets/construction.png" alt="Episode generation, image and control synchronization, question construction and model evaluation."></a><figcaption>The simulator logs the controls applied between frames to form the reference answer. <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/figure_tables.md#figure-3">Figure 3 · episode and question counts</a></figcaption></figure>
       </div>
     </div>
     <details class="fold"><summary>Physical design and example questions</summary>
@@ -519,7 +519,7 @@ footer a { color: var(--ivory); font-size: 14px; }
   </section>
   <section class="section" id="leaderboard">
     <h2>Leaderboard</h2>
-    <p>A sequence earns credit when its control set matches the reference at every event. Simultaneous controls may appear in any order.</p>
+    <p>A sequence is correct when the model identifies every control at every event in chronological order. Controls applied together can be listed in any order.</p>
     <div class="tabs" aria-label="Leaderboard view"><button data-table="domains" aria-pressed="true">By physical domain</button><button data-table="scenes" aria-pressed="false">By apparatus</button><button data-table="length" aria-pressed="false">By question length</button><button data-table="methods" aria-pressed="false">Adaptation methods</button></div>
     <div id="leaderboard-filters" class="result-controls">
       <fieldset id="k-filter"><legend>Events per question</legend><div class="k-options"></div></fieldset>
@@ -554,7 +554,7 @@ footer a { color: var(--ivory); font-size: 14px; }
         <div><span>GPT-6 Luna</span><b style="--score:28.5%"></b><strong>28.5%</strong></div>
       </figure>
     </div>
-    <p>On six-event questions, MiniMax M3.1 Flash scores highest in electromagnetism (27.5%). Sol and Terra score highest in thermal physics (80.0% and 85.0%) and lowest in electromagnetism (57.5% and 37.5%).</p>
+    <p>The strongest domain varies by model. On six-event questions, MiniMax M3.1 Flash achieves its best score in electromagnetism (27.5%). For GPT-6.1 Sol and Terra, electromagnetism has the lowest scores (57.5% and 37.5%), and thermal physics has the highest (80.0% and 85.0%).</p>
     <p class="related-tables"><a href="#table-main_event_by_length" data-detail="main_event_by_length">Event accuracy at each question length</a> · <a href="#table-compound_by_length" data-detail="compound_by_length">Compare single- and two-label events</a></p>
     <div class="analysis-spread">
       <div><h3>Learning to recover a sequence</h3>
@@ -566,14 +566,14 @@ footer a { color: var(--ivory); font-size: 14px; }
     </div>
     <div class="analysis-spread">
       <div><h3>Reasoning effort</h3>
-    <p>On 200 six-event questions, raising reasoning effort from low to high lifts GPT-6.1 Sol’s accuracy from 59.5% to 74.0%. Gemini 3.8 Flash’s accuracy falls from 15.5% to 8.0%.</p>
+    <p>Across the same 200 six-event questions, GPT-6.1 Sol recovers 119 full sequences at low reasoning effort (59.5%) and 148 at high effort (74.0%). Gemini 3.8 Flash drops from 31 complete sequences (15.5%) to 16 (8.0%).</p>
     <p class="related-tables"><a href="#table-effort_results" data-detail="effort_results">View the model and apparatus scores</a></p>
       </div>
     <figure><a class="zoom" href="assets/effort.png"><img loading="lazy" width="1485" height="446" data-lazy-src="assets/effort.png" alt="Accuracy by reasoning effort, model and apparatus."></a><figcaption>Final-answer accuracy across ten episodes per apparatus.</figcaption></figure>
     </div>
     <div class="analysis-spread">
       <div><h3>Error analysis</h3>
-    <p>Among 100 incorrect answers, 38 misread a visual cue, 31 failed to combine evidence across observations, 24 drew an incorrect physical inference and seven misidentified the combination of controls.</p>
+    <p>We classified 100 incorrect six-event answers by their main error. In 38, the model misread a visual cue. In 31, it failed to combine evidence across observations. The other errors involved the physical reasoning in 24 answers and the choice of controls to report together in seven.</p>
     <p class="related-tables"><a href="#table-error_categories" data-detail="error_categories">View counts by error category</a></p>
       </div>
     <figure><a class="zoom" href="assets/errors.png"><img loading="lazy" width="1485" height="1170" data-lazy-src="assets/errors.png" alt="Four examples pairing the input images with the predicted and recorded controls, one for each error category."></a></figure>

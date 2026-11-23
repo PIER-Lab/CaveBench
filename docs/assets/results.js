@@ -166,7 +166,7 @@ function scoreMatrix(records, columns, keyOf) {
     rows.push({
       name:first.model, group:first.group,
       values:cells.map(r => r && Number(r.total) > 0 ? Number(r.accuracy_pct) : null),
-      counts:cells.map(r => r && Number(r.total) > 0 ? r.correct + ' / ' + r.total + ' correct' : 'No eligible questions')
+      counts:cells.map(r => r && Number(r.total) > 0 ? r.correct + ' / ' + r.total + ' correct' : 'No questions at this length')
     });
   }
   return {label:'Model', rows};
@@ -182,16 +182,16 @@ async function updateLeaderboard() {
   if (view === 'methods' || view === 'length') {
     const source = tables[view];
     renderLeaderboard({...source, label:view === 'methods' ? 'Method' : 'Model'},
-      'Exact-match accuracy (%). Overall pools all 1,180 questions.', view);
+      'Exact-match accuracy (%). Here k is the number of events in a question. Overall covers all 1,180 questions.', view);
     return;
   }
   const source = view === 'domains' ? 'domain_by_length' : 'scene_by_length';
   const isDomain = view === 'domains';
   const note = isDomain
-    ? 'Exact-match accuracy (%) at k = ' + k + '. ' + (k < 3 ? '190 questions, including 30 in electromagnetism and 40 in each other domain.' : '200 questions, 40 per domain.') +
-      ' The highest score in each column is bold and the second highest is underlined.'
+    ? 'Exact-match accuracy (%) on ' + k + '-event questions. ' + (k < 3 ? '190 questions, including 30 in electromagnetism and 40 in each other domain.' : '200 questions, 40 per domain.') +
+      ' Bold marks the highest score in each column. An underline marks the second highest.'
     : 'Exact-match accuracy (%) for ' + scene + ' · ' + cases.find(c => c.id === scene).title + '. ' +
-      (scene === 'S11' ? 'Ten questions per length for k = 3–6.' : 'Ten questions per length.');
+      (scene === 'S11' ? 'Ten questions at each length (k = 3–6 events).' : 'Ten questions at each length (k = 1–6 events).');
   if (isDomain && k === 6) {
     const rows = tables.domains.rows.map(row => ({
       ...row,
@@ -385,7 +385,7 @@ function displayDetailed(view, records) {
     } else {
       const table = pivotRows(rows, r => JSON.stringify(labels(r)), r => r.domain, physicalDomains, metric, labels, detailedPercent);
       detailTable(['Model','Method','Run',...physicalDomains.map(d => nameFor(d) + ' (n = ' + total(d) + ')')],table,[0,1,2],
-        title + '. Each n counts ' + unit + ' per run. Mean rows pool the two seeds of the same method.');
+        title + '. Column headings give ' + unit + ' per run. Mean rows combine the two training seeds.');
     }
   } else if (view.startsWith('adaptation_by_')) {
     const rows = records.filter(r => view === 'adaptation_by_length' || r.scene === detailState.scene);
@@ -393,8 +393,8 @@ function displayDetailed(view, records) {
     const table = pivotRows(rows, r => JSON.stringify([r.model,r.method,r.run]), r => r.k, ks, metric,
       r => [r.model, r.method, r.run]);
     detailTable(['Model','Method','Run',...lengthNames,'Overall'], table, [0,1,2],
-      (metric === 'accuracy_pct' ? 'Exact-match accuracy (%).' : 'Correctly predicted event sets (%).') +
-      ' SimPO and KTO each have two training seeds. Overall pools questions across lengths.' +
+      (metric === 'accuracy_pct' ? 'Exact-match accuracy (%). Overall pools questions across lengths.' : 'Event accuracy (%). Overall pools events across question lengths.') +
+      ' SimPO and KTO each use two training seeds.' +
       (view === 'adaptation_by_scene' && detailState.scene === 'S11' ? ' S11 has questions at three to six events.' : ''));
   } else if (view === 'paired_training') {
     const rows = records.filter(r => r.k === detailState.k);
@@ -421,14 +421,14 @@ function displayDetailed(view, records) {
     const models = new Map(records.map(r => [r.model_key,r.model]));
     detailFilter('model', 'Model', [['','All ' + models.size + ' models'], ...models], rerender);
     const rows = records.filter(r => !detailState.model || r.model_key === detailState.model);
-    detailTable(['Model','Visual input','Reasoning setting','Initial token cap','Answer completion','Completion token cap','Questions','Completion answers scored'],
+    detailTable(['Model','Visual input','Reasoning setting','Initial token cap','Answer completion','Completion token cap','Questions','Questions scored from a completion'],
       rows.map(r => [r.model,r.input_format,r.reasoning,r.primary_token_cap,r.completion_policy,r.completion_token_cap,r.questions,r.completion_selected]), [0,1,2,4],
-      'Token caps are per request. The last column counts questions scored from a completion response.');
+      'Token limits apply per request.');
   } else if (view === 'main_event_by_length') {
     const columns = [...lengths.map(String), 'Overall'];
     const table = pivotRows(records, r => r.model_key, r => r.k, columns, 'event_accuracy_pct', r => [r.model], detailedPercent);
     detailTable(['Model',...lengthNames,'Overall'], table, [0],
-      'An event is correct when all its predicted controls match. Overall pools all 4,170 event predictions across the 1,180 questions.');
+      'An event is correct when its entire control set matches the reference. Overall accuracy covers 4,170 event predictions across 1,180 questions.');
   } else if (view === 'event_positions') {
     const columns = lengths.map(String);
     const table = pivotRows(records, r => r.model_key, r => r.position, columns, 'accuracy_pct', r => [r.model]);
@@ -445,7 +445,7 @@ function displayDetailed(view, records) {
   } else if (view === 'error_categories') {
     detailTable(['Primary category','Cases','Direct support','Limited support'],
       records.map(r => [r.category,r.total,r.direct,r.limited]), [0],
-      'Each of the 100 incorrect responses has one primary error. Direct and limited refer to the evidence in the model’s response for that classification.');
+      'Each response has one primary error. Direct and limited describe how much evidence the answer gives for its assigned category. The sample includes 97 answers from Gemini 3.8 Flash, two from GLM-5.3 Flash and one from GPT-6.1 Sol.');
   } else if (view === 'uniform_reference') {
     const format = value => {
       if (!value) return '—';

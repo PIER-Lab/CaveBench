@@ -42,7 +42,7 @@
 
 ## Figure 5 · Dielectric response after preference training
 
-S11, sample 0007. Each row gives the recorded and predicted controls between two consecutive images.
+In S11 sample 0007, the Qwen3.5-9B baseline confuses full and half insertion at events 1 and 3. Both SimPO runs recover all six controls.
 
 | Event | Reference | Qwen3.5-9B baseline | SFT + SimPO (seed 20261108) | SFT + SimPO (seed 20261109) |
 | ---: | --- | --- | --- | --- |
@@ -59,7 +59,7 @@ S11, sample 0007. Each row gives the recorded and predicted controls between two
 
 ## Figure 6 · Reasoning effort by apparatus
 
-The figure compares final six-event exact match (%) at low and high effort. The table also gives the medium-effort condition. Each apparatus contributes ten episodes at each setting.
+GPT-6.1 Sol and Gemini 3.8 Flash each answer the same ten six-event questions per apparatus at low, medium and high reasoning effort. Scores are final sequence exact match (%).
 
 | Apparatus | Domain | Sol low | Sol medium | Sol high | Gemini low | Gemini medium | Gemini high |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -85,15 +85,13 @@ The figure compares final six-event exact match (%) at low and high effort. The 
 | S20 · Double-slit fringes | Optics | 80.0 | 90.0 | 90.0 | 20.0 | 10.0 | 10.0 |
 | Overall · All 200 episodes | All five | 59.5 | 67.0 | 74.0 | 15.5 | 21.5 | 8.0 |
 
-Sol = GPT-6.1 Sol. Gemini = Gemini 3.8 Flash.
-
 [Download initial and final scores and counts](../docs/assets/results/effort_results.csv) · [Question-level scores](effort_question_scores.csv)
 
 <a name="error-categories"></a>
 
 ## Error categories
 
-The 100 reviewed six-event responses each receive one primary classification. Direct and limited describe the evidence in the model’s response for that classification.
+Each of the 100 incorrect six-event responses received one primary error category. The direct and limited counts reflect the strength of the evidence for that category in the response. Visual identification accounted for 38 responses and evidence integration for 31.
 
 | Error category | Responses | Direct support | Limited support |
 | --- | ---: | ---: | ---: |

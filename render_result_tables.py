@@ -201,7 +201,8 @@ def figure_tables(order, scenes):
                   " · [Test counts by apparatus](../docs/assets/results/scene_controls.csv)", ""])
 
     lines.extend(heading("figure-5", "Figure 5 · Dielectric response after preference training"))
-    lines.extend(["S11, sample 0007. Each row gives the recorded and predicted controls between two consecutive images.", "",
+    lines.extend(["In S11 sample 0007, the Qwen3.5-9B baseline confuses full and half insertion at events 1 and 3. "
+                  "Both SimPO runs recover all six controls.", "",
                   row(["Event", "Reference", "Qwen3.5-9B baseline", "SFT + SimPO (seed 20261108)", "SFT + SimPO (seed 20261109)"]),
                   row(["---:", "---", "---", "---", "---"])])
     for r in read(DATA / "training_case.csv"):
@@ -209,8 +210,8 @@ def figure_tables(order, scenes):
     lines.extend(["", "[Download per-event predictions](../docs/assets/results/training_case.csv)", ""])
 
     lines.extend(heading("figure-6", "Figure 6 · Reasoning effort by apparatus"))
-    lines.extend(["The figure compares final six-event exact match (%) at low and high effort. "
-                  "The table also gives the medium-effort condition. Each apparatus contributes ten episodes at each setting.", "",
+    lines.extend(["GPT-6.1 Sol and Gemini 3.8 Flash each answer the same ten six-event questions per apparatus "
+                  "at low, medium and high reasoning effort. Scores are final sequence exact match (%).", "",
                   row(["Apparatus", "Domain", "Sol low", "Sol medium", "Sol high", "Gemini low", "Gemini medium", "Gemini high"]),
                   row(["---", "---", "---:", "---:", "---:", "---:", "---:", "---:"])])
     effort = index("effort_results", ["model", "effort", "stage", "scene"])
@@ -219,13 +220,14 @@ def figure_tables(order, scenes):
         values = [percent(effort[model, level, "Final", s["scene"]])
                   for model in ("GPT-6.1 Sol", "Gemini 3.8 Flash") for level in ("Low", "Medium", "High")]
         lines.append(row([label, s["domain"], *values]))
-    lines.extend(["", "Sol = GPT-6.1 Sol. Gemini = Gemini 3.8 Flash.", "",
+    lines.extend(["",
                   "[Download initial and final scores and counts](../docs/assets/results/effort_results.csv)"
                   " · [Question-level scores](effort_question_scores.csv)", ""])
 
     lines.extend(heading("error-categories", "Error categories"))
-    lines.extend(["The 100 reviewed six-event responses each receive one primary classification. "
-                  "Direct and limited describe the evidence in the model’s response for that classification.", "",
+    lines.extend(["Each of the 100 incorrect six-event responses received one primary error category. "
+                  "The direct and limited counts reflect the strength of the evidence for that category in the response. "
+                  "Visual identification accounted for 38 responses and evidence integration for 31.", "",
                   *table("Error category", ["Responses", "Direct support", "Limited support"])])
     errors = read(DATA / "error_categories.csv")
     fields = ("total", "direct", "limited")
@@ -279,7 +281,7 @@ def adaptation_tables(scenes):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--check", action="store_true", help="verify existing tables without rewriting them")
+    parser.add_argument("--check", action="store_true", help="Compare the Markdown tables with the source CSV files")
     args = parser.parse_args()
     order = read(ASSETS / "domains.csv")
     scenes = read(DATA / "scene_controls.csv")
