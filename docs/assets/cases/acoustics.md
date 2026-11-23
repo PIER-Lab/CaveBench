@@ -6,13 +6,29 @@
 
 ## S13 · Standing waves
 
-A diaphragm drives a tube containing loose cork granules. Which changes in drive amplitude, frequency or both produced the six observed responses?
+A transparent horizontal tube has a vibrating diaphragm on the left and a closed piston on the right. Cork granules lie along the bottom. A microphone near the right end feeds a detector that drives an orange marker vertically along a fixed rail. The front-facing camera shows the cork pattern along the tube and the position of the marker in the same image.
 
-[![Standing waves. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S13.webp)](S13.webp)
+The spacing of the cork accumulations reflects the standing wave in the tube. Changing the driving frequency shifts its wavelength and where the standing wave has high or low sound pressure. The orange marker measures local sound pressure near the microphone, so its height can change when the wave pattern shifts or the diaphragm drive becomes stronger. Compare the granules and marker together in the observation period after each adjustment, taking account of the preceding pattern and of granules that continue to move.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S13) · [Watch the episode](../../examples/S13/dual_view.mp4)
+Which settings changed? The frequency wheel steps up with IncreaseFrequency and down with DecreaseFrequency. The amplitude lever steps up with IncreaseDrive and down with DecreaseDrive. Either control may move alone, or each can move in a chosen direction at the same event. Return the complete event sets in chronological order under the sole JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S13-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+IncreaseFrequency · DecreaseFrequency · IncreaseDrive · DecreaseDrive · IncreaseDrive + IncreaseFrequency · DecreaseDrive + IncreaseFrequency · DecreaseFrequency + IncreaseDrive · DecreaseDrive + DecreaseFrequency
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["DecreaseDrive", "DecreaseFrequency"], ["DecreaseFrequency", "IncreaseDrive"], ["DecreaseDrive", "IncreaseFrequency"], ["IncreaseDrive"], ["IncreaseDrive", "IncreaseFrequency"], ["DecreaseDrive"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -41,55 +57,81 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Standing waves. Seven observations and Qwen3.8-27B’s response.](S13.webp)](S13.webp)
 
-The tube resonates at f_n = n·343/(2·1.8) = n·95.28 Hz. The three frequency settings are therefore the 4th, 5th and 6th harmonics (381.11, 476.39 and 571.67 Hz). The number of cork piles tells the harmonic, because there is one pile per half wavelength.
+[Complete model response and source](../../examples/S13/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S13) · [Watch the episode](../../examples/S13/dual_view.mp4)
 
-**Pile counts (the pile at each end counts):**
-- F0 shows about 7 piles, at x ≈ 30, 185, 335, 485, 635, 780, 930. This matches the 6th harmonic (571.67 Hz), which has 6 intervals and 7 nodes.
-- F1 shows piles at 55, 210, 395, 570, 750, 915, so also about 6–7 piles. The spacing is about 175 px, which is still the 6th harmonic.
-- F2 shows piles at 50, 255, 483, 705, 920. That is 5 piles with spacing of about 225 px, which is the 5th harmonic (476.39 Hz).
-- F3 shows piles at 60, 220, 395, 565, 745, 918. That is 6 piles, so the 6th harmonic again.
-- F4 shows piles at 40, 210, 390, 570, 750, 920. That is still the 6th harmonic.
-- F5 shows piles at 40, 180, 330, 480, 630, 785, 930. The spacing is about 150 px, which is a higher harmonic and would be 7 if it existed, so I read it as the 6th with finer spacing.
-- F6 looks the same as F5.
+### Model Response · Qwen3.8-27B
 
-I treat the 6th harmonic as the top setting, so the frequency pattern is 6, 6, 5, 6, 6, 6. This is inconsistent at F1 versus F0, so the readings are uncertain. The simplest sequence is F0 at 571.67 Hz, F1 unchanged, F2 down to 476.39 Hz, F3 back up, and F4–F6 unchanged.
+The indicator travel 0.12 m, zero at lower rest. So higher = more force = higher sound pressure.
 
-**Indicator height (orange marker):** F0 is at 155, F1 at 207, F2 at 214, F3 at 207, F4 at 181, F5 at 104, F6 at 155. A lower marker means lower amplitude, and the particles are flat in F1–F3, so the drive is low there.
+Now the granule pattern: In F1-F4 the granules are in dense flat horizontal bands (nodes of standing wave where pressure node? Actually in acoustic standing wave in a tube closed at one end and open/driven at other, the pressure antinode is at closed end (piston, right). Particles (cork) are driven by acoustic radiation force toward pressure nodes? Actually acoustic streaming / radiation force pushes particles to pressure antinodes or nodes? In typical "acoustic granular" experiments, particles accumulate at pressure antinodes? Hmm.
 
-**Events:**
-1. F0 to F1: the marker drops and the cork flattens, so the drive decreases. The frequency is unchanged, giving DecreaseDrive.
-2. F1 to F2: the harmonic drops to 5, so the frequency decreases. The marker is slightly lower, so I take the drive as unchanged, giving DecreaseFrequency alone. Two decreases would reach the lowest drive setting, which fits the flat cork.
-3. F2 to F3: the frequency goes back up, giving IncreaseFrequency.
-4. F3 to F4: the particles become active and the marker rises, so the drive increases, giving IncreaseDrive.
-5. F4 to F5: the marker rises strongly, so the drive increases again, giving IncreaseDrive.
-6. F5 to F6: the marker drops and the particles are similar, so the drive decreases, giving DecreaseDrive.
+[…]
 
-Event 1 is the weakest call. It sets the drive to the lowest setting, but events 4 and 5 both raise it, which fits only if event 1 started from the middle setting.
+Heaps height (spray) indicates drive: tall = high drive, flat = low drive.
+
+F0: tall heaps (medium-high spray). F1: flat (low drive). F2: flat low. F3: flat low. F4: tall high. F5: medium. F6: medium-high.
+
+Hmm F0 tall, F1 flat -> decrease drive at event1? But indicator also decreased (mid->low) consistent with decrease drive. So event1 = DecreaseDrive? But then heaps flat.
+
+F1->F2 flat->flat: indicator low->low. Could be a frequency change that keeps microphone at node (indicator stays low) but changes pattern. So event2 = IncreaseFrequency or DecreaseFrequency.
+
+F2->F3 flat->flat low->low: another frequency change? event3.
+
+F3->F4 flat->tall low->low?? indicator still low but heaps tall. That's weird: tall heaps means high drive but indicator low? If frequency such that microphone at node, indicator low regardless of drive. So event4 = IncreaseDrive (heaps get tall, indicator stays low because node).
+
+F4->F5 tall->medium indicator low->high: frequency change to antinode at mic? event5 = IncreaseFrequency or DecreaseFrequency (now mic at antinode so indicator high). Also heaps reduced (medium).
+
+[…]
+
+Given F0 already shows activity, maybe initial frequency is middle (476.39) and drive middle (0.733). Then events change.
+
+I'll finalize:
+[["DecreaseDrive"],["IncreaseFrequency"],["IncreaseFrequency"],["IncreaseDrive"],["DecreaseFrequency"],["DecreaseDrive"]]
+
+Wait event5 I said decrease frequency to get antinode at mic and high indicator. But drive also high in F5 (tall spray) while F4 also tall. So drive same high, indicator went low->high due to frequency change. Good, single control DecreaseFrequency or IncreaseFrequency. Choose DecreaseFrequency.
+
+Event6 indicator high->mid and spray tall->medium: DecreaseDrive.
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
 | 1 | DecreaseDrive | DecreaseDrive + DecreaseFrequency |
-| 2 | DecreaseFrequency | DecreaseFrequency + IncreaseDrive |
+| 2 | IncreaseFrequency | DecreaseFrequency + IncreaseDrive |
 | 3 | IncreaseFrequency | DecreaseDrive + IncreaseFrequency |
 | 4 | IncreaseDrive | IncreaseDrive |
-| 5 | IncreaseDrive | IncreaseDrive + IncreaseFrequency |
+| 5 | DecreaseFrequency | IncreaseDrive + IncreaseFrequency |
 | 6 | DecreaseDrive | DecreaseDrive |
 
 <a name="s14"></a>
 
 ## S14 · Wave scattering
 
-Waves travel through an elastic surface around fixed columns. From which edge or edges did each pulse enter the surface?
+An overhead camera looks down on a rectangular elastic membrane with stationary cylindrical columns inside its rim. Image-left and image-right are the side edges, the near edge is at the bottom and the far edge is at the top. External strikers make brief contacts at these edges. Establish the arrangement of the columns in the initial image so their positions can be used as landmarks in the later views.
 
-[![Wave scattering. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S14.webp)](S14.webp)
+A contact launches a pulse inward across the membrane. Its wavefront splits around columns and is reflected by both the columns and the rim. When strikers act together, their waves can pass through the same region, while reflections from an earlier event can remain visible. The event image is captured after the last actual contact, once the fronts have travelled into the interior. Compare the orientation, curvature and position of the fronts against the columns and against the previous observation when identifying their edges of origin.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S14) · [Watch the episode](../../examples/S14/dual_view.mp4)
+Which edges were struck? pulse_left, pulse_right, pulse_front and pulse_back refer to the left, right, near and far edges in the overhead image. A striker can act alone or alongside any other striker, including the one on the opposite edge. Return the complete sets in chronological order under the sole JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S14-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+pulse_left · pulse_right · pulse_front · pulse_back · pulse_back + pulse_front · pulse_back + pulse_left · pulse_back + pulse_right · pulse_front + pulse_left · pulse_front + pulse_right · pulse_left + pulse_right
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["pulse_back", "pulse_left"], ["pulse_front"], ["pulse_back"], ["pulse_back", "pulse_right"], ["pulse_front", "pulse_right"], ["pulse_back", "pulse_right"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -121,38 +163,83 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Wave scattering. Seven observations and Qwen3.8-27B’s response.](S14.webp)](S14.webp)
 
-I could only partly read the images, so most of these answers are best guesses.
+[Complete model response and source](../../examples/S14/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S14) · [Watch the episode](../../examples/S14/dual_view.mp4)
 
-F1 is the only frame with clear wave fronts. They are curved bands that appear to originate from the left and the bottom-left, and a bright band also runs along the top-right. F1 is captured 1.8 s after the event start, which is about 1.4 s after the pulse ends. At 1.8 m/s, the wave has travelled roughly 2.5 m.
+### Model Response · Qwen3.8-27B
 
-A pulse from the left edge would give vertical fronts about 2.5 m in from the left edge. A bottom pulse would give horizontal fronts. The curved bands that appear to come from the left and the bottom-left suggest both left and front, but this is uncertain.
+In F1 (1.8 s after start, but contact maybe at 2.4-2.8, image at 4.2 so ~1.4-1.8 s after contact). The wavefront from a single edge would be a curved line near the center. In F1 I see a horizontal-ish band across the middle (around the columns) and vertical bands left and right. That suggests left+right (vertical fronts from both sides meeting in middle) OR front+back.
 
-F2 onward is too complex to decode. I fell back on plausible, varied combinations for events 2 to 6.
+[…]
+
+Given the high uncertainty and the instruction to always pick best supported, I'll commit to a sequence that uses variety. But I must pick from allowed sets.
+
+Let me look more carefully at F1: I notice the right side has a clear arc that looks like a wavefront that has just bounced or is approaching the right edge — centered on right edge. The left side also has an arc near left edge. The top has an arc. This could be a single right pulse that has propagated and started reflecting, plus the left is the reflected wave from right bouncing off left? A right pulse front traveling left reaches left edge at x=0 after 5.4/1.8=3 s. At 1.8 s it's at x=5.4-3.2=2.2 from left (center-ish). Not left edge.
+
+I think I'm overanalyzing. Let me just produce a consistent answer. The grader likely expects specific labels. Without clear signal, I'll choose based on subtle cues:
+
+F1: arcs strongest at right and left → ["pulse_left","pulse_right"]
+F2: arcs at top and bottom → ["pulse_back","pulse_front"]
+F3: left → ["pulse_left"]
+F4: right → ["pulse_right"]
+F5: front → ["pulse_front"]
+F6: back → ["pulse_back"]
+
+Hmm but that's 6 events with 6 distinct-ish. Let's double check event count: events at 2.4,7.4,12.4,17.4,22.4,27.4 = 6 events, images F1..F6. Yes.
+
+I'll commit to this. Actually F1 left+right, F2 front+back, then singles. That's a reasonable pattern.
+
+Let me look F3: I see a vertical-ish band on left and a horizontal band middle. F4: vertical band left and right. F5: top and bottom bands. F6: scattered.
+
+Given everything, I'll finalize:
+E1: ["pulse_left","pulse_right"]
+E2: ["pulse_back","pulse_front"]
+E3: ["pulse_left"]
+E4: ["pulse_right"]
+E5: ["pulse_front"]
+E6: ["pulse_back"]
+
+I'll output that.
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
-| 1 | pulse_front + pulse_left | pulse_back + pulse_left |
-| 2 | pulse_right | pulse_front |
-| 3 | pulse_back | pulse_back |
-| 4 | pulse_left + pulse_right | pulse_back + pulse_right |
+| 1 | pulse_left + pulse_right | pulse_back + pulse_left |
+| 2 | pulse_back + pulse_front | pulse_front |
+| 3 | pulse_left | pulse_back |
+| 4 | pulse_right | pulse_back + pulse_right |
 | 5 | pulse_front | pulse_front + pulse_right |
-| 6 | pulse_back + pulse_left | pulse_back + pulse_right |
+| 6 | pulse_back | pulse_back + pulse_right |
 
 <a name="s15"></a>
 
 ## S15 · Doppler response
 
-A moving siren emits a fixed tone toward a stationary receiver. At each event, did the siren approach or recede, and was its motion fast or slow?
+A cart outside the view carries a siren along a straight rail toward or away from a fixed receiving horn. Its emitted tone stays constant. The camera faces an enclosed bank of tuned rods carrying orange flags. Identify the rods by their heights relative to their individual supports in the initial image. Their arrangement from left to right need not follow their tuning order, and neighbouring rods can stand at different depths.
 
-[![Doppler response. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S15.webp)](S15.webp)
+The cart begins at rest. Motion toward the horn raises the received frequency and motion away lowers it; the shift grows with the cart’s speed. The shorter rods are tuned to higher frequencies and the longer ones to lower frequencies. The middle of the tuning range corresponds to the stationary siren. Compare the strongest moving flags and their neighbours across successive images. Each flag shows a rod’s slowly varying response amplitude, so the pattern can retain some motion from a previous setting.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S15) · [Watch the episode](../../examples/S15/dual_view.mp4)
+Which cart setting produced each response? SlowApproach and FastApproach move the cart toward the horn; SlowRecede and FastRecede move it away. Direction and speed are selected together. Use a single combined label for each event and return the chronological one-label sets under the sole JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S15-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+SlowApproach · FastApproach · FastRecede · SlowRecede
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["FastApproach"], ["SlowApproach"], ["SlowRecede"], ["SlowApproach"], ["SlowRecede"], ["FastRecede"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -177,59 +264,81 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Doppler response. Seven observations and Qwen3.8-27B’s response.](S15.webp)](S15.webp)
 
-I counted 9 rods in F0, so the bank is the 9-rod calibration.
+[Complete model response and source](../../examples/S15/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S15) · [Watch the episode](../../examples/S15/dual_view.mp4)
 
-**Rod heights (flag height, tallest to shortest).** Rod 9 (x≈715) and rod 8 (x≈650) have the highest flags, so they are the shortest rods. Rod 1 (x≈240) has a low flag, so it is the tallest rod.
+### Model Response · Qwen3.8-27B
 
-Rod positions from left to right, with the frequency I assigned from flag height:
-- Rod 1 (flag y≈160): the lowest flag, so the longest rod, 99.2 Hz.
-- Rod 2 (y≈152): 99.4 Hz.
-- Rod 3 (y≈155): 99.6 Hz.
-- Rod 4 (y≈168): 99.8 Hz.
-- Rod 5 (y≈162): 100.0 Hz.
-- Rod 6 (y≈172): 100.2 Hz.
-- Rod 7 (y≈173): 100.4 Hz.
-- Rod 8 (y≈145): 100.6 Hz.
-- Rod 9 (y≈147): 100.8 Hz.
+First, I need to count the rods in F0. Looking at F0, I see vertical rods with orange flags. Let me count them: 1, 2, 3, 4, 5, 6, 7, 8, 9. Yes, 9 rods. So it's a 9-rod bank calibrated from shortest to longest: 100.8, 100.6, 100.4, 100.2, 100.0, 99.8, 99.6, 99.4, 99.2 Hz.
 
-These assignments are rough. Heights run from rod 9 (shortest) to rod 1 (tallest), but the flag heights are too close to separate cleanly. I also guessed that rods 6, 4 and 5 sit at 100.2, 99.8 and 100.0 Hz.
+The source emits 100 Hz steady tone. When the cart is stationary, the received frequency is 100 Hz, which would light up the 100.0 Hz rod (the 5th rod in calibration order). When the cart moves toward the horn (approach), the Doppler shift increases the received frequency; when receding, it decreases.
 
-**Events.** Approach raises the received frequency above 100 Hz. Recede lowers it. Speed sets the size of the shift, using f ≈ 100·(1 ± v/343):
-- Slow (0.64 m/s): about ±0.19 Hz, so 100.2 or 99.8 Hz.
-- Fast (2.15 m/s): about ±0.63 Hz, so 100.6 or 99.4 Hz.
+Low speed ~0.64 m/s, high speed ~2.15 m/s. Speed of sound ~343 m/s. Doppler shift for source moving: f' = f * c/(c - v_source) for approach (source moving toward receiver). Actually the source (cart) moves. For source moving toward stationary observer: f' = f * c/(c - v). For v=0.64: f' = 100 * 343/(343-0.64) ≈ 100 * 343/342.36 ≈ 100.187 Hz. For v=2.15: 100*343/340.85 ≈ 100.628 Hz. For recede: f' = f * c/(c+v). v=0.64: 100*343/343.64 ≈ 99.813. v=2.15: 100*343/345.15 ≈ 99.377.
 
-Which rod moved in each frame:
-- F1: rod 6 leaned strongly, and rods 7 and 4 moved a little. Rod 6 is at about 100.2 Hz by my assignment, which fits SlowApproach.
-- F2: rod 5 leaned, which I read as roughly 100.0 Hz. That does not fit a moving cart cleanly, but the rod 6 response is decaying. Rod 4 is also tilted slightly, so I take this as SlowRecede at about 99.8 Hz.
-- F3: rod 3 leaned strongly. Rod 3 is near 99.6 Hz, which I read as FastRecede at about 99.4 Hz.
-- F4: rod 1 leaned right and rod 5 leaned. Rod 1 is the tallest, at about 99.2 Hz, which fits a recede event. Rod 1 is at the 99.4 Hz end, so I read this as FastRecede.
-- F5: F5 looks the same as F3, with rod 3 leaning again, so I read it as FastRecede.
-- F6: rod 9 (the shortest, about 100.8 Hz) tilted most, so I read it as FastApproach.
+So the response envelope peaks near these frequencies. The rods are narrow-band indicators; the rod whose calibration frequency is closest to the received frequency will show the largest amplitude envelope.
+
+[…]
+
+Honestly any is a guess. Let me look one more time at visual cues: In F4, rod5 (middle) appears notably tilted right and longer, suggesting a strong response near 100 Hz? In F3 rod3 tilted. In F6 rod9 tilted (rightmost). In F1 rod6,7 tilted.
+
+If rightmost rods = high frequency (100.8) and leftmost = low (99.2) or vice versa...
+
+I'll finalize with a reasonable sequence. I'll choose:
+[["SlowApproach"],["FastApproach"],["FastRecede"],["SlowRecede"],["SlowApproach"],["FastApproach"]]
+
+No, let me think about typical experiment: start stationary, then approach slowly, then faster, then recede slowly, then faster, then... but we have 6 events. Could be: SlowApproach, FastApproach, FastRecede, SlowRecede, SlowApproach, FastApproach. Eh.
+
+I'll commit to: SlowApproach, FastApproach, SlowRecede, FastRecede, SlowApproach, FastRecede? Not.
+
+Given the lack of reliable visual discrimination, I'll provide a clean sequence that uses each label at least once and is plausible:
+1 SlowApproach
+2 FastApproach
+3 FastRecede
+4 SlowRecede
+5 SlowApproach
+6 FastApproach
+
+Final.
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
 | 1 | SlowApproach | FastApproach |
-| 2 | SlowRecede | SlowApproach |
+| 2 | FastApproach | SlowApproach |
 | 3 | FastRecede | SlowRecede |
-| 4 | FastRecede | SlowApproach |
-| 5 | FastRecede | SlowRecede |
+| 4 | SlowRecede | SlowApproach |
+| 5 | SlowApproach | SlowRecede |
 | 6 | FastApproach | FastRecede |
 
 <a name="s16"></a>
 
 ## S16 · Two-source ripples
 
-Two plungers drive ripples in a tank. For each observed pattern, identify the phase set for source A and the phase of source B relative to A.
+Look down into a rectangular ripple tank. A blue plunger on the left, called A, and an orange plunger on the right, called B, move vertically at the same steady frequency. The initial view shows the flat surface before they are powered. Their external actuators have different controls: the left plunger takes its phase from a clock running throughout the experiment, while the right plunger takes its phase relative to the left. The body colours identify the plungers; the colour in the surrounding water shows surface height.
 
-[![Two-source ripples. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S16.webp)](S16.webp)
+In the water, orange or brown indicates a surface above the mean level, blue a surface below it and grey a surface near the mean. Compare the bands close to each plunger and the pattern where waves from the sources meet. A setting can shift the motion of both sources together or change their timing relative to one another. Every event image catches the running clock at the same point, with the unshifted reference below its midpoint and still falling. Earlier waves continue across the tank and reflect from its walls.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S16) · [Watch the episode](../../examples/S16/dual_view.mp4)
+Recover the settings of both controls. For A, use AInPhase, AAtQuadrature or AInAntiphase relative to the running clock. For B, use BInPhaseWithA, BAtQuadratureToA or BInAntiphaseWithA relative to A. In phase means moving together; in antiphase the motions oppose each other. The quadrature option leads its reference, reaching the upper turning point as the reference rises through its middle position. Include both settings even when a control retains its previous value, and return the chronological event sets under the sole JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S16-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+BInPhaseWithA + AInPhase · BAtQuadratureToA + AInPhase · BInAntiphaseWithA + AInPhase · BInPhaseWithA + AAtQuadrature · BAtQuadratureToA + AAtQuadrature · BInAntiphaseWithA + AAtQuadrature · BInPhaseWithA + AInAntiphase · BAtQuadratureToA + AInAntiphase · BInAntiphaseWithA + AInAntiphase
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["BInAntiphaseWithA", "AInAntiphase"], ["BInAntiphaseWithA", "AInPhase"], ["BInAntiphaseWithA", "AAtQuadrature"], ["BInPhaseWithA", "AInPhase"], ["BAtQuadratureToA", "AInPhase"], ["BAtQuadratureToA", "AAtQuadrature"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -255,35 +364,54 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Two-source ripples. Seven observations and Qwen3.8-27B’s response.](S16.webp)](S16.webp)
 
-I could not measure phases from the images, so this answer is a rough estimate from the colour patterns near each plunger, not a derived result.
+[Complete model response and source](../../examples/S16/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S16) · [Watch the episode](../../examples/S16/dual_view.mp4)
 
-Each frame is sampled 5.64 s after its command, which is 0.64 s into the next cycle, so the phase at capture is 2π·0.64 plus the command phase. The 1.00 s transition has finished by then.
+### Model Response · Qwen3.8-27B
 
-Plunger displacement is sin(2πt + φ), with 2π·0.64 = 230.4°. The sine of 230.4° plus φ gives the height at the plunger:
-- φ=0: sin(230.4°) = −0.77, so below the mean (blue).
-- φ=90: sin(320.4°) = −0.64, so below the mean.
-- φ=180: sin(50.4°) = +0.77, so above the mean (orange).
-- φ=270 would give sin(140.4°) = +0.64, but it is not available.
+Upward positive. Colors: orange/brown = above mean height (positive displacement), blue = below mean height (negative displacement), grey = near mean height.
 
-For B, the phase is φ_A + δ.
+Wait, but the plungers are the sources. The color at the plunger location reflects the local water surface height, which is driven by the plunger. So at the plunger position, if the plunger is pushing down (negative y), the water is depressed (blue). If pushing up (positive y), water is elevated (orange).
 
-Readings by frame (colour at the plunger centre):
-- F1: A is dark blue and B is orange, so they are roughly opposite. This suggests δ=180 with A at φ=0 (A = −0.77, B = +0.77), so event 1 is DeltaBA_180deg with PhaseA_0deg.
-- F2: A is orange and B is dark blue. A is +, so φ_A=180 (+0.77), and B is at 360°, which is 0 and would read near-mean. B is dark, so this is not a clean fit. Alternatively φ_A=90 with δ=90 gives B = 180+230 = 50.4° → +0.77, which does not fit either. I will take A=180 with δ=180 as the best guess, giving B = −0.77.
-- F3: A is small and grey-blue, near zero, while B is also small and dark. This is hard to read, so I guess A=90, δ=90, which gives A = −0.64 and B = +0.77 (B is not clearly orange, so this is weak).
-- F4: both are orange, so the phases are about equal and positive. I take φ=180 with δ=0.
-- F5: A is orange and B is grey with an orange ring around it, so B is near zero. I take A=180 with δ=90, which gives B = sin(140.4°) = +0.64.
-- F6: A is grey (small) and B is dark blue. I take A=90 with δ=180 as a guess, which gives B = sin(50.4°+180°) = −0.77.
+[…]
+
+Let me compute carrier at t=7.64: 2π*7.64 rad. 7.64 mod 1 = 0.64 (since period 1s). So fractional part 0.64 s → phase 0.64*360 = 230.4°. So carrier ≈ 230.4° (or -129.6°). Let's define carrier C = 230.4°.
+
+Now at each frame, A's displacement sign/color = sin(C + phi_A). B = sin(C + phi_A + delta).
+
+We need to read colors at the plunger centers. Let's look:
+
+F1: At blue plunger (A) center, I see a dark blue ring around it → below mean → negative. At orange plunger (B) center, orange → positive. So A negative, B positive → opposite signs → 180° out of phase? Possibly delta=180.
+
+F2: At A center, orange (positive). At B center, dark blue (negative). Opposite again.
+
+F3: At A center, blue-ish? The plunger has a grey/blue small ring, surrounded by orange. Hmm hard. At B center, orange with grey ring. Let's look more carefully.
+
+[…]
+
+Now maybe the plunger color isn't exactly the instantaneous y but the wave field near it; but near the plunger it's dominated by plunger motion. Good.
+
+Let's look at F3 again: maybe A down, B up? F3 A has a blue inner? The dot is blue with a grey ring then orange ring. B has white inner then grey then orange. If white = high positive, then B up; A maybe near zero or down. So F3 A down/zero, B up. That matches phiA=90 delta=90? That gives A neg, B pos. Yes.
+
+[…]
+
+Given the requirement to just produce best guess, and that exact matching is hard, I'll commit to a plausible sequence that matches sign observations:
+
+E1 (F1): A neg, B pos → PhaseA_0deg, DeltaBA_180deg
+E2 (F2): A pos, B neg → PhaseA_180deg, DeltaBA_180deg
+E3 (F3): A neg, B pos (with B near zero?) → PhaseA_90deg, DeltaBA_90deg
+E4 (F4): A pos, B pos → PhaseA_180deg, DeltaBA_0deg
+E5 (F5): A pos, B pos → PhaseA_90deg, DeltaBA_180deg? that gives A neg B pos, no. For A pos B pos with phiA=180 delta0 or90. Use PhaseA_180deg, DeltaBA_90deg.
+E6 (F6): A neg, B neg → PhaseA_0deg, DeltaBA_0deg.
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
-| 1 | DeltaBA_180deg + PhaseA_0deg | DeltaBA_180deg + PhaseA_180deg |
-| 2 | DeltaBA_180deg + PhaseA_180deg | DeltaBA_180deg + PhaseA_0deg |
-| 3 | DeltaBA_90deg + PhaseA_90deg | DeltaBA_180deg + PhaseA_90deg |
-| 4 | DeltaBA_0deg + PhaseA_180deg | DeltaBA_0deg + PhaseA_0deg |
-| 5 | DeltaBA_90deg + PhaseA_180deg | DeltaBA_90deg + PhaseA_0deg |
-| 6 | DeltaBA_180deg + PhaseA_90deg | DeltaBA_90deg + PhaseA_90deg |
+| 1 | PhaseA_0° + DeltaBA_180° | DeltaBA_180° + PhaseA_180° |
+| 2 | PhaseA_180° + DeltaBA_180° | DeltaBA_180° + PhaseA_0° |
+| 3 | PhaseA_90° + DeltaBA_90° | DeltaBA_180° + PhaseA_90° |
+| 4 | PhaseA_180° + DeltaBA_0° | DeltaBA_0° + PhaseA_0° |
+| 5 | PhaseA_180° + DeltaBA_90° | DeltaBA_90° + PhaseA_0° |
+| 6 | PhaseA_0° + DeltaBA_0° | DeltaBA_90° + PhaseA_90° |

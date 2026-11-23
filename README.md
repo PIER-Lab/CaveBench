@@ -102,6 +102,7 @@ Load the one-event question for the moving heater in S05. The question supplies 
 ```python
 import json
 from pathlib import Path
+from prompt_templates import render, template_parts
 
 data = Path("dataset")
 case_id = "scene_03/sample_0025/k1"
@@ -111,7 +112,7 @@ def load_record(filename):
         return next(row for row in map(json.loads, stream) if row["id"] == case_id)
 
 question = load_record("questions.jsonl")
-print(question["prompt"])
+print(render(template_parts(question)))
 print(question["images"])
 print(load_record("labels.jsonl")["operations"])  # [['MoveLeft']]
 ```
@@ -123,11 +124,9 @@ print(load_record("labels.jsonl")["operations"])  # [['MoveLeft']]
 [![Initial and subsequent observations of the same plate in S05.](docs/assets/heat-source-event.webp)](https://pier-lab.github.io/CaveBench/#try-S05)
 
 <details>
-<summary>Reveal the recorded control and Claude Sonnet 5.5’s answer</summary>
+<summary>Reveal the recorded control and the model’s answer</summary>
 
-The experiment log records `MoveLeft`. Claude Sonnet 5.5 tracked the same hot spot across the two frames.
-
-> the spot is at about x=500, y=290 in F0 and about x=440, y=295 in F1. It shifted left by about 60 px, with little vertical change. Event 1 is MoveLeft.
+The experiment log records `MoveLeft` for the first event. Qwen3.8-27B also returned `MoveLeft` for that event in its six-event answer.
 
 [Read the complete six-event case](docs/assets/cases/thermal-physics.md#s05) · [Watch the original episode](docs/examples/S05/dual_view.mp4)
 
@@ -143,6 +142,20 @@ The experiment log records `MoveLeft`. Claude Sonnet 5.5 tracked the same hot sp
 
 ## Evaluation
 
+The [apparatus templates](prompts/apparatus.json) describe how each of the 20 apparatuses works, what to compare across frames and which controls can produce the observations. For new runs, `--prompt-style narrative` pairs the selected frame sequence with the three descriptive paragraphs used in the illustrated examples. Each answer contains one control set for each consecutive frame pair. The scorer maps the verbal control names back to their recorded labels. The published scores use the archived prompts, available with `--prompt-style original` (the default). Both formats use the same frame paths and reference labels.
+
+To export the 1,180 narrative prompts, run:
+
+```bash
+python prompt_templates.py --questions dataset/questions.jsonl --output narrative-questions.jsonl
+```
+
+To print the prompt for a new episode, select an apparatus and the number of events. Supply the baseline image followed by the image after each event.
+
+```bash
+python prompt_templates.py --scene S16 --events 1
+```
+
 <a name="chat-completions-endpoint"></a>
 
 ### API Models
@@ -150,7 +163,7 @@ The experiment log records `MoveLeft`. Claude Sonnet 5.5 tracked the same hot sp
 Use the model ID and URL of your image-capable chat-completions endpoint. Set `CAVEBENCH_API_KEY` if the endpoint requires authentication.
 
 ```bash
-python run.py --data ./dataset --model MODEL_ID --endpoint https://HOST/v1/chat/completions --output predictions.jsonl
+python run.py --data ./dataset --prompt-style narrative --model MODEL_ID --endpoint https://HOST/v1/chat/completions --output predictions.jsonl
 python score.py --data ./dataset --predictions predictions.jsonl
 ```
 

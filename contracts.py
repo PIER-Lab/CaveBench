@@ -4,6 +4,7 @@ The v3 parser accepts a complete JSON operations object within a model response.
 The scorer compares the resulting control sets to the reference in event order.
 """
 import hashlib,json,re
+from functools import lru_cache
 from pathlib import Path
 
 def unique(pairs):
@@ -71,7 +72,17 @@ def _container_spans(text):
         yield start,i,not stack and not malformed
 
 
-def analyze_answer(text,k,labels,candidates=None):
+def display_label(label):
+    return re.sub(r'^(PhaseA_|DeltaBA_)(0|90|180)deg$', r'\1\2°', label)
+
+
+@lru_cache(maxsize=1)
+def verbal_aliases():
+    records = json.loads((Path(__file__).resolve().parent / "prompts/apparatus.json").read_bytes())
+    return {raw: label for spec in records["scenes"].values() for raw, label in spec.get("display_labels", {}).items()}
+
+
+def analyze_answer(text,k,labels,candidates=None,*,compact_labels=False):
     """Locate answer objects and return the parsed control sequence and status.
 
     Valid objects have a single operations field and one permitted set of
@@ -96,6 +107,13 @@ def analyze_answer(text,k,labels,candidates=None):
         result['spans'].append(item)
         try:obj=json.loads(fragment,object_pairs_hook=unique) if complete else None
         except (TypeError,ValueError):obj=None
+        if compact_labels and isinstance(obj,dict) and isinstance(obj.get('operations'),list):
+            aliases={display_label(label):label for label in labels}
+            aliases.update({verbal_aliases()[label]:label for label in labels if label in verbal_aliases()})
+            obj['operations']=[
+                [aliases.get(label,label) if isinstance(label,str) else label for label in step]
+                if isinstance(step,list) else step for step in obj['operations']
+            ]
         if not isinstance(obj,dict) or set(obj)!={'operations'} or not valid_operations(obj['operations'],k,labels,candidates):
             result['invalid_answer_objects']+=1;continue
         signature=json.dumps([sorted(step) for step in obj['operations']],ensure_ascii=False,separators=(',',':'))
@@ -111,8 +129,8 @@ def analyze_answer(text,k,labels,candidates=None):
     return result
 
 
-def parse_answer(text,k,labels,candidates=None):
-    return analyze_answer(text,k,labels,candidates)['operations']
+def parse_answer(text,k,labels,candidates=None,*,compact_labels=False):
+    return analyze_answer(text,k,labels,candidates,compact_labels=compact_labels)['operations']
 def validate_question(q,files=True):
     for key in ('id','sample_id','prompt'):
         if not isinstance(q.get(key),str) or not q[key].strip():raise ValueError('Missing '+key)
@@ -129,6 +147,6 @@ def validate_question(q,files=True):
 
 def score(answer,q,truth):
     if not valid_operations(truth,q['k'],q['allowed_labels'],q.get('candidates')):raise ValueError('Invalid reference '+q['id'])
-    parsed=parse_answer(answer,q['k'],q['allowed_labels'],q.get('candidates'))
+    parsed=parse_answer(answer,q['k'],q['allowed_labels'],q.get('candidates'),compact_labels=q.get('prompt_style') in ('compact','narrative'))
     flags=[set(a)==set(b) for a,b in zip(parsed,truth)] if parsed is not None else [False]*q['k']
     return {'format_valid':parsed is not None,'operations':parsed,'step_correct':flags,'all_steps_correct':all(flags)}

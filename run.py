@@ -7,6 +7,7 @@ import urllib.request
 from pathlib import Path
 
 from contracts import validate_question
+from prompt_templates import add_style_option, evaluation_question
 
 
 def payload(question, dataset, model, max_tokens):
@@ -31,6 +32,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--max-tokens", type=int, default=8192)
     parser.add_argument("--limit", type=int, help="Evaluate only the first N questions")
+    add_style_option(parser)
     args = parser.parse_args()
     if not args.endpoint.startswith("https://") and not args.endpoint.startswith(("http://localhost:", "http://127.0.0.1:")):
         parser.error("Use HTTPS for remote endpoints.")
@@ -43,14 +45,17 @@ def main():
         for index, line in enumerate(questions):
             if args.limit is not None and index >= args.limit:
                 break
-            question = json.loads(line)
+            question = evaluation_question(json.loads(line), args.prompt_style)
             data = json.dumps(payload(question, args.data, args.model, args.max_tokens)).encode()
             req = urllib.request.Request(args.endpoint, data=data, headers=headers)
             with urllib.request.urlopen(req, timeout=300) as response:
                 answer = json.load(response)["choices"][0]["message"]["content"]
             if not isinstance(answer, str):
                 raise ValueError(f"No text response for {question['id']}")
-            predictions.write(json.dumps({"id":question["id"], "response":answer}, ensure_ascii=False) + "\n")
+            result = {"id":question["id"], "response":answer}
+            if args.prompt_style != "original":
+                result["prompt_style"] = args.prompt_style
+            predictions.write(json.dumps(result, ensure_ascii=False) + "\n")
             predictions.flush()
 
 

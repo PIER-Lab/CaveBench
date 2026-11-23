@@ -6,13 +6,29 @@
 
 ## S05 · Moving heat source
 
-One heater moves beneath a conducting plate while three heaters stay fixed. In which direction or directions did the movable heater travel at each event?
+A fixed camera looks down from the near edge of a conductive plate. A heater travels underneath on a gantry, while stationary heaters lie near the far-left, far-right and near-right regions. They share the same power and footprint. The moving heater’s starting position can vary. Image-right follows the horizontal axis of the plate, and image-up points toward the far edge. The straight grey seams across the coating remain fixed as the heater moves.
 
-[![Moving heat source. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S05.webp)](S05.webp)
+The near, middle and far coating bands use the same colours for temperature, but their response becomes progressively slower from near to far. Each band also cools more slowly than it warms. A hot patch can therefore remain behind after the gantry leaves, and its leading edge can fade or appear late as it crosses a seam. Compare successive views against the stationary warm regions. Each image after the initial view is taken after the mobile heater has finished its movement, while both the plate and its coating retain a thermal history.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S05) · [Watch the episode](../../examples/S05/dual_view.mp4)
+Which direction did the heater travel? MoveLeft and MoveRight describe the horizontal axis; MoveUp goes toward the far edge and MoveDown toward the near edge. A diagonal movement uses a horizontal command and a near or far command simultaneously. Report all active labels for each movement in chronological order under the single JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S05-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+MoveLeft · MoveRight · MoveUp · MoveDown · MoveLeft + MoveUp · MoveDown + MoveLeft · MoveRight + MoveUp · MoveDown + MoveRight
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["MoveLeft"], ["MoveLeft", "MoveUp"], ["MoveDown"], ["MoveRight", "MoveUp"], ["MoveDown", "MoveRight"], ["MoveDown", "MoveLeft"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -42,18 +58,40 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Moving heat source. Seven observations and Qwen3.8-27B’s response.](S05.webp)](S05.webp)
 
-I tracked the mobile heater's hot spot across frames. The three stationary heaters sit at far-left, far-right and near-right. The mobile heater is the one that moves, and it starts near the middle of the plate, around image x≈500, at the seam between the far and middle bands.
+[Complete model response and source](../../examples/S05/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S05) · [Watch the episode](../../examples/S05/dual_view.mp4)
 
-Approximate hot-spot positions per frame, with the sign of each shift:
+### Model Response · Qwen3.8-27B
 
-- **F0 to F1:** the spot is at about x=500, y=290 in F0 and about x=440, y=295 in F1. It shifted left by about 60 px, with little vertical change. Event 1 is MoveLeft.
-- **F1 to F2:** the spot is at about x=420, y=295 in F2. The lower blob is at y≈295, spanning x 300-520, so it moved only slightly left. Event 2 is probably MoveLeft. Because the mobile heater can only move 0.78 m per command, the small change might instead mean a mix of left and down, but the evidence is weak.
-- **F2 to F3:** the blob is at about x=340, y=290 and appears slightly further left. In F3 the lower blob is at about x=340, y=300 and merges with the far-left heater. Event 3 is MoveLeft.
-- **F3 to F4:** the blob merges at about x=330, y=280, and the far-left merge extends to x=480 at y≈270. This suggests a move up and slightly right. A pure MoveUp would raise the spot into the far band, which responds slowly, so the visible change is small. I choose MoveUp.
-- **F4 to F5:** a new hot spot appears at about x=500, y=295, to the right. Event 5 is MoveRight.
-- **F5 to F6:** the spot now sits at about x=420, y=350, lower and slightly left of before. Event 6 is MoveDown with MoveLeft.
+Honestly, the streaks/elongations indicate motion direction during the 2.6s move, but the evidence frame is after movement finished, so the blob should be at the new position, with residual heat left along the path from previous position (the streak shows the trail).
+
+So the trail direction = from old position to new position. The hot core is at new position; the fading tail is at old position.
+
+F2: core at top-left? tail to middle? Or core middle tail top-left? Compare F1 middle core to F2: F2 has a strong orange at top-left AND orange at middle connected. In F1 the middle was the moving core and top-left was far-left stationary (smaller orange). In F2 top-left became bigger and connected to middle. So moving heater moved from middle toward far-left (up-left). So event 2 (F2) = MoveLeft + MoveUp? Because far-left is up and left relative to middle. Middle is center; far-left is left and up (far). So moving to far-left = MoveLeft + MoveUp.
+
+F3: now core at top-left (far-left) strong, middle has a tail. So between F2 and F3 it continued? F2 core was top-left-ish, F3 core top-left even more? Hmm.
+
+[…]
+
+Given the streaks:
+F1: no streak, just 4 blobs, moving at middle.
+F2: streak between far-left and middle (moving heater between them? or trail).
+F3: blob at far-left strong + trail to middle.
+F4: blob at far-left + middle-left trail (moving heater now middle-left, trail back to far-left).
+F5: blob at middle-left + middle (moving heater middle, trail to left).
+F6: blob at middle + middle-down (moving heater down, trail up).
+
+So moving heater path: F0 middle -> F1 middle -> F2 left-middle -> F3 far-left -> F4 left-middle -> F5 middle -> F6 middle-down.
+
+Transitions:
+1: middle->middle (maybe MoveLeft small? but appears same). Could be the first event moved it but it ended near same? Unlikely. Maybe F0 moving heater was actually at middle-right and F1 middle? In F0 the middle cyan at (510,280); far-right stationary at (700,190); near-right (780,370). The (510,280) is middle. In F1 moving at (470,270). Slight left. So MoveLeft.
+
+2: middle->left-middle (MoveLeft)
+3: left-middle->far-left (MoveLeft+MoveUp? far-left is up-left) => LU
+4: far-left->left-middle (MoveRight+MoveDown) => DR
+5: left-middle->middle (MoveRight)
+6: middle->middle-down (MoveDown)
 
 ### Model Answer and Experiment Log
 
@@ -61,22 +99,38 @@ Approximate hot-spot positions per frame, with the sign of each shift:
 | ---: | --- | --- |
 | 1 | MoveLeft | MoveLeft |
 | 2 | MoveLeft | MoveLeft + MoveUp |
-| 3 | MoveLeft | MoveDown |
-| 4 | MoveUp | MoveRight + MoveUp |
+| 3 | MoveLeft + MoveUp | MoveDown |
+| 4 | MoveDown + MoveRight | MoveRight + MoveUp |
 | 5 | MoveRight | MoveDown + MoveRight |
-| 6 | MoveDown + MoveLeft | MoveDown + MoveLeft |
+| 6 | MoveDown | MoveDown + MoveLeft |
 
 <a name="s06"></a>
 
 ## S06 · Layered liquids
 
-Separate jackets control the temperature of two liquid layers. For each event, which layer received the intervention, and was it heated or cooled?
+A fixed camera looks slightly down into an upright glass vessel. Water fills the lower part and silicone fluid floats above it. Each layer has its own external temperature-control jacket. Sealed floats with coloured cores move freely through the vessel; each core colour identifies a family with a particular density. Use the initial image to locate the vessel rim, the free surface and the interface, then identify floats in each family on either side of the interface.
 
-[![Layered liquids. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S06.webp)](S06.webp)
+The liquids start cold. Over the range of temperatures used here, warming the water increases its density, whereas warming the silicone fluid decreases its density. Cooling changes the densities in the reverse directions. A float’s buoyancy therefore depends on the liquid around it and on its own density family. Compare the heights of several floats relative to the interface across successive observations. Each image follows the start of the new valve setting, while the temperatures continue to change and floats displaced by an earlier setting may still be moving.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S06) · [Watch the episode](../../examples/S06/dual_view.mp4)
+Which jacket was connected to which source at each event? LowerLayer and UpperLayer select the jacket; Heat and Cool select the supply connected to it. Every event requires a choice from each group, even when it uses the same jacket or source as a previous event. Return the paired labels in chronological event order under the single JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S06-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+Heat + LowerLayer · Cool + LowerLayer · Heat + UpperLayer · Cool + UpperLayer
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["Cool", "LowerLayer"], ["Cool", "UpperLayer"], ["Heat", "LowerLayer"], ["Cool", "LowerLayer"], ["Heat", "UpperLayer"], ["Heat", "LowerLayer"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -104,19 +158,52 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Layered liquids. Seven observations and Gemma 4 31B IT’s response.](S06.webp)](S06.webp)
 
-Physical reasoning: water's density peaks near 4 °C. Water floats (amber and copper-red are about 999.93 and 999.95 kg/m3) are nearly neutral at 2 °C. Warming the lower water toward 3.8 °C makes it denser, so the floats rise. Cooling it toward 0.2 °C makes it less dense, so the floats sink.
+[Complete model response and source](../../examples/S06/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S06) · [Watch the episode](../../examples/S06/dual_view.mp4)
 
-F0 to F1: the red and amber floats sank slightly. This means the lower layer was cooled (event 1 = Cool Lower), and the upper layer is unchanged.
+### Model Response · Gemma 4 31B IT
 
-F1 to F2: the floats sank further to the bottom, so the lower layer was cooled again (event 2 = Cool Lower). The upper floats (green, blue) rose to the top. The upper silicone fluid has a density near 896 and the floats are at 896.0 and 896.2. Silicone expands strongly when heated, so heating makes the fluid less dense and the floats sink. Cooling makes the fluid denser and the floats rise. The floats rose, so the upper layer was cooled. The violet floats moved from the interface up into the upper layer, which fits an upper cooling. The F2 image is at 13 s, and the event 2 command began at 8 s, so the upper cooling was probably event 2 (the F1 image at 7 s shows no upper change yet). Event 1 started at 2 s, and F1 at 7 s shows the lower floats sinking, so event 1 = Cool Lower. Event 2 produced the upper rise and the lower sinking continued, but only one control applies per event. If event 2 = Cool Upper, the lower layer is still cooling from its earlier temperature, so its floats keep sinking. That fits.
+*   *Now let's look at the Violet floats (950 kg/m³).*
+They are in the water (lower layer) in F0/F1, then move *up* toward the interface in F2/F3.
+Wait, if the water density decreased (by cooling), the Violet floats should also sink *more*, not move up.
+*Unless* the upper layer (silicone) density changed?
+Violet floats (950) are much denser than the silicone (which is usually around 960-970 kg/m³ for KF-96L, but the specific density isn't given).
+Wait, if the silicone density *increases*, the Violet floats might be more buoyant in it. Silicone density increases as it's *cooled*.
 
-F2 to F3: the upper floats are unchanged. The lower floats sank further, though that may be only continued sinking. Event 3 is ambiguous: it could be Cool Lower or Cool Upper. Since the lower floats continue downward in F3 and F4 and the upper floats stay at the top, either cooling fits. The lower floats are at the bottom and just settling.
+[…]
 
-F5: the upper floats came back down to the interface, which means the upper layer was heated (event 5 = Heat Upper). The F4 image at 25 s shows them still at the top, and event 5 started at 32 s. But F5 is at 31 s, which falls within event 4 (26 s start). So event 4 = Heat Upper. In F5 the lower floats are still at the bottom. F6 shows the lower floats rising slightly, so event 5 = Heat Lower. Event 6 would then be unclear. The lower floats in F6 are only slightly raised, so event 6 might be another Heat Lower.
+So:
+Event 1: `LowerLayer+Cool`
+Event 2: `UpperLayer+Cool`
+Event 3: `UpperLayer+Cool`
+Event 4: `UpperLayer+Cool`
+Event 5: `UpperLayer+Heat`
+Event 6: `UpperLayer+Cool`
 
-Event 3 is then Cool Upper or Cool Lower. I choose Cool Lower.
+[…]
+
+Then the Violet floats (950) move up, down, and up.
+Up (F2, F3, F4) -> `UpperLayer+Cool` (increases density)
+Down (F5) -> `UpperLayer+Heat` (decreases density)
+Up (F6) -> `UpperLayer+Cool` (increases density)
+
+Wait, let me check the Violet floats' movement one more time.
+F0: Violet floats are at the interface.
+F1: Violet floats are at the interface.
+F2: Violet floats are moving up.
+F3: Violet floats are higher.
+F4: Violet floats are at their highest.
+F5: Violet floats are lower.
+F6: Violet floats are slightly higher than F5.
+
+Wait, in F6, are they really higher than F5?
+Let's look at F5 and F6 again.
+F5: Violet floats are below the interface.
+F6: Violet floats are back at the interface (one is slightly above).
+Yes, they moved up from F5 to F6.
+
+So the sequence `UpperLayer+Cool` (E2, E3, E4), `UpperLayer+Heat` (E5), `UpperLayer+Cool` (E6) fits perfectly.
 
 ### Model Answer and Experiment Log
 
@@ -124,22 +211,38 @@ Event 3 is then Cool Upper or Cool Lower. I choose Cool Lower.
 | ---: | --- | --- |
 | 1 | Cool + LowerLayer | Cool + LowerLayer |
 | 2 | Cool + UpperLayer | Cool + UpperLayer |
-| 3 | Cool + LowerLayer | Heat + LowerLayer |
-| 4 | Heat + UpperLayer | Cool + LowerLayer |
-| 5 | Heat + LowerLayer | Heat + UpperLayer |
-| 6 | Heat + LowerLayer | Heat + LowerLayer |
+| 3 | Cool + UpperLayer | Heat + LowerLayer |
+| 4 | Cool + UpperLayer | Cool + LowerLayer |
+| 5 | Heat + UpperLayer | Heat + UpperLayer |
+| 6 | Cool + UpperLayer | Heat + LowerLayer |
 
 <a name="s07"></a>
 
 ## S07 · Heated gas bulbs
 
-Three connected glass bulbs have visible menisci. Which bulb or combination of bulbs was heated at each of the six events?
+A fixed oblique camera shows connected glass bulbs arranged on the left, in the middle and on the right. Each has a visible liquid meniscus. Trace its height against the envelope of its own bulb and use the backboard and rigid supports as fixed references. Warm-water caps outside the view supply heat to individual bulbs.
 
-[![Heated gas bulbs. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S07.webp)](S07.webp)
+Heating changes the state of gas in the connected apparatus, so a thermal contact at one location can shift liquid levels elsewhere. Begin with the menisci in the initial image and compare their movements across each subsequent observation. The bulbs can retain heat from an earlier contact, and the oblique view can make equal heights in different envelopes look different on screen.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S07) · [Watch the episode](../../examples/S07/dual_view.mp4)
+Which bulbs received heat during each contact? HeatLeftBulb, HeatMiddleBulb and HeatRightBulb refer to their positions in the camera view. A contact can heat a bulb on its own or a pair of distinct bulbs together. Return the full set for every contact in chronological order under the single JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S07-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+HeatLeftBulb · HeatMiddleBulb · HeatRightBulb · HeatLeftBulb + HeatMiddleBulb · HeatLeftBulb + HeatRightBulb · HeatMiddleBulb + HeatRightBulb
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["HeatLeftBulb", "HeatMiddleBulb"], ["HeatRightBulb"], ["HeatLeftBulb", "HeatRightBulb"], ["HeatMiddleBulb"], ["HeatMiddleBulb", "HeatRightBulb"], ["HeatLeftBulb"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -162,53 +265,90 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Heated gas bulbs. Seven observations and Gemma 4 31B IT’s response.](S07.webp)](S07.webp)
 
-I could not read the meniscus levels reliably, so these six events are a best guess from rough estimates of each frame, not a confident reconstruction.
+[Complete model response and source](../../examples/S07/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S07) · [Watch the episode](../../examples/S07/dual_view.mp4)
 
-Approximate meniscus top positions (y in pixels; a lower y means a higher level):
+### Model Response · Gemma 4 31B IT
 
-| Frame | Left | Middle | Right |
-|-------|------|--------|-------|
-| F0 | 385 | 380 | 378 |
-| F1 | 395 | 390 | 362 |
-| F2 | 378 | 378 | 382 |
-| F3 | 378 | 362 | 395 |
-| F4 | 378 | 388 | 378 |
-| F5 | 368 | 398 | 380 |
-| F6 | 378 | 380 | 380 |
+*F1 Meniscuses:*
+Left: Just above 2nd tick.
+Middle: Just above 2nd tick.
+Right: Just above 3rd tick.
 
-Event-by-event reading:
+*F2 Meniscuses:*
+Left: Just above 2nd tick.
+Middle: Just above 2nd tick.
+Right: Just above 3rd tick.
 
-- **F0→F1:** The right level rose (378 to 362), the left dropped (385 to 395) and the middle dropped (380 to 390). The right bulb is the most likely one heated, so I chose heat_bulb_3.
-- **F1→F2:** The left rose (395 to 378), the middle rose (390 to 378) and the right fell (362 to 382). I chose heat_bulb_1 and heat_bulb_2 together.
-- **F2→F3:** The middle rose (378 to 362), the right fell (382 to 395) and the left was unchanged. I chose heat_bulb_2.
-- **F3→F4:** The middle fell (362 to 388), the right rose (395 to 378) and the left was unchanged. I chose heat_bulb_3.
-- **F4→F5:** The left rose (378 to 368) and the middle fell (388 to 398). I chose heat_bulb_1.
-- **F5→F6:** The left fell (368 to 378), the middle rose (398 to 380) and the right was roughly unchanged. I chose heat_bulb_2.
+[…]
+
+Wait, if there is NO change in the meniscus, it might mean that the gas is not expanding. But the "thermal states are not reset." If you heat it, the meniscus *must* move (unless the gas is not there, but it's a "glass bulb" with a "visible meniscus").
+
+Let me reconsider. Could the images be *so* similar that I'm missing a 1-pixel shift?
+Looking at the Right Meniscus (F0 to F6):
+F0: Top of blue liquid is just above the 3rd mark.
+F1: Top of blue liquid is just above the 3rd mark.
+F2: Top of blue liquid is just above the 3rd mark.
+F3: Top of blue liquid is just above the 3rd mark.
+F4: Top of blue liquid is just above the 3rd mark.
+F5: Top of blue liquid is just above the 3rd mark.
+F6: Top of blue liquid is just above the 3rd mark.
+
+[…]
+
+Let's try the `1, 2, 3, 1, 2, 3` pattern. It's a common pattern in these types of problems.
+
+*Self-Correction:* Let me look at the frames again. Is it possible they are not identical?
+F0: R meniscus is slightly above 3.
+F1: R meniscus is slightly above 3.
+F2: R meniscus is slightly above 3.
+F3: R meniscus is slightly above 3.
+F4: R meniscus is slightly above 3.
+F5: R meniscus is slightly above 3.
+F6: R meniscus is slightly above 3.
+Yep, identical.
+
+Let's go with the `1, 2, 3, 1, 2, 3` sequence.
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
-| 1 | heat_bulb_3 | heat_bulb_1 + heat_bulb_2 |
-| 2 | heat_bulb_1 + heat_bulb_2 | heat_bulb_3 |
-| 3 | heat_bulb_2 | heat_bulb_1 + heat_bulb_3 |
-| 4 | heat_bulb_3 | heat_bulb_2 |
-| 5 | heat_bulb_1 | heat_bulb_2 + heat_bulb_3 |
-| 6 | heat_bulb_2 | heat_bulb_1 |
+| 1 | heat_bulb_1 | heat_bulb_1 + heat_bulb_2 |
+| 2 | heat_bulb_2 | heat_bulb_3 |
+| 3 | heat_bulb_3 | heat_bulb_1 + heat_bulb_3 |
+| 4 | heat_bulb_1 | heat_bulb_2 |
+| 5 | heat_bulb_2 | heat_bulb_2 + heat_bulb_3 |
+| 6 | heat_bulb_3 | heat_bulb_1 |
 
 <a name="s08"></a>
 
 ## S08 · Bimetal supports
 
-Three bimetal strips support a central annulus. Use their changing shapes and the annulus position to identify the lamp or lamps selected at each event.
+A brass ring is supported by ceramic balls at the inner ends of radial strips. Each strip is clamped to the base at its outer end. From the camera’s slightly elevated front view, the aluminium-backed strip is on the left, the stainless-steel strip at the rear and the copper-backed strip on the right. Each lower metal is bonded to an upper layer of Invar. A rigid pointer is attached to the ring, whose central bearing lets it rise and tilt.
 
-[![Bimetal supports. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S08.webp)](S08.webp)
+An external lamp is aimed at each strip. When a strip warms, the bonded layers expand by different amounts and bend the free end, changing the height at which it supports the ring. Read both the ring’s tilt and the inclination of its pointer relative to the fixed clamps. Each observation follows establishment of the current lamp setting; a strip that was heated earlier can still be warm, while a newly heated strip can still be bending.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S08) · [Watch the episode](../../examples/S08/dual_view.mp4)
+Which lamps are powered in each setting? SelectLeftLamp, SelectRearLamp and SelectRightLamp refer to the aluminium-, stainless-steel- and copper-backed strips respectively. A lamp may act alone or with any other lamp. A selection specifies the complete set that is powered until the next event, so a previously selected lamp may switch off. Return the chronological event sets under the sole JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S08-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+SelectLeftLamp · SelectRearLamp · SelectRightLamp · SelectLeftLamp + SelectRearLamp · SelectLeftLamp + SelectRightLamp · SelectRearLamp + SelectRightLamp
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["SelectLeftLamp", "SelectRearLamp"], ["SelectLeftLamp"], ["SelectRearLamp", "SelectRightLamp"], ["SelectLeftLamp", "SelectRightLamp"], ["SelectRightLamp"], ["SelectLeftLamp", "SelectRightLamp"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -236,47 +376,58 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Bimetal supports. Seven observations and Gemma 4 31B IT’s response.](S08.webp)](S08.webp)
 
-This is a low-confidence guess. I read the pointer tip position and the height of the central hub in each frame, and I could not fully separate the three strips' contributions.
+[Complete model response and source](../../examples/S08/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S08) · [Watch the episode](../../examples/S08/dual_view.mp4)
 
-Pointer tip positions in the image, with the hub at about y=377:
-- F0: (463,168)
-- F1: (475,168)
-- F2: (487,163)
-- F3: (474,164)
-- F4: (477,156)
-- F5: (467,155)
-- F6: (473,148)
+### Model Response · Gemma 4 31B IT
 
-The pointer's height rises overall, from 168 to 148, so the heaters keep adding heat to the strips.
+Let's try a simple sequence. Maybe the most likely answer when no movement is visible is a sequence of the smallest expansion lamp?
+No, that doesn't seem right. Let me try to see if there's *any* other possibility.
 
-Tilt estimates, from tip x relative to the hub at about x=470:
-- F0: about −7, nearly untilted.
-- F1: +5.
-- F2: +17, the tip leans right.
-- F3: +4.
-- F4: +7.
-- F5: −3.
-- F6: +3.
+Could it be that the lamps are being switched in a way that the total movement is minimized?
+No, because any lamp being on will cause *some* expansion, and that expansion will *add* to the previous expansion.
 
-I assumed the pointer leans away from the strip that is heated most (its end rises most). The rear strip is farthest from the camera, and its rise would tip the pointer toward the rear (up in the image). Lifting the left strip would tilt the pointer toward the right and rear, and lifting the right strip would tilt it toward the left. Aluminium has the highest expansion, then copper, then stainless steel, so with the Invar layer the aluminium strip bends most, then copper, then steel.
+Wait! Let me look at the annulus again. Is there *any* tilt?
+If the pointer is exactly vertical, then the three strips must be expanding equally.
+But the strips have different materials. For them to expand equally, you'd need to heat them in a specific ratio.
+Aluminium (Left) expands the most.
+Copper (Right) expands moderately.
+Stainless Steel (Rear) expands the least.
 
-Event assignments:
-- Event 1, F1: the tip moved right by 12, so the left strip is heated, giving Left.
-- Event 2, F2: the tip moved right again, with a slight rise, so Left continues or Left+Rear. I chose Left+Rear.
-- Event 3, F3: the tip moved back left by 13, so the right strip is heated, giving Right or Rear+Right. I chose Rear+Right.
-- Event 4, F4: the tip rose by 8 and moved right slightly, so Left+Rear.
-- Event 5, F5: the tip moved left by 10 with little height change, so Right.
-- Event 6, F6: the tip rose by 7 and moved right by 6, so Left+Rear.
+If we heat only the Rear lamp, the annulus will tilt slightly towards the rear.
+If we heat only the Left lamp, it will tilt significantly towards the left.
+If we heat only the Right lamp, it will tilt moderately towards the right.
+
+[…]
+
+Wait, I'll try to see if there's any change in the pointer in the original images again.
+Looking at the image F0, the pointer is perfectly vertical.
+Looking at F6, the pointer is perfectly vertical.
+If the pointer is perfectly vertical and never moves, it means either:
+1. The heaters are off (not allowed).
+2. The heaters are balanced (requires all 3 or a specific ratio).
+3. The heaters are not causing any movement (not possible).
+
+Wait, what if the "event" is to turn on a lamp, but the "response window" is too short?
+But 4.0-6.15 seconds is a reasonable amount of time for some movement.
+If there's no movement, let's just pick a sequence.
+I'll go with:
+`["SelectLeftLamp"]`
+`["SelectRearLamp"]`
+`["SelectRightLamp"]`
+`["SelectLeftLamp"]`
+`["SelectRearLamp"]`
+`["SelectRightLamp"]`
+(I'll use this as a default if I can't find any movement).
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
 | 1 | SelectLeftLamp | SelectLeftLamp + SelectRearLamp |
-| 2 | SelectLeftLamp + SelectRearLamp | SelectLeftLamp |
-| 3 | SelectRearLamp + SelectRightLamp | SelectRearLamp + SelectRightLamp |
-| 4 | SelectLeftLamp + SelectRearLamp | SelectLeftLamp + SelectRightLamp |
-| 5 | SelectRightLamp | SelectRightLamp |
-| 6 | SelectLeftLamp + SelectRearLamp | SelectLeftLamp + SelectRightLamp |
+| 2 | SelectRearLamp | SelectLeftLamp |
+| 3 | SelectRightLamp | SelectRearLamp + SelectRightLamp |
+| 4 | SelectLeftLamp | SelectLeftLamp + SelectRightLamp |
+| 5 | SelectRearLamp | SelectRightLamp |
+| 6 | SelectRightLamp | SelectLeftLamp + SelectRightLamp |

@@ -30,7 +30,10 @@ def main():
         raise ValueError("Question IDs do not match the dataset.")
     groups = defaultdict(list)
     for key, question in questions.items():
-        answer = predictions.get(key, {}).get("response", "")
+        prediction = predictions.get(key, {})
+        answer = prediction.get("response", "")
+        if prediction.get("prompt_style") in ("compact","narrative"):
+            question = {**question, "prompt_style": prediction["prompt_style"]}
         result = score(answer, question, labels[key]["operations"])
         for group in ("overall", f"k{question['k']}"):
             groups[group].append(result["all_steps_correct"])

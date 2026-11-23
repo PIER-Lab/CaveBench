@@ -8,7 +8,7 @@
 
 </div>
 
-Each case follows one apparatus through six events. Read the seven internal frames from left to right, starting at F0. Open a case to see the complete prompt, watch the interior and exterior views together, and compare the model’s response with the recorded controls.
+Each case follows one apparatus through six events. Read the seven internal frames from left to right, starting at F0. The case sheets pair each apparatus prompt with a model response and the recorded controls.
 
 ## Dynamics
 

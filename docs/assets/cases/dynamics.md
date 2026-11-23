@@ -6,13 +6,29 @@
 
 ## S01 · Cabin inertia
 
-The ball, pendulum and other objects respond to the motion of a closed vehicle. Which changes in speed or direction occurred during the six events?
+A camera near the rear of a closed vehicle looks toward the front. Locate the red pendulum suspended on the far left, the green helium balloon tethered on the far right and the blue ball in a shallow bowl along the table’s centreline. A cabin may lack one of these bodies, so establish which are present in the initial view. Use the table edges and roof supports to distinguish motion across the cabin from motion along its direction of travel.
 
-[![Cabin inertia. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S01.webp)](S01.webp)
+The vehicle keeps moving forward. When its speed or steering changes, the dense pendulum and ball respond through inertia, while the balloon responds to the pressure gradient in the accelerating cabin air. Follow the pendulum relative to its pivot, the balloon relative to its tether, and the ball relative to the bowl. The images show the bodies during each new control. Swinging and rolling persist, so compare how their motion changes across frames rather than treating a displacement already present as a new response.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S01) · [Watch the episode](../../examples/S01/dual_view.mp4)
+For each event identify any change in speed, Accelerate or Brake, and any change in steering, TurnLeft or TurnRight, relative to the vehicle. Either control can act alone, or a speed change and a steering change can occur together. Return the event sets in time order under the single JSON key “operations”, grouping simultaneous controls in the same set.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S01-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+Accelerate · Brake · TurnLeft · TurnRight · Accelerate + TurnLeft · Accelerate + TurnRight · Brake + TurnLeft · Brake + TurnRight
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["Accelerate", "TurnLeft"], ["Brake", "TurnRight"], ["Accelerate", "TurnLeft"], ["Brake", "TurnLeft"], ["Accelerate", "TurnRight"], ["Brake", "TurnLeft"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -39,45 +55,85 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Cabin inertia. Seven observations and Qwen3.8-27B’s response.](S01.webp)](S01.webp)
 
-This is a best-supported guess from rough image cues, not a rigorous derivation.
+[Complete model response and source](../../examples/S01/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S01) · [Watch the episode](../../examples/S01/dual_view.mp4)
 
-Assumed response rules:
-- Accelerate: the bob swings backward (toward the camera, appearing lower in the image), the ball rolls backward, and the balloon leans forward.
-- Brake: the opposite of Accelerate.
-- TurnLeft: the vehicle accelerates leftward, so dense bodies move right in the image relative to the cabin; for a right turn they move left. The balloon moves opposite to the dense bodies.
+### Model Response · Qwen3.8-27B
 
-Frame-by-frame readings (F0 baseline: bob at x≈395, y≈237; ball at 477, 383; balloon upright):
-- **F1:** The bob moves right and lower (435, 231) and the ball moves right and lower (508, 384). The balloon is unchanged. Rightward dense motion suggests TurnLeft. The bob's lower position suggests a mild Accelerate, but the bob's height is ambiguous. Best guess: Accelerate + TurnLeft.
-- **F2:** The bob is at 398, 240 and the ball has moved left and up (452, 372). The bob is near center and the ball is left and forward. Forward ball motion suggests Brake. Left ball motion suggests TurnRight. Best guess: Brake + TurnRight.
-- **F3:** The bob is far left (380, 234), the ball is right and lower (510, 384), and the balloon leans slightly left. Bob left and ball right is inconsistent, probably from inherited swing. Ball right suggests TurnLeft, and its lower position suggests Accelerate. Best guess: Accelerate + TurnLeft.
-- **F4:** The bob is at 402, 209, higher in the image, which suggests the bob moved forward. The ball is at 504, 366, up and right. The balloon leans left and back, so the air accelerates right. Best guess: Brake + TurnLeft.
-- **F5:** The bob is at 381, 232. The ball is at 442, 383, left and lower. The balloon is slightly right. Ball left suggests TurnRight, and lower suggests Accelerate. Best guess: Accelerate + TurnRight.
-- **F6:** The bob is far left (356, 236), the ball is at 507, 368, and the balloon is displaced right and large. Bob left with the balloon right suggests lateral acceleration to the left of the image, so TurnRight. The ball is higher, which suggests Brake. Best guess: Brake + TurnRight.
+**F0 (initial):**
+- Red bob: string vertical, ball at left side of sofa, roughly centered-left. The string appears vertical (straight down from the top support).
+- Green balloon: tether vertical, balloon at top, centered.
+- Blue ball: center of bowl.
+
+**F1:**
+- Red bob: string tilted to the right (the top is fixed at left, the string leans right, ball moved right/forward?). Actually the string in F1 leans such that the ball is to the right of where it was in F0. In F0 the string was vertical with ball at left. In F1 the string tilts to the right (ball displaced right/forward relative to support). Hmm.
+- Green balloon: similar to F0, maybe slight left shift.
+- Blue ball: moved to the right side of the bowl (toward the right edge of the bowl). In F0 it was center; in F1 it's at the right side of the bowl.
+
+Let's think about physics. The camera looks toward the front (+z forward). When the vehicle accelerates forward, inertial effects push dense bodies backward (toward camera, -z). A pendulum bob would swing backward (toward camera). But here the string top is at the back (camera side) and the bob hangs toward the front? Wait, the roof support for the pendulum is near the top of the image which is the back of cabin (camera side). The string hangs down and the bob is in front of the sofa.
+
+[…]
+
+Hmm but F6 red left & green right suggests right turn (dense left, balloon right). Wait for right turn dense go left, balloon go right. F6 red left, green right => TurnRight. Blue in F6 center-right not left though.
+
+Let's recompute lateral mapping: TurnLeft => dense right, balloon left. TurnRight => dense left, balloon right.
+
+F1: red right, balloon ~center-left => TurnLeft.
+F3: red right, balloon left => TurnLeft.
+F5: red left, balloon center => TurnRight (ball left supports).
+F6: red left, balloon right => TurnRight.
+F2: blue left, red vertical, balloon center => TurnRight.
+F4: red right, balloon left => TurnLeft? but blue center.
+
+[…]
+
+But where's accel/brake? Possibly none; the puzzle may only use turns in this sample. That's allowed.
+
+I'll commit to that.
+
+Thus operations = [["TurnLeft"],["TurnRight"],["TurnLeft"],["TurnLeft"],["TurnRight"],["TurnRight"]].
+
+Wait F2 blue left suggests right turn, red vertical (maybe small). ok.
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
-| 1 | Accelerate + TurnLeft | Accelerate + TurnLeft |
-| 2 | Brake + TurnRight | Brake + TurnRight |
-| 3 | Accelerate + TurnLeft | Accelerate + TurnLeft |
-| 4 | Brake + TurnLeft | Brake + TurnLeft |
-| 5 | Accelerate + TurnRight | Accelerate + TurnRight |
-| 6 | Brake + TurnRight | Brake + TurnLeft |
+| 1 | TurnLeft | Accelerate + TurnLeft |
+| 2 | TurnRight | Brake + TurnRight |
+| 3 | TurnLeft | Accelerate + TurnLeft |
+| 4 | TurnLeft | Brake + TurnLeft |
+| 5 | TurnRight | Accelerate + TurnRight |
+| 6 | TurnRight | Brake + TurnLeft |
 
 <a name="s02"></a>
 
 ## S02 · Rotation & gas
 
-Loads and gas-filled tubes move on a rotating deck. At each event, which direction did the deck turn, and did it speed up or slow down?
+A stationary overhead camera looks down on a deck rotating about its vertical shaft. Coloured loads slide along radial guides against springs anchored nearer the centre. A small pointer on the shaft is coupled to the deck through viscous drag and a restoring spring. Near the rim, a sealed channel partly encircles the deck and holds water and a light gas-filled sphere. Distinguish this sphere from the larger coloured loads in the guides.
 
-[![Rotation & gas. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S02.webp)](S02.webp)
+The deck starts at rest. Follow its orientation beneath the stationary camera and compare the extension of each spring with its own guide. As rotation becomes faster, a load tends to sit farther from the centre. The pointer and the sphere respond differently from the solid loads because the pointer is coupled through drag and the sphere moves within the water. Images are taken during the response to successive commands; a reversal can therefore leave motion from the preceding direction in the same image.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S02) · [Watch the episode](../../examples/S02/dual_view.mp4)
+Which motor setting was selected at each event? In the overhead view, ClockwiseAccelerate and CounterclockwiseAccelerate select the higher speed in the named direction, whereas ClockwiseDecelerate and CounterclockwiseDecelerate select the lower speed. Each command selects a complete speed and direction together. Give a single combined label per event and return the chronological list of event sets under the sole JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S02-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+ClockwiseAccelerate · ClockwiseDecelerate · CounterclockwiseAccelerate · CounterclockwiseDecelerate
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["ClockwiseAccelerate"], ["ClockwiseDecelerate"], ["ClockwiseAccelerate"], ["CounterclockwiseAccelerate"], ["CounterclockwiseDecelerate"], ["ClockwiseAccelerate"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -105,16 +161,45 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Rotation & gas. Seven observations and Qwen3.8-27B’s response.](S02.webp)](S02.webp)
 
-Estimating deck angle from the red assembly position (viewed from above):
-- F0: red at 12 o'clock (angle 90°). Capture at 1.97 s, before any event, so this is the reference.
-- F1 (t=6): red at about 4 o'clock (~ -20°). The deck turned clockwise by about 110°. Event 1 began at 2 s, so 4 s elapsed. Ramping toward 30°/s would give roughly 100°, so event 1 is ClockwiseAccelerate.
-- F2 (t=11): red at about 6 o'clock (-100°), a further 80° clockwise over 5 s, about 16°/s. The speed fell to roughly the 12°/s detent, so event 2 is ClockwiseDecelerate.
-- F3 (t=16): red at about 11 o'clock (~125°). Going from -100° to 125° clockwise is -100 → -235, i.e. 135° clockwise, about 27°/s. That fits ClockwiseAccelerate, so event 3 is ClockwiseAccelerate.
-- F4 (t=21): red at about 9 o'clock (~180°). From 125° clockwise would go to about 125 - 60 = 65°, but the observed 180° is 55° counterclockwise, which could also be 305° clockwise. The channel position also shifted: the channel in F3 spans the right side, and in F4 it spans the top-left. Using the red assembly (F3 at about 125°, F4 at about 180°), a counterclockwise move of 55° over 5 s is about 11°/s, matching the low detent in the counterclockwise direction. Event 4 would be CounterclockwiseDecelerate, but that would require counterclockwise motion already in progress, so it must be CounterclockwiseAccelerate with the transient still ramping. The measured 55° is less than the 150° expected at 30°/s, so the ramp-up is slow. At 12°/s, 60° would fit well. I'll choose CounterclockwiseAccelerate since a reversal needs a high-speed detent.
-- F5 (t=26): red at about 6 o'clock (-100°=260°). From 180° that is 80° counterclockwise, about 16°/s, which is a lower speed. Event 5 is CounterclockwiseDecelerate.
-- F6 (t=31): red at about 9 o'clock (180°). From 260° to 180° is 80° clockwise, so the direction reversed to clockwise. Event 6 is ClockwiseAccelerate.
+[Complete model response and source](../../examples/S02/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S02) · [Watch the episode](../../examples/S02/dual_view.mp4)
+
+### Model Response · Qwen3.8-27B
+
+F1: Blue at top (12 o'clock), Red at lower-right (~4-5 o'clock), Amber at lower-left (~7-8 o'clock). Channel on left side. Red sphere at lower-left ~7-8 o'clock.
+
+So from F0 to F1: In F0 red is at 12, blue at 7-8, amber at 4-5. In F1 blue is at 12, red at 4-5, amber at 7-8. Let's see the rotation. If the deck rotates counterclockwise (CCW), positions move CCW. Red at 12 going CCW would go to 9, 7-8... Hmm. Let's think: 12 o'clock is top. CCW rotation moves top to left (9 o'clock). CW rotation moves top to right (3 o'clock).
+
+[…]
+
+F0: red at top = 0°.
+F1: red at lower-right (4-5 o'clock) = ~120-150°. call 130°.
+F2: red at bottom = 180°.
+F3: red at upper-left (10-11 o'clock) = ~310°.
+F4: red at left (9 o'clock) = 270°.
+F5: red at bottom = 180°.
+F6: red at left (9-10 o'clock) = ~280°.
+
+Now compute deltas assuming CW positive and total between consecutive = (delta mod 360) with magnitude = speed*5 (for F1..F6) where speed is 30 or 12. Over 5s, 30°/s=150°, 12°/s=60°. Over first interval 4s: 120° or 48°.
+
+F0->F1: 0->130 ≈ +130, but expected 120 (4s*30) or 48. 130 closer to 120. OK speed1=30 CW. Good.
+
+[…]
+
+Given the time, I'll make a final reasonable guess and accept risk. I'll choose the pattern that has two CW then reverse CCW then reverse CW:
+1 CWAccelerate
+2 CWDecelerate
+3 CCWAccelerate
+4 CCWDecelerate
+5 CWAccelerate
+6 CWDecelerate
+
+I'll output that.
+
+Actually wait, the problem says "Selecting a high-speed detent may reverse the previous direction." So to change direction you use an Accelerate in opposite direction. Decelerate keeps direction. So a reversal event must be an Accelerate. In my pattern e3 = CCWAccelerate (reverse from CW) good. e5 = CWAccelerate (reverse from CCW) good. The decels keep direction: e2 CWDecel (still CW), e4 CCWDecel (still CCW), e6 CWDecel (still CW). Consistent. Good.
+
+I'll commit.
 
 ### Model Answer and Experiment Log
 
@@ -122,22 +207,38 @@ Estimating deck angle from the red assembly position (viewed from above):
 | ---: | --- | --- |
 | 1 | ClockwiseAccelerate | ClockwiseAccelerate |
 | 2 | ClockwiseDecelerate | ClockwiseDecelerate |
-| 3 | ClockwiseAccelerate | ClockwiseAccelerate |
-| 4 | CounterclockwiseAccelerate | CounterclockwiseAccelerate |
-| 5 | CounterclockwiseDecelerate | CounterclockwiseDecelerate |
-| 6 | ClockwiseAccelerate | ClockwiseAccelerate |
+| 3 | CounterclockwiseAccelerate | ClockwiseAccelerate |
+| 4 | CounterclockwiseDecelerate | CounterclockwiseAccelerate |
+| 5 | ClockwiseAccelerate | CounterclockwiseDecelerate |
+| 6 | ClockwiseDecelerate | ClockwiseAccelerate |
 
 <a name="s03"></a>
 
 ## S03 · Driven pendulums
 
-Three pendulums hang from a carriage driven along a rail. Which of the three programmed trajectories moved the carriage at each event?
+A camera attached to a carriage looks at pendulums hanging from its overhead beam. The burgundy pendulum is shortest, the teal one intermediate and the copper one longest. Identify them by colour and length in the initial image; their positions along the beam vary across installations, and a smaller ivory pendulum may also be present. The beam, walls and camera all move with the carriage.
 
-[![Driven pendulums. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S03.webp)](S03.webp)
+Each programmed journey covers the same distance along the rail. Travel starts to the right and alternates direction thereafter. The carriage combines a smooth initial movement with a delayed movement in the same direction. The delayed contribution begins earliest and has the greatest relative weight in profile A, latest and with the least weight in profile C, and between these in profile B. The pendulums respond at different natural periods. Compare their deflections relative to their pivots after the carriage stops, allowing for any swing inherited from the preceding journey.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S03) · [Watch the episode](../../examples/S03/dual_view.mp4)
+Which trajectory was selected for each journey? TrajectoryA, TrajectoryB and TrajectoryC identify the shape of the programmed movement. The direction of travel is already given by the alternating sequence. Use the pattern across pendulums of different lengths to select a single profile per journey, and return the chronological one-label sets under the sole JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S03-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+TrajectoryA · TrajectoryB · TrajectoryC
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["TrajectoryB"], ["TrajectoryC"], ["TrajectoryB"], ["TrajectoryA"], ["TrajectoryB"], ["TrajectoryA"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -172,36 +273,84 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Driven pendulums. Seven observations and Qwen3.8-27B’s response.](S03.webp)](S03.webp)
 
-I could not derive these labels by simulation or measurement. They are a best guess from a rough reading of the frames, with no reliable evidence behind any individual event.
+[Complete model response and source](../../examples/S03/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S03) · [Watch the episode](../../examples/S03/dual_view.mp4)
 
-The physics suggests residual oscillation after each move depends on the profile's delay and weight relative to each pendulum's period. The three periods are about 1.69 s (0.72 m), 2.08 s (1.08 m) and 2.48 s (1.52 m). A double-pulse profile cancels a mode when its delay is about half that mode's period. The delays are 0.866 s, 1.053 s and 1.246 s, which are roughly half of 1.73 s, 2.1 s and 2.49 s. So A suppresses the short pendulum, B the medium one, and C the long one.
+### Model Response · Qwen3.8-27B
 
-In the frames, the pendulum in the middle slot (the burgundy-looking one, apparently the long copper pendulum) swings the most in F4 and F6, and the left one swings less. That would point to the long pendulum being left unsuppressed in those events, which argues against C there. The evidence is too weak to resolve further, so the answer below is a guess.
+F0: burgundy (left) ~0, copper (middle) ~0, teal (right) ~0, ivory (far right) static. All hanging straight. Initial rest.
+
+F1: burgundy deflected left (toward left), copper deflected left (rod leans left? Actually the bob is left of pivot? In F1 the middle red bob is to the left of its pivot, rod leans left). Teal roughly straight.
+
+Wait, in F1 the middle pendulum (long) bob is left of pivot. The left (burgundy) bob is left of pivot. Teal is straight-ish.
+
+F2: burgundy left, copper nearly straight (slightly left?), teal left slightly.
+
+F3: burgundy left, copper left, teal left slight.
+
+F4: burgundy small left, copper right (bob right of pivot), teal straight.
+
+F5: burgundy left, copper left, teal straight.
+
+F6: burgundy small left, copper right, teal straight.
+
+[…]
+
+Let me think differently. The trajectory profile determines the final velocity imparted? No, the carriage stops (Q reaches 1 and stays). So at end, carriage velocity zero, position +4.40*s. The pendulums during motion got excited. At the moment carriage stops, the pendulums have some angle and angular velocity depending on profile. Then they free-oscillate (damped) until capture.
+
+The difference between A, B, C is small (d and w vary a bit). The resulting free oscillation will have small differences in amplitude/phase. Hard to eyeball.
+
+[…]
+
+Hmm but maybe better to look at amplitude: events with larger amplitude of copper swing = profile with bigger effective jerk. The differences in w_j: A 0.833, B 0.8145, C 0.794. Larger w means second Q term weighted more, making acceleration more "spread". Not clear.
+
+I'll commit to A,B,C,A,B,C as a structured guess. Actually wait, maybe the puzzle is from a known set where the answer is the same trajectory each time? The phrase "Each subsequent image adds one new event" and "Reconstruct the complete unordered set of controls at every supplied event". They want the set per event which is a single trajectory.
+
+Given no real signal, I'll guess all TrajectoryA? That's also a guess.
+
+Let's look at the burgundy pendulum (short, fast period 1.705 s) to get phase info. At capture after stop by ~1 s, the short pendulum (period 1.7 s) would be near returning through center or near opposite extreme. In F1 burgundy left large; F2 left large; F3 left large; F4 left small; F5 left large; F6 left small. The magnitude variation small->large suggests phase differences.
+
+I really cannot determine reliably. I'll provide a best guess sequence: [TrajectoryA, TrajectoryB, TrajectoryC, TrajectoryA, TrajectoryB, TrajectoryC].
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
-| 1 | TrajectoryB | TrajectoryB |
-| 2 | TrajectoryA | TrajectoryC |
-| 3 | TrajectoryB | TrajectoryB |
+| 1 | TrajectoryA | TrajectoryB |
+| 2 | TrajectoryB | TrajectoryC |
+| 3 | TrajectoryC | TrajectoryB |
 | 4 | TrajectoryA | TrajectoryA |
 | 5 | TrajectoryB | TrajectoryB |
-| 6 | TrajectoryA | TrajectoryA |
+| 6 | TrajectoryC | TrajectoryA |
 
 <a name="s04"></a>
 
 ## S04 · Tray impact
 
-Eight objects rest on a tray. From the changes in their positions and orientations, identify the direction or combination of directions of each impact.
+A camera is fixed to a rectangular tray and looks down at the bodies resting on it. Locate the tall tower, balls, sliding drum, low puck, short block, rolling barrel and the ivory body in the initial image. Their positions can vary. The rim, the lines across the tray and the coloured fixtures near the rim stay fixed relative to the camera and provide spatial references. External hammers face the left, right, far and near edges; in this view the far edge is at the top.
 
-[![Tray impact. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S04.webp)](S04.webp)
+Each hammer strikes the tray inward from its own edge. The tray and camera recoil together while the free objects lag behind. A ball may keep rolling after the tray begins to return, the drum may slide, and the tower can tip and remain down. Read the displacement of several separated bodies against the same tray markings. A new change shared by a ball and a low sliding object can reveal a recoil that the position of the fallen tower alone would no longer show. The observations follow the contacts, while motion from successive strikes can overlap.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S04) · [Watch the episode](../../examples/S04/worked/dual_view.mp4)
+Which edges were struck at each event? LeftImpact, RightImpact, UpImpact and DownImpact refer to the edge receiving the strike. The opening strike uses perpendicular edges together. A later strike may use a single edge or a perpendicular pair containing a left or right edge and a top or bottom edge. Return the complete sets in event order under the single JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S04-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+LeftImpact · RightImpact · UpImpact · DownImpact · LeftImpact + UpImpact · DownImpact + LeftImpact · RightImpact + UpImpact · DownImpact + RightImpact
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["LeftImpact", "UpImpact"], ["DownImpact", "RightImpact"], ["LeftImpact"], ["RightImpact", "UpImpact"], ["RightImpact"], ["DownImpact", "LeftImpact"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -229,26 +378,46 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Tray impact. Seven observations and Qwen3.8-27B’s response.](S04.webp)](S04.webp)
 
-Reading the frames as tray-relative displacements, with image-up as +z:
+[Complete model response and source](../../examples/S04/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S04) · [Watch the episode](../../examples/S04/worked/dual_view.mp4)
 
-- **F0 to F1:** the tower fell toward the upper-left. Every body shifted left and up: the ivory body moved from (602,187) to (575,160), the teal block from (538,238) to (511,211), the ochre drum from (322,348) to (295,321), and the barrel from (642,348) to (617,330).
-- A body lags the tray, so a uniform shift of about (-27, -27) px means the tray accelerated toward the right and toward the bottom.
-- Right-and-down tray motion means the tray was pushed toward +x and -z. LeftImpact pushes toward +x, and UpImpact pushes toward -z. Event 1 is therefore Left+Up.
-- **F1 to F2:** everything shifted right and down by about (+26, +27). The tray accelerated left and up, which means RightImpact (toward -x) plus DownImpact (toward +z). Event 2 is Right+Down.
-- **F2 to F3:** the ivory body moved from (601,186) to (575,186), the block from (537,238) to (511,238), the drum from (321,348) to (295,348), and the puck from (399,368) to (373,368). This is a left shift only, so the tray moved right: LeftImpact.
-- **F3 to F4:** the ivory body moved from (575,186) to (602,160), the block from (511,238) to (535,211), the drum from (295,348) to (318,324), and the barrel from (614,355) to (641,330). The shift is right and up, so the tray moved left and down. Left motion is RightImpact, and motion toward -z is UpImpact. Event 4 is Right+Up.
-- **F4 to F5:** the ivory body moved from (602,160) to (628,160), the block from (535,211) to (560,211), and the drum from (318,324) to (343,324). This is a right shift only, so the tray moved left: RightImpact.
-- **F5 to F6:** the ivory body moved from (628,160) to (601,186), the block from (560,211) to (533,238), and the drum from (343,324) to (315,352). The shift is left and down, so the tray moved right and up. Right motion is LeftImpact, and motion toward +z is DownImpact. Event 6 is Down+Left.
+### Model Response · Qwen3.8-27B
+
+Bodies lag opposite to tray acceleration. So if tray accelerates +x (LeftImpact), bodies appear to move -x relative to tray, i.e., topple toward -x (image-left).
+
+Tower in F1 toppled toward upper-left = -x, +z. That means tray accelerated +x and -z → LeftImpact (tray +x) and UpImpact (tray -z). So event 1 = [LeftImpact, UpImpact]. Good, that's an allowed pair.
+
+Let's double check with other bodies in F1 vs F0. In F0 ruby ball at (375,128). In F1 ruby ball at (365,133) slightly left. Teal sphere F0 (443,122) F1 (443,122) about same. Ivory (497,165) F1 (483,148) moved up-left. Teal block F0 (443,202) F1 (432,205) left. Ochre drum F0 (265,313) F1 (243,283) up-left. Brass puck F0 (327,333) F1 (308,322) up-left. Barrel F0 (528,313) F1 (512,287) up-left. So overall bodies shifted up-left relative to tray = -x,+z. Consistent with tray acceleration +x,-z = LeftImpact+UpImpact.
+
+Now event 2 (F2 vs F1). Let's compare.
+F1: ruby (365,133), teal sphere (443,122), ivory (483,148), teal block (432,205), ochre (243,283), brass (308,322), barrel (512,287).
+F2: ruby (390,145), teal sphere (458,140), ivory (497,165), teal block (443,210), ochre (265,313), brass (327,333), barrel (528,313).
+So bodies moved down-right relative to tray (+x,-z). That means tray accelerated -x,+z = RightImpact+DownImpact. Allowed pair: [RightImpact, DownImpact] = ["DownImpact","RightImpact"]. Yes allowed.
+
+Check: RightImpact tray -x, bodies lag +x. DownImpact tray +z, bodies lag -z. So bodies move +x,-z (right, down). Yes matches F2 shift (down-right). Good.
+
+[…]
+
+But wait E4 upper bodies moved up strongly; if only RightImpact, why up? Possibly because the spheres (ruby, teal) were still rolling from earlier and the camera view... hmm. Actually the ochre/brass/barrel are sliding/rolling low bodies; the spheres roll and retain velocity. The instructions say compare new tray-relative changes in several separated low bodies with rolling-body changes. So low bodies are more reliable. Good.
+
+Thus final:
+E1: [LeftImpact, UpImpact]
+E2: [DownImpact, RightImpact]
+E3: [LeftImpact]
+E4: [RightImpact]
+E5: [RightImpact]
+E6: [LeftImpact]
+
+Check E5 x = + (Right). Yes ochre +20. E6 x = - (Left). yes.
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
 | 1 | LeftImpact + UpImpact | LeftImpact + UpImpact |
-| 2 | RightImpact + DownImpact | DownImpact + RightImpact |
+| 2 | DownImpact + RightImpact | DownImpact + RightImpact |
 | 3 | LeftImpact | LeftImpact |
-| 4 | RightImpact + UpImpact | RightImpact + UpImpact |
+| 4 | RightImpact | RightImpact + UpImpact |
 | 5 | RightImpact | RightImpact |
-| 6 | DownImpact + LeftImpact | DownImpact + LeftImpact |
+| 6 | LeftImpact | DownImpact + LeftImpact |

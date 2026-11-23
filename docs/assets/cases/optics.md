@@ -6,13 +6,29 @@
 
 ## S17 · Photoelastic load
 
-The specimen responds to compression and to a rotating optical control. Which loading or rotation controls produced each observed fringe pattern?
+A fixed camera looks through crossed polarizers at a press holding transparent specimens of different shapes. Locate the narrow-waisted dogbone, the arch and the perforated disk in the initial view; their order can vary. The upper crosshead presses them against a fixed lower anvil. A narrow optical strip above the crosshead lies outside the load path. Its material axes turn progressively across its width, giving the camera a reference for the orientation of the shared polarizers.
 
-[![Photoelastic load. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S17.webp)](S17.webp)
+A turn of the polarizers changes the strip’s brightness pattern as well as the appearance of the specimens. A change in press load changes stress in the specimens but leaves the strip optically unchanged. Compare these responses from one observation to the next, following the patterns around the neck, arch legs and hole. The dogbone responds fastest and the disk retains stress longest. Images are taken after the drive ends, so colours or fringes left by an earlier load can persist.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S17) · [Watch the episode](../../examples/S17/dual_view.mp4)
+Which single control was operated at each event? IncreaseLoad and DecreaseLoad change compression. RotateClockwise and RotateCounterclockwise describe turns viewed from outside the right wall, facing inward. A clockwise turn of that wheel increases the optical angle measured counterclockwise from image-right in the camera view; a counterclockwise turn decreases it. Give a single label per event and return the chronological sets under the sole JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S17-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+IncreaseLoad · DecreaseLoad · RotateClockwise · RotateCounterclockwise
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["IncreaseLoad"], ["RotateCounterclockwise"], ["RotateClockwise"], ["RotateCounterclockwise"], ["DecreaseLoad"], ["RotateCounterclockwise"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -44,50 +60,87 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Photoelastic load. Seven observations and Qwen3.8-27B’s response.](S17.webp)](S17.webp)
 
-Reading the frames: the reference strip looks alike in F0, F1, F3 and F6 (a gray/dark band). It looks bright and white in F2, F4 and F5. The strip changes only with rotation, so I infer the rotation state from it and treat the other events as load changes.
+[Complete model response and source](../../examples/S17/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S17) · [Watch the episode](../../examples/S17/dual_view.mp4)
 
-Strip states: F0 is dark (alpha 12), F1 is dark, F2 is bright, F3 is dark, F4 is bright, F5 is bright, F6 is dark.
+### Model Response · Qwen3.8-27B
 
-The strip's intensity depends on sin²(2(θ−α)). Its axis runs from 10 to 40 degrees, so at α=12 it is near extinction on the left. At α=50 or 88 it would look different. A rotation of 38 degrees shifts 2α by 76 degrees. Dark-versus-bright is therefore not a simple function of α, so I use the sequence of changes.
+Setup: Three specimens left-to-right in F0: disk (left), arch (middle), dogbone (right). Wait, let me look. F0 left specimen is a circular disk with central hole. Middle is an arch (egg-shaped with two legs at bottom). Right is a narrow-waisted dogbone. Yes.
 
-Event 1 (F0 to F1): the strip is unchanged and the specimens change only slightly. The dogbone gains some color and the disk is similar. This is a load event, most likely IncreaseLoad (load 0.32 to 0.61).
+Upper calibration strip is at top (the brass-framed horizontal strip above crosshead). It has fixed retardance and slowly varying principal axis 10-40 deg CCW from image-right across left-to-right. Its brightness pattern is a passive reference for common polarizer angle alpha.
 
-Event 2 (F1 to F2): the strip changes from dark to bright, so this is a rotation. The specimen patterns change a lot.
+[…]
 
-Event 3 (F2 to F3): the strip returns to dark, so this is a rotation. F3 looks much like F1, which suggests the alpha is back at 12 and the event is the reverse rotation. If event 2 was clockwise (alpha 50), event 3 is counterclockwise (alpha 12). F3 resembling F1 is consistent with this.
+This is getting too uncertain. Let's think about rotations: rotation changes fringe orientation (the spiral/ring pattern orientation in disk and arch). The disk in F0 shows simple concentric (radial symmetric-ish) pattern. In F2,F3,F4,F5 disk shows an off-center swirl (asymmetric) which suggests rotation changed alpha so the radial principal axis no longer aligned with polarizer, creating asymmetry. In F1 disk shows concentric ring. In F6 disk returns to concentric (like F0).
 
-Event 4 (F3 to F4): the strip turns bright again and F4 looks identical to F2, so alpha is back at 50. This is RotateClockwise.
+So rotation events likely when disk becomes swirl or returns to concentric.
 
-Event 5 (F4 to F5): the strip stays bright, so this is a load event. The specimens look slightly less colored in the dogbone, with a lower retardance. This suggests DecreaseLoad (load 0.61 to 0.32).
+Sequence of disk pattern:
+F0 concentric
+F1 concentric (ring)
+F2 swirl
+F3 swirl
+F4 swirl
+F5 swirl
+F6 concentric
 
-Event 6 (F5 to F6): the strip turns dark, so this is a rotation back to alpha 12, which is RotateCounterclockwise.
+[…]
 
-For event 2, going from 12 to 50 requires clockwise, since the alternative of 12 to −26 would also give a bright strip. I choose clockwise. Events 3 and 4 follow from that choice. Event 6 returns to alpha 12 from 50 by counterclockwise rotation.
+E1 IncreaseLoad
+E2 RotateCounterclockwise
+E3 DecreaseLoad
+E4 IncreaseLoad
+E5 RotateClockwise
+E6 DecreaseLoad
+
+Check load: 0.32 ->0.61(E1) ->rot(E2,0.61) ->0.32(E3) ->0.61(E4) ->rot(E5,0.61) ->0.32(E6). Then F5 and F6 same load 0.61; dogbone F5 bright F6 faint mismatch but F6 similar to F0 (0.32) not 0.61. Hmm.
+
+I'll just commit to:
+[IncreaseLoad, RotateCounterclockwise, DecreaseLoad, IncreaseLoad, DecreaseLoad, RotateClockwise]
+
+Rationale: rotations at 2 and 6 to return disk to concentric; loads alternate to vary intensity. Good enough.
+
+Final JSON.
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
 | 1 | IncreaseLoad | IncreaseLoad |
-| 2 | RotateClockwise | RotateCounterclockwise |
-| 3 | RotateCounterclockwise | RotateClockwise |
-| 4 | RotateClockwise | RotateCounterclockwise |
+| 2 | RotateCounterclockwise | RotateCounterclockwise |
+| 3 | DecreaseLoad | RotateClockwise |
+| 4 | IncreaseLoad | RotateCounterclockwise |
 | 5 | DecreaseLoad | DecreaseLoad |
-| 6 | RotateCounterclockwise | RotateCounterclockwise |
+| 6 | RotateClockwise | RotateCounterclockwise |
 
 <a name="s18"></a>
 
 ## S18 · Double reflection
 
-Light reaches a screen after reflections from two mirrors. For each event, identify which mirror or mirrors turned and in what direction.
+A fixed red ray, green ray and blue ray reach a flat receiver after reflecting from an upstream mirror and then a downstream mirror. The upstream mirror stands to the left of the downstream mirror. The camera is near the outgoing part of the optical path and looks toward the receiver; it sees the illuminated spots and the rectangular grid, while the mirrors and their supports are outside its field of view. In the initial image both stages are at their reference yaw and pitch settings. Identify the coloured spots against the grid and retain their identities throughout the sequence.
 
-[![Double reflection. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S18.webp)](S18.webp)
+The red ray starts in line with the upstream mirror and travels straight downstream. The green source is lower and farther to the left, sending its ray upward and toward the right. The blue source is higher and farther to the right, sending its ray downward and toward the left. These distinct launch paths strike the same mirrors at different places. When the upstream mirror turns, it changes the outgoing direction and the point where each ray meets the downstream mirror; the rays must then reflect again before reaching the grid. When the downstream mirror turns alone, the incoming rays still follow their previous paths up to that mirror. A rightward yaw turns the downstream axis toward image-right; an upward pitch tips the selected mirror’s normal upward. The upstream mirror uses the same size of increment for yaw and pitch. The downstream mirror moves farther per command, and its yaw increment is larger than its pitch increment. Read horizontal and vertical spot shifts against the fixed grid, comparing the group displacement and changes in relative spacing. Each image follows completion of the commanded turn. An unselected axis retains its preceding orientation, so use the previous spot pattern as the starting point for the next comparison.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S18) · [Watch the episode](../../examples/S18/worked/dual_view.mp4)
+Which mirror turned, and in what direction? For the upstream stage choose UpstreamMirrorLeft, UpstreamMirrorRight, UpstreamMirrorUp or UpstreamMirrorDown. For the downstream stage choose DownstreamMirrorLeft, DownstreamMirrorRight, DownstreamMirrorUp or DownstreamMirrorDown. Each stage can take a single turn per event. A stage may act by itself, or both may turn simultaneously. Return every selected turn in chronological event sets under the sole JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S18-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+UpstreamMirrorLeft · UpstreamMirrorRight · UpstreamMirrorUp · UpstreamMirrorDown · DownstreamMirrorLeft · DownstreamMirrorRight · DownstreamMirrorUp · DownstreamMirrorDown · UpstreamMirrorLeft + DownstreamMirrorLeft · UpstreamMirrorLeft + DownstreamMirrorRight · UpstreamMirrorLeft + DownstreamMirrorUp · UpstreamMirrorLeft + DownstreamMirrorDown · UpstreamMirrorRight + DownstreamMirrorLeft · UpstreamMirrorRight + DownstreamMirrorRight · UpstreamMirrorRight + DownstreamMirrorUp · UpstreamMirrorRight + DownstreamMirrorDown · UpstreamMirrorUp + DownstreamMirrorLeft · UpstreamMirrorUp + DownstreamMirrorRight · UpstreamMirrorUp + DownstreamMirrorUp · UpstreamMirrorUp + DownstreamMirrorDown · UpstreamMirrorDown + DownstreamMirrorLeft · UpstreamMirrorDown + DownstreamMirrorRight · UpstreamMirrorDown + DownstreamMirrorUp · UpstreamMirrorDown + DownstreamMirrorDown
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["UpstreamMirrorDown", "DownstreamMirrorLeft"], ["UpstreamMirrorRight", "DownstreamMirrorLeft"], ["UpstreamMirrorLeft"], ["UpstreamMirrorRight"], ["UpstreamMirrorDown", "DownstreamMirrorDown"], ["UpstreamMirrorLeft"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -126,60 +179,84 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Double reflection. Seven observations and Qwen3.8-27B’s response.](S18.webp)](S18.webp)
 
-I estimated each event from the spot shifts between frames. I did not run a full ray-trace, so the fine distinctions below rest on rough sensitivity estimates.
+[Complete model response and source](../../examples/S18/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S18) · [Watch the episode](../../examples/S18/worked/dual_view.mp4)
 
-**Scale and spot positions.** The grid spacing of 0.5 m is about 82 px, so 1 px is about 0.0061 m. Spot positions (px) are:
+### Model Response · Qwen3.8-27B
 
-| Frame | Red | Green | Blue |
-|---|---|---|---|
-| F0 | (479, 270) | (571, 161) | (313, 475) |
-| F1 | (443, 255) | (542, 149) | (258, 461) |
-| F2 | (365, 254) | (472, 145) | (155, 477) |
-| F3 | (404, 255) | (507, 147) | (205, 470) |
-| F4 | (365, 254) | (472, 145) | (155, 477) |
-| F5 | (368, 220) | (484, 120) | (140, 424) |
-| F6 | (407, 224) | (519, 125) | (191, 421) |
+The ray path: source -> M1 -> M2 -> screen. The orientation of M1 changes the direction of the ray after M1, which then hits M2 at a different point and direction, then M2 reflects to screen. Similarly M2 orientation changes the final direction.
 
-**Shifts per event (red).**
-- E1 (F0→F1): (-36, -15)
-- E2 (F1→F2): (-78, -1)
-- E3 (F2→F3): (+39, +1)
-- E4 (F3→F4): (-39, -1)
-- E5 (F4→F5): (+3, -34)
-- E6 (F5→F6): (+39, +4)
+Effect of M1 yaw (rotation about +y): changes horizontal component. Effect of M1 pitch: changes vertical component. Similarly M2.
 
-**Sensitivities.**
-- Mirror2 yaw: a 2° rotation turns the reflected ray by 4°. Over the remaining path of about 2.7 m this gives roughly 0.19 m, or about 31 px, with a longer-path factor on top. A Mirror2 yaw step is therefore about ±39 px, and E3, E4 and E6 fit this size. Mirror2Right moves the beam toward +x, so E3 and E6 are Mirror2Right and E4 is Mirror2Left.
-- Mirror1 yaw: a 1° rotation turns the beam by 2°, and the path of about 6.5 m gives roughly 0.2 m, or about 35 px. For red, Mirror1 yaw shifts the spot in x by an amount of that order. E1 is (-36, -15), which looks like a Mirror1 yaw. Its normal is (-0.9, 0, 0.43), so a yaw changes the direction mostly in x. Mirror1Left gives a shift toward -x, so E1 is Mirror1Left, and the -15 px in y is probably a small cross-coupling.
-- E2 is -78 px, which is about 2 × 39. A single Mirror2Left would give -39, so -78 needs Mirror1Left (-36) plus Mirror2Left (-39), giving -75. E2 is therefore Mirror1Left with Mirror2Left.
-- E5 is a pure y shift of -34 px with x unchanged. Mirror2 pitch of 1.5° gives a 3° beam change over about 2.7 m, or about 0.14 m, which is about 23 px. Mirror1 pitch of 1° gives 2° over about 6.5 m, or about 0.23 m, which is about 38 px. The y shift of -34 px is closer to the Mirror1 value, so E5 is Mirror1Down.
+But because M2 also reflects, a M1 change propagates through M2 and affects screen in both x and y possibly. This is too detailed.
 
-**Check on E1's y shift.** If E1 were Mirror1Left alone, the -15 px in y would come from cross-coupling. The E2 y shift is -1, though, and Mirror1Left appears in both E1 and E2, so the y shift should have repeated. Perhaps the E1 y shift comes from the rotated geometry. I could not resolve this, and I kept Mirror1Left for E1.
+Given the difficulty, maybe the intended solution is simpler: The spots all move together in a translation that indicates a particular mirror axis. Because all three rays pass through both mirrors, a pure yaw change on M1 shifts all three spots horizontally on screen (left/right) by some amount; a pitch change shifts them vertically; M2 changes also shift but maybe opposite sign or different magnitude.
+
+Let's look at vertical (y) movements: In F0->F1 all three move up a bit. F1->F2: red same, green up tiny, blue down. F2->F3: red same, green up, blue up. F3->F4: red same, green up, blue down. F4->F5: all up. F5->F6: all up tiny.
+
+Horizontal: F0->F1 all left. F1->F2 all left. F2->F3 all right. F3->F4 all left. F4->F5: red ~same, green right, blue left (small). F5->F6 all right.
+
+[…]
+
+Wait T6 right+? red y 248->253 down slight, green 138->143 down, blue 473->478 down: small down. And right. Could be Mirror1Right + Mirror?Down. But small.
+
+I'll finalize with these. Honestly I'll commit.
+
+Let me reconsider T1: left+up. If horizontal is M2Left (80px) then T1 red 500->460 is only 40, not 80. So horizontal not M2. So horizontal = M1Left (40). Then vertical up must be M2Up or M1Up but M1 already used. So M2Up. So E1 = [Mirror1Left, Mirror2Up]. Good.
+
+T2 left 80 = M2Left.
+T3 right 40 = M1Right.
+T4 left 40 = M1Left.
+T5 up 35 = M2Up (since M1 up would be ~15). Good.
+T6 right 50 = M1Right (40-50) with small down maybe noise.
+
+Thus:
+E1: Mirror1Left, Mirror2Up
+E2: Mirror2Left
+E3: Mirror1Right
+E4: Mirror1Left
+E5: Mirror2Up
+E6: Mirror1Right
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
-| 1 | Mirror1Left | Mirror1Down + Mirror2Left |
-| 2 | Mirror1Left + Mirror2Left | Mirror1Right + Mirror2Left |
-| 3 | Mirror2Right | Mirror1Left |
-| 4 | Mirror2Left | Mirror1Right |
-| 5 | Mirror1Down | Mirror1Down + Mirror2Down |
-| 6 | Mirror2Right | Mirror1Left |
+| 1 | Mirror1Left + Mirror2Up | Mirror1Down + Mirror2Left |
+| 2 | Mirror2Left | Mirror1Right + Mirror2Left |
+| 3 | Mirror1Right | Mirror1Left |
+| 4 | Mirror1Left | Mirror1Right |
+| 5 | Mirror2Up | Mirror1Down + Mirror2Down |
+| 6 | Mirror1Right | Mirror1Left |
 
 <a name="s19"></a>
 
 ## S19 · Graded refraction
 
-Three light rays pass through a graded-index insert before reaching a screen. How was the insert translated or rotated at each event?
+Fixed collimated rays travel from a source on the left through a transparent graded-index insert to a receiver on the right. The insert starts near the optical centre and is carried by a movable support. The camera is near the receiver, looking back toward the source. Locate the amber spots against the receiver border and fixed reference marks in the initial image. The spots have a similar colour, so follow their relative positions across the sequence.
 
-[![Graded refraction. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S19.webp)](S19.webp)
+The refractive index varies smoothly within the insert and approaches that of the surrounding medium near its boundary. Translating the insert changes the part of this profile traversed by each ray. Rotating it changes the profile’s orientation across the paths. Compare the whole spot pattern with its preceding position after each carriage movement. The carriage keeps the pose reached at the end of an event; the following change therefore acts on rays already passing through a shifted or rotated profile.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S19) · [Watch the episode](../../examples/S19/dual_view.mp4)
+Which single carriage control acted at each event? medium_left and medium_right translate the insert along the beam toward the source or the receiver. medium_near and medium_far move it across the beam toward or away from the camera. medium_rotate and medium_counterrotate turn it in the positive or negative sense about the vertical axis. Return the chronological one-label sets under the sole JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S19-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+medium_left · medium_right · medium_near · medium_far · medium_rotate · medium_counterrotate
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["medium_rotate"], ["medium_far"], ["medium_left"], ["medium_near"], ["medium_counterrotate"], ["medium_right"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -219,51 +296,86 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Graded refraction. Seven observations and Gemma 4 31B IT’s response.](S19.webp)](S19.webp)
 
-I could not derive these from a quantitative model, so they are best-guess labels based on how the three spots move between frames. I read the spot positions (x, y in image pixels) off each frame.
+[Complete model response and source](../../examples/S19/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S19) · [Watch the episode](../../examples/S19/dual_view.mp4)
 
-| Frame | Spot 1 | Spot 2 | Spot 3 |
-|---|---|---|---|
-| F0 | (422, 147) | (404, 207) | (408, 360) |
-| F1 | (452, 170) | (433, 204) | (441, 355) |
-| F2 | (418, 249) | (448, 251) | (470, 307) |
-| F3 | (398, 238) | (438, 259) | (470, 307) |
-| F4 | (518, 107) | (525, 179) | (527, 405) |
-| F5 | (528, 86) | (545, 186) | (541, 405) |
-| F6 | (513, 144) | (526, 207) | (523, 361) |
+### Model Response · Gemma 4 31B IT
 
-Each transition, with my reasoning:
+*Is there a better fit?*
+Could F3->F4 be `medium_rotate`?
+Rotation about the vertical axis (yaw) would move the spots laterally and change their relative positions. In F3, they were almost horizontal (top and mid). In F4, they are vertical. This is a 90-degree-like change in the pattern. However, rotation usually doesn't change the *vertical* spread that much, only the *horizontal* spread. But wait, the vertical spread in F4 (220 to 730) is much larger than in F3 (450 to 520). This strongly suggests moving the insert along the optical axis (x-axis) again.
 
-1. **F0→F1:** All spots shift right by about 30 px and the spread shrinks slightly. I read this as a translation along the beam axis, so medium_right.
-2. **F1→F2:** The spots converge strongly and move down toward the middle, which looks like a transverse shift. I chose medium_near.
-3. **F2→F3:** Spot 1 moves left and up, spot 2 moves left, and spot 3 stays put. This is a small change in the tilt or yaw of the insert, so I chose medium_counterrotate.
-4. **F3→F4:** The spots spread out vertically and jump right, which looks like the insert moving back to a centred position. That suggests medium_far, undoing the earlier near shift.
-5. **F4→F5:** Spots 1 and 2 shift right and spot 3 shifts slightly right, with the top spot moving up and the spread growing. I chose medium_rotate.
-6. **F5→F6:** The spread shrinks again and the spots move left and down toward the F0 pattern. I chose medium_left.
+Wait, if F1->F2 was `medium_left` (making them converge), then F3->F4 being `medium_right` (making them spread out again) makes perfect sense.
+
+*Wait, let me look at F0 again.*
+F0: top(410, 270), mid(400, 380), bot(410, 650)
+F4: top(520, 220), mid(520, 340), bot(520, 730)
+F0 and F4 are both "spread out" and "mostly vertical". F4 is just shifted right and slightly more spread out. This supports the idea that F1->F2 and F3->F4 were opposite movements along the x-axis.
+
+*Let's refine:*
+F0 -> F1: `medium_near` (All shift right)
+F1 -> F2: `medium_left` (Spots converge)
+F2 -> F3: `medium_far` (All shift left)
+F3 -> F4: `medium_right` (Spots spread out)
+F4 -> F5: `medium_near` (All shift right)
+F5 -> F6: `medium_far` (All shift left)
+
+[…]
+
+Wait, let me double-check the convergence again.
+F1: y=280, 370, 650 (spread = 370)
+F2: y=450, 450, 520 (spread = 70)
+F3: y=450, 450, 520 (spread = 70)
+F4: y=220, 340, 730 (spread = 510)
+Yes, the convergence in F2 and spread in F4 is very clear.
+
+Final sequence:
+1.  `medium_near`
+2.  `medium_left`
+3.  `medium_far`
+4.  `medium_right`
+5.  `medium_near`
+6.  `medium_far`
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
-| 1 | medium_right | medium_rotate |
-| 2 | medium_near | medium_far |
-| 3 | medium_counterrotate | medium_left |
-| 4 | medium_far | medium_near |
-| 5 | medium_rotate | medium_counterrotate |
-| 6 | medium_left | medium_right |
+| 1 | medium_near | medium_rotate |
+| 2 | medium_left | medium_far |
+| 3 | medium_far | medium_left |
+| 4 | medium_right | medium_near |
+| 5 | medium_near | medium_counterrotate |
+| 6 | medium_far | medium_right |
 
 <a name="s20"></a>
 
 ## S20 · Double-slit fringes
 
-A coherent light source illuminates two adjustable slits. Which changes in slit width, slit spacing or both produced each fringe pattern?
+A coherent light source illuminates a pair of parallel vertical slits. Opaque knife edges form the openings. A width mechanism adjusts the slits equally, while a separate mechanism adjusts the distance between their centres. Beyond them the camera faces a fixed receiver carrying a pattern of fine bright fringes inside a much broader diffraction envelope. Use the fixed screen edges and marks to locate both features in the initial image and in subsequent observations.
 
-[![Double-slit fringes. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S20.webp)](S20.webp)
+When the slit centres move farther apart, neighbouring bright fringes are closer together; moving the centres closer together spreads the fringes apart. Slit width affects the broader envelope: narrowing the slits spreads its minima outward and widening them brings the minima inward. Changing either setting can alter how many bright bands are visible. Compare their spacing as well as where the envelope dims, since a simultaneous movement can change these features in different directions. Each image shows the completed adjustment, with an unselected mechanism holding its preceding position.
 
-[Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S20) · [Watch the episode](../../examples/S20/dual_view.mp4)
+Which controls moved? NarrowSlits and WidenSlits act on the common slit width. IncreaseSpacing and DecreaseSpacing act on the distance between the centres. A mechanism may act alone, or a width adjustment and a spacing adjustment may be made together. Return all selected labels in chronological event sets under the sole JSON key “operations”.
 
-<details><summary>Full evaluation prompt</summary>
+[View prompt figure](S20-prompt.webp)
+
+<details><summary>Legal control sets</summary>
+
+NarrowSlits · WidenSlits · IncreaseSpacing · DecreaseSpacing · IncreaseSpacing + NarrowSlits · DecreaseSpacing + NarrowSlits · IncreaseSpacing + WidenSlits · DecreaseSpacing + WidenSlits
+
+</details>
+
+<details><summary>Reference answer</summary>
+
+```json
+{"operations": [["IncreaseSpacing", "NarrowSlits"], ["DecreaseSpacing", "WidenSlits"], ["IncreaseSpacing", "NarrowSlits"], ["DecreaseSpacing", "WidenSlits"], ["NarrowSlits"], ["WidenSlits"]]}
+```
+
+</details>
+
+<details><summary>Original evaluation prompt</summary>
 
 Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
 
@@ -306,40 +418,61 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-### Model Response · Claude Sonnet 5.5
+[![Double-slit fringes. Seven observations and Gemma 4 31B IT’s response.](S20.webp)](S20.webp)
 
-Reading the frames, F1 and F3 look identical, and F2, F4 and F6 look identical, so the states alternate between a few distinct patterns.
+[Complete model response and source](../../examples/S20/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S20) · [Watch the episode](../../examples/S20/dual_view.mp4)
 
-**State estimates**
-- F0 has fringe pitch of about 26 px and an envelope first minimum near ±130 px from center.
-- F1 has finer fringes (about 20 px pitch) and a wider envelope, with the first minimum near ±160 px. Both the envelope and the fringe pitch changed from F0.
-- F2 has coarse fringes (about 37 px pitch) and a narrow central envelope.
-- F5 has fringes of about 36 px pitch and a central envelope roughly 2.5 times wider than F2's.
+### Model Response · Gemma 4 31B IT
 
-**Event reasoning**
-1. F0→F1: the fringes became tighter, so spacing increased. The envelope in F0 had its first minimum at about ±130 px, and in F1 the minimum is wider at about ±160 px. A wider envelope means the slits widened. This gives IncreaseSpacing and WidenSlits.
-2. F1→F2: the fringes became coarser (spacing decreased) and the envelope narrowed (slits narrowed). This gives DecreaseSpacing and NarrowSlits.
-3. F2→F3: F3 equals F1, so the change reverses the previous one: IncreaseSpacing and WidenSlits.
-4. F3→F4: F4 equals F2, so the change is again DecreaseSpacing and NarrowSlits.
-5. F4→F5: the fringes are about the same pitch (spacing unchanged), but the envelope is wider, so the slits widened. This gives WidenSlits alone.
-6. F5→F6: F6 returns to the F2 pattern, with a narrower envelope and the same fringe pitch, so NarrowSlits alone.
+*   F0: Base
+*   F1: Tighter fringes than F0. Envelope slightly wider? (NarrowSlits, IncreaseSpacing)
+*   F2: Wider fringes than F1. Envelope narrower. (WidenSlits, DecreaseSpacing)
+*   F3: Tighter fringes than F2. Envelope wider. (NarrowSlits, IncreaseSpacing)
+*   F4: Wider fringes than F3. Envelope narrower. (WidenSlits, DecreaseSpacing)
+*   F5: Tighter fringes than F4. Envelope wider. (NarrowSlits, IncreaseSpacing)
+*   F6: Wider fringes than F5. Envelope narrower. (WidenSlits, DecreaseSpacing)
 
-**Consistency check on endpoints**
-Because each control drives its shaft to a fixed endpoint, the states are limited to a few shaft angles. The width endpoints are -123 and +92, and the spacing endpoints are +135 and -76.
-- F1 and F3 are width +92 with spacing +135.
-- F2, F4 and F6 are width -123 with spacing -76.
-- F5 is width +92 with spacing -76, which fits the coarse fringes with a wide envelope.
-- F0 has intermediate initial values.
+*   Let's check the-width change specifically.
+*   Envelope width is determined by `a`.
+*   Narrower envelope = larger `a` (WidenSlits)
+*   Wider envelope = smaller `a` (NarrowSlits)
+*   Fringe pitch is determined by `d`.
+*   Wider pitch (fewer fringes) = smaller `d` (DecreaseSpacing)
+*   Tighter pitch (more fringes) = larger `d` (IncreaseSpacing)
 
-The sequence is consistent with these endpoints.
+[…]
+
+Double check if any only had one control.
+Looking at F1 vs F2:
+F1: Envelope wide, fringes tight.
+F2: Envelope narrow, fringes wide.
+Both changed.
+
+[…]
+
+If F0 is at theta_w=0, theta_d=0, then:
+F1 (NarrowSlits, IncreaseSpacing) would move it to -123, +135.
+F2 (WidenSlits, DecreaseSpacing) would move it to +92, -76.
+And so on.
+
+This pattern seems consistent and follows the rules.
+
+[…]
+
+Event 1: ["IncreaseSpacing", "NarrowSlits"]
+Event 2: ["DecreaseSpacing", "WidenSlits"]
+Event 3: ["IncreaseSpacing", "NarrowSlits"]
+Event 4: ["DecreaseSpacing", "WidenSlits"]
+Event 5: ["IncreaseSpacing", "NarrowSlits"]
+Event 6: ["DecreaseSpacing", "WidenSlits"]
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
-| 1 | IncreaseSpacing + WidenSlits | IncreaseSpacing + NarrowSlits |
-| 2 | DecreaseSpacing + NarrowSlits | DecreaseSpacing + WidenSlits |
-| 3 | IncreaseSpacing + WidenSlits | IncreaseSpacing + NarrowSlits |
-| 4 | DecreaseSpacing + NarrowSlits | DecreaseSpacing + WidenSlits |
-| 5 | WidenSlits | NarrowSlits |
-| 6 | NarrowSlits | WidenSlits |
+| 1 | IncreaseSpacing + NarrowSlits | IncreaseSpacing + NarrowSlits |
+| 2 | DecreaseSpacing + WidenSlits | DecreaseSpacing + WidenSlits |
+| 3 | IncreaseSpacing + NarrowSlits | IncreaseSpacing + NarrowSlits |
+| 4 | DecreaseSpacing + WidenSlits | DecreaseSpacing + WidenSlits |
+| 5 | IncreaseSpacing + NarrowSlits | NarrowSlits |
+| 6 | DecreaseSpacing + WidenSlits | WidenSlits |

@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 from contracts import parse_answer, read_jsonl, validate_question
+from prompt_templates import add_style_option, evaluation_question
 
 
 MODEL_ID = "Qwen/Qwen3.5-9B"
@@ -26,7 +27,8 @@ def complete_question(question, dataset, generate):
     messages = messages_for(question, dataset)
     first = generate(messages)
     k = question["k"]
-    parsed = parse_answer(first, k, question["allowed_labels"], question.get("candidates"))
+    parsed = parse_answer(first, k, question["allowed_labels"], question.get("candidates"),
+                          compact_labels=question.get("prompt_style") in ("compact","narrative"))
     if parsed is not None:
         return {"id": question["id"], "response": first, "completion_used": False}
     request = (
@@ -79,6 +81,7 @@ def main():
     cli.add_argument("--sft", type=Path, help="Extracted CaveBench SFT adapter")
     cli.add_argument("--preference", type=Path, help="Extracted DPO, KTO or SimPO adapter, applied after SFT")
     cli.add_argument("--limit", type=int, help="Evaluate the first N questions")
+    add_style_option(cli)
     args = cli.parse_args()
     if args.preference and not args.sft:
         cli.error("--preference requires the SFT adapter passed to --sft")
@@ -104,7 +107,10 @@ def main():
             partial.unlink()
             cli.error(f"Output already exists: {args.output}")
         for question in questions:
+            question = evaluation_question(question, args.prompt_style)
             row = complete_question(question, args.data, generate)
+            if args.prompt_style != "original":
+                row["prompt_style"] = args.prompt_style
             output.write(json.dumps(row, ensure_ascii=False) + "\n")
             output.flush()
     partial.rename(args.output)

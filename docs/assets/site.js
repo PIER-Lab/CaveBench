@@ -39,7 +39,7 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    const versions = {'assets/results.js':'results-20261123', 'assets/offline-results.js':'results-20261123', 'assets/case-reader.js':'portrait2'};
+    const versions = {'assets/results.js':'results-20261123', 'assets/offline-results.js':'results-20261123', 'assets/case-reader.js':'verbal-prompts-3', 'assets/catalog.js':'verbal-prompts-3'};
     const version = versions[path] || 'atlas3';
     tag.src = path + '?v=' + version;
     tag.onload = resolve;
@@ -102,10 +102,28 @@ function textPanel(title,value) {
   box.append(copy,pre);
   return box;
 }
+function displayControls(controls) {
+  return controls.map(label=>label.replace(/^(PhaseA_|DeltaBA_)(0|90|180)deg$/, '$1$2°')).join(' + ');
+}
+function verbalControls(controls, spec) {
+  return controls.map(label=>spec.display_labels[label] || label).join(' + ');
+}
+function apparatusPrompt(item) {
+  const spec=item.template;
+  const card=node('section',undefined,'apparatus-prompt');
+  for (const text of spec.paragraphs) card.append(node('p', text));
+  const combinations=node('details');
+  combinations.append(node('summary','Legal control sets'),node('p',spec.allowed_event_sets.map(set=>verbalControls(set,spec)).join(' · ')));
+  const original=textPanel('Original evaluation prompt',item.prompt);
+  const figure=node('a','View prompt figure','zoom');
+  figure.href='assets/cases/'+item.id+'-prompt.webp?v=verbal-prompts-3';
+  card.append(figure,combinations,original);
+  return card;
+}
 function answerText(parent, value) {
-  for (const line of value.split(/\n+/).map(s=>s.trim()).filter(Boolean)) {
+  for (const line of value.split(/\n\s*\n/).map(s=>s.trim()).filter(Boolean)) {
     const p = node('p');
-    for (const part of line.replace(/^[-*]\s+/, '').split(/(\*\*[^*]+\*\*|`[^`]+`)/)) {
+    for (const part of line.split(/(\*\*[^*]+\*\*|`[^`]+`)/)) {
       if (part.startsWith('**') && part.endsWith('**')) p.append(node('strong',part.slice(2,-2)));
       else if (part.startsWith('`') && part.endsWith('`')) p.append(node('code',part.slice(1,-1)));
       else p.append(document.createTextNode(part));
@@ -121,7 +139,7 @@ function sectionStyle(id, href) {
   }
 }
 function loadCaseReader() {
-  sectionStyle('reader-style','assets/case-reader.css?v=ssi-sections');
+  sectionStyle('reader-style','assets/case-reader.css?v=verbal-prompts-3');
   return script('assets/case-reader.js');
 }
 function compareSteps(item) {
@@ -135,7 +153,7 @@ function compareSteps(item) {
   const body=table.createTBody();
   for (const step of item.steps) {
     const row=body.insertRow();
-    row.append(node('th',step.event),node('td',step.expected.join(' + ')),node('td',Array.isArray(step.predicted) ? step.predicted.join(' + ') : 'Unparsed'),node('td',step.correct ? 'Yes' : 'No'));
+    row.append(node('th',step.event),node('td',displayControls(step.expected)),node('td',Array.isArray(step.predicted) ? displayControls(step.predicted) : 'Unparsed'),node('td',step.correct ? 'Yes' : 'No'));
   }
   wrapper.append(table);
   box.append(node('p','Sequence exact match: '+(item.exact_match ? 'yes.':'no.')),wrapper);
@@ -160,7 +178,7 @@ function episodeMedia(item) {
 function trySequence(item) {
   const panel = node('details', undefined, 'try-sequence');
   panel.append(node('summary', 'Try the six-event question'));
-  const sets = JSON.parse(item.prompt.match(/ALLOWED EVENT LABEL SETS\s*\n(\[.*\])\s*\n/)[1]);
+  const sets = item.template.allowed_event_sets;
   const reference = item.steps.map(step => step.expected);
   const key = controls => JSON.stringify([...controls].sort());
   const fields = node('div', undefined, 'answer-fields');
@@ -168,7 +186,7 @@ function trySequence(item) {
     const label = node('label', 'Event ' + (i + 1));
     const select = node('select');
     select.add(new Option('Choose controls', ''));
-    for (const controls of sets) select.add(new Option(controls.join(' + '), key(controls)));
+    for (const controls of sets) select.add(new Option(verbalControls(controls,item.template), key(controls)));
     label.append(select);
     fields.append(label);
     return select;
@@ -176,8 +194,8 @@ function trySequence(item) {
   const actions = node('div', undefined, 'answer-actions');
   const result = node('p', '', 'answer-result');
   result.setAttribute('role', 'status');
-  const reveal = node('ol', undefined, 'answer-key');
-  reference.forEach(controls => reveal.append(node('li', controls.join(' + '))));
+  const lines=item.prompt_answer.operations.map(controls=>'    '+JSON.stringify(controls));
+  const reveal=node('pre','{\n  "operations": [\n'+lines.join(',\n')+'\n  ]\n}', 'answer-key');
   reveal.hidden = true;
   function action(title, run) {
     const button = node('button', title);
@@ -229,8 +247,10 @@ async function renderScene(id, changeHash=false) {
   if (oldVideo) oldVideo.pause();
   let item;
   try {
-    const record = entry.frames ? entry : jsonFile(pathFor(entry,'worked.json'));
+    const record = entry.frames ? entry : jsonFile(pathFor(entry,'illustrated_response.json'));
     [item] = await Promise.all([record, loadCaseReader()]);
+    const key=arr=>JSON.stringify([...arr].sort());
+    item.steps=item.reference.map((expected,i)=>({event:i+1,expected,predicted:item.prediction[i],correct:key(expected)===key(item.prediction[i])}));
   } catch {
     if (activeScene === anchor) {
       example.removeAttribute('data-scene');
@@ -247,7 +267,6 @@ async function renderScene(id, changeHash=false) {
   const identity = node('div',undefined,'scene-identity');
   identity.append(node('span',item.id+' / '+nameFor(item.domain),'scene-tag'),heading);
   header.append(identity,switchView);
-  const question = node('p', window.caveCaseQuestions[item.id], 'case-question');
   const strip=node('div',undefined,'strip');
   item.frames.forEach((filename,n)=>{
     const fig=node('figure'); const zoom=node('a',undefined,'zoom');
@@ -256,17 +275,15 @@ async function renderScene(id, changeHash=false) {
     zoom.append(preview(item,n,'frame-thumb'));
     fig.append(zoom,node('figcaption',item.frame_labels?.[n] || 'Frame F'+n)); strip.append(fig);
   });
-  const prompt=textPanel('Full prompt and control definitions',item.prompt);
-  prompt.className='prompt-card';
-  prompt.open=true;
+  const prompt=apparatusPrompt(item);
   const attempt=trySequence(item);
   if (practice) {
     attempt.open=true;
     strip.classList.add('practice-frames');
-    example.replaceChildren(header,question,prompt,node('h4','Internal observations'),strip,attempt);
+    example.replaceChildren(header,prompt,node('h4','Internal observations'),strip,attempt);
   } else {
-    const reading = window.caveCaseReader(item, {node,pathFor,answerText,strip,preview});
-    example.replaceChildren(header,question,prompt,reading,episodeMedia(item),attempt,compareSteps(item));
+    const reading = window.caveCaseReader(item, {node,pathFor,answerText,strip,preview,displayControls});
+    example.replaceChildren(header,prompt,reading,episodeMedia(item),attempt,compareSteps(item));
   }
   const available=matchingCases();
   $('#viewer-position').textContent=(available.findIndex(scene=>scene.id===id)+1)+' / '+available.length;
