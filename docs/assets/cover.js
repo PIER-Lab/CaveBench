@@ -20,9 +20,9 @@
   strip.addEventListener('load',drawThumbnails);
   if (strip.complete) drawThumbnails();
   const observations = [
-    ['The leaves are nearly closed.', 'F1 shows full insertion. Bringing the leaves closest together corresponds to the greatest overlap with the mica.'],
-    ['The leaves are widely separated.', 'F2 shows withdrawal. The leaves spread farthest when the mica is outside the capacitor.'],
-    ['The opening is between those in F1 and F2.', 'Correct. F3 shows half insertion. The leaves open farther than in F1 and less than in F2.']
+    ['The leaves are nearly closed.', 'F1 shows full insertion. The gap between the gold leaves is smallest here.'],
+    ['The leaves are widely separated.', 'F2 shows withdrawal. With the mica outside the capacitor, the gap between the leaves is widest.'],
+    ['The opening is between those in F1 and F2.', 'Correct. F3 shows half insertion. Compare the opening with the narrower gap in F1 and the wider gap in F2.']
   ];
   let selection = 2;
   reader.addEventListener('click', event => {

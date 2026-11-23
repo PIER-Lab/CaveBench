@@ -9,9 +9,7 @@ Tsinghua University
 
 [![Internal views of driven pendulums, a heated plate, a gold-leaf electroscope, resonant rods and photoelastic specimens.](docs/assets/repository-cover.webp)](docs/assets/cases/README.md)
 
-## Introduction
-
-CaveBench asks what happened outside a physical apparatus, given only images from inside it. Each question supplies the apparatus description, its possible controls and the observations in time order. At each step, the model must identify every control that acted.
+A camera inside a physical apparatus records the response to a sequence of external controls. Can a model reconstruct what happened outside? CaveBench gives the model the internal images in time order, the apparatus description and a list of possible controls. Its answer specifies which controls acted between each pair of images, including any that acted together.
 
 ## Case studies
 
@@ -22,7 +20,7 @@ CaveBench asks what happened outside a physical apparatus, given only images fro
 <details>
 <summary>Reveal the recorded control and Claude Sonnet 5.5’s answer</summary>
 
-The heater moved left. In its response, Claude Sonnet 5.5 described the first event as follows.
+The experiment log records `MoveLeft`. Claude Sonnet 5.5 tracked the same hot spot across the two frames.
 
 > the spot is at about x=500, y=290 in F0 and about x=440, y=295 in F1. It shifted left by about 60 px, with little vertical change. Event 1 is MoveLeft.
 
@@ -38,7 +36,7 @@ The heater moved left. In its response, Claude Sonnet 5.5 described the first ev
 
 ## Dataset
 
-The 20 apparatuses span five physical domains. The dataset contains 9,000 training episodes, 1,000 validation episodes and 200 test episodes. The test episodes yield 1,180 questions. A six-event question supplies seven images, from the initial state through the observation following the last event.
+Each of the 20 apparatuses contributes ten test episodes. A question starts with the initial frame and ends after one to six events. In the dielectric-response apparatus (S11), the first three events show full insertion, half insertion and withdrawal in varying order. Its questions start at three events so the reader can compare all three leaf openings. Together, the 200 test episodes yield 1,180 questions. The development split contains 9,000 training episodes and 1,000 validation episodes.
 
 ## News
 
@@ -46,7 +44,7 @@ The 20 apparatuses span five physical domains. The dataset contains 9,000 traini
 
 ## Leaderboard
 
-On the 200 six-event questions, GPT-6.1 Sol identified the correct set of controls at 1,035 of 1,200 events (86.25%). It recovered all six sets in 136 of the 200 questions (68.0%). The leaderboard ranks models by this whole-question score. MiniMax M3.1 Flash led the open-weight models with 25 complete sequences (12.5%). [Event counts by model and question length](results/domain_tables.md#event-by-length)
+GPT-6.1 Sol recovered 136 of 200 six-event sequences (68.0%), followed by GPT-6.1 Terra with 130 (65.0%). MiniMax M3.1 Flash led the open-weight models with 25 (12.5%). Each sequence scores one point when all six events match the experiment log. Scoring each event separately, Sol identified the complete set of controls at 1,035 of 1,200 events (86.25%). [Event counts by model and question length](results/domain_tables.md#event-by-length)
 
 <details>
 <summary>Six-event exact match for all 27 models</summary>
@@ -84,6 +82,37 @@ On the 200 six-event questions, GPT-6.1 Sol identified the correct set of contro
 
 </details>
 
+## Detailed results
+
+Each apparatus contributes ten questions at each available length. At one and two events, the tables cover 190 questions each. At three through six, they cover 200 each. Choose a length to compare models across domains or across all 20 apparatuses.
+
+| Comparison | 1 event | 2 events | 3 events | 4 events | 5 events | 6 events | Project page |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| 27 models by domain | [1](results/domain_tables.md#domain-k1) | [2](results/domain_tables.md#domain-k2) | [3](results/domain_tables.md#domain-k3) | [4](results/domain_tables.md#domain-k4) | [5](results/domain_tables.md#domain-k5) | [6](results/domain_tables.md#domain-k6) | [Explore](https://pier-lab.github.io/CaveBench/#domain-k1) |
+| 27 models by apparatus | [1](results/tasks_by_length.md#tasks-k1) | [2](results/tasks_by_length.md#tasks-k2) | [3](results/tasks_by_length.md#tasks-k3) | [4](results/tasks_by_length.md#tasks-k4) | [5](results/tasks_by_length.md#tasks-k5) | [6](results/tasks_by_length.md#tasks-k6) | [Explore](https://pier-lab.github.io/CaveBench/#tasks-k1) |
+| Adaptation methods by domain | [1](results/adaptation_domains.md#adaptation-k1) | [2](results/adaptation_domains.md#adaptation-k2) | [3](results/adaptation_domains.md#adaptation-k3) | [4](results/adaptation_domains.md#adaptation-k4) | [5](results/adaptation_domains.md#adaptation-k5) | [6](results/adaptation_domains.md#adaptation-k6) | [Explore](https://pier-lab.github.io/CaveBench/#table-adaptation_by_domain-k1) |
+
+To follow one apparatus across its available question lengths, open its [GitHub table](results/apparatus_tables.md) or [interactive table](https://pier-lab.github.io/CaveBench/#apparatus-S01).
+
+<details>
+<summary>Figure data, scores by question, and training comparisons</summary>
+
+| Results and underlying counts | Data |
+|---|---|
+| Main leaderboard by domain, apparatus and question length | [Domain × length](docs/assets/results/domain_by_length.csv) · [Apparatus × length](docs/assets/results/scene_by_length.csv) · [Overall by length](docs/assets/length.csv) |
+| Correct control sets at each question length, across 4,170 event predictions per model | [Event accuracy for all 27 models](results/domain_tables.md#event-by-length) · [Correct and scored event counts](docs/assets/results/main_event_by_length.csv) |
+| SFT, DPO, SimPO and KTO on Qwen3.5-9B, plus ReAct, Visual Sketchpad and ViperGPT on Gemini 3.8 Flash | [Domains](results/adaptation_domains.md) · [Individual apparatuses](results/adaptation_tables.md) · [Domain counts (CSV)](docs/assets/results/adaptation_by_domain.csv) · [Run and length (CSV)](docs/assets/results/adaptation_by_length.csv) · [Apparatus (CSV)](docs/assets/results/adaptation_by_scene.csv) · [Method summary](docs/assets/methods.csv) |
+| Preference training vs. SFT on matched question IDs | [Paired outcomes for each seed and question length](docs/assets/results/paired_training.csv) · [Interactive comparison](https://pier-lab.github.io/CaveBench/#table-paired_training) |
+| Accuracy at events 1–6 for the 11 adaptation runs and baselines | [Per-run table](results/adaptation_tables.md#event-positions) · [Interactive comparison](https://pier-lab.github.io/CaveBench/#table-adaptation_by_position) · [Correct events and denominators (CSV)](docs/assets/results/adaptation_by_position.csv) |
+| Evaluation settings for the 27 leaderboard configurations | [Browse model protocols](https://pier-lab.github.io/CaveBench/#table-model_protocols) · [Download CSV](docs/assets/results/model_protocols.csv) |
+| Data for the figures | [Figure 1 · model scores](results/figure_tables.md#figure-1) · [Figure 3 · dataset construction](results/figure_tables.md#figure-3) · [Figure 5 · dielectric-response predictions](results/figure_tables.md#figure-5) · [Figure 6 · reasoning effort](results/figure_tables.md#figure-6) · [Error categories](results/figure_tables.md#error-categories) |
+| Event-position accuracy on six-event questions, single- and two-label questions, and error classifications | [Event positions](docs/assets/results/event_positions.csv) · [Control composition](docs/assets/results/compound_by_length.csv) · [Error counts](docs/assets/results/error_categories.csv) |
+| Candidate-control vocabulary, uniform-choice probability and related benchmark tasks | [Apparatus statistics](docs/assets/results/scene_controls.csv) · [Uniform-choice reference](docs/assets/results/uniform_reference.csv) · [Benchmark comparison with sources](docs/assets/results/benchmark_comparison.csv) |
+
+[Interactive result tables](https://pier-lab.github.io/CaveBench/#detailed-results) · Question-level scores for [27 models on 1,180 questions](results/question_scores.csv), [11 adaptation runs and baselines](results/adaptation_question_scores.csv) and [three reasoning-effort settings](results/effort_question_scores.csv).
+
+</details>
+
 ## Installation
 
 Install the dataset tools with Python 3.9 or newer.
@@ -102,19 +131,23 @@ Download the test questions, reference labels and internal frames. Add `--all` t
 python prepare_media.py --repo linguanxin/CaveBench --data ./dataset
 ```
 
-Read the first question and its recorded controls.
+Load the one-event question from the moving-heater example above. The question supplies the prompt and the paths to F0 and F1. The label file records the control applied between them.
 
 ```python
 import json
 from pathlib import Path
 
 data = Path("dataset")
-with (data / "questions.jsonl").open(encoding="utf-8") as stream:
-    question = json.loads(next(stream))
-with (data / "labels.jsonl").open(encoding="utf-8") as stream:
-    reference = next(row for row in map(json.loads, stream) if row["id"] == question["id"])
-print(question["id"], question["prompt"])
-print(question["images"], reference["operations"])
+case_id = "scene_03/sample_0025/k1"
+
+def load_record(filename):
+    with (data / filename).open(encoding="utf-8") as stream:
+        return next(row for row in map(json.loads, stream) if row["id"] == case_id)
+
+question = load_record("questions.jsonl")
+print(question["prompt"])
+print(question["images"])
+print(load_record("labels.jsonl")["operations"])  # [['MoveLeft']]
 ```
 
 ## Run an evaluation
@@ -128,13 +161,13 @@ python run.py --data ./dataset --model MODEL_ID --endpoint https://HOST/v1/chat/
 python score.py --data ./dataset --predictions predictions.jsonl
 ```
 
-To score predictions from another runner, write one JSON object per question to `predictions.jsonl`. In this example from the driven-pendulum episode, the first carriage motion follows profile B.
+To score an existing set of predictions, write one JSON object per question to `predictions.jsonl` and run the same scoring command. For the moving-heater example, a correct prediction is
 
 ```json
-{"id":"scene_11/sample_0001/k1","response":"{\"operations\":[[\"TrajectoryB\"]]}"}
+{"id":"scene_03/sample_0025/k1","response":"{\"operations\":[[\"MoveLeft\"]]}"}
 ```
 
-List events in time order. Controls applied together can appear in any order within their event. The scorer counts a question as correct when every event matches the record. Missing or invalid answers score zero. In the output, `exact_match_percent.overall` covers all questions and `k1` through `k6` give accuracy at each length.
+List events chronologically. Within each event, the scorer compares the set of controls and accepts them in any order. Missing or invalid answers score zero. The output reports exact-match accuracy over all 1,180 questions in `exact_match_percent.overall` and at each length in `k1` through `k6`.
 
 ### Local Qwen checkpoints
 
@@ -165,7 +198,7 @@ The runner loads `Qwen/Qwen3.5-9B`, merges the SFT adapter, then loads the selec
 
 ### Other models with VLMEvalKit
 
-Choose a registered multi-image model in [VLMEvalKit](https://github.com/open-compass/VLMEvalKit). The runner sends the prompt followed by the internal frames in chronological order.
+Install [VLMEvalKit and the dependencies for your chosen model](https://github.com/open-compass/VLMEvalKit) in the environment used to run the commands below. Pass its registered model name to the CaveBench runner, which sends the prompt followed by the internal frames in chronological order.
 
 ```sh
 python run_vlmevalkit.py --data ./dataset --model Qwen2.5-VL-7B-Instruct --output predictions-vlmevalkit.jsonl
@@ -177,40 +210,6 @@ python score.py --data ./dataset --predictions predictions-vlmevalkit.jsonl
 - `python verify_results.py` recomputes the leaderboard, adaptation and reasoning-effort scores from the question-level results.
 - `python compare_training_runs.py --check` pairs each preference-training seed with SFT by question ID.
 - `python render_result_tables.py --check` compares the Markdown tables with their source CSV files.
-
-## Detailed results
-
-**Accuracy by physical domain.** There are 190 questions each at one and two events, and 200 each at three through six events.
-
-| Events per question | One | Two | Three | Four | Five | Six |
-|---|---|---|---|---|---|---|
-| Main evaluation · GitHub | [k = 1](results/domain_tables.md#domain-k1) | [k = 2](results/domain_tables.md#domain-k2) | [k = 3](results/domain_tables.md#domain-k3) | [k = 4](results/domain_tables.md#domain-k4) | [k = 5](results/domain_tables.md#domain-k5) | [k = 6](results/domain_tables.md#domain-k6) |
-| Main evaluation · project page | [k = 1](https://pier-lab.github.io/CaveBench/#domain-k1) | [k = 2](https://pier-lab.github.io/CaveBench/#domain-k2) | [k = 3](https://pier-lab.github.io/CaveBench/#domain-k3) | [k = 4](https://pier-lab.github.io/CaveBench/#domain-k4) | [k = 5](https://pier-lab.github.io/CaveBench/#domain-k5) | [k = 6](https://pier-lab.github.io/CaveBench/#domain-k6) |
-| Adaptation · GitHub | [k = 1](results/adaptation_domains.md#adaptation-k1) | [k = 2](results/adaptation_domains.md#adaptation-k2) | [k = 3](results/adaptation_domains.md#adaptation-k3) | [k = 4](results/adaptation_domains.md#adaptation-k4) | [k = 5](results/adaptation_domains.md#adaptation-k5) | [k = 6](results/adaptation_domains.md#adaptation-k6) |
-| Adaptation · project page | [k = 1](https://pier-lab.github.io/CaveBench/#table-adaptation_by_domain-k1) | [k = 2](https://pier-lab.github.io/CaveBench/#table-adaptation_by_domain-k2) | [k = 3](https://pier-lab.github.io/CaveBench/#table-adaptation_by_domain-k3) | [k = 4](https://pier-lab.github.io/CaveBench/#table-adaptation_by_domain-k4) | [k = 5](https://pier-lab.github.io/CaveBench/#table-adaptation_by_domain-k5) | [k = 6](https://pier-lab.github.io/CaveBench/#table-adaptation_by_domain-k6) |
-
-**Accuracy by apparatus.** Each apparatus contributes ten questions at each available length. Dielectric response (S11) begins at three events. [GitHub tables](results/apparatus_tables.md) · [Interactive tables](https://pier-lab.github.io/CaveBench/#apparatus-S01)
-
-To compare the 20 apparatuses at one question length, choose a column below. Each view shows the 27 models against the same apparatuses.
-
-| All apparatuses at one length | 1 event | 2 events | 3 events | 4 events | 5 events | 6 events |
-|---|---|---|---|---|---|---|
-| GitHub | [k = 1](results/tasks_by_length.md#tasks-k1) | [k = 2](results/tasks_by_length.md#tasks-k2) | [k = 3](results/tasks_by_length.md#tasks-k3) | [k = 4](results/tasks_by_length.md#tasks-k4) | [k = 5](results/tasks_by_length.md#tasks-k5) | [k = 6](results/tasks_by_length.md#tasks-k6) |
-| Project page | [k = 1](https://pier-lab.github.io/CaveBench/#tasks-k1) | [k = 2](https://pier-lab.github.io/CaveBench/#tasks-k2) | [k = 3](https://pier-lab.github.io/CaveBench/#tasks-k3) | [k = 4](https://pier-lab.github.io/CaveBench/#tasks-k4) | [k = 5](https://pier-lab.github.io/CaveBench/#tasks-k5) | [k = 6](https://pier-lab.github.io/CaveBench/#tasks-k6) |
-
-| Results and underlying counts | Data |
-|---|---|
-| Main leaderboard by domain, apparatus and question length | [Domain × length](docs/assets/results/domain_by_length.csv) · [Apparatus × length](docs/assets/results/scene_by_length.csv) · [Overall by length](docs/assets/length.csv) |
-| Correct control sets at each question length, across 4,170 event predictions per model | [Event accuracy for all 27 models](results/domain_tables.md#event-by-length) · [Correct and scored event counts](docs/assets/results/main_event_by_length.csv) |
-| SFT, DPO, SimPO and KTO on Qwen3.5-9B, plus ReAct, Visual Sketchpad and ViperGPT on Gemini 3.8 Flash | [Domains](results/adaptation_domains.md) · [Individual apparatuses](results/adaptation_tables.md) · [Domain counts (CSV)](docs/assets/results/adaptation_by_domain.csv) · [Run and length (CSV)](docs/assets/results/adaptation_by_length.csv) · [Apparatus (CSV)](docs/assets/results/adaptation_by_scene.csv) · [Method summary](docs/assets/methods.csv) |
-| Preference training vs. SFT on matched question IDs | [Paired outcomes for each seed and question length](docs/assets/results/paired_training.csv) · [Interactive comparison](https://pier-lab.github.io/CaveBench/#table-paired_training) |
-| Accuracy at events 1–6 for the 11 adaptation runs and baselines | [Per-run table](results/adaptation_tables.md#event-positions) · [Interactive comparison](https://pier-lab.github.io/CaveBench/#table-adaptation_by_position) · [Correct events and denominators (CSV)](docs/assets/results/adaptation_by_position.csv) |
-| Evaluation settings for the 27 leaderboard configurations | [Browse model protocols](https://pier-lab.github.io/CaveBench/#table-model_protocols) · [Download CSV](docs/assets/results/model_protocols.csv) |
-| Data for the figures | [Figure 1 · model scores](results/figure_tables.md#figure-1) · [Figure 3 · dataset construction](results/figure_tables.md#figure-3) · [Figure 5 · dielectric-response predictions](results/figure_tables.md#figure-5) · [Figure 6 · reasoning effort](results/figure_tables.md#figure-6) · [Error categories](results/figure_tables.md#error-categories) |
-| Event-position accuracy on six-event questions, single- and two-label questions, and error classifications | [Event positions](docs/assets/results/event_positions.csv) · [Control composition](docs/assets/results/compound_by_length.csv) · [Error counts](docs/assets/results/error_categories.csv) |
-| Candidate-control vocabulary, uniform-choice probability and related benchmark tasks | [Apparatus statistics](docs/assets/results/scene_controls.csv) · [Uniform-choice reference](docs/assets/results/uniform_reference.csv) · [Benchmark comparison with sources](docs/assets/results/benchmark_comparison.csv) |
-
-[Interactive result tables](https://pier-lab.github.io/CaveBench/#detailed-results) · Question-level scores for [27 models on 1,180 questions](results/question_scores.csv), [11 adaptation runs and baselines](results/adaptation_question_scores.csv) and [three reasoning-effort settings](results/effort_question_scores.csv).
 
 ## Project page
 

@@ -1,6 +1,6 @@
 # CaveBench case studies
 
-Twenty experiments in five physical domains. Open an apparatus to see its seven observations, the controls applied between them and a model’s account of the sequence.
+Each apparatus has one six-event case. Read the seven internal frames from left to right, starting at F0. The experiment log gives the controls applied between frames. Compare those controls with the model’s explanation and answer for each event. Open a case for its complete prompt and the video showing the interior and exterior views together.
 
 [Editable case plates](CaveBench_Case_Studies.pptx) · [Supplementary PDF](../../papers/Supplement.pdf) · [Interactive cases](https://pier-lab.github.io/CaveBench/#viewer)
 

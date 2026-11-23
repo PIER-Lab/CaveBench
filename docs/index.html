@@ -181,7 +181,7 @@ h2,h3,h4 { color:var(--ink); }
   </section>
   <section class="section" id="dataset">
     <div class="section-intro">
-      <div><h2>Explore the dataset</h2><p>A camera records the experiment from inside the apparatus. Given an apparatus description and a list of external controls, the model identifies which controls were applied between consecutive frames.</p></div>
+      <div><h2>Explore the dataset</h2><p>Start with the initial frame, F0. Compare each new frame with the one before it, then use the apparatus description to choose the controls that explain the change. Two controls can act in the same interval.</p></div>
       <dl class="statistics"><div><dt>Apparatuses</dt><dd>20</dd></div><div><dt>Physical domains</dt><dd>5</dd></div><div><dt>Test questions</dt><dd>1,180</dd></div></dl>
     </div>
     <nav class="domain-ribbon" aria-label="Case studies by physical domain">
@@ -191,7 +191,7 @@ h2,h3,h4 { color:var(--ink); }
       <a href="#S15"><span class="domain-photo" style="--tile:75%" aria-hidden="true"></span><span>Acoustics</span></a>
       <a href="#S17"><span class="domain-photo" style="--tile:100%" aria-hidden="true"></span><span>Optics</span></a>
     </nav>
-    <p class="split-note">The dataset contains 9,000 training episodes, 1,000 validation episodes and 200 test episodes. Each test question covers one to six events, with an initial image and one image after each event.</p>
+    <p class="split-note">The training set contains 9,000 episodes and the validation set contains 1,000. The 200 test episodes yield 1,180 questions about sequences ranging from one to six events.</p>
     <details class="fold"><summary>Test set composition by domain</summary>
       <div class="tablewrap" tabindex="0" role="region" aria-label="Test set composition"><table>
         <thead><tr><th scope="col">Domain</th><th scope="col">Apparatuses</th><th scope="col">Episodes</th><th scope="col">Questions</th><th scope="col">Single-label events</th><th scope="col">Two-label events</th></tr></thead>
@@ -202,7 +202,7 @@ h2,h3,h4 { color:var(--ink); }
           <tr><th scope="row">Acoustics</th><td>S13–S16</td><td>40</td><td>240</td><td>108</td><td>132</td></tr>
           <tr><th scope="row">Optics</th><td>S17–S20</td><td>40</td><td>240</td><td>179</td><td>61</td></tr>
         </tbody></table></div>
-      <p>In S11, the first three events show full insertion, half insertion and withdrawal in varying order. The three leaf positions provide visual references for distinguishing the settings. All ten S11 episodes contribute questions of lengths three through six. Across apparatuses, there are 190 questions at each of the first two lengths and 200 at each remaining length.</p>
+      <p>In the dielectric-response apparatus (S11), the first three events show full insertion, half insertion and withdrawal in varying order. Comparing the three leaf openings lets the viewer identify the middle setting. The ten S11 episodes therefore contribute three- to six-event questions. Each of the other 190 episodes contributes all six question lengths.</p>
     </details>
     <div class="case-intro"><h3 id="viewer">Case studies</h3><a href="assets/cases/CaveBench_Case_Studies.pptx?v=portrait2" download>Download editable slides</a></div>
     <div id="browser">
@@ -270,7 +270,7 @@ h2,h3,h4 { color:var(--ink); }
     <div class="analysis-head"><h2>Analysis</h2></div>
     <h3>From one event to six</h3>
     <div class="finding">
-      <div><p>All 27 model configurations score lower on six-event questions than on single-event questions. Gemini 3.8 Flash drops from 60.5% to 21.5%, and MiniMax M3.1 Flash drops from 38.4% to 12.5%.</p></div>
+      <div><p>All 27 model configurations score lower at six events than at one. Gemini 3.8 Flash recovers 115 of 190 single-event sequences (60.5%) and 43 of 200 six-event sequences (21.5%). MiniMax M3.1 Flash drops from 73 of 190 (38.4%) to 25 of 200 (12.5%).</p></div>
       <figure class="score-plot"><figcaption>Six-event exact-match accuracy</figcaption>
         <div><span>GPT-6.1 Sol</span><b style="--score:68%"></b><strong>68.0%</strong></div>
         <div><span>GPT-6.1 Terra</span><b style="--score:65%"></b><strong>65.0%</strong></div>
@@ -281,22 +281,22 @@ h2,h3,h4 { color:var(--ink); }
     <p class="related-tables"><a href="#table-main_event_by_length" data-detail="main_event_by_length">Event accuracy at each question length</a> · <a href="#table-compound_by_length" data-detail="compound_by_length">Compare single- and two-label events</a></p>
     <div class="analysis-spread">
       <div><h3>Learning to recover a sequence</h3>
-    <p>Supervised fine-tuning raises Qwen3.5-9B’s six-event accuracy from 0.5% to 20.0%. Across two training seeds, SimPO and KTO achieve similar single-event accuracy (86.8% and 86.3%). At six events, SimPO reaches 31.8% and KTO scores 14.5%.</p>
-    <p>On the 40 six-event dynamics questions, SFT recovers 10 complete sequences. The two SimPO runs recover <a href="#table-adaptation_by_domain-k6?domain=Dynamics" data-detail="adaptation_by_domain">16 and 17</a>. Across all five domains, each run recovers 27 sequences that SFT missed. Of these, 26 are the same questions. <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_tables.md#simpo-seeds">Compare the two training seeds</a>.</p>
+    <p>Qwen3.5-9B recovers one of 200 six-event sequences before task-specific training and 40 after supervised fine-tuning (SFT). Adding SimPO or KTO gives similar single-event accuracy across two seeds (86.8% and 86.3%, respectively). On six-event sequences, SFT + SimPO reaches 31.8% and SFT + KTO reaches 14.5%.</p>
+    <p>SFT recovers 10 of the 40 six-event dynamics sequences. The two SimPO runs recover <a href="#table-adaptation_by_domain-k6?domain=Dynamics" data-detail="adaptation_by_domain">16 and 17</a>. Across the five domains, each SimPO run recovers 27 sequences that SFT missed. The runs agree on 26 of those sequences. <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_tables.md#simpo-seeds">Compare the two training seeds</a>.</p>
     <p class="related-tables"><a href="#table-training_case" data-detail="training_case">Compare predictions for all six events</a> · <a href="#table-adaptation_by_domain-k6" data-detail="adaptation_by_domain">Compare adaptation by physical domain</a> · <a href="#table-adaptation_by_length" data-detail="adaptation_by_length">Compare question lengths</a> · <a href="#table-adaptation_by_position" data-detail="adaptation_by_position">Accuracy at each event by run</a> · <a href="https://github.com/PIER-Lab/CaveBench#local-qwen-checkpoints">Load the trained checkpoints</a></p>
       </div>
-    <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" width="1485" height="1707" sizes="(max-width: 735px) 90vw, 550px" data-lazy-srcset="assets/figures/adaptation-704.webp 704w, assets/figures/adaptation-1200.webp 1200w" data-lazy-src="assets/figures/adaptation-704.webp" alt="Frames F0–F3 of the dielectric-response apparatus and the two models’ predictions for event 3."></a><figcaption>At event 3, the electroscope leaves open wider than at full insertion. The baseline predicts full insertion, while both SimPO runs identify half insertion.</figcaption></figure>
+    <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" width="1485" height="1707" sizes="(max-width: 735px) 90vw, 550px" data-lazy-srcset="assets/figures/adaptation-704.webp 704w, assets/figures/adaptation-1200.webp 1200w" data-lazy-src="assets/figures/adaptation-704.webp" alt="Frames F0–F3 above Qwen3.5-9B’s explanations for event 3 before and after SFT + SimPO."></a><figcaption>At F3 the leaves are farther apart than at F1 and closer than at F2. The baseline predicts full insertion. After SFT + SimPO, the model identifies half insertion.</figcaption></figure>
     </div>
     <div class="analysis-spread">
       <div><h3>Reasoning effort</h3>
-    <p>Across the same 200 six-event questions, GPT-6.1 Sol recovers 119 full sequences at low reasoning effort (59.5%) and 148 at high effort (74.0%). Gemini 3.8 Flash drops from 31 complete sequences (15.5%) to 16 (8.0%).</p>
+    <p>Raising reasoning effort from low to high gives GPT-6.1 Sol 29 more correct final answers on the same 200 six-event questions, from 119 (59.5%) to 148 (74.0%). Gemini 3.8 Flash recovers 15 fewer sequences at high effort, dropping from 31 (15.5%) to 16 (8.0%).</p>
     <p class="related-tables"><a href="#table-effort_results" data-detail="effort_results">View the model and apparatus scores</a></p>
       </div>
     <figure><a class="zoom" href="assets/effort.png"><img loading="lazy" width="1485" height="446" sizes="(max-width: 735px) 90vw, 550px" data-lazy-srcset="assets/figures/effort-704.webp 704w, assets/figures/effort-1200.webp 1200w" data-lazy-src="assets/figures/effort-704.webp" alt="Accuracy by reasoning effort, model and apparatus."></a><figcaption>Final-answer accuracy across ten episodes per apparatus.</figcaption></figure>
     </div>
     <div class="analysis-spread">
       <div><h3>Error analysis</h3>
-    <p>Of 100 incorrect six-event answers, 38 misread a visual cue and 31 failed to connect observations across time. In 24, the model misapplied a physical principle. In the remaining seven, it selected the wrong combination of controls.</p>
+    <p>In 100 sampled incorrect six-event answers, models misread a visual cue in 38 cases, failed to connect observations across time in 31, misapplied a physical principle in 24 and selected the wrong combination of controls in seven.</p>
     <p class="related-tables"><a href="#table-error_categories" data-detail="error_categories">View counts by error category</a></p>
       </div>
     <figure><a class="zoom" href="assets/errors.png"><img loading="lazy" width="1485" height="1170" sizes="(max-width: 735px) 90vw, 550px" data-lazy-srcset="assets/figures/errors-704.webp 704w, assets/figures/errors-1200.webp 1200w" data-lazy-src="assets/figures/errors-704.webp" alt="Four examples pairing the input images with the predicted and recorded controls, one for each error category."></a></figure>
@@ -328,9 +328,9 @@ h2,h3,h4 { color:var(--ink); }
   strip.addEventListener('load',drawThumbnails);
   if (strip.complete) drawThumbnails();
   const observations = [
-    ['The leaves are nearly closed.', 'F1 shows full insertion. Bringing the leaves closest together corresponds to the greatest overlap with the mica.'],
-    ['The leaves are widely separated.', 'F2 shows withdrawal. The leaves spread farthest when the mica is outside the capacitor.'],
-    ['The opening is between those in F1 and F2.', 'Correct. F3 shows half insertion. The leaves open farther than in F1 and less than in F2.']
+    ['The leaves are nearly closed.', 'F1 shows full insertion. The gap between the gold leaves is smallest here.'],
+    ['The leaves are widely separated.', 'F2 shows withdrawal. With the mica outside the capacitor, the gap between the leaves is widest.'],
+    ['The opening is between those in F1 and F2.', 'Correct. F3 shows half insertion. Compare the opening with the narrower gap in F1 and the wider gap in F2.']
   ];
   let selection = 2;
   reader.addEventListener('click', event => {
