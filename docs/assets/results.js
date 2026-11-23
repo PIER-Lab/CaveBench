@@ -1,5 +1,6 @@
 'use strict';
 
+const tables = window.CAVE_TABLES;
 const resultDirectory = 'assets/results/';
 // Match the paper's nearest-even formatting for nonnegative binary floats.
 // At one decimal, .25 is the only exact halfway fraction that toFixed rounds to an odd digit.
@@ -186,8 +187,15 @@ async function updateLeaderboard() {
     : scene + ' · ' + cases.find(c => c.id === scene).title + '. Ten questions per reported length.' +
       (scene === 'S11' ? ' S11 begins at three events. A dash marks an untested length.' : '');
   if (isDomain && k === 6) {
-    renderLeaderboard({...tables.domains, label:'Model'}, note, 'domains-k6');
-    if (location.protocol === 'file:') return;
+    const rows = tables.domains.rows.map(row => ({
+      ...row,
+      counts:row.values.map((value, index) => {
+        const total = index === 5 ? 200 : 40;
+        return Math.round(value * total / 100) + ' / ' + total + ' correct';
+      })
+    }));
+    renderLeaderboard({columns:physicalDomains, rows, label:'Model'}, note, 'domains-k6');
+    return;
   } else {
     $('#results').replaceChildren();
     $('#table-note').textContent = note;
@@ -233,7 +241,6 @@ for (const k of lengths) {
 for (const item of cases) $('#result-apparatus').add(new Option(item.id + ' · ' + item.title, item.id));
 $('#result-apparatus').onchange = event => { leaderboard.scene = event.target.value; chooseView('scenes'); };
 document.querySelectorAll('[data-table]').forEach(button => { button.onclick = () => chooseView(button.dataset.table); });
-updateLeaderboard();
 
 const views = {
   adaptation_by_length: ['Adaptation by run and question length', 'Training and adaptation'],
@@ -440,7 +447,6 @@ document.querySelectorAll('a[data-detail]').forEach(link => {
     $('#detailed-results').scrollIntoView({block:'start'});
   };
 });
-loadDetail();
 function openResultAnchor() {
   const key = location.hash.slice(1);
   const domain = /^domain-k([1-6])$/.exec(key);
@@ -456,12 +462,14 @@ function openResultAnchor() {
   } else if (key.startsWith('table-') && Object.hasOwn(views, key.slice(6))) {
     detailSelect.value = key.slice(6);
     loadDetail();
-    requestAnimationFrame(() => $('#detailed-results').scrollIntoView({block:'start'}));
+    requestAnimationFrame(() => $('#detailed-results').scrollIntoView({block:'start',behavior:'instant'}));
     return;
   } else {
     return;
   }
-  requestAnimationFrame(() => $('#leaderboard').scrollIntoView({block:'start'}));
+  requestAnimationFrame(() => $('#leaderboard').scrollIntoView({block:'start',behavior:'instant'}));
 }
 window.addEventListener('hashchange', openResultAnchor);
 openResultAnchor();
+if (!leaderboardVersion) updateLeaderboard();
+whenNear($('#detailed-results'), () => { if (!detailVersion) loadDetail(); });

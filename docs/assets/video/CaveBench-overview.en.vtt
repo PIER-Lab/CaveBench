@@ -1,58 +1,49 @@
 WEBVTT
 
-00:00:00.200 --> 00:00:02.888
-Imagine sitting inside a device.
+00:00:00.360 --> 00:00:04.752
+Inside the vehicle, watch the
+blue ball and the red pendulum.
 
-00:00:03.013 --> 00:00:05.221
-You can see what changes around you.
+00:00:05.037 --> 00:00:08.157
+As the vehicle braked,
+which way did it turn?
 
-00:00:05.346 --> 00:00:08.658
-Can you work out which controls someone
-operated outside?
+00:00:08.658 --> 00:00:11.442
+You can check the
+synchronized outside view.
 
-00:00:09.242 --> 00:00:11.810
-The model sees images from inside.
+00:00:11.745 --> 00:00:17.601
+The model gets time-ordered internal stills,
+an apparatus description, and the question.
 
-00:00:11.935 --> 00:00:16.183
-The outside view from the original video lets
-us follow along.
+00:00:17.983 --> 00:00:22.903
+Between frames 5 and 6, the
+vehicle braked and turned left.
 
-00:00:16.308 --> 00:00:23.844
-The split has 9,000 training episodes, 1,000
-validation episodes, and 200 test episodes.
+00:00:23.307 --> 00:00:27.795
+GPT-6.1 Sol answered
+“brake and turn right.”
 
-00:00:24.450 --> 00:00:28.002
-Watch the cabin between frames five and six.
+00:00:28.140 --> 00:00:33.180
+It got the first five events right, but
+the complete sequence earned no credit.
 
-00:00:28.127 --> 00:00:31.295
-The final event was braking while turning left.
+00:00:33.822 --> 00:00:37.854
+CaveBench covers 20 apparatuses
+across five domains.
 
-00:00:31.420 --> 00:00:34.060
-The model said braking while turning right.
+00:00:38.162 --> 00:00:42.434
+Its 1,180 questions span one to six events.
 
-00:00:34.185 --> 00:00:37.929
-That direction error costs the whole sequence
-its point.
+00:00:43.030 --> 00:00:49.630
+Sol recovered 136 of 200
+six-event sequences, or 68%.
 
-00:00:38.533 --> 00:00:46.824
-Across 20 devices in five domains of physics,
-the test asks 1,180 questions, spanning one to
+00:00:50.208 --> 00:00:59.496
+Qwen3.5-9B rose from 0.5% to 20% six-event
+accuracy with supervised fine-tuning.
 
-00:00:46.824 --> 00:00:47.725
-six steps.
-
-00:00:48.325 --> 00:00:56.989
-In Figure 1, GPT-6.1 Sol gets 136 of the 200
-six-step questions right.
-
-00:00:57.114 --> 00:00:59.034
-That’s 68 percent.
-
-00:00:59.617 --> 00:01:08.182
-Qwen3.5-9B scores half a percent at baseline,
-20 percent after supervised fine-tuning, and
-
-00:01:08.182 --> 00:01:13.417
-31.8 percent with SimPO added, averaged over
-two seeds.
+00:00:59.848 --> 00:01:05.608
+After SimPO, accuracy averaged
+31.8% across two runs.
 

@@ -3,37 +3,56 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f8f9f7">
+  <meta name="theme-color" content="#0b292c">
   <meta name="description" content="CaveBench evaluates abductive physical reasoning from internal observations. Explore twenty apparatuses, video examples and results from 27 vision–language model configurations.">
   <title>CaveBench · Abductive Physical Reasoning from Internal Observations</title>
-  <link rel="stylesheet" href="assets/site.css">
-  <script defer src="assets/tables.js"></script>
-  <script defer src="assets/catalog.js"></script>
-  <script defer src="assets/site.js"></script>
-  <script defer src="assets/results.js"></script>
+  <link rel="icon" type="image/png" href="assets/cave-mark.png">
+  <link rel="preload" as="image" href="assets/video/CaveBench-overview.jpg?v=field1" fetchpriority="high">
+  <link rel="stylesheet" href="assets/site.css?v=field1">
+  <script defer src="assets/site.js?v=field1"></script>
 </head>
 <body>
 <a href="#main" class="skip">Skip to content</a>
-<header class="nav"><nav aria-label="Main navigation"><a class="brand" href="#top">CaveBench</a><div><a href="#dataset">Dataset</a><a href="#leaderboard">Leaderboard</a><a href="#analysis">Analysis</a></div></nav></header>
+<header class="nav"><nav aria-label="Main navigation">
+  <a class="brand" href="#top"><img src="assets/cave-mark.png" alt="" width="31" height="31">CaveBench</a>
+  <div><a href="#dataset">Dataset</a><a href="#leaderboard">Leaderboard</a><a href="#analysis">Analysis</a></div>
+</nav></header>
 <main id="main">
   <section class="hero" id="top">
-    <h1><span>CaveBench</span>Benchmarking Abductive Physical Reasoning from Internal Observations</h1>
-    <div id="byline"></div>
-    <div id="resources" class="links"></div>
-    <figure class="lead"><a class="zoom" href="assets/teaser.png" aria-label="Enlarge the CaveBench overview"><img src="assets/teaser.png" alt="Overview of all twenty apparatuses across five domains, with six-event accuracy for representative models."></a></figure>
-    <p class="intro">Can a vision–language model reconstruct what happened outside an apparatus from the changes it sees inside? CaveBench gives the model an apparatus description and a sequence of internal images. At each event, the model identifies the complete set of controls that produced the observed response.</p>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1><span class="wordmark">CaveBench<span class="title-colon">:</span></span> <span class="paper-title">Benchmarking Abductive Physical Reasoning from Internal Observations</span></h1>
+        <p class="intro">From inside a physical apparatus, can a vision–language model work out what changed outside?</p>
+        <div class="hero-actions"><a class="read-paper" href="papers/CaveBench.pdf">Read the paper <span aria-hidden="true">↗</span></a><a class="explore" href="#viewer">Explore the scenes <span aria-hidden="true">↓</span></a></div>
+      </div>
+      <figure class="film" id="film" aria-labelledby="film-title">
+        <div class="film-caption"><h2 id="film-title">Research film</h2><a href="assets/video/CaveBench-overview.mp4?v=field1" download>Download <span aria-hidden="true">↓</span></a></div>
+        <div class="film-frame">
+          <video class="overview-video" controls playsinline preload="none" poster="assets/video/CaveBench-overview.jpg?v=field1" aria-label="CaveBench research film">
+            <source src="assets/video/CaveBench-overview.mp4?v=field1" type="video/mp4">
+            <track kind="captions" src="assets/video/CaveBench-overview.en.vtt?v=field1" srclang="en" label="English">
+          </video>
+          <button type="button" class="film-play" aria-label="Play research film" hidden><span aria-hidden="true"></span></button>
+        </div>
+        <figcaption class="film-foot"><span class="film-spool" aria-hidden="true"></span>English narration &amp; captions</figcaption>
+      </figure>
+    </div>
   </section>
-  <section class="section" id="film">
-    <h2>Research video</h2>
-    <video class="overview-video" controls playsinline preload="none" poster="assets/video/CaveBench-overview.jpg" aria-label="CaveBench research video">
-      <source src="assets/video/CaveBench-overview.mp4" type="video/mp4">
-      <track kind="captions" src="assets/video/CaveBench-overview.en.vtt" srclang="en" label="English">
-    </video>
-    <div class="video-caption"><span>English narration and captions</span><a href="assets/video/CaveBench-overview.mp4" download>Download video</a></div>
-  </section>
+  <div class="credits" id="release"><div class="credits-inner">
+    <div id="byline">
+      <p class="authors"><span>Guanxin Lin<sup>*</sup></span>, <span>Chen Yang<sup>*</sup></span>, <span>Shenxiang Zeng</span>, <span>Honghui Zhu</span>, <span>Xin Li</span>, <span>Wenbo Deng</span>, <span>Jiansheng Fan</span>, <span>Chen Wang<sup>†</sup></span></p>
+      <p class="institution">Tsinghua University <small><span>* Equal contribution</span> · <span>† Corresponding author</span></small></p>
+    </div>
+    <div id="resources" class="links" aria-label="Project resources">
+      <a href="https://github.com/PIER-Lab/CaveBench">GitHub</a><a href="https://huggingface.co/datasets/linguanxin/CaveBench">Dataset</a><a href="papers/Supplement.pdf">Supplement</a><a href="https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1">Weights</a>
+    </div>
+  </div></div>
   <section class="section" id="dataset">
-    <h2>Dataset</h2>
-    <p>Twenty apparatuses cover dynamics, thermal physics, electromagnetism, acoustics and optics. The 10,200 episodes are split into 9,000 for training, 1,000 for validation and 200 for testing. The test set contains 1,180 questions spanning one to six events.</p>
+    <div class="section-intro">
+      <div><h2>Dataset</h2><p>Each episode begins with an apparatus description and a view from inside it. As the scene changes, the model reconstructs the controls applied at each event.</p></div>
+      <dl class="statistics"><div><dt>Apparatuses</dt><dd>20</dd></div><div><dt>Physical domains</dt><dd>5</dd></div><div><dt>Test questions</dt><dd>1,180</dd></div></dl>
+    </div>
+    <p class="split-note">The dataset contains 9,000 training, 1,000 validation and 200 test episodes. Test questions span one to six events.</p>
     <details class="fold"><summary>Test set composition by domain</summary>
       <div class="tablewrap" tabindex="0" role="region" aria-label="Test set composition"><table>
         <thead><tr><th scope="col">Domain</th><th scope="col">Apparatuses</th><th scope="col">Episodes</th><th scope="col">Questions</th><th scope="col">Single-label events</th><th scope="col">Two-label events</th></tr></thead>
@@ -54,13 +73,19 @@
         <label>Apparatus<select id="scene"></select></label>
         <div class="pager"><button type="button" id="prev" aria-label="Previous scene">←</button><button type="button" id="next" aria-label="Next scene">→</button><button type="button" id="random-scene">Random</button></div>
       </div>
+      <details class="apparatus-atlas" id="apparatus-atlas">
+        <summary>Browse all 20 apparatuses</summary>
+        <div id="atlas"></div>
+      </details>
       <article id="example" aria-live="polite"></article>
     </div>
+    <h3>Benchmark overview</h3>
+    <figure class="lead"><a class="zoom" href="assets/teaser.png" aria-label="Enlarge the CaveBench overview"><img loading="lazy" width="1485" height="705" data-lazy-src="assets/teaser.png" alt="Overview of all twenty apparatuses across five domains, with six-event accuracy for representative models."></a></figure>
     <h3>Construction and evaluation</h3>
-    <figure><a class="zoom" href="assets/construction.png"><img loading="lazy" src="assets/construction.png" alt="Episode generation, image and control synchronization, question construction and model evaluation."></a><figcaption>Each episode records an initial state and six successive responses. Simulator logs supply the ordered control sets used for scoring.</figcaption></figure>
+    <figure><a class="zoom" href="assets/construction.png"><img loading="lazy" width="1800" height="963" data-lazy-src="assets/construction.png" alt="Episode generation, image and control synchronization, question construction and model evaluation."></a><figcaption>Each episode records an initial state and six successive responses. Simulator logs supply the ordered control sets used for scoring.</figcaption></figure>
     <details class="fold"><summary>Physical design and example questions</summary>
-      <figure><a class="zoom" href="assets/resonance.png"><img loading="lazy" src="assets/resonance.png" alt="Resonant rods illustrate reasoning from an observed response back to a hidden control."></a><figcaption>Abductive reasoning with resonant rods. The source frequency is 100 Hz.</figcaption></figure>
-      <figure><a class="zoom" href="assets/questions.png"><img loading="lazy" src="assets/questions.png" alt="Example control-inference questions and choices from the benchmark."></a><figcaption>Representative questions. The viewer above includes the full prompts and initial observations.</figcaption></figure>
+      <figure><a class="zoom" href="assets/resonance.png"><img loading="lazy" width="1485" height="563" data-lazy-src="assets/resonance.png" alt="Resonant rods illustrate reasoning from an observed response back to a hidden control."></a><figcaption>Abductive reasoning with resonant rods. The source frequency is 100 Hz.</figcaption></figure>
+      <figure><a class="zoom" href="assets/questions.png"><img loading="lazy" width="1800" height="1241" data-lazy-src="assets/questions.png" alt="Example control-inference questions and choices from the benchmark."></a><figcaption>Representative questions. The viewer above includes the full prompts and initial observations.</figcaption></figure>
     </details>
     <p class="related-tables"><a href="#detailed-results" data-detail="scene_controls">Apparatus statistics</a> · <a href="#detailed-results" data-detail="benchmark_comparison">Comparison with related benchmarks</a></p>
   </section>
@@ -93,21 +118,28 @@
   <section class="section" id="analysis">
     <h2>Analysis</h2>
     <h3>Physical reasoning across domains and events</h3>
-    <p>GPT-6.1 Sol and Terra recover the complete six-event sequence on 68.0% and 65.0% of test episodes. GPT-6 Luna follows at 28.5%. All 27 model configurations score lower on six-event questions than on single-event questions. Gemini 3.8 Flash drops from 60.5% to 21.5%, and MiniMax M3.1 Flash drops from 38.4% to 12.5%.</p>
+    <div class="finding">
+      <div><p>All 27 model configurations score lower on six-event questions than on single-event questions. Gemini 3.8 Flash drops from 60.5% to 21.5%, and MiniMax M3.1 Flash drops from 38.4% to 12.5%.</p></div>
+      <figure class="score-plot"><figcaption>Six-event exact-match accuracy</figcaption>
+        <div><span>GPT-6.1 Sol</span><b style="--score:68%"></b><strong>68.0%</strong></div>
+        <div><span>GPT-6.1 Terra</span><b style="--score:65%"></b><strong>65.0%</strong></div>
+        <div><span>GPT-6 Luna</span><b style="--score:28.5%"></b><strong>28.5%</strong></div>
+      </figure>
+    </div>
     <p>Electromagnetism is the strongest domain for MiniMax M3.1 Flash at 27.5%. It is the lowest-scoring domain for both Sol and Terra, at 57.5% and 37.5%, respectively.</p>
     <p class="related-tables"><a href="#table-figure1" data-detail="figure1">View the six-event scores in Figure 1</a> · <a href="#table-compound_by_length" data-detail="compound_by_length">Compare single- and two-label events</a></p>
     <h3>Learning to recover a sequence</h3>
     <p>On Qwen3.5-9B, supervised fine-tuning raises six-event accuracy from 0.5% to 20.0%. Adding SimPO brings it to 31.8%. KTO reaches a similar single-event score to SimPO, yet recovers only 14.5% of complete sequences.</p>
     <p>Pairing predictions on the same 200 questions shows where the SimPO gain comes from. Each training seed solves 27 six-event questions that SFT missed. Of the 40 questions SFT solved, the two runs retain 36 and 37, respectively. <a href="#table-paired_training" data-detail="paired_training">Compare paired outcomes at each question length</a>.</p>
-    <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" src="assets/adaptation.png" alt="Comparison of Qwen3.5-9B predictions for the same input across adaptation methods."></a><figcaption>Qwen3.5-9B responses under different training conditions. Annotations explain how the predictions differ.</figcaption></figure>
+    <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" width="1485" height="1707" data-lazy-src="assets/adaptation.png" alt="Comparison of Qwen3.5-9B predictions for the same input across adaptation methods."></a><figcaption>Qwen3.5-9B responses under different training conditions. Annotations explain how the predictions differ.</figcaption></figure>
     <p class="related-tables"><a href="#detailed-results" data-detail="training_case">Inspect the predictions in this figure</a> · <a href="#detailed-results" data-detail="adaptation_by_length">Compare adaptation runs</a></p>
     <h3>Reasoning effort</h3>
     <p>With the same ten episodes per scene, increasing effort from low to high raises Sol’s six-event accuracy from 59.5% to 74.0%. Gemini 3.8 Flash moves from 15.5% to 8.0% on the same comparison.</p>
-    <figure><a class="zoom" href="assets/effort.png"><img loading="lazy" src="assets/effort.png" alt="Accuracy by reasoning effort, model and apparatus."></a><figcaption>Effect of reasoning effort. Scores include conditional answer completion.</figcaption></figure>
+    <figure><a class="zoom" href="assets/effort.png"><img loading="lazy" width="1485" height="446" data-lazy-src="assets/effort.png" alt="Accuracy by reasoning effort, model and apparatus."></a><figcaption>Effect of reasoning effort. Scores include conditional answer completion.</figcaption></figure>
     <p class="related-tables"><a href="#detailed-results" data-detail="effort_results">View the model and apparatus scores</a></p>
     <h3>Error analysis</h3>
     <p>Among 100 selected erroneous responses, 38 failures concern visual identification, 24 physical inference, 31 evidence integration and seven action composition. Each response receives one primary category.</p>
-    <figure><a class="zoom" href="assets/errors.png"><img loading="lazy" src="assets/errors.png" alt="Four illustrative failures with the relevant visual observations, controls and predictions."></a><figcaption>Representative error cases. The diagnoses compare the model’s public response with the input images and recorded controls.</figcaption></figure>
+    <figure><a class="zoom" href="assets/errors.png"><img loading="lazy" width="1485" height="1170" data-lazy-src="assets/errors.png" alt="Four illustrative failures with the relevant visual observations, controls and predictions."></a><figcaption>Representative error cases. The diagnoses compare the model’s public response with the input images and recorded controls.</figcaption></figure>
     <p class="related-tables"><a href="#detailed-results" data-detail="error_categories">View counts by error category</a></p>
   </section>
 </main>

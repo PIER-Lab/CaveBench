@@ -1,7 +1,6 @@
 'use strict';
 
-const cases = window.CAVE_CASES;
-const tables = window.CAVE_TABLES;
+let cases = [];
 const $ = selector => document.querySelector(selector);
 const node = (tag, value, className) => {
   const item = document.createElement(tag);
@@ -10,51 +9,66 @@ const node = (tag, value, className) => {
   return item;
 };
 const pathFor = (item, file) => 'examples/' + encodeURIComponent(item.id) + '/' + encodeURIComponent(file);
-const sceneFromHash = () => /^#S\d{2}$/.test(location.hash) && cases.find(i => i.id === location.hash.slice(1));
 const labels = {'Thermal':'Thermal physics','EM':'Electromagnetism'};
 const nameFor = domain => labels[domain] || domain;
 
-function resourceList(settings) {
-  const byline = $('#byline');
-  byline.replaceChildren();
-  if (settings.authors?.length) {
-    const authors=node('p',undefined,'authors');
-    settings.authors.forEach((author,i)=>{
-      if (i) authors.append(document.createTextNode(', '));
-      const mark=author.match(/[*†]+$/);
-      const label=node('span',mark ? author.slice(0,-mark[0].length) : author);
-      if (mark) label.append(node('sup',mark[0]));
-      authors.append(label);
-    });
-    byline.append(authors);
-  }
-  if (settings.affiliations?.length) byline.append(node('p',settings.affiliations.join(' · ')));
-  if (settings.authorNote) byline.append(node('small',settings.authorNote));
-  const links = $('#resources');
-  links.replaceChildren();
-  for (const [title,to] of [['Paper',settings.paper],['Dataset',settings.dataset],['GitHub',settings.github],['arXiv',settings.arxiv],['Supplement',settings.supplement],['Video','#film'],['Weights',settings.weights]]) {
-    if (!to) continue;
-    const url = new URL(to,document.baseURI);
-    if (!['https:','http:'].includes(url.protocol) && !(url.protocol==='file:' && !to.includes(':'))) continue;
-    const link=node('a',title);
-    link.href=to;
-    links.append(link);
-  }
-  if (!links.childElementCount) {
-    for (const [title,to] of [['Browse scenes','#viewer'],['View results','#leaderboard']]) {
-      const link=node('a',title);
-      link.href=to;
-      links.append(link);
+function whenNear(element, run) {
+  if (!('IntersectionObserver' in window)) { run(); return; }
+  const observer = new IntersectionObserver(entries => {
+    if (entries.some(entry => entry.isIntersecting)) { observer.disconnect(); run(); }
+  }, {rootMargin:'200px 0px'});
+  observer.observe(element);
+}
+document.querySelectorAll('img[data-lazy-src]').forEach(img => whenNear(img, () => {
+  img.src = img.dataset.lazySrc;
+  img.removeAttribute('data-lazy-src');
+}));
+const files = new Map();
+function cachedFile(key, load) {
+  if (!files.has(key)) files.set(key, load().catch(error => { files.delete(key); throw error; }));
+  return files.get(key);
+}
+function script(path) {
+  return cachedFile(path, () => new Promise((resolve, reject) => {
+    const tag = document.createElement('script');
+    tag.src = path + '?v=field1';
+    tag.onload = resolve;
+    tag.onerror = () => { tag.remove(); reject(new Error(path)); };
+    document.head.append(tag);
+  }));
+}
+function jsonFile(path) {
+  return cachedFile(path, async () => {
+    const response = await fetch(path);
+    if (!response.ok) throw new Error(path);
+    return response.json();
+  });
+}
+async function sceneIndex() {
+  if (!cases.length) {
+    if (location.protocol === 'file:') {
+      await script('assets/catalog.js');
+      cases = window.CAVE_CASES;
+    } else {
+      cases = await jsonFile('examples/index.json');
     }
   }
+  return cases;
 }
-resourceList(window.CAVE_RELEASE || {});
-if (location.protocol.startsWith('http')) {
-  fetch('release.json').then(response => response.ok ? response.json() : {}).then(resourceList).catch(()=>{});
+function loadFailure(container, message, again) {
+  const retry = node('button','Retry');
+  retry.type = 'button';
+  retry.onclick = again;
+  container.replaceChildren(node('span', message + ' '), retry);
 }
-const domains = [...new Set(cases.map(i=>i.domain))];
-$('#domain').add(new Option('All five domains',''));
-for (const domain of domains) $('#domain').add(new Option(nameFor(domain),domain));
+function preview(item, frame, className) {
+  const thumb = node('span', undefined, className);
+  thumb.setAttribute('aria-hidden','true');
+  thumb.style.backgroundImage = 'url("assets/atlas.webp")';
+  thumb.style.backgroundSize = '700% 2000%';
+  thumb.style.backgroundPosition = (frame * 100 / 6) + '% ' + ((Number(item.id.slice(1)) - 1) * 100 / 19) + '%';
+  return thumb;
+}
 
 function matchingCases() {
   return cases.filter(i=>!$('#domain').value || i.domain===$('#domain').value);
@@ -152,11 +166,29 @@ function trySequence(item) {
   panel.append(node('p', 'Use the internal frames and the apparatus description. Choose one control set for each event.'), fields, actions, result, reveal);
   return panel;
 }
-function renderScene(id, changeHash=false) {
-  const item=cases.find(i=>i.id===id);
-  if (!item) return;
+let activeScene = '';
+async function renderScene(id, changeHash=false) {
+  const entry=cases.find(i=>i.id===id);
+  if (!entry) return;
+  if (changeHash) history.replaceState(null,'','#'+id);
+  activeScene = id;
+  document.querySelectorAll('#atlas button').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.id===id)));
+  const example = $('#example');
+  example.setAttribute('aria-busy','true');
   const oldVideo=$('#example video');
   if (oldVideo) oldVideo.pause();
+  let item;
+  try {
+    item = entry.frames ? entry : await jsonFile(pathFor(entry,'case.json'));
+  } catch {
+    if (activeScene === id) {
+      example.removeAttribute('data-scene');
+      example.removeAttribute('aria-busy');
+      loadFailure(example, 'Could not load ' + entry.title + '.', () => renderScene(id));
+    }
+    return;
+  }
+  if (activeScene !== id) return;
   const header=node('div',undefined,'sceneinfo');
   header.append(node('h3',item.id+' · '+item.title),node('small',nameFor(item.domain)+' · '+item.sample_id));
   const video=node('video');
@@ -170,17 +202,19 @@ function renderScene(id, changeHash=false) {
   caption.append(node('span','Recorded episode · dual view'),movieLink);
   const strip=node('div',undefined,'strip');
   item.frames.forEach((filename,n)=>{
-    const fig=node('figure'); const zoom=node('a',undefined,'zoom'); const img=node('img');
-    img.src=pathFor(item,filename); img.alt=item.title+', '+(n ? 'internal observation after event '+n : 'initial internal observation');
-    zoom.href=img.src; zoom.append(img); fig.append(zoom,node('figcaption',item.frame_labels?.[n] || 'Frame F'+n)); strip.append(fig);
+    const fig=node('figure'); const zoom=node('a',undefined,'zoom');
+    zoom.setAttribute('aria-label', item.title+', '+(n ? 'internal observation after event '+n : 'initial internal observation'));
+    zoom.href=pathFor(item,filename); zoom.append(preview(item,n,'frame-thumb'));
+    fig.append(zoom,node('figcaption',item.frame_labels?.[n] || 'Frame F'+n)); strip.append(fig);
   });
   const parts=[header,video,caption,node('h4','Model input frames'),strip,textPanel('Complete prompt',item.prompt),trySequence(item),textPanel('Model response · '+item.model,item.response),compareSteps(item)];
-  $('#example').replaceChildren(...parts);
-  document.querySelectorAll('#atlas button').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.id===id)));
-  if (changeHash) history.replaceState(null,'','#'+id);
+  example.replaceChildren(...parts);
+  example.dataset.scene=id;
+  example.removeAttribute('aria-busy');
 }
 function chooseScene(item) {
-  if ($('#domain').value && item.domain!==$('#domain').value) $('#domain').value='';
+  if (!item) return;
+  if ($('#domain').value && item.domain!==$('#domain').value) $('#domain').value=item.domain;
   updateSceneOptions(item.id);
   renderScene(item.id,true);
 }
@@ -198,21 +232,106 @@ $('#random-scene').onclick=()=>{
 $('#domain').onchange=()=>{ updateSceneOptions(); renderScene($('#scene').value,true); };
 $('#scene').onchange=()=>renderScene($('#scene').value,true);
 
-const atlas=node('div',undefined,'atlas'); atlas.id='atlas';
-for (const item of cases) {
-  const btn=node('button');
-  btn.type='button'; btn.dataset.id=item.id; btn.setAttribute('aria-pressed','false');
-  const thumb=node('img'); thumb.loading='lazy'; thumb.alt=''; thumb.src=pathFor(item,item.frames[0]);
-  btn.append(thumb,node('span',item.id+' · '+item.title));
-  btn.onclick=()=>{ chooseScene(item); $('#viewer').scrollIntoView({block:'start'}); $('#scene').focus({preventScroll:true}); };
-  atlas.append(btn);
+async function showViewer() {
+  try { await sceneIndex(); }
+  catch {
+    loadFailure($('#example'),'Could not load the apparatus list.',showViewer);
+    return;
+  }
+  const atlas = $('#atlas');
+  if (!atlas.childElementCount) {
+    $('#domain').add(new Option('All five domains',''));
+    for (const domain of new Set(cases.map(item=>item.domain))) {
+      $('#domain').add(new Option(nameFor(domain),domain));
+      const section=node('section',undefined,'atlas-domain'), grid=node('div',undefined,'atlas');
+      for (const item of cases.filter(entry=>entry.domain===domain)) {
+        const btn=node('button');
+        btn.type='button'; btn.dataset.id=item.id; btn.setAttribute('aria-pressed','false');
+        btn.append(preview(item,0,'atlas-thumb'),node('span',item.id+' · '+item.title));
+        btn.onclick=()=>{
+          $('#apparatus-atlas').open=false;
+          chooseScene(item);
+          $('#viewer').scrollIntoView({block:'start',behavior:'instant'});
+          $('#scene').focus({preventScroll:true});
+        };
+        grid.append(btn);
+      }
+      section.append(node('h4',nameFor(domain)),grid);
+      atlas.append(section);
+    }
+  }
+  const target = cases.find(item=>'#'+item.id===location.hash);
+  if (!activeScene || (target && target.id !== activeScene)) {
+    const first=target || cases[0];
+    if ($('#domain').value && $('#domain').value !== first.domain) $('#domain').value='';
+    updateSceneOptions(first.id);
+    await renderScene(first.id);
+  }
 }
-$('#browser').after(atlas);
-const initial=sceneFromHash() || cases[0];
-updateSceneOptions(initial.id);
-renderScene(initial.id);
-if (sceneFromHash()) requestAnimationFrame(()=>$('#viewer').scrollIntoView({block:'start'}));
-window.addEventListener('hashchange',()=>{ const item=sceneFromHash(); if(item){chooseScene(item);$('#viewer').scrollIntoView({block:'start'});} });
+let resultsReady = false;
+async function showResults() {
+  try {
+    await Promise.all([sceneIndex(),script('assets/tables.js')]);
+    await script('assets/results.js');
+    resultsReady = true;
+  } catch {
+    loadFailure($('#leaderboard-status'),'Could not load the results.',showResults);
+  }
+}
+whenNear($('#viewer'),showViewer);
+whenNear($('#leaderboard'),showResults);
+document.querySelectorAll('a[data-detail]').forEach(link => { link.href='#table-' + link.dataset.detail; });
+let requestedAnchor = '';
+function preserveAnchor() {
+  if (!requestedAnchor || requestedAnchor !== location.hash) return;
+  const id = requestedAnchor.slice(1);
+  const target = document.getElementById(id) ||
+    (/^S\d{2}$/.test(id) ? $('#viewer') :
+     id.startsWith('table-') ? $('#detailed-results') :
+     /^(domain-k|scores-|apparatus-)/.test(id) ? $('#leaderboard') : null);
+  if (target) target.scrollIntoView({block:'start',behavior:'instant'});
+}
+// Keep a direct link aligned while earlier sections get their data. A reader
+// who starts scrolling or using the controls takes over the viewport.
+for (const type of ['wheel','touchmove','pointerdown','keydown']) {
+  window.addEventListener(type, () => { requestedAnchor=''; }, {passive:true});
+}
+if ('ResizeObserver' in window) {
+  const observer = new ResizeObserver(preserveAnchor);
+  for (const section of document.querySelectorAll('.hero,#release,#dataset,#leaderboard')) observer.observe(section);
+}
+document.addEventListener('click', event => {
+  const tab = event.target.closest('button[data-table]');
+  if (tab && !resultsReady && !tab.onclick) showResults().then(() => { if (resultsReady) tab.click(); });
+  const link = event.target.closest('a[href^="#"]');
+  if (link && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) requestedAnchor=link.hash;
+});
+function openSection() {
+  requestedAnchor=location.hash;
+  if (/^#S(?:0[1-9]|1\d|20)$/.test(location.hash)) {
+    $('#viewer').scrollIntoView({block:'start',behavior:'instant'});
+    showViewer();
+  } else if (location.hash === '#viewer') {
+    showViewer();
+  } else if (/^#(?:domain-k[1-6]|apparatus-S\d{2}|scores-(?:length|methods)|table-[a-z0-9_]+|leaderboard|detailed-results)$/.test(location.hash)) {
+    showResults();
+  }
+}
+openSection();
+window.addEventListener('hashchange',openSection);
+
+const film = $('#film video'), playButton = $('#film .film-play');
+if (playButton && film) {
+  film.controls = false;
+  playButton.hidden = false;
+  playButton.onclick = () => {
+    film.controls = true;
+    film.play().catch(() => { playButton.hidden = false; });
+  };
+  film.addEventListener('play', () => { playButton.hidden = true; });
+  film.addEventListener('ended', () => { playButton.hidden = false; });
+  film.addEventListener('error', () => { playButton.hidden = false; });
+}
 
 const lightbox=$('#lightbox');
 document.addEventListener('click',e=>{
@@ -220,7 +339,7 @@ document.addEventListener('click',e=>{
   if (!target || typeof lightbox.showModal!=='function' || e.metaKey || e.ctrlKey) return;
   e.preventDefault();
   const img=lightbox.querySelector('img');
-  img.src=target.href; img.alt=target.querySelector('img').alt;
+  img.src=target.href; img.alt=target.querySelector('img')?.alt || target.getAttribute('aria-label') || '';
   lightbox.showModal();
 });
 lightbox.querySelector('button').onclick=()=>lightbox.close();
