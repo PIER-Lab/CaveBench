@@ -11,21 +11,21 @@ Tsinghua University
 
 ## News
 
-- **2026-11-23.** The [20 illustrated case studies](#case-studies), [editable slides](docs/assets/cases/CaveBench_Case_Studies.pptx) and [interactive results tables](https://pier-lab.github.io/CaveBench/#leaderboard) are available.
+- **2026-11-23.** The project page now pairs the frames before and after each event in all [20 case studies](docs/assets/cases/README.md). You can also [compare two models](https://pier-lab.github.io/CaveBench/#leaderboard) across the six question lengths.
 
 ## Introduction
 
-CaveBench tests whether a vision–language model can infer what happened outside a physical apparatus from a sequence of images taken inside it. Given the apparatus description and its available controls, the model identifies the set of controls applied between each pair of frames. The 20 apparatuses span dynamics, thermal physics, electromagnetism, acoustics and optics.
+A camera rides on a carriage with three pendulums. As the carriage moves, the pendulums swing through different angles. Which of three motion profiles drove the carriage? In CaveBench, a vision–language model sees the apparatus from the inside, reads how its controls work, and reconstructs the external controls applied between successive frames. More than one control can act at the same time.
 
 ## Dataset
 
-The dataset contains 9,000 training episodes, 1,000 validation episodes and 200 test episodes. The test set comprises 1,180 questions spanning one to six events. The model sees an initial internal frame and one more frame after each event.
+The 20 apparatuses cover dynamics, thermal physics, electromagnetism, acoustics and optics. The dataset contains 9,000 training episodes, 1,000 validation episodes and 200 test episodes. The test episodes yield 1,180 questions. A question with six events supplies seven images: the initial state and one observation after each event.
 
 ## Case studies
 
 ### S11 · Dielectric response
 
-Three successive observations show the electroscope at full insertion, withdrawal and half insertion. The camera sees the leaves; the mica slab moves outside its view.
+The camera sees two gold leaves inside an electroscope. Outside its view, a mica slab slides between the plates of a charged capacitor. Which of the three images shows the slab halfway in?
 
 [![S11 observations F1–F3. The leaves have the smallest opening after full insertion, the widest after withdrawal and an intermediate opening after half insertion.](docs/assets/dielectric-sequence.webp)](https://pier-lab.github.io/CaveBench/#S11)
 
@@ -33,7 +33,7 @@ Three successive observations show the electroscope at full insertion, withdrawa
 
 > The leaf opening angle in each frame identifies the dielectric endpoint, since more mica means higher capacitance, lower voltage and a smaller opening.
 
-The model identified all six operations in this episode. [Read the case sheet](docs/assets/cases/S11.webp) · [Try the question](https://pier-lab.github.io/CaveBench/#try-S11)
+In F3 the leaves open wider than in F1 (full insertion) and less than in F2 (withdrawal). The model identified half insertion at F3 and recovered all six operations in the episode. [Read the case sheet](docs/assets/cases/S11.webp) · [Try the question](https://pier-lab.github.io/CaveBench/#try-S11)
 
 ### Explore the 20 apparatuses
 
@@ -43,7 +43,7 @@ The model identified all six operations in this episode. [Read the case sheet](d
 
 ## Leaderboard
 
-On the 200 six-event questions, GPT-6.1 Sol recovers 136 complete sequences (68.0%). MiniMax M3.1 Flash leads the open-weight models with 25 (12.5%).
+On the 200 six-event questions, GPT-6.1 Sol identified the correct set of controls at 1,035 of 1,200 events (86.25%). It recovered all six sets in 136 of the 200 questions (68.0%). The leaderboard ranks models by this whole-question score. MiniMax M3.1 Flash led the open-weight models with 25 complete sequences (12.5%). [Event counts by model and question length](results/domain_tables.md#event-by-length)
 
 <details>
 <summary>Six-event exact match for all 27 models</summary>
@@ -125,13 +125,13 @@ python run.py --data ./dataset --model MODEL_ID --endpoint https://HOST/v1/chat/
 python score.py --data ./dataset --predictions predictions.jsonl
 ```
 
-To score your own predictions, write one JSON object per question to `predictions.jsonl`. The following line gives the reference answer for the one-event driven-pendulum question from sample 0001.
+To score predictions from another runner, write one JSON object per question to `predictions.jsonl`. In this example from the driven-pendulum episode, the first carriage motion follows profile B.
 
 ```json
 {"id":"scene_11/sample_0001/k1","response":"{\"operations\":[[\"TrajectoryB\"]]}"}
 ```
 
-List events in chronological order. Within each event, list the control labels in any order. A question earns one point when all event sets match the reference. Missing or invalid answers earn zero. The scorer prints the overall exact-match percentage and the percentage at each question length.
+List events in time order. Controls applied together can appear in any order within their event. The scorer counts a question as correct when every event matches the record. Missing or invalid answers score zero. In the output, `exact_match_percent.overall` covers all questions and `k1` through `k6` give accuracy at each length.
 
 ### Local Qwen checkpoints
 

@@ -1,5 +1,29 @@
 'use strict';
 
+// Apparatus questions from the illustrated case sheets.
+window.caveCaseQuestions = {
+  "S01": "The ball, pendulum and other objects respond to the motion of a closed vehicle. Which changes in speed or direction occurred during the six events?",
+  "S02": "Loads and gas-filled tubes move on a rotating deck. At each event, which direction did the deck turn, and did it speed up or slow down?",
+  "S03": "Three pendulums hang from a carriage driven along a rail. Which of the three programmed trajectories moved the carriage at each event?",
+  "S04": "Eight objects rest on a tray. From the changes in their positions and orientations, identify the direction or combination of directions of each impact.",
+  "S05": "One heater moves beneath a conducting plate while three heaters stay fixed. In which direction or directions did the movable heater travel at each event?",
+  "S06": "Separate jackets control the temperature of two liquid layers. For each event, which layer received the intervention, and was it heated or cooled?",
+  "S07": "Three connected glass bulbs have visible menisci. Which bulb or combination of bulbs was heated at each of the six events?",
+  "S08": "Three bimetal strips support a central annulus. Use their changing shapes and the annulus position to identify the lamp or lamps selected at each event.",
+  "S09": "Compass needles respond to three coils beneath the apparatus. Which coil or coils were energized at each event, and with which polarity?",
+  "S10": "Horizontal probe pairs respond to two electric dipoles. At each event, which dipole charges increased or decreased in magnitude?",
+  "S11": "A charged capacitor is connected to an electroscope. Use the leaf positions to identify full insertion, half insertion or withdrawal of the dielectric at each event.",
+  "S12": "Three suspended conductors move when current flows. Which pair carried current at each event, and did the two currents run in the same or opposite directions?",
+  "S13": "A diaphragm drives a tube containing loose cork granules. Which changes in drive amplitude, frequency or both produced the six observed responses?",
+  "S14": "Waves travel through an elastic surface around fixed columns. From which edge or edges did each pulse enter the surface?",
+  "S15": "A moving siren emits a fixed tone toward a stationary receiver. At each event, did the siren approach or recede, and was its motion fast or slow?",
+  "S16": "Two plungers drive ripples in a tank. For each observed pattern, identify the phase set for source A and the phase of source B relative to A.",
+  "S17": "The specimen responds to compression and to a rotating optical control. Which loading or rotation controls produced each observed fringe pattern?",
+  "S18": "Light reaches a screen after reflections from two mirrors. For each event, identify which mirror or mirrors turned and in what direction.",
+  "S19": "Three light rays pass through a graded-index insert before reaching a screen. How was the insert translated or rotated at each event?",
+  "S20": "A coherent light source illuminates two adjustable slits. Which changes in slit width, slit spacing or both produced each fringe pattern?"
+};
+
 // Contiguous character ranges in the released model responses.
 const cavePassageRanges = {"S01": [1631, 2119], "S02": [76, 549], "S03": [481, 1009], "S04": [832, 1408], "S05": [352, 830], "S06": [20, 438], "S07": [507, 1078], "S08": [636, 1228], "S09": [103, 932], "S10": [665, 1093], "S11": [0, 515], "S12": [266, 946], "S13": [1606, 2145], "S14": [81, 651], "S15": [844, 1251], "S16": [762, 1251], "S17": [374, 892], "S18": [1314, 1812], "S19": [615, 1249], "S20": [604, 1175]};
 
@@ -50,7 +74,7 @@ window.caveCaseReader = function (item, {node, pathFor, answerText, strip}) {
   const meta=node('p',item.sample_id+' / '+item.id,'reading-meta');
   const event=item.excerpt_event;
   const heading=node('h4',item.model);
-  const locator=node('p','Response excerpt · Event '+event,'reading-subtitle');
+  const locator=node('p','From the model’s response','reading-subtitle');
   const quote=node('blockquote');
   const range=cavePassageRanges[item.id];
   const passage=item.response_text.slice(range[0],range[1]).replace(/^\s*\d+\.\s+/gm,'');

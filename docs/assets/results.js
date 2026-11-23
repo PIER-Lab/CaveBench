@@ -182,14 +182,14 @@ async function updateLeaderboard() {
   if (view === 'methods' || view === 'length') {
     const source = tables[view];
     renderLeaderboard({...source, label:view === 'methods' ? 'Method' : 'Model'},
-      'Exact-match accuracy (%). Here k is the number of events in a question. Overall covers all 1,180 questions.', view);
+      'Exact match (%). Columns group questions by event count (k). Overall includes all 1,180 questions.', view);
     return;
   }
   const source = view === 'domains' ? 'domain_by_length' : 'scene_by_length';
   const isDomain = view === 'domains';
   const note = isDomain
     ? 'Exact-match accuracy (%) on ' + k + '-event questions. ' + (k < 3 ? '190 questions, including 30 in electromagnetism and 40 in each other domain.' : '200 questions, 40 per domain.') +
-      ' Bold marks the highest score in each column. An underline marks the second highest.'
+      ' The highest score in each column is bold and the runner-up is underlined.'
     : 'Exact-match accuracy (%) for ' + scene + ' · ' + cases.find(c => c.id === scene).title + '. ' +
       (scene === 'S11' ? 'Ten questions at each length (k = 3–6 events).' : 'Ten questions at each length (k = 1–6 events).');
   if (isDomain && k === 6) {
@@ -445,7 +445,7 @@ function displayDetailed(view, records) {
   } else if (view === 'error_categories') {
     detailTable(['Primary category','Cases','Direct support','Limited support'],
       records.map(r => [r.category,r.total,r.direct,r.limited]), [0],
-      'Each response has one primary error. Direct and limited describe how much evidence the answer gives for its assigned category. The sample includes 97 answers from Gemini 3.8 Flash, two from GLM-5.3 Flash and one from GPT-6.1 Sol.');
+      'Each answer has one primary error. The two support columns rate the evidence for that assignment. Of the 100 answers, 97 are from Gemini 3.8 Flash, two from GLM-5.3 Flash and one from GPT-6.1 Sol.');
   } else if (view === 'uniform_reference') {
     const format = value => {
       if (!value) return '—';
@@ -531,8 +531,7 @@ if (!leaderboardVersion) updateLeaderboard();
 whenNear($('#detailed-results'), () => { if (!detailVersion) loadDetail(); });
 function lengthComparison() {
   const figure = document.getElementById('length-comparison');
-  const copy = node('div',undefined,'trend-copy'), heading = node('h3','Accuracy across question lengths');
-  const note = node('p','Each point gives the share of complete control sequences identified correctly.');
+  const copy = node('div',undefined,'trend-copy'), heading = node('h3','Exact match by question length');
   const selectors = node('div',undefined,'trend-selectors');
   const models = tables.length.rows;
   const labels = ['First model', 'Second model'];
@@ -545,7 +544,7 @@ function lengthComparison() {
     for (const row of models) select.add(new Option(row.name, row.name));
     select.value=name; label.append(marker,select); selectors.append(label); return select;
   });
-  copy.append(heading,note,selectors);
+  copy.append(heading,selectors);
   const plot=node('div',undefined,'trend-plot'), ns='http://www.w3.org/2000/svg';
   const graphic=(parent,tag,attrs,text='')=>{
     const e=document.createElementNS(ns,tag);

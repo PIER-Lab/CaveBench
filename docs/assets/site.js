@@ -35,7 +35,7 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    const version = path === 'assets/results.js' ? 'plate1' : path === 'assets/case-reader.js' ? 'plate1' : 'atlas3';
+    const version = ['assets/results.js', 'assets/case-reader.js'].includes(path) ? 'reader2' : 'atlas3';
     tag.src = path + '?v=' + version;
     tag.onload = resolve;
     tag.onerror = () => { tag.remove(); reject(new Error(path)); };
@@ -116,7 +116,7 @@ function sectionStyle(id, href) {
   }
 }
 function loadCaseReader() {
-  sectionStyle('reader-style','assets/case-reader.css?v=plate1');
+  sectionStyle('reader-style','assets/case-reader.css?v=reader2');
   return script('assets/case-reader.js');
 }
 function compareSteps(item) {
@@ -223,7 +223,7 @@ async function renderScene(id, changeHash=false) {
   let item;
   try {
     const record = entry.frames ? entry : jsonFile(pathFor(entry,'worked.json'));
-    [item] = await Promise.all([record, practice ? undefined : loadCaseReader()]);
+    [item] = await Promise.all([record, loadCaseReader()]);
   } catch {
     if (activeScene === anchor) {
       example.removeAttribute('data-scene');
@@ -240,6 +240,7 @@ async function renderScene(id, changeHash=false) {
   const identity = node('div',undefined,'scene-identity');
   identity.append(node('span',item.id+' / '+nameFor(item.domain),'scene-tag'),heading);
   header.append(identity,switchView);
+  const question = node('p', window.caveCaseQuestions[item.id], 'case-question');
   const strip=node('div',undefined,'strip');
   item.frames.forEach((filename,n)=>{
     const fig=node('figure'); const zoom=node('a',undefined,'zoom');
@@ -254,15 +255,15 @@ async function renderScene(id, changeHash=false) {
     }
     fig.append(zoom,node('figcaption',item.frame_labels?.[n] || 'Frame F'+n)); strip.append(fig);
   });
-  const prompt=textPanel('Question and control definitions',item.prompt);
+  const prompt=textPanel('Full prompt and control definitions',item.prompt);
   const attempt=trySequence(item);
   if (practice) {
     attempt.open=true;
     strip.classList.add('practice-frames');
-    example.replaceChildren(header,node('h4','Model input frames'),strip,prompt,attempt);
+    example.replaceChildren(header,question,node('h4','Internal observations'),strip,prompt,attempt);
   } else {
     const reading = window.caveCaseReader(item, {node,pathFor,answerText,strip});
-    example.replaceChildren(header,reading,episodeMedia(item),prompt,attempt,compareSteps(item));
+    example.replaceChildren(header,question,reading,episodeMedia(item),prompt,attempt,compareSteps(item));
   }
   example.dataset.scene=id;
   example.removeAttribute('aria-busy');

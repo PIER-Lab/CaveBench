@@ -395,7 +395,7 @@ footer a { color: var(--ivory); font-size: 14px; }
   .statistics dd { font-size: 34px; }
 }
   </style>
-  <script defer src="assets/site.js?v=plate1"></script>
+  <script defer src="assets/site.js?v=reader2"></script>
 </head>
 <body>
 <a href="#main" class="skip">Skip to content</a>
@@ -409,8 +409,8 @@ footer a { color: var(--ivory); font-size: 14px; }
       <h1><span class="wordmark"><i>Cave</i>Bench<span class="title-colon">:</span></span> <span class="paper-title">Benchmarking Abductive Physical Reasoning from Internal Observations</span></h1>
       <div class="hero-copy">
         <p class="intro">What moved the pendulums?</p>
-        <p class="film-question">Trace six carriage motions from seven observations inside the apparatus.</p>
-        <div class="hero-actions"><a class="read-paper" href="papers/CaveBench.pdf">Read the paper</a><a class="explore" href="#try-S03">Try this case</a></div>
+        <p class="film-question">From seven images of the pendulums, identify which of three drive patterns the carriage ran at each of six events.</p>
+        <div class="hero-actions"><a class="read-paper" href="papers/CaveBench.pdf?v=reader2">Read the paper</a><a class="explore" href="#try-S03">Try this case</a></div>
       </div>
       <figure class="film" id="film" aria-label="Research film">
         <div class="film-frame">
@@ -433,12 +433,12 @@ footer a { color: var(--ivory); font-size: 14px; }
       <p class="institution">Tsinghua University <small><span>* Equal contribution</span> · <span>† Corresponding author</span></small></p>
     </div>
     <div id="resources" class="links" aria-label="Project resources">
-      <a href="https://github.com/PIER-Lab/CaveBench">GitHub</a><a href="https://huggingface.co/datasets/linguanxin/CaveBench">Dataset</a><a href="papers/Supplement.pdf?v=plate1">Supplement</a><a href="https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1">Weights</a>
+      <a href="https://github.com/PIER-Lab/CaveBench">GitHub</a><a href="https://huggingface.co/datasets/linguanxin/CaveBench">Dataset</a><a href="papers/Supplement.pdf?v=reader2">Supplement</a><a href="https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1">Weights</a>
     </div>
   </div></div>
   <section class="section" id="dataset">
     <div class="section-intro">
-      <div><h2>Dataset</h2><p>Each question pairs a sequence of interior images with an apparatus description and a list of possible external controls. The model selects the controls applied between each pair of consecutive images.</p></div>
+      <div><h2>Dataset</h2><p>A camera records the experiment from inside the apparatus. Given an apparatus description and a list of external controls, the model identifies which controls were applied between consecutive frames.</p></div>
       <dl class="statistics"><div><dt>Apparatuses</dt><dd>20</dd></div><div><dt>Physical domains</dt><dd>5</dd></div><div><dt>Test questions</dt><dd>1,180</dd></div></dl>
     </div>
     <nav class="domain-ribbon" aria-label="Case studies by physical domain">
@@ -448,7 +448,7 @@ footer a { color: var(--ivory); font-size: 14px; }
       <a href="#S15"><span class="domain-photo" style="--tile:75%" aria-hidden="true"></span><span>Acoustics</span></a>
       <a href="#S17"><span class="domain-photo" style="--tile:100%" aria-hidden="true"></span><span>Optics</span></a>
     </nav>
-    <p class="split-note">The dataset contains 9,000 training, 1,000 validation and 200 test episodes. Test questions span one to six events.</p>
+    <p class="split-note">The dataset contains 9,000 training episodes, 1,000 validation episodes and 200 test episodes. Each test question covers one to six events, with an initial image and one image after each event.</p>
     <details class="fold"><summary>Test set composition by domain</summary>
       <div class="tablewrap" tabindex="0" role="region" aria-label="Test set composition"><table>
         <thead><tr><th scope="col">Domain</th><th scope="col">Apparatuses</th><th scope="col">Episodes</th><th scope="col">Questions</th><th scope="col">Single-label events</th><th scope="col">Two-label events</th></tr></thead>
@@ -459,7 +459,7 @@ footer a { color: var(--ivory); font-size: 14px; }
           <tr><th scope="row">Acoustics</th><td>S13–S16</td><td>40</td><td>240</td><td>108</td><td>132</td></tr>
           <tr><th scope="row">Optics</th><td>S17–S20</td><td>40</td><td>240</td><td>179</td><td>61</td></tr>
         </tbody></table></div>
-      <p>In the ten dielectric-response episodes (S11), the first three events show the dielectric fully inserted, partly inserted and withdrawn, in varying order. Questions for this apparatus start at three events. The test set therefore has 190 questions at each of the first two lengths and 200 at each length from three to six.</p>
+      <p>In S11, the first three events show full insertion, half insertion and withdrawal in varying order. The three leaf positions provide visual references for distinguishing the settings. All ten S11 episodes contribute questions of lengths three through six. Across apparatuses, there are 190 questions at each of the first two lengths and 200 at each remaining length.</p>
     </details>
     <div class="case-intro"><h3 id="viewer">Case studies</h3><a href="assets/cases/CaveBench_Case_Studies.pptx?v=plate1" download>Download editable slides</a></div>
     <div id="browser">
@@ -490,7 +490,7 @@ footer a { color: var(--ivory); font-size: 14px; }
   </section>
   <section class="section" id="leaderboard">
     <h2>Leaderboard</h2>
-    <p>A sequence is correct when the model identifies every control at every event in chronological order. Controls applied together can be listed in any order.</p>
+    <p>Exact match requires the complete set of controls at each event, in chronological order. Simultaneous controls can appear in either order. On six-event questions, GPT-6.1 Sol identified all controls at 1,035 of 1,200 events (86.25%) and recovered 136 of 200 complete sequences (68.0%).</p>
     <figure id="length-comparison" class="length-comparison" hidden></figure>
     <div class="tabs" aria-label="Leaderboard view"><button data-table="domains" aria-pressed="true">By physical domain</button><button data-table="scenes" aria-pressed="false">By apparatus</button><button data-table="length" aria-pressed="false">By question length</button><button data-table="methods" aria-pressed="false">Adaptation methods</button></div>
     <div id="leaderboard-filters" class="result-controls">
@@ -526,7 +526,7 @@ footer a { color: var(--ivory); font-size: 14px; }
         <div><span>GPT-6 Luna</span><b style="--score:28.5%"></b><strong>28.5%</strong></div>
       </figure>
     </div>
-    <p>The strongest domain varies by model. On six-event questions, MiniMax M3.1 Flash achieves its best score in electromagnetism (27.5%). For GPT-6.1 Sol and Terra, electromagnetism has the lowest scores (57.5% and 37.5%), and thermal physics has the highest (80.0% and 85.0%).</p>
+    <p>Electromagnetism is MiniMax M3.1 Flash’s strongest domain on six-event questions (27.5%). It is the lowest-scoring domain for GPT-6.1 Sol (57.5%) and Terra (37.5%). Both reach their highest scores in thermal physics, at 80.0% and 85.0% respectively.</p>
     <p class="related-tables"><a href="#table-main_event_by_length" data-detail="main_event_by_length">Event accuracy at each question length</a> · <a href="#table-compound_by_length" data-detail="compound_by_length">Compare single- and two-label events</a></p>
     <div class="analysis-spread">
       <div><h3>Learning to recover a sequence</h3>
@@ -534,7 +534,7 @@ footer a { color: var(--ivory); font-size: 14px; }
     <p>On the 40 six-event dynamics questions, SFT recovers 10 complete sequences. The two SimPO runs recover <a href="#table-adaptation_by_domain-k6?domain=Dynamics" data-detail="adaptation_by_domain">16 and 17</a>. Across all five domains, each run solves 27 sequences that SFT missed. <a href="#table-paired_training" data-detail="paired_training">Compare runs on the same questions</a>.</p>
     <p class="related-tables"><a href="#table-training_case" data-detail="training_case">Compare predictions for all six events</a> · <a href="#table-adaptation_by_domain-k6" data-detail="adaptation_by_domain">Compare adaptation by physical domain</a> · <a href="#table-adaptation_by_length" data-detail="adaptation_by_length">Compare question lengths</a> · <a href="https://github.com/PIER-Lab/CaveBench#local-qwen-checkpoints">Load the trained checkpoints</a></p>
       </div>
-    <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" width="1485" height="1707" data-lazy-src="assets/adaptation.png" alt="Frames F0–F3 of the dielectric-response apparatus and the two models’ predictions for event 3."></a><figcaption>At event 3, the baseline predicts full insertion. The SimPO model identifies half insertion.</figcaption></figure>
+    <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" width="1485" height="1707" data-lazy-src="assets/adaptation.png" alt="Frames F0–F3 of the dielectric-response apparatus and the two models’ predictions for event 3."></a><figcaption>At event 3, the electroscope leaves open wider than at full insertion. The baseline predicts full insertion, while both SimPO runs identify half insertion.</figcaption></figure>
     </div>
     <div class="analysis-spread">
       <div><h3>Reasoning effort</h3>
@@ -545,7 +545,7 @@ footer a { color: var(--ivory); font-size: 14px; }
     </div>
     <div class="analysis-spread">
       <div><h3>Error analysis</h3>
-    <p>We classified 100 incorrect six-event answers by their main error. In 38, the model misread a visual cue. In 31, it failed to combine evidence across observations. The other errors involved the physical reasoning in 24 answers and the choice of controls to report together in seven.</p>
+    <p>Of 100 incorrect six-event answers, 38 misread a visual cue and 31 failed to connect observations across time. In 24, the model misapplied a physical principle. In the remaining seven, it selected the wrong combination of controls.</p>
     <p class="related-tables"><a href="#table-error_categories" data-detail="error_categories">View counts by error category</a></p>
       </div>
     <figure><a class="zoom" href="assets/errors.png"><img loading="lazy" width="1485" height="1170" data-lazy-src="assets/errors.png" alt="Four examples pairing the input images with the predicted and recorded controls, one for each error category."></a></figure>
