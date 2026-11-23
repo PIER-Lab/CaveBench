@@ -64,34 +64,17 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 ### Model Response · Qwen3.8-27B
 
-Honestly, the streaks/elongations indicate motion direction during the 2.6s move, but the evidence frame is after movement finished, so the blob should be at the new position, with residual heat left along the path from previous position (the streak shows the trail).
-
-So the trail direction = from old position to new position. The hot core is at new position; the fading tail is at old position.
+Honestly, the streaks/elongations indicate motion direction during the 2.6s move, but the evidence frame is after movement finished, so the blob should be at the new position, with residual heat left along the path from previous position (the streak shows the trail). So the trail direction = from old position to new position. The hot core is at new position; the fading tail is at old position.
 
 F2: core at top-left? tail to middle? Or core middle tail top-left? Compare F1 middle core to F2: F2 has a strong orange at top-left AND orange at middle connected. In F1 the middle was the moving core and top-left was far-left stationary (smaller orange). In F2 top-left became bigger and connected to middle. So moving heater moved from middle toward far-left (up-left). So event 2 (F2) = MoveLeft + MoveUp? Because far-left is up and left relative to middle. Middle is center; far-left is left and up (far). So moving to far-left = MoveLeft + MoveUp.
 
-F3: now core at top-left (far-left) strong, middle has a tail. So between F2 and F3 it continued? F2 core was top-left-ish, F3 core top-left even more? Hmm.
+F3: now core at top-left (far-left) strong, middle has a tail. So between F2 and F3 it continued? F2 core was top-left-ish, F3 core top-left even more? Hmm. This is too uncertain. Let's look at overall pattern: The moving heater seems to go: middle (F0) -> middle (F1) -> left-up (F2) -> left-up more (F3) -> middle-left (F4) -> middle (F5) -> middle-down (F6). Transitions (events 1-6 correspond to F1..F6): Event1 (F0->F1): middle -> middle? maybe slight left? Not clear. Event2 (F1->F2): middle -> up-left Event3 (F2->F3): up-left -> up-left (more up?) Event4 (F3->F4): up-left -> middle (right-down) Event5 (F4->F5): middle-left -> middle (right) Event6 (F5->F6): middle -> middle-down (down)
 
-[…]
+Hmm allowed sets include diagonals only: [MoveLeft,MoveUp], [MoveDown,MoveLeft], [MoveRight,MoveUp], [MoveDown,MoveRight]. So diagonals are only these four combinations (no MoveUp+MoveRight? actually MoveRight+MoveUp is allowed; MoveLeft+MoveDown not allowed; MoveUp+MoveRight allowed). Wait list: ["MoveLeft","MoveUp"],["MoveDown","MoveLeft"],["MoveRight","MoveUp"],["MoveDown","MoveRight"]. So allowed diagonals: LU, DL, RU, DR. Not allowed: LD, UR. So moving up-left = LU allowed. moving down-right = DR allowed. moving up-right = RU allowed. moving down-left = DL allowed. Now my transitions: Event2: up-left = LU. Event4: middle (right-down) from up-left = DR. Event5: right = MoveRight (or right+up?). Event6: down = MoveDown. Event1: ? maybe MoveLeft (middle to slightly left). Event3: up = MoveUp? or up-left again.
 
-Given the streaks:
-F1: no streak, just 4 blobs, moving at middle.
-F2: streak between far-left and middle (moving heater between them? or trail).
-F3: blob at far-left strong + trail to middle.
-F4: blob at far-left + middle-left trail (moving heater now middle-left, trail back to far-left).
-F5: blob at middle-left + middle (moving heater middle, trail to left).
-F6: blob at middle + middle-down (moving heater down, trail up).
+Let's look more carefully at the cores. I'll commit to a plausible sequence: Event1: MoveLeft (F0 middle -> F1 slightly left middle) Event2: MoveUp? or MoveLeft+MoveUp? F2 shows trail to far-left/up. Hmm F2's elongation is horizontal-ish toward left. So MoveLeft. Event3: MoveUp (F3 core higher, at far-left top) Event4: MoveRight (F4 core moved right to middle-left) Event5: MoveRight (F5 middle) Event6: MoveDown (F6 down) But I need 6 events each from allowed sets. Let's look at F6: the moving core is at middle but lower (near band), there's a tail up to middle. So F6 = MoveDown from F5.
 
-So moving heater path: F0 middle -> F1 middle -> F2 left-middle -> F3 far-left -> F4 left-middle -> F5 middle -> F6 middle-down.
-
-Transitions:
-1: middle->middle (maybe MoveLeft small? but appears same). Could be the first event moved it but it ended near same? Unlikely. Maybe F0 moving heater was actually at middle-right and F1 middle? In F0 the middle cyan at (510,280); far-right stationary at (700,190); near-right (780,370). The (510,280) is middle. In F1 moving at (470,270). Slight left. So MoveLeft.
-
-2: middle->left-middle (MoveLeft)
-3: left-middle->far-left (MoveLeft+MoveUp? far-left is up-left) => LU
-4: far-left->left-middle (MoveRight+MoveDown) => DR
-5: left-middle->middle (MoveRight)
-6: middle->middle-down (MoveDown)
+Let's look at F5: core at middle (center) with tail left to far-left. So from F4 (middle-left) to F5 (middle) = MoveRight. F4: core middle-left with tail left. from F3 (far-left top) to F4 (middle-left) = MoveRight + MoveDown? That's not allowed! DR is down-right allowed. F3 top-left to F4 middle-left is right and down = DR allowed! Yes. F3: core top-left. from F2 (top-left but lower?) to F3 (top) = MoveUp. F2: core middle-left with trail. from F1 (middle) to F2 (left) = MoveLeft.
 
 ### Model Answer and Experiment Log
 
@@ -158,52 +141,21 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-[![Layered liquids. Seven observations and Gemma 4 31B IT’s response.](S06.webp)](S06.webp)
+[![Layered liquids. Seven observations and Qwen3.8-27B’s response.](S06.webp)](S06.webp)
 
 [Complete model response and source](../../examples/S06/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S06) · [Watch the episode](../../examples/S06/dual_view.mp4)
 
-### Model Response · Gemma 4 31B IT
+### Model Response · Qwen3.8-27B
 
-*   *Now let's look at the Violet floats (950 kg/m³).*
-They are in the water (lower layer) in F0/F1, then move *up* toward the interface in F2/F3.
-Wait, if the water density decreased (by cooling), the Violet floats should also sink *more*, not move up.
-*Unless* the upper layer (silicone) density changed?
-Violet floats (950) are much denser than the silicone (which is usually around 960-970 kg/m³ for KF-96L, but the specific density isn't given).
-Wait, if the silicone density *increases*, the Violet floats might be more buoyant in it. Silicone density increases as it's *cooled*.
+Consider heating the upper layer (oil). Oil density decreases. Floats that were floating in oil (density 896-950) remain floating (still < oil density? if oil density decreases below 950, violet 950 might sink). Hmm. Alternatively consider the high-density floats in water. If we heat water, water density decreases, eventually below 999.95, then copper-red (999.95) and amber (999.93) would become denser than water and sink to bottom? They're already near bottom-ish. This is too complex to simulate precisely. The problem likely expects a simpler reasoning: look at which layer's floats move. Let's look at changes between frames: F0 -> F1: Very similar. Upper floats same. Lower floats same. Maybe slight. Hard.
 
-[…]
+F1 -> F2: Big change! Upper floats moved to top (green, pale-blue now at very top near rim). Violet capsules now straddling interface (lower). Lower layer: copper-red and amber still at bottom. The interface white disc moved down a bit? In F2 the white disc is at ~y=300 but upper region bigger. Actually the upper floats at top suggests upper layer got taller? Or the floats rose. Hold on, maybe the camera/vessel fixed, so the interface position in image reflects volume. If upper layer heated, it expands, pushing interface down, upper layer thicker, upper floats near top. In F2 upper floats near top and interface lower (white disc at y~300 vs F0 y~300? similar). Hmm.
 
-So:
-Event 1: `LowerLayer+Cool`
-Event 2: `UpperLayer+Cool`
-Event 3: `UpperLayer+Cool`
-Event 4: `UpperLayer+Cool`
-Event 5: `UpperLayer+Heat`
-Event 6: `UpperLayer+Cool`
+Let's look more carefully at vertical positions. In F0, top of upper layer (free surface) is at rim ~y=60. Interface white disc center ~y=300. In F2, free surface at rim ~y=60, interface white disc ~y=300. Same. But upper floats in F2 are at y~100-200 (higher) while in F0 at y~250-350. So within the upper layer, floats moved up to near the free surface. That means they became less buoyant relative to oil? No—floating objects sit at free surface if density much less? Actually a floating object with density much less than fluid sits mostly above fluid? No, it's sealed sphere with ballast; effective density 896 vs oil 965: it floats with part above. As oil density decreases (heating), the float sinks deeper in oil (submerges more), i.e., moves down. As oil density increases (cooling), float rises. So floats rising to top = oil cooling? But cooling oil increases density, float rises. Hmm but also water.
 
-[…]
+Wait, but in F2 the violet capsules (950) moved down to straddle interface. In F0 violet were in upper layer middle. If oil cooled (density up to ~970+), violet 950 still floats in oil, would rise. Not match. If oil heated (density down toward 950), violet 950 ~ neutral, could sink to interface. And green/pale-blue (896) still float but more submerged (deeper). But they appear higher (top). Contradiction. I think I'm overanalyzing pixel positions. The intended solution likely is a known sequence. Let's think of typical puzzle: 6 events, each one of 4 combos. The images show gradual changes. Possibly the sequence alternates or follows pattern. Given uncertainty, maybe the answer is something like: event1 Heat UpperLayer, event2 Cool UpperLayer, etc. But need best-supported.
 
-Then the Violet floats (950) move up, down, and up.
-Up (F2, F3, F4) -> `UpperLayer+Cool` (increases density)
-Down (F5) -> `UpperLayer+Heat` (decreases density)
-Up (F6) -> `UpperLayer+Cool` (increases density)
-
-Wait, let me check the Violet floats' movement one more time.
-F0: Violet floats are at the interface.
-F1: Violet floats are at the interface.
-F2: Violet floats are moving up.
-F3: Violet floats are higher.
-F4: Violet floats are at their highest.
-F5: Violet floats are lower.
-F6: Violet floats are slightly higher than F5.
-
-Wait, in F6, are they really higher than F5?
-Let's look at F5 and F6 again.
-F5: Violet floats are below the interface.
-F6: Violet floats are back at the interface (one is slightly above).
-Yes, they moved up from F5 to F6.
-
-So the sequence `UpperLayer+Cool` (E2, E3, E4), `UpperLayer+Heat` (E5), `UpperLayer+Cool` (E6) fits perfectly.
+Let's look at lower layer floats across frames: In F0 copper-red capsules at mid-lower, amber at bottom. F1 similar. F2 lower: copper-red at left and right mid, amber cluster bottom center, one copper-red near bottom center. F3 lower similar to F2 but copper-red right moved down. F4 lower: copper-red right at bottom near amber. F5 lower: copper-red right back up a bit? F6 similar to F5. Upper floats: F0 mid-upper. F1 same. F2 top. F3 top. F4 top. F5 mid-upper (like F0). F6 mid-upper. So between F4 and F5, upper floats moved from top back to mid-upper. That suggests a change reversing.
 
 ### Model Answer and Experiment Log
 
@@ -211,10 +163,10 @@ So the sequence `UpperLayer+Cool` (E2, E3, E4), `UpperLayer+Heat` (E5), `UpperLa
 | ---: | --- | --- |
 | 1 | Cool + LowerLayer | Cool + LowerLayer |
 | 2 | Cool + UpperLayer | Cool + UpperLayer |
-| 3 | Cool + UpperLayer | Heat + LowerLayer |
-| 4 | Cool + UpperLayer | Cool + LowerLayer |
-| 5 | Heat + UpperLayer | Heat + UpperLayer |
-| 6 | Cool + UpperLayer | Heat + LowerLayer |
+| 3 | Heat + LowerLayer | Heat + LowerLayer |
+| 4 | Heat + UpperLayer | Cool + LowerLayer |
+| 5 | Cool + UpperLayer | Heat + UpperLayer |
+| 6 | Heat + LowerLayer | Heat + LowerLayer |
 
 <a name="s07"></a>
 
@@ -265,62 +217,34 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-[![Heated gas bulbs. Seven observations and Gemma 4 31B IT’s response.](S07.webp)](S07.webp)
+[![Heated gas bulbs. Seven observations and Qwen3.8-27B’s response.](S07.webp)](S07.webp)
 
 [Complete model response and source](../../examples/S07/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S07) · [Watch the episode](../../examples/S07/dual_view.mp4)
 
-### Model Response · Gemma 4 31B IT
+### Model Response · Qwen3.8-27B
 
-*F1 Meniscuses:*
-Left: Just above 2nd tick.
-Middle: Just above 2nd tick.
-Right: Just above 3rd tick.
+When a bulb is heated, the gas inside expands, pushing the liquid (blue) down in that bulb's tube. So the tube where the liquid level drops corresponds to the heated bulb. Wait, let me think carefully. The apparatus is like a gas thermometer / manometer. Heating a bulb increases gas pressure in that bulb, which pushes the liquid column down in that bulb's vertical tube (the liquid is displaced). Actually in these connected glass bulb manometers, heating one bulb causes its liquid level to fall (gas expands, pushes liquid down) and the others to rise? Or the liquid in the heated bulb's tube drops.
 
-*F2 Meniscuses:*
-Left: Just above 2nd tick.
-Middle: Just above 2nd tick.
-Right: Just above 3rd tick.
+Let me look at the frames carefully and compare meniscus heights in each of the three vertical tubes (left, middle, right). Let me define levels by reading the blue column top in each tube relative to scale marks. Frame F0: left tube blue top around middle-low; middle tube blue top similar; right tube blue top similar. Let's look at pixel positions. The tubes have horizontal scale marks on the right side of each tube. Let's estimate the blue liquid top height. F0: Left tube blue top ~ y=470 (roughly). Middle tube blue top ~ y=470. Right tube blue top ~ y=470. They look similar, all near same level.
 
-[…]
+F1: Right tube blue top appears higher? In F1 the right tube blue column top is around y=420 (higher), while left and middle remain ~470. Hmm. Actually let's look more systematically. I'll compare each frame. F0: left blue top ~ 475, middle ~ 475, right ~ 475. F1: left ~ 475, middle ~ 475, right ~ 420 (the blue in right tube is taller/higher). F2: left ~ 475, middle ~ 475, right ~ 475 (back to similar? right blue top ~470). F3: middle blue top ~ 440 (higher), others ~475. F4: left ~ 475, middle ~ 475, right ~ 475? maybe slight. F5: left blue top ~ 440 (higher), others ~475. F6: all ~475.
 
-Wait, if there is NO change in the meniscus, it might mean that the gas is not expanding. But the "thermal states are not reset." If you heat it, the meniscus *must* move (unless the gas is not there, but it's a "glass bulb" with a "visible meniscus").
+Hmm this is too noisy. Let's think about the physics: heating a bulb expands gas, pushing liquid DOWN in that bulb's tube (meniscus falls) and the connected tubes rise? Actually it's a connected system with a common liquid reservoir? The three vertical tubes are connected at the bottom by a horizontal blue tube. So it's like a U-tube network. If one bulb's gas expands, it pushes its tube's liquid down, and that liquid must go somewhere - into the other tubes, raising them. So heated bulb => its tube liquid level decreases; unheated => increase.
 
-Let me reconsider. Could the images be *so* similar that I'm missing a 1-pixel shift?
-Looking at the Right Meniscus (F0 to F6):
-F0: Top of blue liquid is just above the 3rd mark.
-F1: Top of blue liquid is just above the 3rd mark.
-F2: Top of blue liquid is just above the 3rd mark.
-F3: Top of blue liquid is just above the 3rd mark.
-F4: Top of blue liquid is just above the 3rd mark.
-F5: Top of blue liquid is just above the 3rd mark.
-F6: Top of blue liquid is just above the 3rd mark.
+But the frames show mostly small changes. Let's look at the relative heights. I think the intended reading: the meniscus that drops indicates heating. Let's look at each frame's "active response after one thermal-contact event." So each frame shows the result after that event (plus retained history). Since thermal states not reset, but each event heats one or two bulbs. This is quite ambiguous from images. Let's look very carefully at the blue levels. I'll describe each frame's three tube blue-top y-coordinates by eye: F0: L ~ 478, M ~ 478, R ~ 478 (all equal baseline) F1: L ~ 478, M ~ 478, R ~ 425 (R higher) -> but if heating causes drop, then R higher means R not heated and some other heated? Hmm.
 
-[…]
-
-Let's try the `1, 2, 3, 1, 2, 3` pattern. It's a common pattern in these types of problems.
-
-*Self-Correction:* Let me look at the frames again. Is it possible they are not identical?
-F0: R meniscus is slightly above 3.
-F1: R meniscus is slightly above 3.
-F2: R meniscus is slightly above 3.
-F3: R meniscus is slightly above 3.
-F4: R meniscus is slightly above 3.
-F5: R meniscus is slightly above 3.
-F6: R meniscus is slightly above 3.
-Yep, identical.
-
-Let's go with the `1, 2, 3, 1, 2, 3` sequence.
+Wait maybe I have the direction wrong. Let's consider that heating a bulb makes the gas expand and the meniscus in that bulb's tube goes DOWN (lower blue column). The other tubes' blue columns go up because liquid is pushed from the heated tube into them. So a heated bulb shows a LOWER blue top.
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
-| 1 | heat_bulb_1 | heat_bulb_1 + heat_bulb_2 |
-| 2 | heat_bulb_2 | heat_bulb_3 |
-| 3 | heat_bulb_3 | heat_bulb_1 + heat_bulb_3 |
-| 4 | heat_bulb_1 | heat_bulb_2 |
-| 5 | heat_bulb_2 | heat_bulb_2 + heat_bulb_3 |
-| 6 | heat_bulb_3 | heat_bulb_1 |
+| 1 | heat_bulb_3 | heat_bulb_1 + heat_bulb_2 |
+| 2 | heat_bulb_1 | heat_bulb_3 |
+| 3 | heat_bulb_2 | heat_bulb_1 + heat_bulb_3 |
+| 4 | heat_bulb_3 | heat_bulb_2 |
+| 5 | heat_bulb_1 | heat_bulb_2 + heat_bulb_3 |
+| 6 | heat_bulb_2 | heat_bulb_1 |
 
 <a name="s08"></a>
 
@@ -376,58 +300,29 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-[![Bimetal supports. Seven observations and Gemma 4 31B IT’s response.](S08.webp)](S08.webp)
+[![Bimetal supports. Seven observations and Qwen3.8-27B’s response.](S08.webp)](S08.webp)
 
 [Complete model response and source](../../examples/S08/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S08) · [Watch the episode](../../examples/S08/dual_view.mp4)
 
-### Model Response · Gemma 4 31B IT
+### Model Response · Qwen3.8-27B
 
-Let's try a simple sequence. Maybe the most likely answer when no movement is visible is a sequence of the smallest expansion lamp?
-No, that doesn't seem right. Let me try to see if there's *any* other possibility.
+Let me think about the apparatus. Three strips: left-front (aluminium), right-front (copper), rear (stainless steel). Invar on top. Heaters direct at corresponding strips. When a strip is heated, it expands more (Invar has low expansion, the lower layer expands), causing the strip to bend. The inner free ends push on the ring via ceramic balls. Heating a strip makes it expand, pushing the ring center away from that strip? Actually the strip's inner end moves; the ring sits on three balls. If one strip expands (its free end moves outward/away from center? No, the strip is clamped at outer end, free inner end at center). Heating the lower layer (which expands more than Invar) causes the strip to bow such that the inner end moves toward the convex side...
 
-Could it be that the lamps are being switched in a way that the total movement is minimized?
-No, because any lamp being on will cause *some* expansion, and that expansion will *add* to the previous expansion.
+Let's think: bimetallic strip, one side expands more. The strip curves toward the side that expands less (Invar). So the convex side is the expanding metal. The free end moves relative to the clamped end. The clamped end is at outer radius. The free end is at inner (center). When heated, the strip curves with expanding metal on outside of curve (convex). Hmm. Honestly, this is too detailed. The visual differences between frames are subtle. The pointer angle and ring tilt change slightly. Let me look at the pointer direction. In F0, pointer ball is at top, pointer line goes down to center, slightly tilted. The pointer appears to point up and slightly right.
 
-Wait! Let me look at the annulus again. Is there *any* tilt?
-If the pointer is exactly vertical, then the three strips must be expanding equally.
-But the strips have different materials. For them to expand equally, you'd need to heat them in a specific ratio.
-Aluminium (Left) expands the most.
-Copper (Right) expands moderately.
-Stainless Steel (Rear) expands the least.
+Given the difficulty, the expected answer likely follows a simple pattern. Many of these synthetic tasks expect a specific sequence. Without clear visual differences, I need to guess a plausible sequence of 6 events. Let me look more carefully at the ring's orange highlight (the illuminated side). The orange glow is on the left side of the ring in all frames. That's just lighting. The pointer: F0 pointer top ball at approx (483,178). F1 (485,177). F2 (487,177). F3 (487,177). F4 (487,177). F5 (487,177). F6 (487,177). Very little change. This is too subtle to differentiate. The task is essentially a guess among 6 allowed sets. The most reasonable approach: perhaps the sequence is each single lamp in some order then combos? But 6 events.
 
-If we heat only the Rear lamp, the annulus will tilt slightly towards the rear.
-If we heat only the Left lamp, it will tilt significantly towards the left.
-If we heat only the Right lamp, it will tilt moderately towards the right.
+Given uncertainty, I'll provide a sequence that uses each allowed set once? There are 6 allowed sets exactly. So the 6 events could be each of the 6 allowed sets in some order. That's a clean mapping! The allowed event label set has exactly 6 entries. So likely each event is one distinct allowed set. I need to assign them in chronological order. But which order? Hard. The instruction says "Even if uncertain, select your best-supported allowed answer for every event." So I can pick a reasonable order. Let me think about physical progression: start with left (aluminium) heating, ring tilts one way; then add rear; etc. But events are complete sets (the setting changes entirely each event). So each event is a fresh configuration.
 
-[…]
-
-Wait, I'll try to see if there's any change in the pointer in the original images again.
-Looking at the image F0, the pointer is perfectly vertical.
-Looking at F6, the pointer is perfectly vertical.
-If the pointer is perfectly vertical and never moves, it means either:
-1. The heaters are off (not allowed).
-2. The heaters are balanced (requires all 3 or a specific ratio).
-3. The heaters are not causing any movement (not possible).
-
-Wait, what if the "event" is to turn on a lamp, but the "response window" is too short?
-But 4.0-6.15 seconds is a reasonable amount of time for some movement.
-If there's no movement, let's just pick a sequence.
-I'll go with:
-`["SelectLeftLamp"]`
-`["SelectRearLamp"]`
-`["SelectRightLamp"]`
-`["SelectLeftLamp"]`
-`["SelectRearLamp"]`
-`["SelectRightLamp"]`
-(I'll use this as a default if I can't find any movement).
+Given no clear visual cue, I'll choose a sequence: F1=SelectLeftLamp, F2=SelectRightLamp, F3=SelectRearLamp, F4=SelectLeftLamp+SelectRearLamp, F5=SelectLeftLamp+SelectRightLamp, F6=SelectRearLamp+SelectRightLamp. That's one plausible ordering covering all six. But maybe the pointer tilt indicates direction. Let's look at pointer tilt: In F0 pointer is nearly vertical with slight right lean. As frames progress, does the pointer lean more left or right? F0 ball x~483, center x~493, so ball left of center => pointer leans left at top. F1 ball 485, center 493. F2 ball 487. F3 487. F4 487. F5 487.
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
 | 1 | SelectLeftLamp | SelectLeftLamp + SelectRearLamp |
-| 2 | SelectRearLamp | SelectLeftLamp |
-| 3 | SelectRightLamp | SelectRearLamp + SelectRightLamp |
-| 4 | SelectLeftLamp | SelectLeftLamp + SelectRightLamp |
-| 5 | SelectRearLamp | SelectRightLamp |
-| 6 | SelectRightLamp | SelectLeftLamp + SelectRightLamp |
+| 2 | SelectRightLamp | SelectLeftLamp |
+| 3 | SelectRearLamp | SelectRearLamp + SelectRightLamp |
+| 4 | SelectLeftLamp + SelectRearLamp | SelectLeftLamp + SelectRightLamp |
+| 5 | SelectLeftLamp + SelectRightLamp | SelectRightLamp |
+| 6 | SelectRearLamp + SelectRightLamp | SelectLeftLamp + SelectRightLamp |

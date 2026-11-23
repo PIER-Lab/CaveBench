@@ -39,7 +39,7 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    const versions = {'assets/results.js':'results-20261123', 'assets/offline-results.js':'results-20261123', 'assets/case-reader.js':'verbal-prompts-3', 'assets/catalog.js':'verbal-prompts-3'};
+    const versions = {'assets/results.js':'results-20261123', 'assets/offline-results.js':'results-20261123', 'assets/case-reader.js':'qwen-cases-1', 'assets/catalog.js':'qwen-cases-1'};
     const version = versions[path] || 'atlas3';
     tag.src = path + '?v=' + version;
     tag.onload = resolve;
@@ -123,10 +123,11 @@ function apparatusPrompt(item) {
 function answerText(parent, value) {
   for (const line of value.split(/\n\s*\n/).map(s=>s.trim()).filter(Boolean)) {
     const p = node('p');
-    for (const part of line.split(/(\*\*[^*]+\*\*|`[^`]+`)/)) {
-      if (part.startsWith('**') && part.endsWith('**')) p.append(node('strong',part.slice(2,-2)));
-      else if (part.startsWith('`') && part.endsWith('`')) p.append(node('code',part.slice(1,-1)));
-      else p.append(document.createTextNode(part));
+    const inline=line.split(/(\*\*[^*]+\*\*|`[^`]+`)/);
+    for (const [index,part] of inline.entries()) {
+      if (index % 2 === 0) p.append(document.createTextNode(part));
+      else if (part.startsWith('**')) p.append(node('strong',part.slice(2,-2)));
+      else p.append(node('code',part.slice(1,-1)));
     }
     parent.append(p);
   }
@@ -247,7 +248,7 @@ async function renderScene(id, changeHash=false) {
   if (oldVideo) oldVideo.pause();
   let item;
   try {
-    const record = entry.frames ? entry : jsonFile(pathFor(entry,'illustrated_response.json'));
+    const record = entry.frames ? entry : jsonFile(pathFor(entry,'illustrated_response.json')+'?v=qwen-cases-1');
     [item] = await Promise.all([record, loadCaseReader()]);
     const key=arr=>JSON.stringify([...arr].sort());
     item.steps=item.reference.map((expected,i)=>({event:i+1,expected,predicted:item.prediction[i],correct:key(expected)===key(item.prediction[i])}));

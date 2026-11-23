@@ -66,42 +66,15 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 ### Model Response · Qwen3.8-27B
 
-Setup: Three specimens left-to-right in F0: disk (left), arch (middle), dogbone (right). Wait, let me look. F0 left specimen is a circular disk with central hole. Middle is an arch (egg-shaped with two legs at bottom). Right is a narrow-waisted dogbone. Yes.
+This is getting too uncertain. Let's think about rotations: rotation changes fringe orientation (the spiral/ring pattern orientation in disk and arch). The disk in F0 shows simple concentric (radial symmetric-ish) pattern. In F2,F3,F4,F5 disk shows an off-center swirl (asymmetric) which suggests rotation changed alpha so the radial principal axis no longer aligned with polarizer, creating asymmetry. In F1 disk shows concentric ring. In F6 disk returns to concentric (like F0). So rotation events likely when disk becomes swirl or returns to concentric. Sequence of disk pattern: F0 concentric F1 concentric (ring) F2 swirl F3 swirl F4 swirl F5 swirl F6 concentric So a rotation happened before F2 (event2) changing alpha, and another rotation before F6 (event6) returning alpha near initial. That's two rotations among 6 events. The other 4 are load ops.
 
-Upper calibration strip is at top (the brass-framed horizontal strip above crosshead). It has fixed retardance and slowly varying principal axis 10-40 deg CCW from image-right across left-to-right. Its brightness pattern is a passive reference for common polarizer angle alpha.
+But wait rotation changes alpha by 38 deg each. Starting 12. After one rotation (CCW?) alpha = 12-38 = -26 or +50. After two rotations could return to 12? 12+38+... no. To return to concentric (alpha near initial principal alignment) maybe two rotations same direction: 12+38+38=88? Not same. Or one CW one CCW: 12+38-38=12 returns! So event2 = RotateClockwise (alpha 50) and event6 = RotateCounterclockwise (alpha 12) would return to initial. Or vice versa. But F1 (after event1) disk is concentric like F0, meaning event1 did NOT change alpha (so event1 is load op). Good. F2 swirl => event2 changed alpha (rotation). F3,F4,F5 still swirl (alpha unchanged) => events3,4,5 are load ops. F6 concentric => event6 rotation back. Thus rotations at events 2 and 6; load ops at 1,3,4,5.
 
-[…]
+Now determine directions and load up/down. Event1 load: F0->F1 dogbone got more colored (med). Load increased? F0 0.32 -> F1 0.61 (IncreaseLoad). Plausible. Event2 rotation: direction? Need to see orientation of swirl. Hard. Let's look at arch pattern orientation. In F2 arch shows concentric ring with two red vertical lines near center; in F3 arch green ring; F4 arch ring with red; F5 arch ring. The swirl in disk F2 vs F6? F6 concentric. Determine CW vs CCW: The strip principal axis 10-40 deg CCW. With alpha=12, near left of strip axis~10 so alpha-axis small -> dark? Hmm. Honestly distinguishing CW vs CCW from these images is very hard. I'll make a reasonable guess.
 
-This is getting too uncertain. Let's think about rotations: rotation changes fringe orientation (the spiral/ring pattern orientation in disk and arch). The disk in F0 shows simple concentric (radial symmetric-ish) pattern. In F2,F3,F4,F5 disk shows an off-center swirl (asymmetric) which suggests rotation changed alpha so the radial principal axis no longer aligned with polarizer, creating asymmetry. In F1 disk shows concentric ring. In F6 disk returns to concentric (like F0).
+Let's look at the disk swirl handedness: In F2 the disk swirl has a particular curl direction. In F5 similar. Not helpful for sign. Given the ambiguity, I'll commit to a plausible sequence: Event1: IncreaseLoad Event2: RotateClockwise Event3: DecreaseLoad (F3 dogbone faint => load dropped from high to low; from 0.61? wait after event2 rotation load still 0.61; event3 decrease ->0.32; but F2 was high meaning load 0.61 already high-ish; F3 faint 0.32) Hmm but F2 high vs F1 med: event2 was rotation not load, so load same as F1 (0.61). Then F2 should equal F1 in stress, but F2 looks more intense than F1. Could be stress relaxation/time? The dogbone relaxes fast though. Hmm. This is too detailed to be confident. Let's think about typical ground-truth for such synthetic tasks: often they alternate. I'll produce a best-guess.
 
-So rotation events likely when disk becomes swirl or returns to concentric.
-
-Sequence of disk pattern:
-F0 concentric
-F1 concentric (ring)
-F2 swirl
-F3 swirl
-F4 swirl
-F5 swirl
-F6 concentric
-
-[…]
-
-E1 IncreaseLoad
-E2 RotateCounterclockwise
-E3 DecreaseLoad
-E4 IncreaseLoad
-E5 RotateClockwise
-E6 DecreaseLoad
-
-Check load: 0.32 ->0.61(E1) ->rot(E2,0.61) ->0.32(E3) ->0.61(E4) ->rot(E5,0.61) ->0.32(E6). Then F5 and F6 same load 0.61; dogbone F5 bright F6 faint mismatch but F6 similar to F0 (0.32) not 0.61. Hmm.
-
-I'll just commit to:
-[IncreaseLoad, RotateCounterclockwise, DecreaseLoad, IncreaseLoad, DecreaseLoad, RotateClockwise]
-
-Rationale: rotations at 2 and 6 to return disk to concentric; loads alternate to vary intensity. Good enough.
-
-Final JSON.
+Let's look at arch color intensity as load indicator too (arch intermediate speed). F0 arch strong. F1 arch strong. F2 arch strong (ring). F3 arch moderate. F4 arch strong. F5 arch strong. F6 arch strong (like F0). Hmm F6 arch strong like F0, but dogbone faint like F0. Inconsistent with simple load.
 
 ### Model Answer and Experiment Log
 
@@ -185,39 +158,15 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 ### Model Response · Qwen3.8-27B
 
-The ray path: source -> M1 -> M2 -> screen. The orientation of M1 changes the direction of the ray after M1, which then hits M2 at a different point and direction, then M2 reflects to screen. Similarly M2 orientation changes the final direction.
+Let me think about what each control does to the screen spots physically. The ray path: source -> M1 -> M2 -> screen. The orientation of M1 changes the direction of the ray after M1, which then hits M2 at a different point and direction, then M2 reflects to screen. Similarly M2 orientation changes the final direction. Effect of M1 yaw (rotation about +y): changes horizontal component. Effect of M1 pitch: changes vertical component. Similarly M2. But because M2 also reflects, a M1 change propagates through M2 and affects screen in both x and y possibly. This is too detailed.
 
-Effect of M1 yaw (rotation about +y): changes horizontal component. Effect of M1 pitch: changes vertical component. Similarly M2.
+Given the difficulty, maybe the intended solution is simpler: The spots all move together in a translation that indicates a particular mirror axis. Because all three rays pass through both mirrors, a pure yaw change on M1 shifts all three spots horizontally on screen (left/right) by some amount; a pitch change shifts them vertically; M2 changes also shift but maybe opposite sign or different magnitude. Let's look at vertical (y) movements: In F0->F1 all three move up a bit. F1->F2: red same, green up tiny, blue down. F2->F3: red same, green up, blue up. F3->F4: red same, green up, blue down. F4->F5: all up. F5->F6: all up tiny. Horizontal: F0->F1 all left. F1->F2 all left. F2->F3 all right. F3->F4 all left. F4->F5: red ~same, green right, blue left (small). F5->F6 all right. Hmm.
 
-But because M2 also reflects, a M1 change propagates through M2 and affects screen in both x and y possibly. This is too detailed.
+This is too noisy for me to be confident. Let me consider that maybe each frame's event is a single-axis single-mirror move, and the direction of horizontal vs vertical shift tells axis, and the sign/magnitude pattern tells which mirror. Define screen image coords: +x image-right, +y image-up. So "up" in image = +y on screen. "left" = -x. Let me think about M1Right (increase yaw, rotation taking +z toward +x). Hard. Given time, maybe I should guess a plausible sequence. But the instruction wants best-supported. Let me look at the dominant motion per transition: Transition 1 (F0->F1): left + up. Transition 2 (F1->F2): left (strong), small vertical. Transition 3 (F2->F3): right. Transition 4 (F3->F4): left. Transition 5 (F4->F5): up (strong), small horizontal. Transition 6 (F5->F6): right + up. Hmm transitions 1 and 6 similar (right-left? 1 is left+up, 6 is right+up). Not matching.
 
-Given the difficulty, maybe the intended solution is simpler: The spots all move together in a translation that indicates a particular mirror axis. Because all three rays pass through both mirrors, a pure yaw change on M1 shifts all three spots horizontally on screen (left/right) by some amount; a pitch change shifts them vertically; M2 changes also shift but maybe opposite sign or different magnitude.
+Let me reconsider pixel reading by looking at grid columns. I'll define columns by the vertical grid lines. In F0, count columns: I see vertical lines at roughly x = 80,160,240,320,400,480,560,640,720,800,880,960,1040? Actually image width likely 1000, with left dark border to ~80 and right border after 960. Let's say grid lines every 80 px starting 80: 80,160,...,960 (12 lines). That's 11 columns? 960-80=880, /80 = 11 columns. Good. Now red F0 at x≈500 which is between 480 and 560, near 480+20. Hmm not on a line. The spots are not necessarily on grid lines. I think precise reasoning is infeasible. Let's think about typical puzzle design: they probably generated random sequences of allowed events and rendered. The answer is a specific sequence. Without simulation, I must infer.
 
-Let's look at vertical (y) movements: In F0->F1 all three move up a bit. F1->F2: red same, green up tiny, blue down. F2->F3: red same, green up, blue up. F3->F4: red same, green up, blue down. F4->F5: all up. F5->F6: all up tiny.
-
-Horizontal: F0->F1 all left. F1->F2 all left. F2->F3 all right. F3->F4 all left. F4->F5: red ~same, green right, blue left (small). F5->F6 all right.
-
-[…]
-
-Wait T6 right+? red y 248->253 down slight, green 138->143 down, blue 473->478 down: small down. And right. Could be Mirror1Right + Mirror?Down. But small.
-
-I'll finalize with these. Honestly I'll commit.
-
-Let me reconsider T1: left+up. If horizontal is M2Left (80px) then T1 red 500->460 is only 40, not 80. So horizontal not M2. So horizontal = M1Left (40). Then vertical up must be M2Up or M1Up but M1 already used. So M2Up. So E1 = [Mirror1Left, Mirror2Up]. Good.
-
-T2 left 80 = M2Left.
-T3 right 40 = M1Right.
-T4 left 40 = M1Left.
-T5 up 35 = M2Up (since M1 up would be ~15). Good.
-T6 right 50 = M1Right (40-50) with small down maybe noise.
-
-Thus:
-E1: Mirror1Left, Mirror2Up
-E2: Mirror2Left
-E3: Mirror1Right
-E4: Mirror1Left
-E5: Mirror2Up
-E6: Mirror1Right
+Maybe I can use relative displacement magnitude: a Mirror2 change produces larger screen shift than Mirror1 change because M2 is closer to screen? Actually a rotation at M2 directly changes the final ray direction before screen, so screen shift = distance_M2_to_screen * angle. M1 rotation changes ray before M2, which then also changes where it hits M2 and the reflection; effect on screen maybe smaller. The increments: M1 yaw 1°, M2 yaw 2°.
 
 ### Model Answer and Experiment Log
 
@@ -296,56 +245,30 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-[![Graded refraction. Seven observations and Gemma 4 31B IT’s response.](S19.webp)](S19.webp)
+[![Graded refraction. Seven observations and Qwen3.8-27B’s response.](S19.webp)](S19.webp)
 
 [Complete model response and source](../../examples/S19/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S19) · [Watch the episode](../../examples/S19/dual_view.mp4)
 
-### Model Response · Gemma 4 31B IT
+### Model Response · Qwen3.8-27B
 
-*Is there a better fit?*
-Could F3->F4 be `medium_rotate`?
-Rotation about the vertical axis (yaw) would move the spots laterally and change their relative positions. In F3, they were almost horizontal (top and mid). In F4, they are vertical. This is a 90-degree-like change in the pattern. However, rotation usually doesn't change the *vertical* spread that much, only the *horizontal* spread. But wait, the vertical spread in F4 (220 to 730) is much larger than in F3 (450 to 520). This strongly suggests moving the insert along the optical axis (x-axis) again.
+Look at vertical positions of the three spots: F0: top130, mid175, bot300 F1: top150, mid175, bot300 F2: top210, mid210, bot265 F3: top210, mid230, bot270 F4: top95, mid155, bot330 F5: top65, mid155, bot330 F6: top120, mid175, bot320 Horizontal: F0: 430,420,425 F1: 465,450,455 F2: 435,470,485 F3: 405,450,485 F4: 530,535,545 F5: 530,565,545 F6: 530,535,545 Notice F4-F6 horizontal ~530-545 (right side). F0-F3 horizontal ~400-485 (left-center). So somewhere between F3 and F4 there's a big rightward jump. That could be a transverse translation (near or far) which shifts everything horizontally. Then F4->F5->F6 small changes.
 
-Wait, if F1->F2 was `medium_left` (making them converge), then F3->F4 being `medium_right` (making them spread out again) makes perfect sense.
+Within F0-F3, the pattern rotates from vertical (F0) to horizontal-ish (F2) to diagonal (F3). That looks like a rotation (yaw) sequence: F0 vertical, then tilt, then more tilt. A yaw rotation about vertical axis would shift spots horizontally in proportion to vertical coordinate? Actually the index profile is symmetric; rotating it about vertical axis tilts the gradient, producing a horizontal deflection that depends on vertical position (like a prism whose angle depends on y). So a small yaw would make the column tilt into a diagonal: top spot moves one horizontal direction, bottom spot moves opposite, proportional to their vertical offset from center. In F0 they're aligned vertically (x same). In F1 top x increased relative to mid? top465 vs mid450: top moved right more. bottom455 similar to mid. Hmm.
 
-*Wait, let me look at F0 again.*
-F0: top(410, 270), mid(400, 380), bot(410, 650)
-F4: top(520, 220), mid(520, 340), bot(520, 730)
-F0 and F4 are both "spread out" and "mostly vertical". F4 is just shifted right and slightly more spread out. This supports the idea that F1->F2 and F3->F4 were opposite movements along the x-axis.
+In F2: top435 (left), mid470 (right), bottom485 (more right). So as y goes down, x increases → diagonal with negative slope in pixel (x right, y down) meaning in real (y up) it's positive slope? This diagonal in F2 then F3 top405 mid450 bot485 similar diagonal. So F2->F3 maybe small rotation change. F0 vertical (no tilt). F1 slight tilt (top right). F2 more tilt but reversed? Hmm. I'm spending too long. The grader likely expects a specific 6-length sequence. Given uncertainty, I'll make a reasonable guess using monotonic reasoning: Event1 (F0->F1): small rightward shift of column + slight tilt → medium_right? but right is optical axis translation. Optical axis translation changes spread magnitude, not shift. Hmm.
 
-*Let's refine:*
-F0 -> F1: `medium_near` (All shift right)
-F1 -> F2: `medium_left` (Spots converge)
-F2 -> F3: `medium_far` (All shift left)
-F3 -> F4: `medium_right` (Spots spread out)
-F4 -> F5: `medium_near` (All shift right)
-F5 -> F6: `medium_far` (All shift left)
+Let's consider that translation along optical axis (left/right) changes the effective power so spots move toward/away from center baseline (the no-insert positions). In F0 the column is left; maybe baseline is center-right. Moving insert toward source (left) increases optical effect → spots move more from baseline. Moving toward receiver (right) decreases effect → spots approach baseline. If baseline (no insert) is around x~530 (right side), then in F0 (x~425) the insert has strong effect; in F4 (x~535) effect reduced (insert moved right). So F0->F4 trending right toward baseline suggests medium_right events. But there's also rotation effects causing the diagonal. I'll commit to a plausible sequence: 1: medium_right 2: medium_rotate 3: medium_counterrotate 4: medium_right 5: medium_near 6: medium_far Hmm but I need 6 events for F1..F6.
 
-[…]
-
-Wait, let me double-check the convergence again.
-F1: y=280, 370, 650 (spread = 370)
-F2: y=450, 450, 520 (spread = 70)
-F3: y=450, 450, 520 (spread = 70)
-F4: y=220, 340, 730 (spread = 510)
-Yes, the convergence in F2 and spread in F4 is very clear.
-
-Final sequence:
-1.  `medium_near`
-2.  `medium_left`
-3.  `medium_far`
-4.  `medium_right`
-5.  `medium_near`
-6.  `medium_far`
+Let me look at vertical positions: F4 vertical spread large (top95 bot330). F5 top65 (even higher). F6 top120. So vertical position changes a lot; that suggests vertical translation? But there's no vertical control label! Controls are left,right (optical axis), near,far (transverse toward/away camera), rotate, counterrotate (yaw about vertical). None translate vertically (y). So vertical changes in spots must come from rotation (which couples vertical position to horizontal) or optical axis translation (changes spread vertically? no, spread is along beam direction which is image... hmm).
 
 ### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
 | ---: | --- | --- |
-| 1 | medium_near | medium_rotate |
-| 2 | medium_left | medium_far |
-| 3 | medium_far | medium_left |
-| 4 | medium_right | medium_near |
+| 1 | medium_right | medium_rotate |
+| 2 | medium_rotate | medium_far |
+| 3 | medium_counterrotate | medium_left |
+| 4 | medium_left | medium_near |
 | 5 | medium_near | medium_counterrotate |
 | 6 | medium_far | medium_right |
 
@@ -418,53 +341,21 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-[![Double-slit fringes. Seven observations and Gemma 4 31B IT’s response.](S20.webp)](S20.webp)
+[![Double-slit fringes. Seven observations and Qwen3.7-Plus’s response.](S20.webp)](S20.webp)
 
 [Complete model response and source](../../examples/S20/illustrated_response.json) · [Solve the question](https://pier-lab.github.io/CaveBench/#try-S20) · [Watch the episode](../../examples/S20/dual_view.mp4)
 
-### Model Response · Gemma 4 31B IT
+### Model Response · Qwen3.7-Plus
 
-*   F0: Base
-*   F1: Tighter fringes than F0. Envelope slightly wider? (NarrowSlits, IncreaseSpacing)
-*   F2: Wider fringes than F1. Envelope narrower. (WidenSlits, DecreaseSpacing)
-*   F3: Tighter fringes than F2. Envelope wider. (NarrowSlits, IncreaseSpacing)
-*   F4: Wider fringes than F3. Envelope narrower. (WidenSlits, DecreaseSpacing)
-*   F5: Tighter fringes than F4. Envelope wider. (NarrowSlits, IncreaseSpacing)
-*   F6: Wider fringes than F5. Envelope narrower. (WidenSlits, DecreaseSpacing)
+Let's look at the images again. F1: Wide envelope, tight fringes. Looks like State A (-123, +135). F2: Narrow envelope, wide fringes. Looks like State B (+92, -76). F3: Wide envelope, tight fringes. Looks like State A (-123, +135). (Same as F1). F4: Narrow envelope, wide fringes. Looks like State B (+92, -76). (Same as F2). F5: Medium envelope, medium fringes? - Wait, F5 looks like the envelope is wider than F4, but not as wide as F1. - And fringes are tighter than F4, but not as tight as F1. - Is it possible that F5 is State C or D? - State C: (-123, -76). Min width (wide envelope), Min spacing (wide fringes). - Wide envelope + Wide fringes. - F5 has a wider envelope than F4 (which is narrow envelope).
 
-*   Let's check the-width change specifically.
-*   Envelope width is determined by `a`.
-*   Narrower envelope = larger `a` (WidenSlits)
-*   Wider envelope = smaller `a` (NarrowSlits)
-*   Fringe pitch is determined by `d`.
-*   Wider pitch (fewer fringes) = smaller `d` (DecreaseSpacing)
-*   Tighter pitch (more fringes) = larger `d` (IncreaseSpacing)
+So NarrowSlits fits. - F5 has fringes that look... actually, let's count. - In F4 (State B: +92, -76), a is max, d is min. Narrow envelope, wide fringes. - In F5, if we apply NarrowSlits only: a becomes min (-123), d stays min (-76). - State C: (-123, -76). Wide envelope, wide fringes. - Let's check F5 image. Envelope is wider than F4. Fringes look similar to F4? - In F4, central blob has ~3 bright bands. - In F5, central blob has ~5-6 bright bands. The spacing looks similar to F4? No, slightly tighter. - Actually, F5 looks like NarrowSlits was applied to F4. - F4 state: a=max, d=min. - Apply NarrowSlits: a=min, d=min. - Result: Wide envelope (because a is min), Wide fringes (because d is min). - Does F5 show wide fringes?
 
-[…]
+Yes, the fringes are quite thick, similar to F2/F4/F6. - Does F5 show wide envelope? Yes, the bright region is wider than F2/F4/F6. - So F5 corresponds to NarrowSlits applied to F4. - Event 5: ["NarrowSlits"]. F6: Narrow envelope, wide fringes. Looks like State B (+92, -76). - From F5 (State C: -123, -76) to F6 (State B: +92, -76). - Change: a goes from min to max. -> WidenSlits. - d stays at min. - Event 6: ["WidenSlits"]. Let's re-verify the whole chain. Start F0: Initial state. $\theta_w \approx 0, \theta_d \approx 0$. - a medium, d medium. - Image F0: Medium envelope, medium fringes. (Looks consistent).
 
-Double check if any only had one control.
-Looking at F1 vs F2:
-F1: Envelope wide, fringes tight.
-F2: Envelope narrow, fringes wide.
-Both changed.
+Event 1 (F0 -> F1): - Target: F1 (Wide envelope, tight fringes). - This requires small a (wide envelope) and large d (tight fringes). - Primitives: NarrowSlits (to -123) and IncreaseSpacing (to +135). - Event 1: ["IncreaseSpacing", "NarrowSlits"]. - State: a=min, d=max. Event 2 (F1 -> F2): - Target: F2 (Narrow envelope, wide fringes). - This requires large a (narrow envelope) and small d (wide fringes). - Primitives: WidenSlits (to +92) and DecreaseSpacing (to -76). - Event 2: ["DecreaseSpacing", "WidenSlits"]. - State: a=max, d=min. Event 3 (F2 -> F3): - Target: F3 (Wide envelope, tight fringes). Same as F1. - Primitives: NarrowSlits and IncreaseSpacing. - Event 3: ["IncreaseSpacing", "NarrowSlits"]. - State: a=min, d=max.
 
-[…]
-
-If F0 is at theta_w=0, theta_d=0, then:
-F1 (NarrowSlits, IncreaseSpacing) would move it to -123, +135.
-F2 (WidenSlits, DecreaseSpacing) would move it to +92, -76.
-And so on.
-
-This pattern seems consistent and follows the rules.
-
-[…]
-
-Event 1: ["IncreaseSpacing", "NarrowSlits"]
-Event 2: ["DecreaseSpacing", "WidenSlits"]
-Event 3: ["IncreaseSpacing", "NarrowSlits"]
-Event 4: ["DecreaseSpacing", "WidenSlits"]
-Event 5: ["IncreaseSpacing", "NarrowSlits"]
-Event 6: ["DecreaseSpacing", "WidenSlits"]
+Event 4 (F3 -> F4): - Target: F4 (Narrow envelope, wide fringes). Same as F2. - Primitives: WidenSlits and DecreaseSpacing. - Event 4: ["DecreaseSpacing", "WidenSlits"]. - State: a=max, d=min. Event 5 (F4 -> F5): - Target: F5. - Compare F4 (Narrow envelope, wide fringes) and F5. - F5 has a wider envelope than F4. (Bright region is broader). -> NarrowSlits. - F5 fringes look similar to F4 (wide). Maybe slightly different? - If NarrowSlits only: a=min, d=min (unchanged from F4). - State: a=min, d=min. (Wide envelope, wide fringes). - Let's check F5 image. The envelope is definitely wider than F4. The fringes are still quite wide (thick bands). - This fits NarrowSlits only. - Event 5: ["NarrowSlits"].
 
 ### Model Answer and Experiment Log
 
@@ -474,5 +365,5 @@ Event 6: ["DecreaseSpacing", "WidenSlits"]
 | 2 | DecreaseSpacing + WidenSlits | DecreaseSpacing + WidenSlits |
 | 3 | IncreaseSpacing + NarrowSlits | IncreaseSpacing + NarrowSlits |
 | 4 | DecreaseSpacing + WidenSlits | DecreaseSpacing + WidenSlits |
-| 5 | IncreaseSpacing + NarrowSlits | NarrowSlits |
-| 6 | DecreaseSpacing + WidenSlits | WidenSlits |
+| 5 | NarrowSlits | NarrowSlits |
+| 6 | WidenSlits | WidenSlits |
