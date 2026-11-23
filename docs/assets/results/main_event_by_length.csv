@@ -1,0 +1,190 @@
+model_key,model,group,k,correct_events,total_events,event_accuracy_pct
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,1,159,190,83.68421053
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,2,315,380,82.89473684
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,3,522,600,87.0
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,4,684,800,85.5
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,5,867,1000,86.7
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,6,1035,1200,86.25
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Proprietary Models,Overall,3582,4170,85.89928058
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,1,154,190,81.05263158
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,2,308,380,81.05263158
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,3,500,600,83.33333333
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,4,665,800,83.125
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,5,844,1000,84.4
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,6,1027,1200,85.58333333
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Proprietary Models,Overall,3498,4170,83.88489209
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,1,110,190,57.89473684
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,2,223,380,58.68421053
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,3,357,600,59.5
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,4,456,800,57.0
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,5,584,1000,58.4
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,6,706,1200,58.83333333
+03_openai_gpt_6_luna,GPT-6 Luna,Proprietary Models,Overall,2436,4170,58.41726619
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,1,115,190,60.52631579
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,2,214,380,56.31578947
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,3,348,600,58.0
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,4,447,800,55.875
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,5,525,1000,52.5
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,6,640,1200,53.33333333
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Proprietary Models,Overall,2289,4170,54.89208633
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,1,112,190,58.94736842
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,2,230,380,60.52631579
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,3,318,600,53.0
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,4,413,800,51.625
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,5,538,1000,53.8
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,6,556,1200,46.33333333
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Proprietary Models,Overall,2167,4170,51.96642686
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,1,107,190,56.31578947
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,2,216,380,56.84210526
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,3,342,600,57.0
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,4,422,800,52.75
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,5,523,1000,52.3
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,6,639,1200,53.25
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Proprietary Models,Overall,2249,4170,53.93285372
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,1,101,190,53.15789474
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,2,186,380,48.94736842
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,3,295,600,49.16666667
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,4,385,800,48.125
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,5,486,1000,48.6
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,6,548,1200,45.66666667
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Proprietary Models,Overall,2001,4170,47.98561151
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,1,97,190,51.05263158
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,2,166,380,43.68421053
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,3,280,600,46.66666667
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,4,343,800,42.875
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,5,377,1000,37.7
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,6,475,1200,39.58333333
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Proprietary Models,Overall,1738,4170,41.67865707
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,1,83,190,43.68421053
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,2,172,380,45.26315789
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,3,278,600,46.33333333
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,4,358,800,44.75
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,5,430,1000,43.0
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,6,536,1200,44.66666667
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Proprietary Models,Overall,1857,4170,44.5323741
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,1,89,190,46.84210526
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,2,158,380,41.57894737
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,3,246,600,41.0
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,4,305,800,38.125
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,5,381,1000,38.1
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,6,450,1200,37.5
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Proprietary Models,Overall,1629,4170,39.0647482
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,1,81,190,42.63157895
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,2,140,380,36.84210526
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,3,246,600,41.0
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,4,279,800,34.875
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,5,325,1000,32.5
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,6,381,1200,31.75
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Proprietary Models,Overall,1452,4170,34.82014388
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,1,67,190,35.26315789
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,2,121,380,31.84210526
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,3,177,600,29.5
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,4,247,800,30.875
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,5,232,1000,23.2
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,6,287,1200,23.91666667
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Proprietary Models,Overall,1131,4170,27.12230216
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,1,73,190,38.42105263
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,2,111,380,29.21052632
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,3,201,600,33.5
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,4,233,800,29.125
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,5,268,1000,26.8
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,6,334,1200,27.83333333
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Proprietary Models,Overall,1220,4170,29.25659472
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,1,60,190,31.57894737
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,2,107,380,28.15789474
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,3,167,600,27.83333333
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,4,213,800,26.625
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,5,250,1000,25.0
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,6,268,1200,22.33333333
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Proprietary Models,Overall,1065,4170,25.53956835
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,1,58,190,30.52631579
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,2,108,380,28.42105263
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,3,163,600,27.16666667
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,4,195,800,24.375
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,5,268,1000,26.8
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,6,280,1200,23.33333333
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Proprietary Models,Overall,1072,4170,25.70743405
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,1,58,190,30.52631579
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,2,91,380,23.94736842
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,3,166,600,27.66666667
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,4,175,800,21.875
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,5,212,1000,21.2
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,6,272,1200,22.66666667
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Proprietary Models,Overall,974,4170,23.35731415
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,1,73,190,38.42105263
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,2,148,380,38.94736842
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,3,255,600,42.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,4,316,800,39.5
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,5,376,1000,37.6
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,6,436,1200,36.33333333
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Open-Weight Models,Overall,1604,4170,38.46522782
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,1,80,190,42.10526316
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,2,150,380,39.47368421
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,3,247,600,41.16666667
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,4,304,800,38.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,5,358,1000,35.8
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,6,420,1200,35.0
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Open-Weight Models,Overall,1559,4170,37.38609113
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,1,67,190,35.26315789
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,2,136,380,35.78947368
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,3,212,600,35.33333333
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,4,286,800,35.75
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,5,354,1000,35.4
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,6,402,1200,33.5
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Open-Weight Models,Overall,1457,4170,34.94004796
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,1,71,190,37.36842105
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,2,127,380,33.42105263
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,3,222,600,37.0
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,4,273,800,34.125
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,5,319,1000,31.9
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,6,327,1200,27.25
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Open-Weight Models,Overall,1339,4170,32.11031175
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,1,58,190,30.52631579
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,2,124,380,32.63157895
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,3,156,600,26.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,4,208,800,26.0
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,5,238,1000,23.8
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,6,303,1200,25.25
+18_minimax_minimax_m3,MiniMax M3,Open-Weight Models,Overall,1087,4170,26.06714628
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,1,53,190,27.89473684
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,2,102,380,26.84210526
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,3,166,600,27.66666667
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,4,210,800,26.25
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,5,274,1000,27.4
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,6,313,1200,26.08333333
+25_google_gemma_4_31b_it,Gemma 4 31B,Open-Weight Models,Overall,1118,4170,26.81055156
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,1,65,190,34.21052632
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,2,98,380,25.78947368
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,3,144,600,24.0
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,4,182,800,22.75
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,5,224,1000,22.4
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,6,289,1200,24.08333333
+22_moonshotai_kimi_k2_6,Kimi K2.6,Open-Weight Models,Overall,1002,4170,24.02877698
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,1,48,190,25.26315789
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,2,82,380,21.57894737
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,3,144,600,24.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,4,176,800,22.0
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,5,243,1000,24.3
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,6,294,1200,24.5
+23_moonshotai_kimi_k2_5,Kimi K2.5,Open-Weight Models,Overall,987,4170,23.66906475
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,1,38,190,20.0
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,2,75,380,19.73684211
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,3,131,600,21.83333333
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,4,165,800,20.625
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,5,189,1000,18.9
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,6,262,1200,21.83333333
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Open-Weight Models,Overall,860,4170,20.6235012
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,1,45,190,23.68421053
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,2,70,380,18.42105263
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,3,138,600,23.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,4,152,800,19.0
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,5,188,1000,18.8
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,6,229,1200,19.08333333
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Open-Weight Models,Overall,822,4170,19.71223022
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,1,40,190,21.05263158
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,2,57,380,15.0
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,3,116,600,19.33333333
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,4,149,800,18.625
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,5,188,1000,18.8
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,6,219,1200,18.25
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Open-Weight Models,Overall,769,4170,18.441247

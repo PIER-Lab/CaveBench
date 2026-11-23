@@ -10,7 +10,7 @@
   <link rel="preload" as="image" href="assets/observation-cover.webp" media="(min-width: 736px)" fetchpriority="high">
   <link rel="preload" as="image" href="assets/observation-cover-small.webp" media="(max-width: 735px)" fetchpriority="high">
   <link rel="stylesheet" href="assets/site.css?v=atlas3">
-  <script defer src="assets/site.js?v=copy4"></script>
+  <script defer src="assets/site.js?v=domain1"></script>
 </head>
 <body>
 <a href="#main" class="skip">Skip to content</a>
@@ -88,14 +88,14 @@
       <article id="example" aria-live="polite"></article>
     </div>
     <h3>Benchmark overview</h3>
-    <figure class="lead"><a class="zoom" href="assets/teaser.png" aria-label="Enlarge the CaveBench overview"><img loading="lazy" width="1485" height="705" data-lazy-src="assets/teaser.png" alt="Overview of all twenty apparatuses across five domains, with six-event accuracy for representative models."></a></figure>
+    <figure class="lead"><a class="zoom" href="assets/teaser.png" aria-label="Enlarge the CaveBench overview"><img loading="lazy" width="1485" height="705" data-lazy-src="assets/teaser.png" alt="Overview of all twenty apparatuses across five domains, with six-event accuracy for representative models."></a><figcaption><a href="#table-figure1" data-detail="figure1">Figure 1 · correct sequences and accuracy for five models</a></figcaption></figure>
     <h3>Construction and evaluation</h3>
-    <figure><a class="zoom" href="assets/construction.png"><img loading="lazy" width="1800" height="963" data-lazy-src="assets/construction.png" alt="Episode generation, image and control synchronization, question construction and model evaluation."></a><figcaption>The simulator records the controls applied between consecutive frames. These records supply the reference answers.</figcaption></figure>
+    <figure><a class="zoom" href="assets/construction.png"><img loading="lazy" width="1800" height="963" data-lazy-src="assets/construction.png" alt="Episode generation, image and control synchronization, question construction and model evaluation."></a><figcaption>The simulator records the controls applied between consecutive frames. These records supply the reference answers. <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/figure_tables.md#figure-3">Figure 3 · episode and question counts</a></figcaption></figure>
     <details class="fold"><summary>Physical design and example questions</summary>
       <figure><a class="zoom" href="assets/resonance.png"><img loading="lazy" width="1485" height="563" data-lazy-src="assets/resonance.png" alt="Resonant rods illustrate reasoning from an observed response back to a hidden control."></a><figcaption>Abductive reasoning with resonant rods. The source frequency is 100 Hz.</figcaption></figure>
       <figure><a class="zoom" href="assets/questions.png"><img loading="lazy" width="1800" height="1241" data-lazy-src="assets/questions.png" alt="Example questions and available controls from different apparatuses."></a></figure>
     </details>
-    <p class="related-tables"><a href="#detailed-results" data-detail="scene_controls">Apparatus statistics</a> · <a href="#detailed-results" data-detail="benchmark_comparison">Comparison with related benchmarks</a></p>
+    <p class="related-tables"><a href="#table-scene_controls" data-detail="scene_controls">Apparatus statistics</a> · <a href="#table-benchmark_comparison" data-detail="benchmark_comparison">Comparison with related benchmarks</a></p>
   </section>
   <section class="section" id="leaderboard">
     <h2>Leaderboard</h2>
@@ -118,7 +118,7 @@
       <p class="table-description" id="detail-note"></p>
       <div class="tablewrap" id="detail-wrapper" tabindex="0" role="region" aria-label="Detailed results"><table id="detail-table"></table></div>
       <p id="detail-status" class="result-status" role="status"></p>
-      <p class="related-tables">Tables on GitHub · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/domain_tables.md">Physical domains</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/apparatus_tables.md">All 20 apparatuses</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_tables.md">All adaptation runs</a></p>
+      <p class="related-tables">Tables on GitHub · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/domain_tables.md">Physical domains</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/apparatus_tables.md">All 20 apparatuses</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_tables.md">All adaptation runs</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_domains.md">Adaptation by domain</a> · <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/figure_tables.md">Figure data</a></p>
       <p class="related-tables"><a href="#table-model_protocols" data-detail="model_protocols">Evaluation settings by model</a> · <a href="assets/results/model_protocols.csv" download>Download evaluation settings</a></p>
       <p class="related-tables">Question-level scores for the <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/question_scores.csv">main comparison</a>, <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_question_scores.csv">adaptation methods</a> and <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/effort_question_scores.csv">reasoning-effort experiment</a>.</p>
     </div>
@@ -135,20 +135,20 @@
       </figure>
     </div>
     <p>On six-event questions, MiniMax M3.1 Flash scores highest in electromagnetism (27.5%). Sol and Terra score highest in thermal physics (80.0% and 85.0%) and lowest in electromagnetism (57.5% and 37.5%).</p>
-    <p class="related-tables"><a href="#table-figure1" data-detail="figure1">View the six-event scores in Figure 1</a> · <a href="#table-compound_by_length" data-detail="compound_by_length">Compare single- and two-label events</a></p>
+    <p class="related-tables"><a href="#table-main_event_by_length" data-detail="main_event_by_length">Event accuracy at each question length</a> · <a href="#table-compound_by_length" data-detail="compound_by_length">Compare single- and two-label events</a></p>
     <h3>Learning to recover a sequence</h3>
     <p>Supervised fine-tuning raises Qwen3.5-9B’s six-event accuracy from 0.5% to 20.0%. Across two training seeds, SimPO and KTO achieve similar single-event accuracy (86.8% and 86.3%). At six events, SimPO reaches 31.8% and KTO scores 14.5%.</p>
-    <p>Each SimPO run solves 27 six-event questions that SFT missed. Of the 40 sequences SFT recovered, the two runs retain 36 and 37, respectively. <a href="#table-paired_training" data-detail="paired_training">Compare runs by question length</a>.</p>
+    <p>On the 40 six-event dynamics questions, SFT recovers 10 complete sequences. The two SimPO runs recover <a href="#table-adaptation_by_domain-k6?domain=Dynamics" data-detail="adaptation_by_domain">16 and 17</a>. Across all five domains, each run solves 27 sequences that SFT missed. <a href="#table-paired_training" data-detail="paired_training">Compare runs on the same questions</a>.</p>
     <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" width="1485" height="1707" data-lazy-src="assets/adaptation.png" alt="Frames F0–F3 of the dielectric-response apparatus and the two models’ predictions for event 3."></a><figcaption>At event 3, the baseline predicts full insertion. The SimPO model identifies half insertion.</figcaption></figure>
-    <p class="related-tables"><a href="#detailed-results" data-detail="training_case">Compare predictions for all six events</a> · <a href="#detailed-results" data-detail="adaptation_by_length">Compare adaptation runs</a></p>
+    <p class="related-tables"><a href="#table-training_case" data-detail="training_case">Compare predictions for all six events</a> · <a href="#table-adaptation_by_domain-k6" data-detail="adaptation_by_domain">Compare adaptation by physical domain</a> · <a href="#table-adaptation_by_length" data-detail="adaptation_by_length">Compare question lengths</a></p>
     <h3>Reasoning effort</h3>
     <p>On 200 six-event questions, raising reasoning effort from low to high lifts GPT-6.1 Sol’s accuracy from 59.5% to 74.0%. Gemini 3.8 Flash’s accuracy falls from 15.5% to 8.0%.</p>
     <figure><a class="zoom" href="assets/effort.png"><img loading="lazy" width="1485" height="446" data-lazy-src="assets/effort.png" alt="Accuracy by reasoning effort, model and apparatus."></a><figcaption>Final-answer accuracy across ten episodes per apparatus.</figcaption></figure>
-    <p class="related-tables"><a href="#detailed-results" data-detail="effort_results">View the model and apparatus scores</a></p>
+    <p class="related-tables"><a href="#table-effort_results" data-detail="effort_results">View the model and apparatus scores</a></p>
     <h3>Error analysis</h3>
     <p>Among 100 incorrect answers, 38 misread a visual cue, 31 failed to combine evidence across observations, 24 drew an incorrect physical inference and seven misidentified the combination of controls.</p>
     <figure><a class="zoom" href="assets/errors.png"><img loading="lazy" width="1485" height="1170" data-lazy-src="assets/errors.png" alt="Four examples pairing the input images with the predicted and recorded controls, one for each error category."></a></figure>
-    <p class="related-tables"><a href="#detailed-results" data-detail="error_categories">View counts by error category</a></p>
+    <p class="related-tables"><a href="#table-error_categories" data-detail="error_categories">View counts by error category</a></p>
   </section>
 </main>
 <footer><div><strong>CaveBench</strong><a href="#top">Back to top ↑</a></div></footer>

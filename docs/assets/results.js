@@ -10,6 +10,9 @@ function percent(value) {
   return number % 1 === 0.25 ? Math.floor(number) + '.2' : number.toFixed(1);
 }
 const cachedResults = new Map();
+const detailedPercent = new Intl.NumberFormat('en', {
+  minimumFractionDigits: 1, maximumFractionDigits: 2, useGrouping: false
+}).format;
 const lengths = [1, 2, 3, 4, 5, 6];
 const physicalDomains = ['Dynamics', 'Thermal', 'Electromagnetism', 'Acoustics', 'Optics', 'Overall'];
 const lengthNames = lengths.map(k => 'k = ' + k);
@@ -53,10 +56,13 @@ function csvRows(csv) {
 
 function readResults(name) {
   if (!cachedResults.has(name)) {
-    const promise = fetch(resultDirectory + name + '.csv').then(response => {
+    const source = location.protocol === 'file:'
+      ? script('assets/offline-results.js').then(() => window.CAVE_RESULT_CSV[name])
+      : fetch(resultDirectory + name + '.csv').then(response => {
       if (!response.ok) throw new Error('Missing table ' + name);
       return response.text();
-    }).then(csvRows).catch(error => {
+    });
+    const promise = source.then(csvRows).catch(error => {
       cachedResults.delete(name);
       throw error;
     });
@@ -244,12 +250,14 @@ document.querySelectorAll('[data-table]').forEach(button => { button.onclick = (
 
 const views = {
   adaptation_by_length: ['Adaptation by run and question length', 'Training and adaptation'],
+  adaptation_by_domain: ['Adaptation by physical domain', 'Training and adaptation'],
   adaptation_by_scene: ['Adaptation by apparatus', 'Training and adaptation'],
   paired_training: ['Paired outcomes against SFT', 'Training and adaptation'],
   training_case: ['Recorded predictions in Figure 5', 'Training and adaptation'],
   effort_results: ['Reasoning effort in Figure 6', 'Model analysis'],
   figure1: ['Six-event scores in Figure 1', 'Model analysis'],
   model_protocols: ['Evaluation settings by model', 'Model analysis'],
+  main_event_by_length: ['Event accuracy by question length', 'Model analysis'],
   error_categories: ['Error categories', 'Model analysis'],
   event_positions: ['Accuracy by event position', 'Model analysis'],
   compound_by_length: ['Single- and two-label events', 'Model analysis'],
@@ -269,14 +277,25 @@ for (const group of new Set(Object.values(views).map(view => view[1]))) {
 
 const unique = values => [...new Set(values)];
 const setSelectOptions = (entries, current) => entries.map(([value, name]) => new Option(name, value, false, value === current));
-const detailState = {scene:'S01', k:'6', metric:'accuracy_pct', stage:'Final', model:''};
+const detailState = {scene:'S01', domain:'', k:'6', metric:'accuracy_pct', stage:'Final', model:''};
 let detailVersion = 0;
+function adaptationAnchor() {
+  const query = new URLSearchParams();
+  if (detailState.domain) query.set('domain', detailState.domain);
+  if (detailState.metric === 'event_accuracy_pct') query.set('metric', 'event');
+  return '#table-adaptation_by_domain-k' + detailState.k + (query.size ? '?' + query : '');
+}
 function detailFilter(key, title, options, rerender) {
   const label = node('label', title);
   const select = node('select');
   select.id = 'detail-' + key;
   select.replaceChildren(...setSelectOptions(options, detailState[key]));
-  select.onchange = () => { detailState[key] = select.value; rerender(); };
+  select.onchange = () => {
+    detailState[key] = select.value;
+    if (detailSelect.value === 'adaptation_by_domain') history.replaceState(null, '', adaptationAnchor());
+    rerender();
+    document.getElementById(select.id)?.focus({preventScroll:true});
+  };
   label.append(select);
   $('#detail-filters').append(label);
 }
@@ -333,17 +352,42 @@ function displayDetailed(view, records) {
   if (view === 'adaptation_by_scene') {
     detailFilter('scene', 'Apparatus', cases.map(c => [c.id, c.id + ' · ' + c.title]), rerender);
   }
-  if (view === 'compound_by_length' || view === 'paired_training') {
+  if (['adaptation_by_domain','compound_by_length','paired_training'].includes(view)) {
     detailFilter('k', 'Events per question', lengths.map(k => [String(k), String(k)]), rerender);
+  }
+  if (view === 'adaptation_by_domain') {
+    detailFilter('domain', 'Physical domain', [['','All domains'], ...physicalDomains.map(d => [d,nameFor(d)])], rerender);
   }
   if (view === 'effort_results') {
     detailFilter('stage', 'Response scored', [['Primary','Initial answer'],['Final','Final answer']], rerender);
   }
-  if (['adaptation_by_scene','adaptation_by_length','effort_results'].includes(view)) {
+  if (['adaptation_by_domain','adaptation_by_scene','adaptation_by_length','effort_results'].includes(view)) {
     detailFilter('metric', 'Metric', [['accuracy_pct','Sequence exact match'],['event_accuracy_pct','Event accuracy']], rerender);
   }
   const metric = detailState.metric;
-  if (view.startsWith('adaptation_by_')) {
+  if (view === 'adaptation_by_domain') {
+    const rows = records.filter(r => r.k === detailState.k);
+    const labels = r => [r.model, r.method, r.run];
+    const individualEvents = metric === 'event_accuracy_pct';
+    const unit = individualEvents ? 'events' : 'questions';
+    const title = individualEvents ? 'Event accuracy (%)' : 'Sequence exact match (%)';
+    const denominators = rows.filter(r => r.runs === '1');
+    const total = d => {
+      const record = denominators.find(r => r.domain === d);
+      return individualEvents ? record.total_events : record.total;
+    };
+    if (detailState.domain) {
+      const selected = rows.filter(r => r.domain === detailState.domain);
+      detailTable(['Model','Method','Run','Correct',individualEvents ? 'Events' : 'Questions',title],
+        selected.map(r => [...labels(r), individualEvents ? r.correct_events : r.correct,
+          individualEvents ? r.total_events : r.total, detailedPercent(r[metric])]), [0,1,2],
+        nameFor(detailState.domain) + ' · ' + total(detailState.domain) + ' ' + unit + ' per run. Mean rows combine the counts from both seeds.');
+    } else {
+      const table = pivotRows(rows, r => JSON.stringify(labels(r)), r => r.domain, physicalDomains, metric, labels, detailedPercent);
+      detailTable(['Model','Method','Run',...physicalDomains.map(d => nameFor(d) + ' (n = ' + total(d) + ')')],table,[0,1,2],
+        title + '. Each n counts ' + unit + ' per run. Mean rows pool the two seeds of the same method.');
+    }
+  } else if (view.startsWith('adaptation_by_')) {
     const rows = records.filter(r => view === 'adaptation_by_length' || r.scene === detailState.scene);
     const ks = [...lengths.map(String), 'Overall'];
     const table = pivotRows(rows, r => JSON.stringify([r.model,r.method,r.run]), r => r.k, ks, metric,
@@ -380,6 +424,11 @@ function displayDetailed(view, records) {
     detailTable(['Model','Visual input','Reasoning setting','Initial token cap','Answer completion','Completion token cap','Questions','Completion answers scored'],
       rows.map(r => [r.model,r.input_format,r.reasoning,r.primary_token_cap,r.completion_policy,r.completion_token_cap,r.questions,r.completion_selected]), [0,1,2,4],
       'Token caps are per request. The last column counts questions scored from a completion response.');
+  } else if (view === 'main_event_by_length') {
+    const columns = [...lengths.map(String), 'Overall'];
+    const table = pivotRows(records, r => r.model_key, r => r.k, columns, 'event_accuracy_pct', r => [r.model], detailedPercent);
+    detailTable(['Model',...lengthNames,'Overall'], table, [0],
+      'An event is correct when all its predicted controls match. Overall pools all 4,170 event predictions across the 1,180 questions.');
   } else if (view === 'event_positions') {
     const columns = lengths.map(String);
     const table = pivotRows(records, r => r.model_key, r => r.position, columns, 'accuracy_pct', r => [r.model]);
@@ -433,23 +482,21 @@ async function loadDetail() {
   }
 }
 detailSelect.onchange = () => {
-  history.replaceState(null, '', '#table-' + detailSelect.value);
+  history.replaceState(null, '', detailSelect.value === 'adaptation_by_domain' ? adaptationAnchor() : '#table-' + detailSelect.value);
   loadDetail();
 };
 document.querySelectorAll('a[data-detail]').forEach(link => {
-  link.href = '#table-' + link.dataset.detail;
   link.onclick = event => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
-    detailSelect.value = link.dataset.detail;
     history.replaceState(null, '', link.hash);
-    loadDetail();
-    $('#detailed-results').scrollIntoView({block:'start'});
+    openResultAnchor();
   };
 });
 function openResultAnchor() {
   const key = location.hash.slice(1);
   const domain = /^domain-k([1-6])$/.exec(key);
+  const adaptation = /^table-adaptation_by_domain(?:-k([1-6]))?(?:\?(.+))?$/.exec(key);
   if (domain) {
     leaderboard.k = Number(domain[1]);
     chooseView('domains', false);
@@ -459,8 +506,17 @@ function openResultAnchor() {
     chooseView('scenes', false);
   } else if (key === 'scores-length' || key === 'scores-methods') {
     chooseView(key.slice(7), false);
-  } else if (key.startsWith('table-') && Object.hasOwn(views, key.slice(6))) {
-    detailSelect.value = key.slice(6);
+  } else if (adaptation || (key.startsWith('table-') && Object.hasOwn(views, key.slice(6)))) {
+    if (adaptation) {
+      const params = new URLSearchParams(adaptation[2]);
+      detailState.k = adaptation[1] || '6';
+      detailState.domain = physicalDomains.includes(params.get('domain')) ? params.get('domain') : '';
+      detailState.metric = params.get('metric') === 'event' ? 'event_accuracy_pct' : 'accuracy_pct';
+    } else if (key === 'table-effort_results') {
+      detailState.stage = 'Final';
+      detailState.metric = 'accuracy_pct';
+    }
+    detailSelect.value = adaptation ? 'adaptation_by_domain' : key.slice(6);
     loadDetail();
     requestAnimationFrame(() => $('#detailed-results').scrollIntoView({block:'start',behavior:'instant'}));
     return;

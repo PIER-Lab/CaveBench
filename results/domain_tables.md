@@ -4,7 +4,7 @@ Exact match is the percentage of questions with the correct controls at every ev
 
 [1 event](#domain-k1) · [2 events](#domain-k2) · [3 events](#domain-k3) · [4 events](#domain-k4) · [5 events](#domain-k5) · [6 events](#domain-k6)
 
-[Download counts and percentages](../docs/assets/results/domain_by_length.csv)
+[Download counts and percentages](../docs/assets/results/domain_by_length.csv) · [Event accuracy by question length](#event-by-length)
 
 <a name="domain-k1"></a>
 
@@ -233,3 +233,42 @@ Exact match is the percentage of questions with the correct controls at every ev
 | Llama 4 Maverick | 2.5 | 0.0 | 0.0 | 0.0 | 0.0 | 0.5 |
 | Qwen3.5-9B | 0.0 | 0.0 | 2.5 | 0.0 | 0.0 | 0.5 |
 | DeepSeek V4 Flash | 0.0 | 0.0 | 2.5 | 0.0 | 0.0 | 0.5 |
+
+<a name="event-by-length"></a>
+
+## Event accuracy by question length
+
+Event accuracy (%) counts an event as correct when its entire control set matches the reference. Overall pools the 4,170 event predictions across all 1,180 questions.
+
+| Model | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Scored events | 190 | 380 | 600 | 800 | 1,000 | 1,200 | 4,170 |
+| GPT-6.1 Sol | 83.68 | 82.89 | 87.0 | 85.5 | 86.7 | 86.25 | 85.9 |
+| GPT-6.1 Terra | 81.05 | 81.05 | 83.33 | 83.13 | 84.4 | 85.58 | 83.88 |
+| GPT-6 Luna | 57.89 | 58.68 | 59.5 | 57.0 | 58.4 | 58.83 | 58.42 |
+| Gemini 3.8 Flash | 60.53 | 56.32 | 58.0 | 55.88 | 52.5 | 53.33 | 54.89 |
+| Claude Sonnet 5.5 | 58.95 | 60.53 | 53.0 | 51.63 | 53.8 | 46.33 | 51.97 |
+| GPT-5.6 Luna | 56.32 | 56.84 | 57.0 | 52.75 | 52.3 | 53.25 | 53.93 |
+| Gemini 3.6 Flash | 53.16 | 48.95 | 49.17 | 48.13 | 48.6 | 45.67 | 47.99 |
+| Claude Haiku 5.5 | 51.05 | 43.68 | 46.67 | 42.88 | 37.7 | 39.58 | 41.68 |
+| Qwen3.8 Flash | 43.68 | 45.26 | 46.33 | 44.75 | 43.0 | 44.67 | 44.53 |
+| Qwen3.7 Plus | 46.84 | 41.58 | 41.0 | 38.13 | 38.1 | 37.5 | 39.06 |
+| Seed-2.0-Lite | 42.63 | 36.84 | 41.0 | 34.88 | 32.5 | 31.75 | 34.82 |
+| Claude Sonnet 5 | 35.26 | 31.84 | 29.5 | 30.88 | 23.2 | 23.92 | 27.12 |
+| Seed 2.1 Turbo | 38.42 | 29.21 | 33.5 | 29.13 | 26.8 | 27.83 | 29.26 |
+| GLM 5V Turbo | 31.58 | 28.16 | 27.83 | 26.63 | 25.0 | 22.33 | 25.54 |
+| Seed-2.0-Mini | 30.53 | 28.42 | 27.17 | 24.38 | 26.8 | 23.33 | 25.71 |
+| Gemini 3.5 Flash Lite | 30.53 | 23.95 | 27.67 | 21.88 | 21.2 | 22.67 | 23.36 |
+| MiniMax M3.1 Flash | 38.42 | 38.95 | 42.5 | 39.5 | 37.6 | 36.33 | 38.47 |
+| GLM 5.3 Flash | 42.11 | 39.47 | 41.17 | 38.0 | 35.8 | 35.0 | 37.39 |
+| Qwen3.8 27B | 35.26 | 35.79 | 35.33 | 35.75 | 35.4 | 33.5 | 34.94 |
+| DeepSeek V4.1 Flash | 37.37 | 33.42 | 37.0 | 34.13 | 31.9 | 27.25 | 32.11 |
+| MiniMax M3 | 30.53 | 32.63 | 26.0 | 26.0 | 23.8 | 25.25 | 26.07 |
+| Gemma 4 31B | 27.89 | 26.84 | 27.67 | 26.25 | 27.4 | 26.08 | 26.81 |
+| Kimi K2.6 | 34.21 | 25.79 | 24.0 | 22.75 | 22.4 | 24.08 | 24.03 |
+| Kimi K2.5 | 25.26 | 21.58 | 24.0 | 22.0 | 24.3 | 24.5 | 23.67 |
+| Llama 4 Maverick | 20.0 | 19.74 | 21.83 | 20.63 | 18.9 | 21.83 | 20.62 |
+| Qwen3.5-9B | 23.68 | 18.42 | 23.0 | 19.0 | 18.8 | 19.08 | 19.71 |
+| DeepSeek V4 Flash | 21.05 | 15.0 | 19.33 | 18.63 | 18.8 | 18.25 | 18.44 |
+
+[Download correct and scored event counts](../docs/assets/results/main_event_by_length.csv)

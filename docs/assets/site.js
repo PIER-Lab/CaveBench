@@ -31,7 +31,7 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    tag.src = path + (path === 'assets/results.js' ? '?v=copy4' : '?v=atlas3');
+    tag.src = path + (path === 'assets/results.js' ? '?v=domain1' : '?v=atlas3');
     tag.onload = resolve;
     tag.onerror = () => { tag.remove(); reject(new Error(path)); };
     document.head.append(tag);
@@ -317,7 +317,6 @@ async function showResults() {
 }
 whenNear($('#viewer'),showViewer);
 whenNear($('#leaderboard'),showResults);
-document.querySelectorAll('a[data-detail]').forEach(link => { link.href='#table-' + link.dataset.detail; });
 let requestedAnchor = '';
 function preserveAnchor() {
   if (!requestedAnchor || requestedAnchor !== location.hash) return;
@@ -350,7 +349,7 @@ function openSection() {
     showViewer();
   } else if (location.hash === '#viewer') {
     showViewer();
-  } else if (/^#(?:domain-k[1-6]|apparatus-S\d{2}|scores-(?:length|methods)|table-[a-z0-9_]+|leaderboard|detailed-results)$/.test(location.hash)) {
+  } else if (/^#(?:domain-k[1-6]|apparatus-S\d{2}|scores-(?:length|methods)|table-[a-z0-9_]+(?:-k[1-6])?(?:\?.*)?|leaderboard|detailed-results)$/.test(location.hash)) {
     showResults();
   }
 }
