@@ -235,7 +235,7 @@ def figure_tables(order, scenes):
     """Report the values plotted in the paper and the counts behind the error analysis."""
     lines = ["# Data for the Paper Figures", "",
              "[Six-event accuracy](#figure-1) · [Dataset construction](#figure-3) · "
-             "[Training case](#figure-5) · [Reasoning effort](#figure-6) · [Error categories](#error-categories)", ""]
+             "[Reasoning effort](#figure-6) · [Error categories](#error-categories)", ""]
     lines.extend(heading("figure-1", "Figure 1 · Six-event accuracy"))
     lines.extend([figure("teaser", "Benchmark overview and six-event accuracy"), ""])
     lines.extend(table("Model", ["Correct sequences", "Test questions", "Exact match (%)"]))
@@ -260,16 +260,6 @@ def figure_tables(order, scenes):
                   "", "[Dataset](https://huggingface.co/datasets/linguanxin/CaveBench)"
                   " · [Test counts by apparatus](../docs/assets/results/scene_controls.csv)", ""])
 
-    lines.extend(heading("figure-5", "Figure 5 · Dielectric response after preference training"))
-    lines.extend([figure("adaptation", "Dielectric response before and after preference training"), ""])
-    lines.extend(["In S11 sample 0007, the Qwen3.5-9B baseline confuses full and half insertion at events 1 and 3. "
-                  "Both SimPO runs recover all six controls.", "",
-                  row(["Event", "Reference", "Qwen3.5-9B baseline", "SFT + SimPO (seed 20261108)", "SFT + SimPO (seed 20261109)"]),
-                  row(["---:", "---", "---", "---", "---"])])
-    for r in read(DATA / "training_case.csv"):
-        lines.append(row([r["event"], *[f"`{r[field]}`" for field in ("reference", "baseline", "simpo_20261108", "simpo_20261109")]]))
-    lines.extend(["", "[Download per-event predictions](../docs/assets/results/training_case.csv)", ""])
-
     lines.extend(heading("figure-6", "Figure 6 · Reasoning effort by apparatus"))
     lines.extend([figure("effort", "Six-event exact match at three levels of reasoning effort"), ""])
     lines.extend(["GPT-6.1 Sol and Gemini 3.8 Flash each answer the same ten six-event questions per apparatus "
@@ -287,16 +277,13 @@ def figure_tables(order, scenes):
                   " · [Question-level scores](effort_question_scores.csv)", ""])
 
     lines.extend(heading("error-categories", "Error categories"))
-    lines.extend([figure("errors", "Error categories in six-event responses"), ""])
     lines.extend(["Each of the 100 incorrect six-event responses received one primary error category. "
-                  "The direct and limited counts reflect the strength of the evidence for that category in the response. "
                   "Visual identification accounted for 38 responses and evidence integration for 31.", "",
-                  *table("Error category", ["Responses", "Direct support", "Limited support"])])
+                  *table("Error category", ["Responses"])])
     errors = read(DATA / "error_categories.csv")
-    fields = ("total", "direct", "limited")
     for r in errors:
-        lines.append(row([r["category"], *[r[f] for f in fields]]))
-    lines.append(row(["Total", *[sum(int(r[f]) for r in errors) for f in fields]]))
+        lines.append(row([r["category"], r["total"]]))
+    lines.append(row(["Total", sum(int(r["total"]) for r in errors)]))
     return [*lines, "", "[Download error counts](../docs/assets/results/error_categories.csv)"]
 
 

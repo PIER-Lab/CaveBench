@@ -1,6 +1,6 @@
 <h1 align="center">Data for the Paper Figures</h1>
 
-[Six-event accuracy](#figure-1) · [Dataset construction](#figure-3) · [Training case](#figure-5) · [Reasoning effort](#figure-6) · [Error categories](#error-categories)
+[Six-event accuracy](#figure-1) · [Dataset construction](#figure-3) · [Reasoning effort](#figure-6) · [Error categories](#error-categories)
 
 <a name="figure-1"></a>
 
@@ -42,25 +42,6 @@
 
 [Dataset](https://huggingface.co/datasets/linguanxin/CaveBench) · [Test counts by apparatus](../docs/assets/results/scene_controls.csv)
 
-<a name="figure-5"></a>
-
-## Figure 5 · Dielectric response after preference training
-
-[![Dielectric response before and after preference training](../docs/assets/figures/adaptation-704.webp)](../docs/assets/figures/adaptation-1200.webp)
-
-In S11 sample 0007, the Qwen3.5-9B baseline confuses full and half insertion at events 1 and 3. Both SimPO runs recover all six controls.
-
-| Event | Reference | Qwen3.5-9B baseline | SFT + SimPO (seed 20261108) | SFT + SimPO (seed 20261109) |
-| ---: | --- | --- | --- | --- |
-| 1 | `InsertFully` | `InsertHalf` | `InsertFully` | `InsertFully` |
-| 2 | `WithdrawDielectric` | `WithdrawDielectric` | `WithdrawDielectric` | `WithdrawDielectric` |
-| 3 | `InsertHalf` | `InsertFully` | `InsertHalf` | `InsertHalf` |
-| 4 | `WithdrawDielectric` | `WithdrawDielectric` | `WithdrawDielectric` | `WithdrawDielectric` |
-| 5 | `InsertHalf` | `InsertHalf` | `InsertHalf` | `InsertHalf` |
-| 6 | `WithdrawDielectric` | `WithdrawDielectric` | `WithdrawDielectric` | `WithdrawDielectric` |
-
-[Download per-event predictions](../docs/assets/results/training_case.csv)
-
 <a name="figure-6"></a>
 
 ## Figure 6 · Reasoning effort by apparatus
@@ -99,16 +80,14 @@ GPT-6.1 Sol and Gemini 3.8 Flash each answer the same ten six-event questions pe
 
 ## Error categories
 
-[![Error categories in six-event responses](../docs/assets/figures/errors-704.webp)](../docs/assets/figures/errors-1200.webp)
+Each of the 100 incorrect six-event responses received one primary error category. Visual identification accounted for 38 responses and evidence integration for 31.
 
-Each of the 100 incorrect six-event responses received one primary error category. The direct and limited counts reflect the strength of the evidence for that category in the response. Visual identification accounted for 38 responses and evidence integration for 31.
-
-| Error category | Responses | Direct support | Limited support |
-| --- | ---: | ---: | ---: |
-| Visual identification | 38 | 27 | 11 |
-| Physical inference | 24 | 6 | 18 |
-| Evidence integration | 31 | 7 | 24 |
-| Action composition | 7 | 5 | 2 |
-| Total | 100 | 45 | 55 |
+| Error category | Responses |
+| --- | ---: |
+| Visual identification | 38 |
+| Physical inference | 24 |
+| Evidence integration | 31 |
+| Action composition | 7 |
+| Total | 100 |
 
 [Download error counts](../docs/assets/results/error_categories.csv)

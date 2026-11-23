@@ -39,7 +39,7 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    const versions = {'assets/results.js':'ssi-sections', 'assets/offline-results.js':'matrix1', 'assets/case-reader.js':'portrait2'};
+    const versions = {'assets/results.js':'results-20261123', 'assets/offline-results.js':'results-20261123', 'assets/case-reader.js':'portrait2'};
     const version = versions[path] || 'atlas3';
     tag.src = path + '?v=' + version;
     tag.onload = resolve;

@@ -14,7 +14,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/webp" href="data:image/webp;base64,UklGRqYCAABXRUJQVlA4WAoAAAAQAAAAHAAAHAAAQUxQSLIBAAABkBxAAAE2F9u2bdu2bdu2bdtJbdvWBN3GfkfEBPDXlE2biFX8WdZDD7arTx4txcj/BLWdu+2mgG7B8cuCH3J81iUFMuIAVs8rfiD2QzqI5N671WgM6D0v/x7B1hdOEHJ118Zp/MGRBug/L/mOqRvqCM/fDAaQ778pA8Yfzb4R8UYBRi9KgkWkACweCsN6w9fkXkZCxX0FbPfu3N2QRvxcN0TeEfrKyBbEvtLD5GO5tPjSDS20P+mj8NriC7ePWii/ckXxcRlA7xkBdqthrQEQvZkPfZNInB4ESTsU3xkRfUuY6MuC4P5MAqPXmqTcEcL05LMNuxVIv7LH7YoQDI3DahMcFSNyt6Rhl6Qrgoz343FZCImnnpg9kUP9rR7+b8UVXlmrvlQmd/UrDs8liTsFGedhvx2u+Mk/UiN/+StRp6F+HKaakXxtCo9tFb8newXma2E9E82HSkg9NFT6noYBOJWAwEkoVjelUbqnofw9o9WI3XBB5IYT3peEMLgjr/z4a1eE2M5C+bk20s/1iT8N1jdFVR6rUfA1a2XEXYURcRZBwwJkbRG1F0XDFDlrAf4/AVZQOCDOAAAAsAUAnQEqHQAdAD6lQJxIpiOjITAYDADAFIlsZzVGFkpcz9N3oLcAejYRDwhk8gIp9EmBf38AAP7ucDkE8f/2BORsPhDQzjhYmLRMHIkpNzWuq/esg3KSxtaapnElElJhQ0rdAIdhOGAJW/49RXXnmRPxHnY9IsHRTwCYsX3m0xNhPIulTQKzy5zGcG9/303f/w7yu1ABH9pQv9Zrn6dz9/6aM43NBoafQRF9jRyaTxiQYR/h/BlDusUKMZtFSeH9eDxIiW/fhiPtj182AAA=">
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script defer src="assets/site.js?v=ssi-sections"></script>
+  <script defer src="assets/site.js?v=results-20261123"></script>
   <style id="project-styles">
 @font-face {
   font-family: Inter;
@@ -378,8 +378,7 @@ button,summary { cursor: pointer; }
       <div class="paper-panel">
     <p>Qwen3.5-9B recovers one of 200 six-event sequences before task-specific training and 40 after supervised fine-tuning (SFT). Adding SimPO or KTO gives similar single-event accuracy across two seeds (86.8% and 86.3%, respectively). On six-event sequences, SFT + SimPO reaches 31.8% and SFT + KTO reaches 14.5%.</p>
     <p>SFT recovers 10 of the 40 six-event dynamics sequences. The two SimPO runs recover <a href="#table-adaptation_by_domain-k6?domain=Dynamics" data-detail="adaptation_by_domain">16 and 17</a>. Across the five domains, each SimPO run recovers 27 sequences that SFT missed. The runs agree on 26 of those sequences. <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_tables.md#simpo-seeds">Compare the two training seeds</a>.</p>
-    <p class="related-tables"><a href="#table-training_case" data-detail="training_case">Compare predictions for all six events</a> · <a href="#table-adaptation_by_domain-k6" data-detail="adaptation_by_domain">Compare adaptation by physical domain</a> · <a href="#table-adaptation_by_length" data-detail="adaptation_by_length">Compare question lengths</a> · <a href="#table-adaptation_by_position" data-detail="adaptation_by_position">Accuracy at each event by run</a> · <a href="https://github.com/PIER-Lab/CaveBench#local-qwen-checkpoints">Load the trained checkpoints</a></p>
-<figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" width="1485" height="1707" sizes="(max-width: 1100px) 90vw, 1020px" data-lazy-srcset="assets/figures/adaptation-704.webp 704w, assets/figures/adaptation-1200.webp 1200w" data-lazy-src="assets/figures/adaptation-704.webp" alt="Frames F0–F3 above Qwen3.5-9B’s explanations for event 3 before and after SFT + SimPO."></a><figcaption>At F3 the leaves are farther apart than at F1 and closer than at F2. The baseline predicts full insertion. After SFT + SimPO, the model identifies half insertion.</figcaption></figure>
+    <p class="related-tables"><a href="#table-adaptation_by_domain-k6" data-detail="adaptation_by_domain">Compare adaptation by physical domain</a> · <a href="#table-adaptation_by_length" data-detail="adaptation_by_length">Compare question lengths</a> · <a href="#table-adaptation_by_position" data-detail="adaptation_by_position">Accuracy at each event by run</a> · <a href="https://github.com/PIER-Lab/CaveBench#local-qwen-checkpoints">Load the trained checkpoints</a></p>
       </div>
     </section>
     <section class="analysis-spread web-subsection">
@@ -395,7 +394,6 @@ button,summary { cursor: pointer; }
       <div class="paper-panel">
     <p>In 100 sampled incorrect six-event answers, models misread a visual cue in 38 cases, failed to connect observations across time in 31, misapplied a physical principle in 24 and selected the wrong combination of controls in seven.</p>
     <p class="related-tables"><a href="#table-error_categories" data-detail="error_categories">View counts by error category</a></p>
-<figure><a class="zoom" href="assets/errors.png"><img loading="lazy" width="1485" height="1170" sizes="(max-width: 1100px) 90vw, 1020px" data-lazy-srcset="assets/figures/errors-704.webp 704w, assets/figures/errors-1200.webp 1200w" data-lazy-src="assets/figures/errors-704.webp" alt="Four examples pairing the input images with the predicted and recorded controls, one for each error category."></a></figure>
       </div>
     </section>
     </div>

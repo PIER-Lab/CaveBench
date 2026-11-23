@@ -300,13 +300,11 @@ const views = {
   adaptation_by_scene: ['Adaptation by apparatus', 'Training and adaptation'],
   adaptation_by_position: ['Adaptation by event position', 'Training and adaptation'],
   paired_training: ['Paired outcomes against SFT', 'Training and adaptation'],
-  training_case: ['Recorded predictions in Figure 5', 'Training and adaptation'],
   effort_results: ['Reasoning effort in Figure 6', 'Model analysis'],
   figure1: ['Six-event scores in Figure 1', 'Model analysis'],
   model_protocols: ['Main-evaluation reasoning mode', 'Model analysis'],
   main_event_by_length: ['Event accuracy by question length', 'Model analysis'],
   error_categories: ['Error categories', 'Model analysis'],
-  event_positions: ['Accuracy by event position', 'Model analysis'],
   compound_by_length: ['Single- and two-label events', 'Model analysis'],
   uniform_reference: ['Uniform-choice reference', 'Benchmark'],
   scene_controls: ['Apparatus and event statistics', 'Benchmark'],
@@ -461,10 +459,6 @@ function displayDetailed(view, records) {
     detailTable(['Scene','Apparatus',...columns], table, [0,1],
       (metric === 'accuracy_pct' ? 'Six-event exact-match accuracy (%).' : 'Correct event sets across six-event answers (%).') +
       ' Ten episodes per apparatus.');
-  } else if (view === 'training_case') {
-    detailTable(['Event','Reference','Baseline','SimPO · 20261108','SimPO · 20261109'],
-      records.map(r => [r.event,r.reference,r.baseline,r.simpo_20261108,r.simpo_20261109]), [1,2,3,4],
-      'Dielectric response (S11), Figure 5. Each SimPO column is one training seed.');
   } else if (view === 'figure1') {
     detailTable(['Model','Correct','Questions','Exact match (%)'],
       records.map(r => [r.model,r.correct,r.total,percent(r.accuracy_pct)]), [0],
@@ -479,11 +473,6 @@ function displayDetailed(view, records) {
     const table = pivotRows(records, r => r.model_key, r => r.k, columns, 'event_accuracy_pct', r => [r.model], detailedPercent);
     detailTable(['Model',...lengthNames,'Overall'], table, [0],
       'An event is correct when its entire control set matches the reference. Overall accuracy covers 4,170 event predictions across 1,180 questions.');
-  } else if (view === 'event_positions') {
-    const columns = lengths.map(String);
-    const table = pivotRows(records, r => r.model_key, r => r.position, columns, 'accuracy_pct', r => [r.model]);
-    detailTable(['Model',...lengths.map(k => 'Event ' + k)], table, [0],
-      'Percentage of the 200 six-event questions with the correct control set at each event position.');
   } else if (view === 'compound_by_length') {
     const rows = records.filter(r => r.k === detailState.k);
     const columns = unique(rows.map(r => r.composition));
@@ -493,9 +482,8 @@ function displayDetailed(view, records) {
       'Exact-match accuracy (%) by the labels in the first ' + detailState.k + (detailState.k === '1' ? ' event.' : ' events.') +
       ' A two-label event encodes concurrent controls or two parameters of one intervention.');
   } else if (view === 'error_categories') {
-    detailTable(['Primary category','Cases','Direct support','Limited support'],
-      records.map(r => [r.category,r.total,r.direct,r.limited]), [0],
-      'Each answer has one primary error. The two support columns rate the evidence for that assignment. Of the 100 answers, 97 are from Gemini 3.8 Flash, two from GLM-5.3 Flash and one from GPT-6.1 Sol.');
+    detailTable(['Primary category','Cases'], records.map(r => [r.category,r.total]), [0],
+      'Each of the 100 incorrect six-event answers has one primary error category.');
   } else if (view === 'uniform_reference') {
     const format = value => {
       if (!value) return '—';

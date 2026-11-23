@@ -80,7 +80,7 @@ def verify_table(name, totals, key_fields):
 
 def main():
     domains = {r["scene"]: r["domain"] for r in rows(TABLES / "scene_controls.csv")}
-    by_domain, by_scene, by_position, by_length = counts(), counts(), counts(), counts()
+    by_domain, by_scene, by_length = counts(), counts(), counts()
     for row, events in scored_rows("question_scores.csv", ["model"]):
         model, scene, k = row["model"], row["scene"], row["k"]
         exact = int(row["exact"])
@@ -89,9 +89,6 @@ def main():
             add(by_length, (model, length), exact, events)
         for domain in (domains[scene], "Overall"):
             add(by_domain, (model, domain, k), exact, events)
-        if k == "6":
-            for pos, hit in enumerate(events, 1):
-                add(by_position, (model, str(pos)), hit, [hit])
 
     by_method, by_method_scene, by_method_domain = counts(), counts(), counts()
     method_positions = counts()
@@ -120,7 +117,6 @@ def main():
     tables = [
         ("domain_by_length.csv", by_domain, ["model_key", "domain", "k"], 27 * 6 * 6),
         ("scene_by_length.csv", by_scene, ["model_key", "scene", "k"], 27 * 20 * 6),
-        ("event_positions.csv", by_position, ["model_key", "position"], 27 * 6),
         ("main_event_by_length.csv", by_length, ["model_key", "k"], 27 * 7),
         ("adaptation_by_length.csv", by_method, ["model", "method", "run", "k"], 13 * 7),
         ("adaptation_by_scene.csv", by_method_scene, ["model", "method", "run", "scene", "k"], 13 * 20 * 7),
