@@ -65,9 +65,8 @@ def model_rows(order, columns, values):
 def domain_tables(order):
     records = index("domain_by_length", ["model", "k", "domain"])
     lines = ["# Exact match by physical domain", "",
-             "Each table reports the percentage of questions for which every event is correct. "
-             "Bold marks the highest accuracy in a column across all 27 models. "
-             "Underlining marks the second distinct accuracy. Tied models share the same mark.", "",
+             "A question earns credit when every event matches the reference. "
+             "Bold and underlined percentages rank first and second among the 27 models in each column.", "",
              " · ".join(f"[{k} {'event' if k == '1' else 'events'}](#domain-k{k})" for k in LENGTHS), "",
              "[Download counts and percentages](../docs/assets/results/domain_by_length.csv)", ""]
     for k in LENGTHS:
@@ -99,8 +98,8 @@ def domain_tables(order):
 def scene_tables(order, scenes):
     records = index("scene_by_length", ["model", "scene", "k"])
     lines = ["# Exact match by apparatus and question length", "",
-             "Each percentage scores complete answers from ten test episodes at a given length. "
-             "S11 has questions with three to six events. A dash marks a length with zero eligible questions.", "",
+             "Each cell gives exact-match accuracy (%) on ten questions at the indicated length. "
+             "S11 (dielectric response) covers three to six events.", "",
              "[Download counts and percentages](../docs/assets/results/scene_by_length.csv)", ""]
     for d in DOMAINS[:-1]:
         links = [f"[{s['scene']} {s['apparatus']}](#{s['scene'].lower()})" for s in scenes if s["domain"] == d]
@@ -132,12 +131,10 @@ def adaptation_tables(scenes):
     cols = (*LENGTH_HEADERS, "Overall")
     lengths = (*LENGTHS, "Overall")
     lines = ["# Adaptation results by run and apparatus", "",
-             "Sequence exact match requires a correct control set at every position. "
-             "Event accuracy scores each position individually. All scores are percentages. "
-             "SimPO and KTO each have two training seeds. The reported means combine runs with equal test denominators.", "",
-             "Each run uses 190 questions at each of the first two lengths and 200 at each of the other four. "
-             "Each apparatus contributes ten questions per available length. Across lengths, the denominator is "
-             "60 questions per apparatus, or 40 for S11. A dash marks a length with zero eligible questions.", "",
+             "Sequence exact match scores the whole answer. Event accuracy scores the control set at each event. "
+             "SimPO and KTO results include both seeds and their mean.", "",
+             "Each run covers 190 questions at lengths one and two and 200 at each length from three to six. "
+             "Each apparatus contributes ten questions per length. S11 covers lengths three to six.", "",
              "[Counts by run and length](../docs/assets/results/adaptation_by_length.csv) · "
              "[Counts by run and apparatus](../docs/assets/results/adaptation_by_scene.csv) · "
              "[Question-level scores](adaptation_question_scores.csv)", "",

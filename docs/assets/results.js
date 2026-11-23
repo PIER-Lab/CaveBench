@@ -183,9 +183,9 @@ async function updateLeaderboard() {
   const isDomain = view === 'domains';
   const note = isDomain
     ? 'Exact-match accuracy (%) at k = ' + k + '. ' + (k < 3 ? '190 questions, including 30 in electromagnetism and 40 in each other domain.' : '200 questions, 40 per domain.') +
-      ' Across all 27 configurations, bold marks the highest score per column and underlining marks the next distinct score. Ties share the same mark.'
-    : scene + ' · ' + cases.find(c => c.id === scene).title + '. Ten questions per reported length.' +
-      (scene === 'S11' ? ' S11 begins at three events. A dash marks an untested length.' : '');
+      ' Bold and underlined values rank first and second across the 27 configurations in each column.'
+    : scene + ' · ' + cases.find(c => c.id === scene).title + '. ' +
+      (scene === 'S11' ? 'Ten questions at each length from three to six events.' : 'Ten questions per length.');
   if (isDomain && k === 6) {
     const rows = tables.domains.rows.map(row => ({
       ...row,
@@ -350,13 +350,13 @@ function displayDetailed(view, records) {
       r => [r.model, r.method, r.run]);
     detailTable(['Model','Method','Run',...lengthNames,'Overall'], table, [0,1,2],
       (metric === 'accuracy_pct' ? 'Exact-match accuracy (%).' : 'Correctly predicted event sets (%).') +
-      ' Individual training runs and their reported means are shown separately. Overall pools all eligible lengths.' +
+      ' SimPO and KTO each have two training seeds. Overall pools questions across lengths.' +
       (view === 'adaptation_by_scene' && detailState.scene === 'S11' ? ' S11 has questions at three to six events.' : ''));
   } else if (view === 'paired_training') {
     const rows = records.filter(r => r.k === detailState.k);
     detailTable(['Adapted method','Training seed','Both correct','Adapted only','SFT only','Both incorrect','Questions'],
       rows.map(r => [r.method,r.seed,r.both_correct,r.adapted_only,r.sft_only,r.both_incorrect,r.questions]), [0],
-      'Each column counts exact matches for the same question IDs, pairing the supervised Qwen3.5-9B checkpoint with one preference-training run.');
+      'Counts of questions solved by the Qwen3.5-9B SFT checkpoint, the preference-trained checkpoint, both or neither.');
   } else if (view === 'effort_results') {
     const rows = records.filter(r => r.stage === detailState.stage);
     const key = r => r.model + ' · ' + r.effort;
@@ -364,27 +364,27 @@ function displayDetailed(view, records) {
     const table = pivotRows(rows, r => r.scene, key, columns, metric, r => [r.scene, r.apparatus]);
     detailTable(['Scene','Apparatus',...columns], table, [0,1],
       (metric === 'accuracy_pct' ? 'Six-event exact-match accuracy (%).' : 'Correct event sets across six-event answers (%).') +
-      ' Each apparatus contributes ten episodes. The final answer includes conditional answer completion.');
+      ' Ten episodes per apparatus.');
   } else if (view === 'training_case') {
     detailTable(['Event','Reference','Baseline','SimPO · 20261108','SimPO · 20261109'],
       records.map(r => [r.event,r.reference,r.baseline,r.simpo_20261108,r.simpo_20261109]), [1,2,3,4],
-      'Recorded control predictions for the dielectric-response example in Figure 5.');
+      'Dielectric response (S11), Figure 5. The two SimPO columns correspond to separate training seeds.');
   } else if (view === 'figure1') {
     detailTable(['Model','Correct','Questions','Exact match (%)'],
       records.map(r => [r.model,r.correct,r.total,percent(r.accuracy_pct)]), [0],
-      'Six-event exact-match accuracy for the model configurations shown in Figure 1.');
+      'Figure 1 compares five models on the same 200 six-event questions.');
   } else if (view === 'model_protocols') {
     const models = new Map(records.map(r => [r.model_key,r.model]));
     detailFilter('model', 'Model', [['','All ' + models.size + ' models'], ...models], rerender);
     const rows = records.filter(r => !detailState.model || r.model_key === detailState.model);
     detailTable(['Model','Visual input','Reasoning setting','Initial token cap','Answer completion','Completion token cap','Questions','Completion answers scored'],
       rows.map(r => [r.model,r.input_format,r.reasoning,r.primary_token_cap,r.completion_policy,r.completion_token_cap,r.questions,r.completion_selected]), [0,1,2,4],
-      'Each row shows the settings used for a group of scored questions. The last column counts questions for which the completion answer was selected for scoring.');
+      'Questions are grouped by model and request settings. Token caps give the maximum output length.');
   } else if (view === 'event_positions') {
     const columns = lengths.map(String);
     const table = pivotRows(records, r => r.model_key, r => r.position, columns, 'accuracy_pct', r => [r.model]);
     detailTable(['Model',...lengths.map(k => 'Event ' + k)], table, [0],
-      'Accuracy (%) for the complete control set at each event position in the 200 six-event questions. The CSV includes the number correct at each position.');
+      'Percentage of the 200 six-event questions with the correct control set at each event position.');
   } else if (view === 'compound_by_length') {
     const rows = records.filter(r => r.k === detailState.k);
     const columns = unique(rows.map(r => r.composition));
@@ -392,11 +392,11 @@ function displayDetailed(view, records) {
     const headers = columns.map(c => c + ' (n = ' + rows.find(r => r.composition === c).total + ')');
     detailTable(['Model',...headers], table, [0],
       'Exact-match accuracy (%) by the labels in the first ' + detailState.k + (detailState.k === '1' ? ' event.' : ' events.') +
-      ' Two labels can denote concurrent controls or two parameters of one intervention. The groups can contain different apparatuses.');
+      ' A two-label event encodes concurrent controls or two parameters of one intervention.');
   } else if (view === 'error_categories') {
     detailTable(['Primary category','Cases','Direct support','Limited support'],
       records.map(r => [r.category,r.total,r.direct,r.limited]), [0],
-      'Each of the 100 selected erroneous answers has one primary category. Support refers to the evidence for that diagnosis.');
+      'The 100 incorrect answers are grouped by primary error and by the strength of the evidence for that classification.');
   } else if (view === 'uniform_reference') {
     const format = value => {
       if (!value) return '—';
@@ -405,15 +405,15 @@ function displayDetailed(view, records) {
     };
     const rows = pivotRows(records, r => r.domain, r => r.k, lengths.map(String), 'expected_exact_pct', r => [r.domain], format);
     detailTable(['Domain',...lengthNames], rows, [0],
-      'Expected exact-match accuracy (%) when an event set is chosen independently and uniformly from each question’s offered sets. Values average the question-specific probabilities.');
+      'Expected exact match (%) for independent uniform choices among the allowed control sets at each event, averaged over questions.');
   } else if (view === 'scene_controls') {
     detailTable(['Scene','Apparatus','Domain','Episodes','Labels','Candidate sets','Single-label events','Two-label events','Total events'],
       records.map(r => [r.scene,r.apparatus,r.domain,r.episodes,r.labels,r.candidate_sets,r.single_events,r.paired_events,r.events]), [0,1,2],
-      'Control vocabulary and event composition for each apparatus.');
+      'Each apparatus contributes 60 events from ten test episodes.');
   } else if (view === 'benchmark_comparison') {
     detailTable(['Benchmark','Evidence','Task','Response','Source'],
       records.map(r => [r.benchmark,r.evidence,r.task,r.response,r.source]), [0,1,2,3,4],
-      'Benchmarks compared by the evidence presented, task and requested response.', 4);
+      'Inputs, tasks and answer formats in six benchmarks.', 4);
   }
 }
 

@@ -9,7 +9,7 @@ Tsinghua University
 
 ## News
 
-- **2026-11-23.** The public results now include tables for all six question lengths, every apparatus, and each training seed. The [dataset viewer](https://pier-lab.github.io/CaveBench/#viewer) includes a six-event question to try for each apparatus.
+- **2026-11-23.** Explore 20 six-event examples in the [dataset viewer](https://pier-lab.github.io/CaveBench/#viewer) and compare models by apparatus, question length or training seed in the [leaderboard](https://pier-lab.github.io/CaveBench/#leaderboard).
 
 ## Introduction
 
@@ -19,11 +19,13 @@ CaveBench evaluates whether a vision–language model can reconstruct the extern
 
 ## Dataset
 
-The fixed evaluation contains 1,180 questions drawn from 200 episodes. Each question presents the initial frame and one response frame per event. The reference gives the complete control set at every event, in chronological order. Each of the [20 worked examples](docs/examples/) contains all seven images, the full six-event prompt, the original video, a recorded model response and its event-level evaluation. The dual-view videos show the apparatus for inspection. Model inputs use the internal frames.
+The dataset contains 9,000 training episodes, 1,000 validation episodes and 200 test episodes. The test set comprises 1,180 questions spanning one to six events. The model sees an initial internal frame and one more frame after each event.
+
+Each of the [20 worked examples](docs/examples/) pairs seven internal frames with the six-event prompt, the model’s answer, the reference controls and the score at each event. A synchronized video shows the same episode from inside and outside the apparatus.
 
 ## Leaderboard
 
-Across the 200 six-event questions, GPT-6.1 Sol recovers 136 complete sequences (68.0%). The best open-weight configuration recovers 25 (12.5%). The release includes 31,860 question-level scores across 27 model configurations.
+On the 200 six-event questions, GPT-6.1 Sol recovers 136 complete sequences (68.0%). MiniMax M3.1 Flash leads the open-weight models with 25 (12.5%).
 
 | Six-event reference or model | Type | Correct sequences | Exact match |
 |---|---|---:|---:|
@@ -58,14 +60,14 @@ Across the 200 six-event questions, GPT-6.1 Sol recovers 136 complete sequences 
 
 [All 27 configurations](results/domain_tables.md#domain-k6) · [Uniform-choice reference by domain and length](docs/assets/results/uniform_reference.csv)
 
-**Accuracy by physical domain.** Each of the six tables gives the accuracy of all 27 configurations in dynamics, thermal physics, electromagnetism, acoustics and optics. For one and two events, 190 questions contribute to each table. Each longer question length has 200 questions. The project page can download each displayed table as a CSV.
+**Accuracy by physical domain.** Each table compares 27 configurations across five domains. The test set contains 190 questions at each of the first two lengths and 200 at each of the remaining four.
 
 | Events per question | One | Two | Three | Four | Five | Six |
 |---|---|---|---|---|---|---|
 | GitHub | [k = 1](results/domain_tables.md#domain-k1) | [k = 2](results/domain_tables.md#domain-k2) | [k = 3](results/domain_tables.md#domain-k3) | [k = 4](results/domain_tables.md#domain-k4) | [k = 5](results/domain_tables.md#domain-k5) | [k = 6](results/domain_tables.md#domain-k6) |
 | Project page | [k = 1](https://pier-lab.github.io/CaveBench/#domain-k1) | [k = 2](https://pier-lab.github.io/CaveBench/#domain-k2) | [k = 3](https://pier-lab.github.io/CaveBench/#domain-k3) | [k = 4](https://pier-lab.github.io/CaveBench/#domain-k4) | [k = 5](https://pier-lab.github.io/CaveBench/#domain-k5) | [k = 6](https://pier-lab.github.io/CaveBench/#domain-k6) |
 
-**Accuracy by apparatus.** Select any of the 20 apparatuses to compare models at all six question lengths. Each reported cell has ten eligible questions. S11 (dielectric response) begins at three events, so its one- and two-event cells have zero eligible questions and empty accuracy fields. [Read all 20 tables on GitHub](results/apparatus_tables.md) · [Browse by apparatus on the project page](https://pier-lab.github.io/CaveBench/#apparatus-S01)
+**Accuracy by apparatus.** Each apparatus contributes ten questions per length. S11 (dielectric response) covers lengths three to six. [GitHub tables](results/apparatus_tables.md) · [Interactive tables](https://pier-lab.github.io/CaveBench/#apparatus-S01)
 
 | Results and underlying counts | Data |
 |---|---|
@@ -77,11 +79,11 @@ Across the 200 six-event questions, GPT-6.1 Sol recovers 136 complete sequences 
 | Event-position accuracy on six-event questions, single- and two-label questions, and error classifications | [Event positions](docs/assets/results/event_positions.csv) · [Control composition](docs/assets/results/compound_by_length.csv) · [Error counts](docs/assets/results/error_categories.csv) |
 | Candidate-control vocabulary, uniform-choice probability and related benchmark tasks | [Apparatus statistics](docs/assets/results/scene_controls.csv) · [Uniform-choice reference](docs/assets/results/uniform_reference.csv) · [Benchmark comparison with sources](docs/assets/results/benchmark_comparison.csv) |
 
-Exact match requires the correct control set at every event. Event accuracy counts correctly predicted sets at individual positions. The adaptation files list the training runs separately, including the two runs and their mean for each of SimPO and KTO. The reasoning-effort file gives both initial and final answers at Low, Medium and High effort. The [detailed tables](https://pier-lab.github.io/CaveBench/#detailed-results) offer both metrics.
+The [detailed tables](https://pier-lab.github.io/CaveBench/#detailed-results) report sequence exact match and per-event accuracy. SimPO and KTO each have two training seeds. The reasoning-effort experiment reports initial and final scores at low, medium and high effort.
 
-Individual question scores are available for the [main comparison](results/question_scores.csv), [11 adaptation runs and baselines](results/adaptation_question_scores.csv), and [reasoning-effort experiment](results/effort_question_scores.csv).
+Download the [31,860 question-level scores for the main comparison](results/question_scores.csv), the [scores for 11 adaptation runs and baselines](results/adaptation_question_scores.csv), or the [reasoning-effort results](results/effort_question_scores.csv).
 
-From the repository root, run `python verify_results.py` to recompute the main evaluation, adaptation and reasoning-effort tables from these scores and check their numerators and denominators offline. Run `python render_result_tables.py --check` to verify the GitHub tables against the CSV files.
+Run `python verify_results.py` to recompute the leaderboard, adaptation and reasoning-effort tables from the question scores. To check the Markdown tables against the CSV files, run `python render_result_tables.py --check`.
 
 ## Installation
 
@@ -123,9 +125,7 @@ python run.py --data ./dataset --model MODEL_ID --endpoint https://HOST/v1/chat/
 python score.py --data ./dataset --predictions predictions.jsonl
 ```
 
-To score predictions produced by another inference system, record one JSON object per line with fields `id` (the question ID) and `response` (the visible answer string). Within that string, the model returns one object containing `operations`, an ordered list with one nonempty array of labels per event. Label order within an event does not affect the score. Missing predictions and invalid answers score zero. The scorer reports overall accuracy and accuracy at each question length using the full test denominators.
-
-The [original scoring contract](contracts.py) accepts a single unambiguous, complete answer object and compares every event to its reference. The [published scores](results/question_scores.csv) include one Boolean per event as well as the exact-match result for each question.
+For custom predictions, write one JSON object per line with `id` (the question ID) and `response` (the answer string). The answer contains one `operations` list in event order, with a nonempty set of control labels encoded as an array for each event. The [scorer](contracts.py) accepts labels in any order within an event. Every event must match for a question to earn credit. Missing and invalid answers score zero.
 
 ### Local Qwen checkpoints
 
@@ -139,7 +139,7 @@ python run_local.py --data ./dataset --sft weights/sft --preference weights/simp
 python score.py --data ./dataset --predictions simpo.jsonl
 ```
 
-The local runner loads the published revision of `Qwen/Qwen3.5-9B`, merges the SFT adapter, then loads the selected preference adapter. For SFT alone, omit `--preference`. To evaluate the base model, omit both adapter arguments. The training archive used PyTorch 2.10.0, torchvision 0.25.0, Transformers 5.22.1, PEFT 0.20.0 and Accelerate 1.15.0.
+The runner loads `Qwen/Qwen3.5-9B`, merges the SFT adapter, then loads the selected preference adapter. For SFT alone, omit `--preference`. To evaluate the base model, omit both adapter arguments. Training used PyTorch 2.10.0, torchvision 0.25.0, Transformers 5.22.1, PEFT 0.20.0 and Accelerate 1.15.0.
 
 ### Other models with VLMEvalKit
 

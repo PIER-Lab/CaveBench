@@ -31,7 +31,7 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    tag.src = path + '?v=field1';
+    tag.src = path + (path === 'assets/results.js' ? '?v=copy2' : '?v=field1');
     tag.onload = resolve;
     tag.onerror = () => { tag.remove(); reject(new Error(path)); };
     document.head.append(tag);
@@ -148,7 +148,7 @@ function trySequence(item) {
     const misses = inputs.flatMap((input, i) => input.value === key(reference[i]) ? [] : [i + 1]);
     result.textContent = misses.length
       ? (6 - misses.length) + ' of 6 events correct. Revisit ' + (misses.length === 1 ? 'event ' : 'events ') + misses.join(', ') + '.'
-      : '6 of 6 events correct. The complete sequence matches.';
+      : '6 of 6 events correct.';
   });
   const toggle = action('Reveal reference', () => {
     reveal.hidden = !reveal.hidden;
@@ -199,7 +199,7 @@ async function renderScene(id, changeHash=false) {
   const caption=node('div',undefined,'video-caption');
   const movieLink=node('a','Open video ↗');
   movieLink.href=video.src;
-  caption.append(node('span','Recorded episode · dual view'),movieLink);
+  caption.append(node('span','Exterior and interior views'),movieLink);
   const strip=node('div',undefined,'strip');
   item.frames.forEach((filename,n)=>{
     const fig=node('figure'); const zoom=node('a',undefined,'zoom');

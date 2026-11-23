@@ -1,6 +1,6 @@
 # Exact match by physical domain
 
-Each table reports the percentage of questions for which every event is correct. Bold marks the highest accuracy in a column across all 27 models. Underlining marks the second distinct accuracy. Tied models share the same mark.
+A question earns credit when every event matches the reference. Bold and underlined percentages rank first and second among the 27 models in each column.
 
 [1 event](#domain-k1) · [2 events](#domain-k2) · [3 events](#domain-k3) · [4 events](#domain-k4) · [5 events](#domain-k5) · [6 events](#domain-k6)
 

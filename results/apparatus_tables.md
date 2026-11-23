@@ -1,6 +1,6 @@
 # Exact match by apparatus and question length
 
-Each percentage scores complete answers from ten test episodes at a given length. S11 has questions with three to six events. A dash marks a length with zero eligible questions.
+Each cell gives exact-match accuracy (%) on ten questions at the indicated length. S11 (dielectric response) covers three to six events.
 
 [Download counts and percentages](../docs/assets/results/scene_by_length.csv)
 

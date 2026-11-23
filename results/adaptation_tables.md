@@ -1,8 +1,8 @@
 # Adaptation results by run and apparatus
 
-Sequence exact match requires a correct control set at every position. Event accuracy scores each position individually. All scores are percentages. SimPO and KTO each have two training seeds. The reported means combine runs with equal test denominators.
+Sequence exact match scores the whole answer. Event accuracy scores the control set at each event. SimPO and KTO results include both seeds and their mean.
 
-Each run uses 190 questions at each of the first two lengths and 200 at each of the other four. Each apparatus contributes ten questions per available length. Across lengths, the denominator is 60 questions per apparatus, or 40 for S11. A dash marks a length with zero eligible questions.
+Each run covers 190 questions at lengths one and two and 200 at each length from three to six. Each apparatus contributes ten questions per length. S11 covers lengths three to six.
 
 [Counts by run and length](../docs/assets/results/adaptation_by_length.csv) · [Counts by run and apparatus](../docs/assets/results/adaptation_by_scene.csv) · [Question-level scores](adaptation_question_scores.csv)
 
