@@ -3,40 +3,46 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#101e27">
+  <meta name="theme-color" content="#141727">
   <meta name="description" content="CaveBench evaluates abductive physical reasoning from internal observations. Explore twenty apparatuses, video examples and results from 27 vision–language model configurations.">
   <title>CaveBench · Abductive Physical Reasoning from Internal Observations</title>
+  <meta property="og:title" content="CaveBench · Abductive Physical Reasoning from Internal Observations">
+  <meta property="og:description" content="Watch the driven-pendulum experiment, try the 20 apparatuses and explore the results.">
+  <meta property="og:url" content="https://pier-lab.github.io/CaveBench/">
+  <meta property="og:image" content="https://pier-lab.github.io/CaveBench/assets/video/CaveBench-overview.jpg?v=observatory1">
+  <meta property="og:image:alt" content="The opening of the CaveBench research film, showing the three pendulums.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="assets/cave-mark.png">
-  <link rel="preload" as="image" href="assets/observation-cover.webp" media="(min-width: 736px)" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/observation-cover-small.webp" media="(max-width: 735px)" fetchpriority="high">
-  <link rel="stylesheet" href="assets/site.css?v=practice1">
-  <script defer src="assets/site.js?v=practice1"></script>
+  <link rel="stylesheet" href="assets/site.css?v=observatory1">
+  <script defer src="assets/site.js?v=observatory1"></script>
 </head>
 <body>
 <a href="#main" class="skip">Skip to content</a>
 <header class="nav"><nav aria-label="Main navigation">
   <a class="brand" href="#top"><img src="assets/cave-mark.png" alt="" width="31" height="31">CaveBench</a>
-  <div><a href="#viewer">Case studies</a><a href="#leaderboard">Leaderboard</a><a href="#analysis">Analysis</a></div>
+  <div><a href="#film">Film</a><a href="#viewer">Cases</a><a href="#leaderboard">Results</a><a href="#analysis">Analysis</a></div>
 </nav></header>
 <main id="main">
   <section class="hero" id="top">
     <div class="hero-inner">
+      <h1><span class="wordmark">CaveBench<span class="title-colon">:</span></span> <span class="paper-title">Benchmarking Abductive Physical Reasoning from Internal Observations</span></h1>
       <div class="hero-copy">
-        <h1><span class="wordmark">CaveBench<span class="title-colon">:</span></span> <span class="paper-title">Benchmarking Abductive Physical Reasoning from Internal Observations</span></h1>
-        <p class="intro">Watching from inside an apparatus, can a vision–language model recover the sequence of controls applied outside?</p>
-        <div class="hero-actions"><a class="read-paper" href="papers/CaveBench.pdf">Read the paper <span aria-hidden="true">↗</span></a><a class="explore" href="#try-S03">Solve a case <span aria-hidden="true">↓</span></a></div>
+        <p class="intro">What moved the pendulums?</p>
+        <p class="film-question">Identify six carriage motions from seven views inside the apparatus.</p>
+        <div class="hero-actions"><a class="read-paper" href="papers/CaveBench.pdf">Read the paper</a><a class="explore" href="#try-S03">Try this case</a></div>
       </div>
       <figure class="film" id="film" aria-label="Research film">
         <div class="film-frame">
-          <picture class="film-art"><source media="(max-width: 735px)" srcset="assets/observation-cover-small.webp"><img src="assets/observation-cover.webp" alt="Three superimposed observations show the central pendulum at different angles." width="1600" height="650" fetchpriority="high"></picture>
+          <picture class="film-art"><source media="(max-width: 735px)" srcset="assets/optics-cover-small.webp" width="568" height="284"><img src="assets/optics-cover.webp" alt="Illustration of the three-pendulum apparatus." width="1140" height="570" fetchpriority="high"></picture>
           <video class="overview-video" controls playsinline preload="none" aria-label="CaveBench research film">
-            <source src="assets/video/CaveBench-overview.mp4?v=ssi2" type="video/mp4">
-            <track kind="captions" src="assets/video/CaveBench-overview.en.vtt?v=ssi2" srclang="en" label="English">
+            <source src="assets/video/CaveBench-overview.mp4?v=observatory1" type="video/mp4">
+            <track kind="captions" src="assets/video/CaveBench-overview.en.vtt?v=observatory1" srclang="en" label="English">
           </video>
-          <button type="button" class="film-play" aria-label="Play research film" hidden><span class="play-glyph" aria-hidden="true"></span><span id="film-title">Watch the film</span><small>1:08</small></button>
+          <button type="button" class="film-play" aria-label="Play research film" hidden><span class="play-glyph" aria-hidden="true"></span><span id="film-title">Play film</span></button>
           <button type="button" id="close-film">Close film ×</button>
         </div>
-        <figcaption class="film-foot"><span>S03 · Driven pendulums</span><span>Frames F0, F3 and F6</span></figcaption>
+        <figcaption class="film-foot"><span>Research film</span><span>English captions</span></figcaption>
+        <p id="film-error" role="status" hidden>Playback unavailable. <a href="assets/video/CaveBench-overview.mp4?v=observatory1">Open the MP4</a></p>
       </figure>
     </div>
   </section>
@@ -49,18 +55,18 @@
       <a href="https://github.com/PIER-Lab/CaveBench">GitHub</a><a href="https://huggingface.co/datasets/linguanxin/CaveBench">Dataset</a><a href="papers/Supplement.pdf">Supplement</a><a href="https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1">Weights</a>
     </div>
   </div></div>
-  <nav class="domain-ribbon" aria-label="Case studies by physical domain">
-    <a href="#S03"><span class="domain-photo" style="--tile:0%" aria-hidden="true"></span><span>Dynamics <i aria-hidden="true">↗</i></span></a>
-    <a href="#S05"><span class="domain-photo" style="--tile:25%" aria-hidden="true"></span><span>Thermal physics <i aria-hidden="true">↗</i></span></a>
-    <a href="#S10"><span class="domain-photo" style="--tile:50%" aria-hidden="true"></span><span>Electromagnetism <i aria-hidden="true">↗</i></span></a>
-    <a href="#S15"><span class="domain-photo" style="--tile:75%" aria-hidden="true"></span><span>Acoustics <i aria-hidden="true">↗</i></span></a>
-    <a href="#S17"><span class="domain-photo" style="--tile:100%" aria-hidden="true"></span><span>Optics <i aria-hidden="true">↗</i></span></a>
-  </nav>
   <section class="section" id="dataset">
     <div class="section-intro">
       <div><h2>Dataset</h2><p>The model receives an apparatus description, a list of possible controls and a sequence of interior images. It identifies which controls were applied between each pair of consecutive images.</p></div>
       <dl class="statistics"><div><dt>Apparatuses</dt><dd>20</dd></div><div><dt>Physical domains</dt><dd>5</dd></div><div><dt>Test questions</dt><dd>1,180</dd></div></dl>
     </div>
+    <nav class="domain-ribbon" aria-label="Case studies by physical domain">
+      <a href="#S03"><span class="domain-photo" style="--tile:0%" aria-hidden="true"></span><span>Dynamics</span></a>
+      <a href="#S05"><span class="domain-photo" style="--tile:25%" aria-hidden="true"></span><span>Thermal physics</span></a>
+      <a href="#S10"><span class="domain-photo" style="--tile:50%" aria-hidden="true"></span><span>Electromagnetism</span></a>
+      <a href="#S15"><span class="domain-photo" style="--tile:75%" aria-hidden="true"></span><span>Acoustics</span></a>
+      <a href="#S17"><span class="domain-photo" style="--tile:100%" aria-hidden="true"></span><span>Optics</span></a>
+    </nav>
     <p class="split-note">The dataset contains 9,000 training, 1,000 validation and 200 test episodes. Test questions span one to six events.</p>
     <details class="fold"><summary>Test set composition by domain</summary>
       <div class="tablewrap" tabindex="0" role="region" aria-label="Test set composition"><table>
@@ -74,7 +80,7 @@
         </tbody></table></div>
       <p>Each test episode contains six events. The ten dielectric-response episodes (S11) use questions of three to six events, giving 190 questions at each of the two shortest lengths and 200 at each longer length.</p>
     </details>
-    <div class="case-intro"><h3 id="viewer">Case studies</h3><a href="assets/cases/CaveBench_Case_Studies.pptx" download>Editable slides ↓</a></div>
+    <div class="case-intro"><h3 id="viewer">Case studies</h3><a href="assets/cases/CaveBench_Case_Studies.pptx" download>Download editable slides</a></div>
     <div id="browser">
       <div class="selectors">
         <label>Physical domain<select id="domain"></select></label>
@@ -87,10 +93,14 @@
       </details>
       <article id="example" aria-live="polite"></article>
     </div>
-    <h3>Benchmark overview</h3>
+    <div class="design-plates">
+      <div><h3>Benchmark overview</h3>
     <figure class="lead"><a class="zoom" href="assets/teaser.png" aria-label="Enlarge the CaveBench overview"><img loading="lazy" width="1485" height="705" data-lazy-src="assets/teaser.png" alt="Overview of all twenty apparatuses across five domains, with six-event accuracy for representative models."></a><figcaption><a href="#table-figure1" data-detail="figure1">Figure 1 · correct sequences and accuracy for five models</a></figcaption></figure>
-    <h3>Construction and evaluation</h3>
+      </div>
+      <div><h3>Construction and evaluation</h3>
     <figure><a class="zoom" href="assets/construction.png"><img loading="lazy" width="1800" height="963" data-lazy-src="assets/construction.png" alt="Episode generation, image and control synchronization, question construction and model evaluation."></a><figcaption>The simulator records the controls applied between consecutive frames. These records supply the reference answers. <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/figure_tables.md#figure-3">Figure 3 · episode and question counts</a></figcaption></figure>
+      </div>
+    </div>
     <details class="fold"><summary>Physical design and example questions</summary>
       <figure><a class="zoom" href="assets/resonance.png"><img loading="lazy" width="1485" height="563" data-lazy-src="assets/resonance.png" alt="Resonant rods illustrate reasoning from an observed response back to a hidden control."></a><figcaption>Abductive reasoning with resonant rods. The source frequency is 100 Hz.</figcaption></figure>
       <figure><a class="zoom" href="assets/questions.png"><img loading="lazy" width="1800" height="1241" data-lazy-src="assets/questions.png" alt="Example questions and available controls from different apparatuses."></a></figure>
@@ -136,22 +146,31 @@
     </div>
     <p>On six-event questions, MiniMax M3.1 Flash scores highest in electromagnetism (27.5%). Sol and Terra score highest in thermal physics (80.0% and 85.0%) and lowest in electromagnetism (57.5% and 37.5%).</p>
     <p class="related-tables"><a href="#table-main_event_by_length" data-detail="main_event_by_length">Event accuracy at each question length</a> · <a href="#table-compound_by_length" data-detail="compound_by_length">Compare single- and two-label events</a></p>
-    <h3>Learning to recover a sequence</h3>
+    <div class="analysis-spread">
+      <div><h3>Learning to recover a sequence</h3>
     <p>Supervised fine-tuning raises Qwen3.5-9B’s six-event accuracy from 0.5% to 20.0%. Across two training seeds, SimPO and KTO achieve similar single-event accuracy (86.8% and 86.3%). At six events, SimPO reaches 31.8% and KTO scores 14.5%.</p>
     <p>On the 40 six-event dynamics questions, SFT recovers 10 complete sequences. The two SimPO runs recover <a href="#table-adaptation_by_domain-k6?domain=Dynamics" data-detail="adaptation_by_domain">16 and 17</a>. Across all five domains, each run solves 27 sequences that SFT missed. <a href="#table-paired_training" data-detail="paired_training">Compare runs on the same questions</a>.</p>
-    <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" width="1485" height="1707" data-lazy-src="assets/adaptation.png" alt="Frames F0–F3 of the dielectric-response apparatus and the two models’ predictions for event 3."></a><figcaption>At event 3, the baseline predicts full insertion. The SimPO model identifies half insertion.</figcaption></figure>
     <p class="related-tables"><a href="#table-training_case" data-detail="training_case">Compare predictions for all six events</a> · <a href="#table-adaptation_by_domain-k6" data-detail="adaptation_by_domain">Compare adaptation by physical domain</a> · <a href="#table-adaptation_by_length" data-detail="adaptation_by_length">Compare question lengths</a> · <a href="https://github.com/PIER-Lab/CaveBench#local-qwen-checkpoints">Load the trained checkpoints</a></p>
-    <h3>Reasoning effort</h3>
+      </div>
+    <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" width="1485" height="1707" data-lazy-src="assets/adaptation.png" alt="Frames F0–F3 of the dielectric-response apparatus and the two models’ predictions for event 3."></a><figcaption>At event 3, the baseline predicts full insertion. The SimPO model identifies half insertion.</figcaption></figure>
+    </div>
+    <div class="analysis-spread">
+      <div><h3>Reasoning effort</h3>
     <p>On 200 six-event questions, raising reasoning effort from low to high lifts GPT-6.1 Sol’s accuracy from 59.5% to 74.0%. Gemini 3.8 Flash’s accuracy falls from 15.5% to 8.0%.</p>
-    <figure><a class="zoom" href="assets/effort.png"><img loading="lazy" width="1485" height="446" data-lazy-src="assets/effort.png" alt="Accuracy by reasoning effort, model and apparatus."></a><figcaption>Final-answer accuracy across ten episodes per apparatus.</figcaption></figure>
     <p class="related-tables"><a href="#table-effort_results" data-detail="effort_results">View the model and apparatus scores</a></p>
-    <h3>Error analysis</h3>
+      </div>
+    <figure><a class="zoom" href="assets/effort.png"><img loading="lazy" width="1485" height="446" data-lazy-src="assets/effort.png" alt="Accuracy by reasoning effort, model and apparatus."></a><figcaption>Final-answer accuracy across ten episodes per apparatus.</figcaption></figure>
+    </div>
+    <div class="analysis-spread">
+      <div><h3>Error analysis</h3>
     <p>Among 100 incorrect answers, 38 misread a visual cue, 31 failed to combine evidence across observations, 24 drew an incorrect physical inference and seven misidentified the combination of controls.</p>
-    <figure><a class="zoom" href="assets/errors.png"><img loading="lazy" width="1485" height="1170" data-lazy-src="assets/errors.png" alt="Four examples pairing the input images with the predicted and recorded controls, one for each error category."></a></figure>
     <p class="related-tables"><a href="#table-error_categories" data-detail="error_categories">View counts by error category</a></p>
+      </div>
+    <figure><a class="zoom" href="assets/errors.png"><img loading="lazy" width="1485" height="1170" data-lazy-src="assets/errors.png" alt="Four examples pairing the input images with the predicted and recorded controls, one for each error category."></a></figure>
+    </div>
   </section>
 </main>
-<footer><div><strong>CaveBench</strong><a href="#top">Back to top ↑</a></div></footer>
+<footer><div><strong>CaveBench</strong><a href="#top">Back to top</a></div></footer>
 <dialog id="lightbox" aria-label="Enlarged figure"><header><button type="button" id="image-close" aria-label="Close enlarged image">Close ×</button><button type="button" id="image-scale">Actual size</button></header><div class="lightbox-stage"><img alt=""></div></dialog>
 </body>
 </html>

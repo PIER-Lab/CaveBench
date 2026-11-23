@@ -1,49 +1,47 @@
 WEBVTT
 
-00:00:00.360 --> 00:00:04.752
-Inside the vehicle, watch the
-blue ball and the red pendulum.
+00:00:00.360 --> 00:00:04.032
+Three pendulums swing
+inside a moving carriage.
 
-00:00:05.037 --> 00:00:08.157
-As the vehicle braked,
-which way did it turn?
+00:00:04.328 --> 00:00:06.488
+Can you reconstruct what moved them?
 
-00:00:08.658 --> 00:00:11.442
-You can check the
-synchronized outside view.
+00:00:06.992 --> 00:00:13.232
+On each run, a controller selects one of
+three motion profiles for each event.
 
-00:00:11.745 --> 00:00:17.601
-The model gets time-ordered internal stills,
-an apparatus description, and the question.
+00:00:13.537 --> 00:00:17.809
+All three travel the same
+distance. Their timing differs.
 
-00:00:17.983 --> 00:00:22.903
-Between frames 5 and 6, the
-vehicle braked and turned left.
+00:00:18.192 --> 00:00:24.624
+The camera travels with the carriage. Each exposure
+catches the pendulums after a translation.
 
-00:00:23.307 --> 00:00:27.795
-GPT-6.1 Sol answered
-“brake and turn right.”
+00:00:25.015 --> 00:00:30.151
+Seven photographs record the initial
+state and six successive events.
 
-00:00:28.140 --> 00:00:33.180
-It got the first five events right, but
-the complete sequence earned no credit.
+00:00:30.473 --> 00:00:35.081
+The controller chose B, C, B, A, B, A.
 
-00:00:33.822 --> 00:00:37.854
-CaveBench covers 20 apparatuses
-across five domains.
+00:00:35.738 --> 00:00:40.082
+GPT-6.1 Sol recovered this whole sequence.
 
-00:00:38.162 --> 00:00:42.434
-Its 1,180 questions span one to six events.
+00:00:40.412 --> 00:00:47.396
+CaveBench asks 1,180 questions across twenty
+apparatuses in five physical domains.
 
-00:00:43.030 --> 00:00:49.630
-Sol recovered 136 of 200
-six-event sequences, or 68%.
+00:00:47.988 --> 00:00:55.140
+Across all six-event questions, Sol
+recovered 1,035 of 1,200 individual events.
 
-00:00:50.208 --> 00:00:59.496
-Qwen3.5-9B rose from 0.5% to 20% six-event
-accuracy with supervised fine-tuning.
+00:00:55.708 --> 00:01:02.188
+Requiring every event to match gives
+136 correct sequences out of 200.
 
-00:00:59.848 --> 00:01:07.120
-In dynamics, SFT solved 10 of 40.
-The two SimPO runs solved 16 and 17.
+00:01:02.557 --> 00:01:06.373
+Follow the evidence, one
+experiment at a time.
 

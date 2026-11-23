@@ -12,17 +12,21 @@ const pathFor = (item, file) => 'examples/' + encodeURIComponent(item.id) + '/' 
 const labels = {'Thermal':'Thermal physics','EM':'Electromagnetism'};
 const nameFor = domain => labels[domain] || domain;
 
-function whenNear(element, run) {
+function whenNear(element, run, margin='200px 0px') {
   if (!('IntersectionObserver' in window)) { run(); return; }
   const observer = new IntersectionObserver(entries => {
     if (entries.some(entry => entry.isIntersecting)) { observer.disconnect(); run(); }
-  }, {rootMargin:'200px 0px'});
+  }, {rootMargin:margin});
   observer.observe(element);
 }
 document.querySelectorAll('img[data-lazy-src]').forEach(img => whenNear(img, () => {
   img.src = img.dataset.lazySrc;
   img.removeAttribute('data-lazy-src');
 }));
+const domainRibbon = document.querySelector('.domain-ribbon');
+whenNear(domainRibbon, () => {
+  domainRibbon.classList.add('photos-visible');
+}, '0px');
 const files = new Map();
 function cachedFile(key, load) {
   if (!files.has(key)) files.set(key, load().catch(error => { files.delete(key); throw error; }));
@@ -379,21 +383,44 @@ window.addEventListener('hashchange',openSection);
 
 const film = $('#film video'), playButton = $('#film .film-play');
 if (playButton && film) {
-  const hero = film.closest('.hero');
+  const panel = $('#film');
+  const frame = panel.querySelector('.film-frame');
+  const closeButton = $('#close-film');
+  const filmError = $('#film-error');
   film.controls = false;
   playButton.hidden = false;
+  function showPoster() {
+    film.controls = false;
+    panel.classList.remove('is-playing');
+    playButton.hidden = false;
+  }
+  function playbackFailed() {
+    showPoster();
+    filmError.hidden = false;
+  }
   playButton.onclick = () => {
+    filmError.hidden = true;
     film.controls = true;
-    film.play().catch(() => { hero.classList.remove('is-playing'); film.controls = false; playButton.hidden = false; });
+    film.play().catch(playbackFailed);
   };
-  film.addEventListener('play', () => { hero.classList.add('is-playing'); playButton.hidden = true; film.focus({preventScroll:true}); });
-  for (const action of ['ended','error']) film.addEventListener(action, () => {
-    hero.classList.remove('is-playing'); film.controls=false; playButton.hidden = false;
+  frame.addEventListener('click', event => {
+    if (event.target === frame && !playButton.hidden) playButton.click();
   });
-  $('#close-film').onclick=()=>{
-    film.pause(); film.controls=false; hero.classList.remove('is-playing');
-    playButton.hidden=false; playButton.focus({preventScroll:true});
+  film.addEventListener('play', () => {
+    panel.classList.add('is-playing');
+    playButton.hidden = true;
+    film.focus({preventScroll:true});
+  });
+  film.addEventListener('ended', showPoster);
+  film.addEventListener('error', playbackFailed);
+  closeButton.onclick = () => {
+    film.pause();
+    showPoster();
+    playButton.focus({preventScroll:true});
   };
+  panel.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && panel.classList.contains('is-playing') && !document.fullscreenElement) closeButton.click();
+  });
 }
 
 const lightbox=$('#lightbox');
