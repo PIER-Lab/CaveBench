@@ -1,88 +1,72 @@
-# CaveBench: Benchmarking Abductive Physical Reasoning from Internal Observations
+<div align="center">
 
-Guanxin Lin<sup>∗</sup>, Chen Yang<sup>∗</sup>, Shenxiang Zeng, Honghui Zhu, Xin Li, Wenbo Deng, Jiansheng Fan, Chen Wang<sup>†</sup>
+<img src="./docs/assets/cave-logo.webp" width="110" alt="CaveBench logo" />
 
-Tsinghua University  
-<sup>∗</sup> Equal contribution · <sup>†</sup> Corresponding author
+<h1 align="center">CaveBench: Benchmarking Abductive Physical Reasoning from Internal Observations</h1>
 
-[Project page](https://pier-lab.github.io/CaveBench/) · [Paper](docs/papers/CaveBench.pdf) · [Supplement](docs/papers/Supplement.pdf) · [Hugging Face dataset](https://huggingface.co/datasets/linguanxin/CaveBench) · [Research film](https://pier-lab.github.io/CaveBench/#film) · [Model weights](https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1)
+<p align="center">Guanxin Lin<sup>∗</sup>, Chen Yang<sup>∗</sup>, Shenxiang Zeng, Honghui Zhu, Xin Li, Wenbo Deng, Jiansheng Fan, Chen Wang<sup>†</sup></p>
 
-[![Internal views of driven pendulums, a heated plate, a gold-leaf electroscope, resonant rods and photoelastic specimens.](docs/assets/repository-cover.webp)](docs/assets/cases/README.md)
+<p align="center"><sup>∗</sup> Equal contribution &nbsp;·&nbsp; <sup>†</sup> Corresponding author</p>
 
-A camera inside a physical apparatus records the response to a sequence of external controls. Can a model reconstruct what happened outside? CaveBench gives the model the internal images in time order, the apparatus description and a list of possible controls. Its answer specifies which controls acted between each pair of images, including any that acted together.
+<p align="center">Tsinghua University</p>
 
-## Case studies
+<p align="center">
+  <a href="https://pier-lab.github.io/CaveBench/"><img src="./assets/badges/homepage.svg" alt="Project homepage" /></a>
+  <a href="https://pier-lab.github.io/CaveBench/papers/CaveBench.pdf"><img src="./assets/badges/paper.svg" alt="Paper (PDF)" /></a>
+  <a href="https://pier-lab.github.io/CaveBench/papers/Supplement.pdf"><img src="./assets/badges/supplement.svg" alt="Supplement (PDF)" /></a>
+  <a href="https://huggingface.co/datasets/linguanxin/CaveBench"><img src="./assets/badges/dataset.svg" alt="Dataset on Hugging Face" /></a>
+  <a href="https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1"><img src="./assets/badges/weights.svg" alt="Model weights on GitHub Releases" /></a>
+  <a href="https://pier-lab.github.io/CaveBench/#film"><img src="./assets/badges/film.svg" alt="Research film" /></a>
+</p>
 
-**Which way did the heater move?** One heater moves beneath a conducting plate while three others stay fixed. The camera sees the temperature field on the surface. Compare the hot spot near the middle of the plate in the two observations below.
-
-[![Initial and subsequent observations of the same plate in S05.](docs/assets/heat-source-event.webp)](https://pier-lab.github.io/CaveBench/#try-S05)
-
-<details>
-<summary>Reveal the recorded control and Claude Sonnet 5.5’s answer</summary>
-
-The experiment log records `MoveLeft`. Claude Sonnet 5.5 tracked the same hot spot across the two frames.
-
-> the spot is at about x=500, y=290 in F0 and about x=440, y=295 in F1. It shifted left by about 60 px, with little vertical change. Event 1 is MoveLeft.
-
-[Read the complete six-event case](docs/assets/cases/thermal-physics.md#s05) · [Watch the original episode](docs/examples/S05/dual_view.mp4)
-
-</details>
-
-| Dynamics | Thermal physics | Electromagnetism | Acoustics | Optics |
-| --- | --- | --- | --- | --- |
-| [S01–S04](docs/assets/cases/dynamics.md) | [S05–S08](docs/assets/cases/thermal-physics.md) | [S09–S12](docs/assets/cases/electromagnetism.md) | [S13–S16](docs/assets/cases/acoustics.md) | [S17–S20](docs/assets/cases/optics.md) |
-
-[Illustrated case index](docs/assets/cases/README.md) · [Editable PowerPoint](docs/assets/cases/CaveBench_Case_Studies.pptx) · [Supplementary PDF](docs/papers/Supplement.pdf)
-
-## Dataset
-
-Each of the 20 apparatuses contributes ten test episodes. A question starts with the initial frame and ends after one to six events. In the dielectric-response apparatus (S11), the first three events show full insertion, half insertion and withdrawal in varying order. Its questions start at three events so the reader can compare all three leaf openings. Together, the 200 test episodes yield 1,180 questions. The development split contains 9,000 training episodes and 1,000 validation episodes.
+</div>
 
 ## News
 
-- **2026-11-23.** The [research film](https://pier-lab.github.io/CaveBench/#film) pairs the inside view of a gold-leaf electroscope with the motion of a mica slab outside the cabinet. [Try the electroscope experiment](https://pier-lab.github.io/CaveBench/#try-S11).
+- 🔥 [2026-11-23] The [research film](https://pier-lab.github.io/CaveBench/#film) pairs the inside view of a gold-leaf electroscope with the motion of a mica slab outside the cabinet. [Try the electroscope experiment](https://pier-lab.github.io/CaveBench/#try-S11).
+
+## Introduction
+
+A camera inside a physical apparatus records the response to a sequence of external controls. Can a model reconstruct what happened outside? CaveBench gives the model the internal images in time order, the apparatus description and a list of possible controls. Its answer specifies which controls acted between each pair of images, including any that acted together. [Explore the 20 case studies](#case-studies).
+
+[![CaveBench overview showing 20 apparatuses in five physical domains, the sequence of seven observations, and six-event scores for five models.](docs/assets/figures/teaser-1200.webp)](docs/assets/teaser.png)
 
 ## Leaderboard
 
 GPT-6.1 Sol recovered 136 of 200 six-event sequences (68.0%), followed by GPT-6.1 Terra with 130 (65.0%). MiniMax M3.1 Flash led the open-weight models with 25 (12.5%). Each sequence scores one point when all six events match the experiment log. Scoring each event separately, Sol identified the complete set of controls at 1,035 of 1,200 events (86.25%). [Event counts by model and question length](results/domain_tables.md#event-by-length)
 
-<details>
-<summary>Six-event exact match for all 27 models</summary>
+| Model or baseline | Six-event exact match | Correct sequences | Type |
+| --- | ---: | ---: | --- |
+| GPT-6.1 Sol | 68.0% | 136 / 200 | Proprietary |
+| GPT-6.1 Terra | 65.0% | 130 / 200 | Proprietary |
+| GPT-6 Luna | 28.5% | 57 / 200 | Proprietary |
+| Gemini 3.8 Flash | 21.5% | 43 / 200 | Proprietary |
+| GPT-5.6 Luna | 19.5% | 39 / 200 | Proprietary |
+| Gemini 3.6 Flash | 17.0% | 34 / 200 | Proprietary |
+| Claude Sonnet 5.5 | 16.5% | 33 / 200 | Proprietary |
+| Qwen3.8 Flash | 14.0% | 28 / 200 | Proprietary |
+| Claude Haiku 5.5 | 13.5% | 27 / 200 | Proprietary |
+| MiniMax M3.1 Flash | 12.5% | 25 / 200 | Open-weight |
+| Qwen3.7 Plus | 11.5% | 23 / 200 | Proprietary |
+| Qwen3.8 27B | 10.5% | 21 / 200 | Open-weight |
+| GLM 5.3 Flash | 9.0% | 18 / 200 | Open-weight |
+| DeepSeek V4.1 Flash | 6.5% | 13 / 200 | Open-weight |
+| Seed-2.0-Lite | 5.5% | 11 / 200 | Proprietary |
+| MiniMax M3 | 5.0% | 10 / 200 | Open-weight |
+| Gemma 4 31B | 4.5% | 9 / 200 | Open-weight |
+| Seed 2.1 Turbo | 4.0% | 8 / 200 | Proprietary |
+| Kimi K2.6 | 3.5% | 7 / 200 | Open-weight |
+| Claude Sonnet 5 | 3.0% | 6 / 200 | Proprietary |
+| Seed-2.0-Mini | 3.0% | 6 / 200 | Proprietary |
+| GLM 5V Turbo | 2.5% | 5 / 200 | Proprietary |
+| Kimi K2.5 | 2.0% | 4 / 200 | Open-weight |
+| Gemini 3.5 Flash Lite | 1.0% | 2 / 200 | Proprietary |
+| DeepSeek V4 Flash | 0.5% | 1 / 200 | Open-weight |
+| Llama 4 Maverick | 0.5% | 1 / 200 | Open-weight |
+| Qwen3.5-9B | 0.5% | 1 / 200 | Open-weight |
+| Uniform choice among legal control sets | 0.0193% expected | — | Analytic reference |
 
-| Model or baseline | Type | Correct sequences | Exact match |
-|---|---|---:|---:|
-| GPT-6.1 Sol | Proprietary | 136 / 200 | 68.0% |
-| GPT-6.1 Terra | Proprietary | 130 / 200 | 65.0% |
-| GPT-6 Luna | Proprietary | 57 / 200 | 28.5% |
-| Gemini 3.8 Flash | Proprietary | 43 / 200 | 21.5% |
-| GPT-5.6 Luna | Proprietary | 39 / 200 | 19.5% |
-| Gemini 3.6 Flash | Proprietary | 34 / 200 | 17.0% |
-| Claude Sonnet 5.5 | Proprietary | 33 / 200 | 16.5% |
-| Qwen3.8 Flash | Proprietary | 28 / 200 | 14.0% |
-| Claude Haiku 5.5 | Proprietary | 27 / 200 | 13.5% |
-| Qwen3.7 Plus | Proprietary | 23 / 200 | 11.5% |
-| Seed-2.0-Lite | Proprietary | 11 / 200 | 5.5% |
-| Seed 2.1 Turbo | Proprietary | 8 / 200 | 4.0% |
-| Claude Sonnet 5 | Proprietary | 6 / 200 | 3.0% |
-| Seed-2.0-Mini | Proprietary | 6 / 200 | 3.0% |
-| GLM 5V Turbo | Proprietary | 5 / 200 | 2.5% |
-| Gemini 3.5 Flash Lite | Proprietary | 2 / 200 | 1.0% |
-| MiniMax M3.1 Flash | Open-weight | 25 / 200 | 12.5% |
-| Qwen3.8 27B | Open-weight | 21 / 200 | 10.5% |
-| GLM 5.3 Flash | Open-weight | 18 / 200 | 9.0% |
-| DeepSeek V4.1 Flash | Open-weight | 13 / 200 | 6.5% |
-| MiniMax M3 | Open-weight | 10 / 200 | 5.0% |
-| Gemma 4 31B | Open-weight | 9 / 200 | 4.5% |
-| Kimi K2.6 | Open-weight | 7 / 200 | 3.5% |
-| Kimi K2.5 | Open-weight | 4 / 200 | 2.0% |
-| DeepSeek V4 Flash | Open-weight | 1 / 200 | 0.5% |
-| Llama 4 Maverick | Open-weight | 1 / 200 | 0.5% |
-| Qwen3.5-9B | Open-weight | 1 / 200 | 0.5% |
-| Uniform choice among legal control sets | Analytic reference | — | 0.0193% expected |
-
-</details>
-
-## Detailed results
+### Detailed Results
 
 Each apparatus contributes ten questions at each available length. At one and two events, the tables cover 190 questions each. At three through six, they cover 200 each. Choose a length to compare models across domains or across all 20 apparatuses.
 
@@ -123,13 +107,41 @@ cd CaveBench
 python -m pip install -r requirements.txt
 ```
 
-## Load the dataset
+<a name="load-the-dataset"></a>
+<a name="dataset"></a>
+
+## Load Dataset
+
+Each of the 20 apparatuses contributes ten test episodes. A question starts with the initial frame and ends after one to six events. In the dielectric-response apparatus (S11), the first three events show full insertion, half insertion and withdrawal in varying order. Its questions start at three events so the reader can compare all three leaf openings. Together, the 200 test episodes yield 1,180 questions. The development split contains 9,000 training episodes and 1,000 validation episodes.
 
 Download the test questions, reference labels and internal frames. Add `--all` to include the development episodes and dual-view videos.
 
 ```sh
 python prepare_media.py --repo linguanxin/CaveBench --data ./dataset
 ```
+
+### Case Studies
+
+**Which way did the heater move?** One heater moves beneath a conducting plate while three others stay fixed. The camera sees the temperature field on the surface. Compare the hot spot near the middle of the plate in the two observations below.
+
+[![Initial and subsequent observations of the same plate in S05.](docs/assets/heat-source-event.webp)](https://pier-lab.github.io/CaveBench/#try-S05)
+
+<details>
+<summary>Reveal the recorded control and Claude Sonnet 5.5’s answer</summary>
+
+The experiment log records `MoveLeft`. Claude Sonnet 5.5 tracked the same hot spot across the two frames.
+
+> the spot is at about x=500, y=290 in F0 and about x=440, y=295 in F1. It shifted left by about 60 px, with little vertical change. Event 1 is MoveLeft.
+
+[Read the complete six-event case](docs/assets/cases/thermal-physics.md#s05) · [Watch the original episode](docs/examples/S05/dual_view.mp4)
+
+</details>
+
+| Dynamics | Thermal physics | Electromagnetism | Acoustics | Optics |
+| --- | --- | --- | --- | --- |
+| [S01–S04](docs/assets/cases/dynamics.md) | [S05–S08](docs/assets/cases/thermal-physics.md) | [S09–S12](docs/assets/cases/electromagnetism.md) | [S13–S16](docs/assets/cases/acoustics.md) | [S17–S20](docs/assets/cases/optics.md) |
+
+[Illustrated case index](docs/assets/cases/README.md) · [Editable PowerPoint](docs/assets/cases/CaveBench_Case_Studies.pptx) · [Supplementary PDF](docs/papers/Supplement.pdf)
 
 Load the one-event question from the moving-heater example above. The question supplies the prompt and the paths to F0 and F1. The label file records the control applied between them.
 
@@ -150,7 +162,9 @@ print(question["images"])
 print(load_record("labels.jsonl")["operations"])  # [['MoveLeft']]
 ```
 
-## Run an evaluation
+<a name="run-an-evaluation"></a>
+
+## Evaluation
 
 ### Chat-completions endpoint
 
@@ -241,4 +255,3 @@ The [MIT license](LICENSE) covers the original CaveBench code.
 ## Contact
 
 For questions about the data, evaluation or training results, [open a repository issue](https://github.com/PIER-Lab/CaveBench/issues).
-
