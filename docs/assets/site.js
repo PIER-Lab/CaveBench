@@ -8,7 +8,7 @@ const node = (tag, value, className) => {
   if (className) item.className = className;
   return item;
 };
-const pathFor = (item, file) => 'examples/' + encodeURIComponent(item.id) + '/' + encodeURIComponent(file);
+const pathFor = (item, file) => 'examples/' + encodeURIComponent(item.id) + '/' + file.split('/').map(encodeURIComponent).join('/');
 const labels = {'Thermal':'Thermal physics','EM':'Electromagnetism'};
 const nameFor = domain => labels[domain] || domain;
 
@@ -31,7 +31,7 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    tag.src = path + (path === 'assets/results.js' ? '?v=copy2' : '?v=field1');
+    tag.src = path + (path === 'assets/results.js' ? '?v=copy2' : '?v=atlas3');
     tag.onload = resolve;
     tag.onerror = () => { tag.remove(); reject(new Error(path)); };
     document.head.append(tag);
@@ -64,7 +64,7 @@ function loadFailure(container, message, again) {
 function preview(item, frame, className) {
   const thumb = node('span', undefined, className);
   thumb.setAttribute('aria-hidden','true');
-  thumb.style.backgroundImage = 'url("assets/atlas.webp")';
+  thumb.style.backgroundImage = 'url("assets/atlas.webp?v=atlas3")';
   thumb.style.backgroundSize = '700% 2000%';
   thumb.style.backgroundPosition = (frame * 100 / 6) + '% ' + ((Number(item.id.slice(1)) - 1) * 100 / 19) + '%';
   return thumb;
@@ -91,6 +91,41 @@ function textPanel(title,value) {
   };
   box.append(copy,pre);
   return box;
+}
+function answerText(parent, value) {
+  for (const line of value.split(/\n+/).map(s=>s.trim()).filter(Boolean)) {
+    const p = node('p');
+    for (const part of line.replace(/^[-*]\s+/, '').split(/(\*\*[^*]+\*\*|`[^`]+`)/)) {
+      if (part.startsWith('**') && part.endsWith('**')) p.append(node('strong',part.slice(2,-2)));
+      else if (part.startsWith('`') && part.endsWith('`')) p.append(node('code',part.slice(1,-1)));
+      else p.append(document.createTextNode(part));
+    }
+    parent.append(p);
+  }
+}
+function caseStudy(item) {
+  const grid = node('div',undefined,'case-study');
+  const figure = node('figure',undefined,'case-sheet');
+  const zoom = node('a',undefined,'zoom');
+  zoom.href = 'assets/cases/'+item.id+'.webp';
+  const image = node('img');
+  image.src=zoom.href; image.alt=item.id+' '+item.title+' case sheet with observations, answer and event scores.';
+  image.loading='lazy'; image.decoding='async';
+  zoom.append(image,node('span','Open full-size sheet ↗','sheet-open'));
+  figure.append(zoom);
+  const aside=node('div',undefined,'case-reading');
+  const meta=node('p',nameFor(item.domain)+'  /  '+item.sample_id,'reading-meta');
+  const event=item.excerpt_event;
+  const heading=node('h4',item.model);
+  const locator=node('p',(event ? 'Event '+event+' · ' : '')+'From the model’s answer','reading-subtitle');
+  const quote=node('blockquote');
+  answerText(quote,item.excerpt);
+  const more=node('details',undefined,'model-text');
+  more.append(node('summary','Read the full explanation'));
+  const text=node('div',undefined,'full-explanation'); answerText(text,item.response_text); more.append(text);
+  const link=node('a','Download the example record ↗','record-link'); link.href=pathFor(item,'worked.json');
+  aside.append(meta,heading,locator,quote,more,link);
+  grid.append(figure,aside); return grid;
 }
 function compareSteps(item) {
   const box=node('details');
@@ -179,7 +214,7 @@ async function renderScene(id, changeHash=false) {
   if (oldVideo) oldVideo.pause();
   let item;
   try {
-    item = entry.frames ? entry : await jsonFile(pathFor(entry,'case.json'));
+    item = entry.frames ? entry : await jsonFile(pathFor(entry,'worked.json'));
   } catch {
     if (activeScene === id) {
       example.removeAttribute('data-scene');
@@ -190,11 +225,11 @@ async function renderScene(id, changeHash=false) {
   }
   if (activeScene !== id) return;
   const header=node('div',undefined,'sceneinfo');
-  header.append(node('h3',item.id+' · '+item.title),node('small',nameFor(item.domain)+' · '+item.sample_id));
+  header.append(node('h3',item.id+' · '+item.title));
   const video=node('video');
   video.controls=true; video.playsInline=true; video.preload='none';
   video.setAttribute('aria-label',item.title+' episode video');
-  video.poster='assets/posters/'+encodeURIComponent(item.id)+'.jpg';
+  video.poster='assets/posters/'+encodeURIComponent(item.id)+'.jpg?v=atlas3';
   video.src=pathFor(item,item.video);
   const caption=node('div',undefined,'video-caption');
   const movieLink=node('a','Open video ↗');
@@ -207,7 +242,9 @@ async function renderScene(id, changeHash=false) {
     zoom.href=pathFor(item,filename); zoom.append(preview(item,n,'frame-thumb'));
     fig.append(zoom,node('figcaption',item.frame_labels?.[n] || 'Frame F'+n)); strip.append(fig);
   });
-  const parts=[header,video,caption,node('h4','Model input frames'),strip,textPanel('Complete prompt',item.prompt),trySequence(item),textPanel('Model response · '+item.model,item.response),compareSteps(item)];
+  const media=node('details',undefined,'case-media');
+  media.append(node('summary','Watch the episode and inspect its seven frames'),video,caption,node('h4','Model input frames'),strip);
+  const parts=[header,caseStudy(item),media,textPanel('Complete prompt',item.prompt),trySequence(item),compareSteps(item)];
   example.replaceChildren(...parts);
   example.dataset.scene=id;
   example.removeAttribute('aria-busy');
@@ -322,15 +359,21 @@ window.addEventListener('hashchange',openSection);
 
 const film = $('#film video'), playButton = $('#film .film-play');
 if (playButton && film) {
+  const hero = film.closest('.hero');
   film.controls = false;
   playButton.hidden = false;
   playButton.onclick = () => {
     film.controls = true;
-    film.play().catch(() => { playButton.hidden = false; });
+    film.play().catch(() => { hero.classList.remove('is-playing'); film.controls = false; playButton.hidden = false; });
   };
-  film.addEventListener('play', () => { playButton.hidden = true; });
-  film.addEventListener('ended', () => { playButton.hidden = false; });
-  film.addEventListener('error', () => { playButton.hidden = false; });
+  film.addEventListener('play', () => { hero.classList.add('is-playing'); playButton.hidden = true; film.focus({preventScroll:true}); });
+  for (const action of ['ended','error']) film.addEventListener(action, () => {
+    hero.classList.remove('is-playing'); film.controls=false; playButton.hidden = false;
+  });
+  $('#close-film').onclick=()=>{
+    film.pause(); film.controls=false; hero.classList.remove('is-playing');
+    playButton.hidden=false; playButton.focus({preventScroll:true});
+  };
 }
 
 const lightbox=$('#lightbox');
@@ -340,8 +383,11 @@ document.addEventListener('click',e=>{
   e.preventDefault();
   const img=lightbox.querySelector('img');
   img.src=target.href; img.alt=target.querySelector('img')?.alt || target.getAttribute('aria-label') || '';
-  lightbox.showModal();
+  lightbox.classList.remove('actual-size'); $('#image-scale').textContent='Actual size'; lightbox.showModal();
 });
-lightbox.querySelector('button').onclick=()=>lightbox.close();
+$('#image-scale').onclick=()=>{
+  const large=lightbox.classList.toggle('actual-size'); $('#image-scale').textContent=large ? 'Fit to screen' : 'Actual size';
+};
+$('#image-close').onclick=()=>lightbox.close();
 lightbox.addEventListener('click',event=>{ if(event.target===lightbox) lightbox.close(); });
 

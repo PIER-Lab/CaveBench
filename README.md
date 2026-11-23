@@ -1,5 +1,7 @@
 # CaveBench: Benchmarking Abductive Physical Reasoning from Internal Observations
 
+[![CaveBench research film. Three observations of the driven pendulums at different times.](docs/assets/repository-cover.webp)](https://pier-lab.github.io/CaveBench/#film)
+
 Guanxin Lin<sup>∗</sup>, Chen Yang<sup>∗</sup>, Shenxiang Zeng, Honghui Zhu, Xin Li, Wenbo Deng, Jiansheng Fan, Chen Wang<sup>†</sup>
 
 Tsinghua University  
@@ -9,23 +11,38 @@ Tsinghua University
 
 ## News
 
-- **2026-11-23.** Explore 20 six-event examples in the [dataset viewer](https://pier-lab.github.io/CaveBench/#viewer) and compare models by apparatus, question length or training seed in the [leaderboard](https://pier-lab.github.io/CaveBench/#leaderboard).
+- **2026-11-23.** The [20 illustrated case studies](#case-studies), [editable slides](docs/assets/cases/CaveBench_Case_Studies.pptx) and [interactive results tables](https://pier-lab.github.io/CaveBench/#leaderboard) are available.
 
 ## Introduction
 
 CaveBench evaluates whether a vision–language model can reconstruct the external controls applied to a physical apparatus from its internal observations. Each question contains the apparatus description, its permitted controls and an ordered sequence of images. The model identifies the set of controls applied at each event. The 20 apparatuses cover dynamics, thermal physics, electromagnetism, acoustics and optics.
 
-![CaveBench apparatuses, internal observations and six-event model comparison](docs/assets/teaser.png)
-
 ## Dataset
 
 The dataset contains 9,000 training episodes, 1,000 validation episodes and 200 test episodes. The test set comprises 1,180 questions spanning one to six events. The model sees an initial internal frame and one more frame after each event.
 
-Each of the [20 worked examples](docs/examples/) pairs seven internal frames with the six-event prompt, the model’s answer, the reference controls and the score at each event. A synchronized video shows the same episode from inside and outside the apparatus.
+## Case studies
+
+Each case follows one six-event episode. Read the seven observations from left to right, then compare Claude Sonnet 5.5’s answer with the recorded controls. The project page includes the complete prompt and model explanation, a synchronized exterior/interior video and a score for each event.
+
+<a href="https://pier-lab.github.io/CaveBench/#S03"><img src="docs/assets/cases/S03.webp" width="475" alt="Driven pendulums case sheet. Seven internal observations, the question, a passage from the model answer and a six-event comparison."></a>
+
+| Domain | Case studies |
+|---|---|
+| Dynamics | [S01 · Cabin inertia](https://pier-lab.github.io/CaveBench/#S01) · [S02 · Rotation & gas](https://pier-lab.github.io/CaveBench/#S02) · [S03 · Driven pendulums](https://pier-lab.github.io/CaveBench/#S03) · [S04 · Tray impact](https://pier-lab.github.io/CaveBench/#S04) |
+| Thermal physics | [S05 · Moving heat source](https://pier-lab.github.io/CaveBench/#S05) · [S06 · Layered liquids](https://pier-lab.github.io/CaveBench/#S06) · [S07 · Heated gas bulbs](https://pier-lab.github.io/CaveBench/#S07) · [S08 · Bimetal supports](https://pier-lab.github.io/CaveBench/#S08) |
+| Electromagnetism | [S09 · Magnetic coils](https://pier-lab.github.io/CaveBench/#S09) · [S10 · Electric dipoles](https://pier-lab.github.io/CaveBench/#S10) · [S11 · Dielectric response](https://pier-lab.github.io/CaveBench/#S11) · [S12 · Conducting wires](https://pier-lab.github.io/CaveBench/#S12) |
+| Acoustics | [S13 · Standing waves](https://pier-lab.github.io/CaveBench/#S13) · [S14 · Wave scattering](https://pier-lab.github.io/CaveBench/#S14) · [S15 · Doppler response](https://pier-lab.github.io/CaveBench/#S15) · [S16 · Two-source ripples](https://pier-lab.github.io/CaveBench/#S16) |
+| Optics | [S17 · Photoelastic load](https://pier-lab.github.io/CaveBench/#S17) · [S18 · Double reflection](https://pier-lab.github.io/CaveBench/#S18) · [S19 · Graded refraction](https://pier-lab.github.io/CaveBench/#S19) · [S20 · Double-slit fringes](https://pier-lab.github.io/CaveBench/#S20) |
+
+[Editable PowerPoint](docs/assets/cases/CaveBench_Case_Studies.pptx) · [Individual case sheets](docs/assets/cases/) · [Episode files](docs/examples/) · [Example prompt, response and reference](docs/examples/S03/worked.json)
 
 ## Leaderboard
 
 On the 200 six-event questions, GPT-6.1 Sol recovers 136 complete sequences (68.0%). MiniMax M3.1 Flash leads the open-weight models with 25 (12.5%).
+
+<details>
+<summary>Six-event exact match for all 27 models</summary>
 
 | Six-event reference or model | Type | Correct sequences | Exact match |
 |---|---|---:|---:|
@@ -57,6 +74,8 @@ On the 200 six-event questions, GPT-6.1 Sol recovers 136 complete sequences (68.
 | Llama 4 Maverick | Open-weight | 1 / 200 | 0.5% |
 | Qwen3.5-9B | Open-weight | 1 / 200 | 0.5% |
 | Uniform choice among legal control sets | Analytic reference | — | 0.0193% expected |
+
+</details>
 
 [All 27 configurations](results/domain_tables.md#domain-k6) · [Uniform-choice reference by domain and length](docs/assets/results/uniform_reference.csv)
 

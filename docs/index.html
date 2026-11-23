@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#0b292c">
+  <meta name="theme-color" content="#101e27">
   <meta name="description" content="CaveBench evaluates abductive physical reasoning from internal observations. Explore twenty apparatuses, video examples and results from 27 vision–language model configurations.">
   <title>CaveBench · Abductive Physical Reasoning from Internal Observations</title>
   <link rel="icon" type="image/png" href="assets/cave-mark.png">
-  <link rel="preload" as="image" href="assets/video/CaveBench-overview.jpg?v=field1" fetchpriority="high">
-  <link rel="stylesheet" href="assets/site.css?v=field1">
-  <script defer src="assets/site.js?v=copy2"></script>
+  <link rel="preload" as="image" href="assets/observation-cover.webp" media="(min-width: 736px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/observation-cover-small.webp" media="(max-width: 735px)" fetchpriority="high">
+  <link rel="stylesheet" href="assets/site.css?v=atlas3">
+  <script defer src="assets/site.js?v=atlas3"></script>
 </head>
 <body>
 <a href="#main" class="skip">Skip to content</a>
 <header class="nav"><nav aria-label="Main navigation">
   <a class="brand" href="#top"><img src="assets/cave-mark.png" alt="" width="31" height="31">CaveBench</a>
-  <div><a href="#dataset">Dataset</a><a href="#leaderboard">Leaderboard</a><a href="#analysis">Analysis</a></div>
+  <div><a href="#viewer">Case studies</a><a href="#leaderboard">Leaderboard</a><a href="#analysis">Analysis</a></div>
 </nav></header>
 <main id="main">
   <section class="hero" id="top">
@@ -23,18 +24,19 @@
       <div class="hero-copy">
         <h1><span class="wordmark">CaveBench<span class="title-colon">:</span></span> <span class="paper-title">Benchmarking Abductive Physical Reasoning from Internal Observations</span></h1>
         <p class="intro">From inside a physical apparatus, can a vision–language model work out what changed outside?</p>
-        <div class="hero-actions"><a class="read-paper" href="papers/CaveBench.pdf">Read the paper <span aria-hidden="true">↗</span></a><a class="explore" href="#viewer">Explore the scenes <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-actions"><a class="read-paper" href="papers/CaveBench.pdf">Read the paper <span aria-hidden="true">↗</span></a><a class="explore" href="#viewer">Explore the cases <span aria-hidden="true">↓</span></a></div>
       </div>
-      <figure class="film" id="film" aria-labelledby="film-title">
-        <div class="film-caption"><h2 id="film-title">Research film</h2><a href="assets/video/CaveBench-overview.mp4?v=field1" download>Download <span aria-hidden="true">↓</span></a></div>
+      <figure class="film" id="film" aria-label="Research film">
         <div class="film-frame">
-          <video class="overview-video" controls playsinline preload="none" poster="assets/video/CaveBench-overview.jpg?v=field1" aria-label="CaveBench research film">
+          <picture class="film-art"><source media="(max-width: 735px)" srcset="assets/observation-cover-small.webp"><img src="assets/observation-cover.webp" alt="Three superimposed observations show the central pendulum at different angles." width="1600" height="650" fetchpriority="high"></picture>
+          <video class="overview-video" controls playsinline preload="none" aria-label="CaveBench research film">
             <source src="assets/video/CaveBench-overview.mp4?v=field1" type="video/mp4">
             <track kind="captions" src="assets/video/CaveBench-overview.en.vtt?v=field1" srclang="en" label="English">
           </video>
-          <button type="button" class="film-play" aria-label="Play research film" hidden><span aria-hidden="true"></span></button>
+          <button type="button" class="film-play" aria-label="Play research film" hidden><span class="play-glyph" aria-hidden="true"></span><span id="film-title">Watch the film</span><small>1:07</small></button>
+          <button type="button" id="close-film">Close film ×</button>
         </div>
-        <figcaption class="film-foot"><span class="film-spool" aria-hidden="true"></span>English narration &amp; captions</figcaption>
+        <figcaption class="film-foot"><span>S03 · Driven pendulums</span><span>Frames F0, F3 and F6</span></figcaption>
       </figure>
     </div>
   </section>
@@ -47,6 +49,13 @@
       <a href="https://github.com/PIER-Lab/CaveBench">GitHub</a><a href="https://huggingface.co/datasets/linguanxin/CaveBench">Dataset</a><a href="papers/Supplement.pdf">Supplement</a><a href="https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1">Weights</a>
     </div>
   </div></div>
+  <nav class="domain-ribbon" aria-label="Case studies by physical domain">
+    <a href="#S03"><span class="domain-photo" style="--tile:0%" aria-hidden="true"></span><span>Dynamics <i aria-hidden="true">↗</i></span></a>
+    <a href="#S05"><span class="domain-photo" style="--tile:25%" aria-hidden="true"></span><span>Thermal physics <i aria-hidden="true">↗</i></span></a>
+    <a href="#S10"><span class="domain-photo" style="--tile:50%" aria-hidden="true"></span><span>Electromagnetism <i aria-hidden="true">↗</i></span></a>
+    <a href="#S15"><span class="domain-photo" style="--tile:75%" aria-hidden="true"></span><span>Acoustics <i aria-hidden="true">↗</i></span></a>
+    <a href="#S17"><span class="domain-photo" style="--tile:100%" aria-hidden="true"></span><span>Optics <i aria-hidden="true">↗</i></span></a>
+  </nav>
   <section class="section" id="dataset">
     <div class="section-intro">
       <div><h2>Dataset</h2><p>Each episode begins with an apparatus description and a view from inside it. As the scene changes, the model reconstructs the controls applied at each event.</p></div>
@@ -65,8 +74,8 @@
         </tbody></table></div>
       <p>Each episode contributes six events. S11 (dielectric response) has questions with three to six events.</p>
     </details>
-    <h3 id="viewer">Dataset viewer</h3>
-    <p>Choose an apparatus, inspect its seven internal frames and try the six-event question. Compare your answer with the reference controls and the model’s prediction.</p>
+    <div class="case-intro"><h3 id="viewer">Case studies</h3><a href="assets/cases/CaveBench_Case_Studies.pptx" download>Editable slides ↓</a></div>
+    <p>Explore six events inside each apparatus. Open a case sheet to see the observations, the model’s answer and the recorded controls together.</p>
     <div id="browser">
       <div class="selectors">
         <label>Physical domain<select id="domain"></select></label>
@@ -144,6 +153,6 @@
   </section>
 </main>
 <footer><div><strong>CaveBench</strong><a href="#top">Back to top ↑</a></div></footer>
-<dialog id="lightbox"><header><button type="button" aria-label="Close enlarged image">Close ×</button></header><img alt=""></dialog>
+<dialog id="lightbox" aria-label="Enlarged figure"><header><button type="button" id="image-close" aria-label="Close enlarged image">Close ×</button><button type="button" id="image-scale">Actual size</button></header><div class="lightbox-stage"><img alt=""></div></dialog>
 </body>
 </html>
