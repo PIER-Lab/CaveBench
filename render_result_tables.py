@@ -292,6 +292,33 @@ def figure_tables(order, scenes):
     return [*lines, "", "[Download error counts](../docs/assets/results/error_categories.csv)"]
 
 
+def simpo_seed_comparison():
+    runs = defaultdict(dict)
+    for r, _ in scored_rows('adaptation_question_scores.csv', ['model', 'method', 'run']):
+        if r['model'] == 'Qwen3.5-9B' and r['k'] == '6' and r['method'] in ('SFT', 'SFT + SimPO'):
+            runs[r['method'], r['run']][r['question_id']] = int(r['exact'])
+
+    reference = runs['SFT', '20261102']
+    first = runs['SFT + SimPO', '20261108']
+    second = runs['SFT + SimPO', '20261109']
+    if not reference or reference.keys() != first.keys() or reference.keys() != second.keys():
+        raise ValueError('Expected matched six-event questions for SFT and both SimPO seeds.')
+
+    outcomes = defaultdict(int)
+    for question, sft in reference.items():
+        outcomes[sft, first[question], second[question]] += 1
+
+    lines = heading('simpo-seeds', 'Which sequences do both SimPO runs recover?')
+    lines.extend([f"Each of the {len(reference)} six-event questions appears once. A run recovers a sequence "
+                  "when it predicts every event correctly.", "",
+                  *table('SFT result', ['Both SimPO runs correct', 'Only seed 20261108 correct',
+                                        'Only seed 20261109 correct', 'Neither run correct', 'Questions'])])
+    for sft, label in [(1, 'Correct'), (0, 'Incorrect')]:
+        cells = [outcomes[sft, a, b] for a, b in [(1, 1), (1, 0), (0, 1), (0, 0)]]
+        lines.append(row([label, *cells, sum(cells)]))
+    return [*lines, '', '[Question-level scores](adaptation_question_scores.csv)', '']
+
+
 def adaptation_tables(scenes):
     summaries = index("adaptation_by_length", ["model", "method", "run", "k"])
     by_scene = index("adaptation_by_scene", ["model", "method", "run", "scene", "k"])
@@ -316,6 +343,7 @@ def adaptation_tables(scenes):
     for run in runs:
         lines.append(row([method_title(run), *[percent(summaries[run + (k,)], True) for k in lengths]]))
     lines.extend(["", "</details>", ""])
+    lines.extend(simpo_seed_comparison())
     lines.extend(heading("event-positions", "Event accuracy by position on six-event questions"))
     lines.extend(["Each column scores one position in the same 200 six-event questions. An event is correct "
                   "when the predicted controls match the full recorded set. Each training seed has its own row.", "",

@@ -416,14 +416,14 @@ footer a { color: var(--ivory); font-size: 14px; }
         <div class="film-frame">
           <picture class="film-art"><source media="(max-width: 735px)" srcset="assets/optics-cover-small.webp" width="568" height="284"><img src="assets/optics-cover.webp" alt="Illustration of the three-pendulum apparatus." width="1140" height="570" fetchpriority="high"></picture>
           <video class="overview-video" controls playsinline preload="none" aria-label="CaveBench research film">
-            <source src="assets/video/CaveBench-overview.mp4?v=observatory1" type="video/mp4">
-            <track kind="captions" src="assets/video/CaveBench-overview.en.vtt?v=observatory1" srclang="en" label="English">
+            <source src="assets/video/CaveBench-overview.mp4?v=seeds1" type="video/mp4">
+            <track kind="captions" src="assets/video/CaveBench-overview.en.vtt?v=seeds1" srclang="en" label="English">
           </video>
           <button type="button" class="film-play" aria-label="Play research film" hidden><span class="play-glyph" aria-hidden="true"></span><span id="film-title">Play film</span></button>
           <button type="button" id="close-film">Close film ×</button>
         </div>
-        <figcaption class="film-foot"><span>Research film</span><span>English captions</span></figcaption>
-        <p id="film-error" role="status" hidden>Playback unavailable. <a href="assets/video/CaveBench-overview.mp4?v=observatory1">Open the MP4</a></p>
+        <figcaption class="film-foot"><span>Research film · 1 min 21 s</span><span>English captions</span></figcaption>
+        <p id="film-error" role="status" hidden>Playback unavailable. <a href="assets/video/CaveBench-overview.mp4?v=seeds1">Open the MP4</a></p>
       </figure>
     </div>
   </section>
@@ -532,7 +532,7 @@ footer a { color: var(--ivory); font-size: 14px; }
     <div class="analysis-spread">
       <div><h3>Learning to recover a sequence</h3>
     <p>Supervised fine-tuning raises Qwen3.5-9B’s six-event accuracy from 0.5% to 20.0%. Across two training seeds, SimPO and KTO achieve similar single-event accuracy (86.8% and 86.3%). At six events, SimPO reaches 31.8% and KTO scores 14.5%.</p>
-    <p>On the 40 six-event dynamics questions, SFT recovers 10 complete sequences. The two SimPO runs recover <a href="#table-adaptation_by_domain-k6?domain=Dynamics" data-detail="adaptation_by_domain">16 and 17</a>. Across all five domains, each run solves 27 sequences that SFT missed. <a href="#table-paired_training" data-detail="paired_training">Compare runs on the same questions</a>.</p>
+    <p>On the 40 six-event dynamics questions, SFT recovers 10 complete sequences. The two SimPO runs recover <a href="#table-adaptation_by_domain-k6?domain=Dynamics" data-detail="adaptation_by_domain">16 and 17</a>. Across all five domains, each run recovers 27 sequences that SFT missed. Of these, 26 are the same questions. <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_tables.md#simpo-seeds">Compare the two training seeds</a>.</p>
     <p class="related-tables"><a href="#table-training_case" data-detail="training_case">Compare predictions for all six events</a> · <a href="#table-adaptation_by_domain-k6" data-detail="adaptation_by_domain">Compare adaptation by physical domain</a> · <a href="#table-adaptation_by_length" data-detail="adaptation_by_length">Compare question lengths</a> · <a href="#table-adaptation_by_position" data-detail="adaptation_by_position">Accuracy at each event by run</a> · <a href="https://github.com/PIER-Lab/CaveBench#local-qwen-checkpoints">Load the trained checkpoints</a></p>
       </div>
     <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" width="1485" height="1707" data-lazy-src="assets/adaptation.png" alt="Frames F0–F3 of the dielectric-response apparatus and the two models’ predictions for event 3."></a><figcaption>At event 3, the electroscope leaves open wider than at full insertion. The baseline predicts full insertion, while both SimPO runs identify half insertion.</figcaption></figure>

@@ -11,7 +11,7 @@ Tsinghua University
 
 ## News
 
-- **2026-11-23.** The project page now pairs the frames before and after each event in all [20 case studies](docs/assets/cases/README.md). You can also [compare two models](https://pier-lab.github.io/CaveBench/#leaderboard) across the six question lengths.
+- **2026-11-23.** The [research film](https://pier-lab.github.io/CaveBench/#film) follows six hidden carriage motions and compares two SimPO runs on the same 200 test questions. Explore the [20 apparatuses](docs/assets/cases/README.md) or [compare models across question lengths](https://pier-lab.github.io/CaveBench/#leaderboard).
 
 ## Introduction
 
@@ -145,6 +145,8 @@ Download the SFT adapter for all trained models. For preference-trained models, 
 | SimPO | 20261109 | 64/200 (32.0%) | [Download ZIP](https://github.com/PIER-Lab/CaveBench/releases/download/cavebench-qwen35-adapters-v1/CaveBench-Qwen3.5-9B-SimPO-20261109.zip) |
 | KTO | 20261107 | 29/200 (14.5%) | [Download ZIP](https://github.com/PIER-Lab/CaveBench/releases/download/cavebench-qwen35-adapters-v1/CaveBench-Qwen3.5-9B-KTO-20261107.zip) |
 | KTO | 20261108 | 29/200 (14.5%) | [Download ZIP](https://github.com/PIER-Lab/CaveBench/releases/download/cavebench-qwen35-adapters-v1/CaveBench-Qwen3.5-9B-KTO-20261108.zip) |
+
+The two SimPO runs each recovered 27 six-event sequences that SFT missed. They agreed on 26 of those sequences. [Compare the two seeds by question](results/adaptation_tables.md#simpo-seeds)
 
 To evaluate the SimPO adapter trained with seed 20261108, run the following commands.
 

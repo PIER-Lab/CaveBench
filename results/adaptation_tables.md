@@ -46,6 +46,19 @@ Question length (`k`) ranges from one to six events. There are ten questions per
 
 </details>
 
+<a name="simpo-seeds"></a>
+
+## Which sequences do both SimPO runs recover?
+
+Each of the 200 six-event questions appears once. A run recovers a sequence when it predicts every event correctly.
+
+| SFT result | Both SimPO runs correct | Only seed 20261108 correct | Only seed 20261109 correct | Neither run correct | Questions |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Correct | 35 | 1 | 2 | 2 | 40 |
+| Incorrect | 26 | 1 | 1 | 132 | 160 |
+
+[Question-level scores](adaptation_question_scores.csv)
+
 <a name="event-positions"></a>
 
 ## Event accuracy by position on six-event questions
