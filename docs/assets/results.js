@@ -529,3 +529,64 @@ window.addEventListener('hashchange', openResultAnchor);
 openResultAnchor();
 if (!leaderboardVersion) updateLeaderboard();
 whenNear($('#detailed-results'), () => { if (!detailVersion) loadDetail(); });
+function lengthComparison() {
+  const figure = document.getElementById('length-comparison');
+  const copy = node('div',undefined,'trend-copy'), heading = node('h3','Accuracy across question lengths');
+  const note = node('p','Each point gives the share of complete control sequences identified correctly.');
+  const selectors = node('div',undefined,'trend-selectors');
+  const models = tables.length.rows;
+  const labels = ['First model', 'Second model'];
+  const picks = ['GPT-6.1 Sol','Gemini 3.8 Flash'].map((name, i) => {
+    const label=node('label');
+    const marker=node('span',undefined,'trend-key key-'+i);
+    marker.setAttribute('aria-hidden','true');
+    const select=node('select');
+    select.setAttribute('aria-label',labels[i]);
+    for (const row of models) select.add(new Option(row.name, row.name));
+    select.value=name; label.append(marker,select); selectors.append(label); return select;
+  });
+  copy.append(heading,note,selectors);
+  const plot=node('div',undefined,'trend-plot'), ns='http://www.w3.org/2000/svg';
+  const graphic=(parent,tag,attrs,text='')=>{
+    const e=document.createElementNS(ns,tag);
+    for (const [key,value] of Object.entries(attrs)) e.setAttribute(key,String(value));
+    if (text) e.textContent=text;
+    parent.append(e); return e;
+  };
+  function draw() {
+    const svg=document.createElementNS(ns,'svg'); svg.setAttribute('viewBox','0 0 490 190');
+    svg.setAttribute('role','img');
+    const series=picks.map((select,i)=>{
+      const other=picks[1-i].value;
+      for (const option of select.options) option.disabled=option.value===other;
+      return models.find(row=>row.name===select.value);
+    });
+    svg.setAttribute('aria-label', series.map(row=>row.name+': '+row.values.slice(0,6).map(percent).join(', ')+' percent for one to six events').join('. '));
+    const x=i=>39+i*87, y=v=>145-1.19*v;
+    graphic(svg,'text',{x:7,y:14,class:'axis-title'},'Exact match (%)');
+    for(const mark of [0,25,50,75,100]) {
+      graphic(svg,'line',{x1:x(0),x2:x(5),y1:y(mark),y2:y(mark),class:'chart-grid'});
+      graphic(svg,'text',{x:29,y:y(mark)+4,'text-anchor':'end'},String(mark));
+    }
+    for(let i=0;i<6;i++) graphic(svg,'text',{x:x(i),y:162,'text-anchor':'middle'},String(i+1));
+    graphic(svg,'text',{x:253,y:183,'text-anchor':'middle',class:'axis-title'},'Events per question');
+    series.forEach((row,j)=>{
+      const points=row.values.slice(0,6).map((value,i)=>[x(i),y(value)]);
+      const group=graphic(svg,'g',{class:'trend-line series-'+j});
+      graphic(group,'polyline',{points:points.map(p=>p.join(',')).join(' '),fill:'none'});
+      points.forEach(([cx,cy],i)=>{
+        const dot=j ? graphic(group,'path',{d:'M'+cx+' '+(cy-3.7)+'l3.7 3.7 -3.7 3.7 -3.7 -3.7Z'}) : graphic(group,'circle',{cx,cy,r:3.4});
+        graphic(dot,'title',{},row.name+', '+(i+1)+' events: '+percent(row.values[i])+'%');
+      });
+    });
+    const caption=node('p',undefined,'trend-caption');
+    for(const [i,row] of series.entries()){
+      const item=node('span');item.append(node('i',undefined,'key-'+i),node('b',percent(row.values[0])+'% → '+percent(row.values[5])+'%'));
+      item.setAttribute('aria-label',row.name+', one event to six events'); caption.append(item);
+    }
+    plot.replaceChildren(svg,caption);
+  }
+  picks.forEach(select=>select.onchange=draw);
+  figure.append(copy,plot); draw(); figure.hidden=false;
+}
+lengthComparison();

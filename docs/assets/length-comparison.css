@@ -1,0 +1,21 @@
+.length-comparison { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr); align-items:center; gap:clamp(25px,4vw,60px); padding:22px clamp(16px,3vw,40px); margin:24px 0 27px; border-block:1px solid #a69580; background:#e9e5da; }
+.section .trend-copy h3 { margin:0 0 8px; font:400 clamp(25px,2.6vw,39px)/1.07 var(--serif); letter-spacing:-.043em; }
+.section .trend-copy p { margin:0 0 15px; max-width:44ch; font-size:15px; line-height:1.5; }
+.trend-selectors { display:flex; flex-direction:column; align-items:flex-start; gap:5px; }
+.trend-selectors label { display:flex; gap:9px; align-items:center; }
+.trend-selectors select { min-height:32px; background:#f5f1e8; padding:3px 5px; width:min(235px,100%); font-size:13px; }
+.trend-key,.trend-caption i { display:inline-block; width:22px; border-top:3px solid #344f65; }
+.trend-key.key-1,.trend-caption i.key-1 { border-top:3px dashed #a15a3b; }
+.trend-plot { min-width:0; }
+.trend-plot svg { display:block; width:100%; height:auto; overflow:visible; }
+.trend-plot svg text { font:12px var(--sans); fill:#3d3838; }
+.trend-plot svg text.axis-title { font:600 12px var(--sans); }
+.chart-grid { stroke:#cbc4b8; stroke-width:.8px; }
+.trend-line { stroke:#344f65; fill:#344f65; }
+.trend-line polyline { stroke-width:2.7px; }
+.trend-line.series-1 {stroke:#a15a3b; fill:#a15a3b;}
+.trend-line.series-1 polyline { stroke-dasharray:5 3; }
+.section .trend-caption { display:flex; gap:12px 21px; justify-content:center; flex-wrap:wrap; margin:4px 0 0; }
+.trend-caption span { display:flex; gap:5px; align-items:center; font:13px var(--sans); }
+.trend-caption i { width:14px; }
+@media(max-width:700px){.length-comparison{grid-template-columns:minmax(0,1fr);gap:15px;padding:16px 7px}.trend-copy{padding:0 6px}.trend-selectors{display:flex;flex-direction:row;flex-wrap:wrap;gap:6px 12px}.trend-selectors label{max-width:100%;gap:5px}.trend-selectors select{width:auto;max-width:calc(100% - 20px);min-height:35px}.trend-key{width:13px}.trend-plot svg text,.trend-plot svg text.axis-title{font-size:16px}.trend-caption span{font-size:12px}}

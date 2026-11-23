@@ -68,44 +68,30 @@ h1, h2, h3, h4 { text-wrap: balance; }
 
 .hero { position: relative; isolation: isolate; overflow: clip; color: var(--ivory); background: var(--night); }
 .hero::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background:
-    repeating-radial-gradient(ellipse at -10% 92%, transparent 0 31px, #a9a5c21c 31.4px 32px, transparent 32.6px 39px),
-    radial-gradient(ellipse at 12% 75%, #34324d 0%, transparent 57%);
-  mask-image: linear-gradient(90deg, #000 8%, #0009 45%, transparent 80%);
+  content: ""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background: radial-gradient(ellipse at 82% 45%, #57454180, transparent 57%),
+    repeating-radial-gradient(ellipse at 91% 108%, transparent 0 17px, #bbae9a26 18px, transparent 19px 32px),
+    linear-gradient(112deg, #171b2c 10%, #272b3e 64%, #34303b);
 }
-.hero-inner {
-  position: relative; display: grid;
-  grid-template-columns: minmax(220px, .8fr) minmax(0, 1.95fr);
-  grid-template-areas: "heading heading" "question film";
-  gap: clamp(24px, 2.7vw, 42px) clamp(30px, 5vw, 84px);
-  padding-block: clamp(33px, 3.4vw, 57px) clamp(31px, 3.4vw, 54px);
-}
-.hero h1 {
-  grid-area: heading; display: grid; align-items: center; grid-template-columns: 1.13fr 1fr;
-  column-gap: clamp(30px, 5vw, 90px); padding-bottom: clamp(18px, 2.2vw, 37px);
-  border-bottom: 1px solid #a39bb66b; font-weight: normal; line-height: 1;
-}
-.wordmark { font: 400 clamp(73px, 8.05vw, 129px)/.9 var(--serif); letter-spacing: -.077em; white-space: nowrap; }
-.title-colon { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
-.paper-title { max-width: 32ch; color: #f3ebdd; font: 400 clamp(22px, 2.27vw, 36px)/1.12 var(--serif); letter-spacing: -.033em; text-wrap: balance; }
-.hero-copy { grid-area: question; position: relative; align-self: center; padding: 18px 0 28px; }
-.hero-copy::before {
-  content: ""; display: block; width: min(84px, 35%); height: 10px; margin-bottom: clamp(22px, 2.1vw, 35px);
-  background: repeating-linear-gradient(90deg, #d0a474 0 1px, transparent 1px 7px) left bottom / 100% 6px no-repeat;
-  border-bottom: 1px solid #af875c;
-}
-.intro { max-width: 18ch; font: 400 clamp(25px, 2.55vw, 42px)/1.14 var(--serif); letter-spacing: -.043em; color: #f2e6d0; text-wrap: pretty; }
-.film-question { margin-top: 12px; max-width: 32ch; color: #d4d1dd; font: 400 16px/1.5 var(--sans); }
-.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 11px 20px; margin-top: clamp(22px, 2.5vw, 41px); }
+.hero::after { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; background:repeating-linear-gradient(90deg,transparent 0 52px,#baaca40a 52px 53px),repeating-linear-gradient(0deg,transparent 0 52px,#baaca40a 52px 53px); }
+.hero-inner { position:relative; display:grid;grid-template-columns:minmax(0,.89fr) minmax(0,1.24fr); grid-template-areas:"heading film" "question film"; align-items:center; gap:0 clamp(34px,5vw,78px); padding-block:clamp(50px,5.2vw,85px); }
+.hero h1 { grid-area:heading; display:flex;flex-direction:column;align-items:flex-start;font-weight:400; }
+.wordmark { font:400 clamp(70px,7.5vw,117px)/.91 var(--serif); letter-spacing:-.083em; white-space:nowrap; }
+.wordmark i { font-weight:400; }
+.title-colon { position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden; }
+.paper-title { display:block; max-width:25ch; margin-top:21px; color:#fff2df; font:400 clamp(22px,2.15vw,33px)/1.13 var(--serif); letter-spacing:-.034em; text-wrap:balance; }
+.hero-copy { grid-area:question; margin-top:21px; padding-left:16px; border-left:2px solid #ac866b; }
+.intro {font:italic 400 clamp(19px,1.55vw,25px)/1.2 var(--serif);color:#f4ca97;}
+.film-question { margin-top:4px;color:#e0dce4;max-width:40ch; font:400 14px/1.5 var(--sans); }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 11px 20px; margin-top: 15px; }
 .hero-actions a { display: inline-flex; align-items: center; min-height: 42px; text-decoration: none; font: 620 14px/1.15 var(--sans); }
 .read-paper { padding: 10px 15px; color: #242337; background: var(--gold); border: 1px solid var(--gold); border-radius: 2px; }
 .read-paper:hover { background: #f9dbb4; }
 .explore { color: #f5e7d0; text-decoration-line: underline !important; text-decoration-color: #b69b7e !important; text-underline-offset: .34em; }
 .explore:hover { color: #fff; }
-.film { grid-area: film; position: relative; min-width: 0; scroll-margin-top: 67px; }
+.film { grid-area: film; align-self:center; position: relative; min-width: 0; scroll-margin-top: 67px; }
 .film-frame {
-  position: relative; width: 100%; aspect-ratio: 2.02; isolation: isolate;
+  position: relative; width: 100%; aspect-ratio: 1.79; isolation: isolate;
   background: #121522; border: 1px solid #8d8070;
   outline: 1px solid #746e7659; outline-offset: 4px;
 }
@@ -221,6 +207,7 @@ article video { display: block; width: 100%; max-height: 460px; margin-top: 8px;
   .strip.practice-frames { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 .strip img, .frame-thumb, .atlas-thumb { display: block; width: 100%; aspect-ratio: 16/9; background-repeat: no-repeat; background-color: var(--wash); }
+.atlas-thumb { height:auto; object-fit:cover; }
 .strip figcaption { margin-top: 4px; text-align: center; font: 12px var(--mono); }
 article details:first-of-type { margin-top: 18px; }
 details .copy { float: right; min-height: 26px; padding: 2px 9px; margin: -4px 2px 4px 8px; font-size: 12px; }
@@ -302,19 +289,6 @@ td.runner-up { text-decoration: underline; text-underline-offset: 3px; }
 .section .score-plot { margin: 3px 0; border-left: 2px solid #a68c56; padding: 5px 0 6px 18px; }
 .case-intro { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 3px 18px; }
 .case-intro > a, .record-link { font-size: 14px; font-weight: 600; }
-.case-study { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr); gap: clamp(20px,3.5vw,52px); align-items: start; margin: 6px 0 23px; }
-.section .case-sheet { margin: 0; }
-.case-sheet > a { position: relative; display: block; background: #e8e5da; border: 1px solid #bfc3b5; padding: clamp(6px,1vw,14px); text-decoration: none; }
-.case-sheet img { object-fit: contain; width: 100%; height: auto; }
-.sheet-open { display: block; margin: 7px 0 0; color: #354640; font: 550 12px/1.5 var(--sans); text-align: right; }
-.case-reading { min-width: 0; padding: 10px 0; }
-.case-reading .reading-meta { margin: 0 0 16px; color: #59665a; font: 11px/1.6 var(--mono); overflow-wrap: anywhere; }
-.case-reading h4 { margin: 0; font: 450 clamp(24px,2.2vw,33px)/1.15 var(--serif); letter-spacing: -.03em; }
-.case-reading .reading-subtitle { margin: 4px 0 13px; color: var(--muted); font-size: 13px; }
-.case-reading blockquote { margin: 14px 0; border-left: 2px solid #a77343; padding: 1px 0 1px 16px; font: 400 clamp(17px,1.65vw,23px)/1.43 var(--serif); color: #283d40; overflow-wrap: anywhere; }
-.case-reading blockquote p { margin: 0; }
-.case-reading .model-text { margin-top: 0; }
-.case-reading .record-link { display: inline-block; padding: 5px 0; }
 .full-explanation { max-height: min(520px,62vh); overflow: auto; overflow-wrap: anywhere; padding-right: 10px; font-size: 15px; }
 .case-media[open] { padding-bottom: 18px; }
 .case-media .video-caption { margin: 6px 0 15px; }
@@ -338,18 +312,18 @@ footer a { color: var(--ivory); font-size: 14px; }
   .credits-inner { grid-template-columns: 1fr; gap: 8px; }
   .section-intro { gap: 25px; }
   .atlas { grid-template-columns: repeat(4,minmax(0,1fr)); }
-  .hero h1 { grid-template-columns: 1fr 1fr; }
-  .hero-inner { grid-template-columns: minmax(175px,.8fr) minmax(0,1.6fr); }
+
+  .hero-inner { grid-template-columns:minmax(0,.85fr) minmax(0,1.12fr);column-gap:28px; }
   .hero-actions { gap: 8px 12px; }
-  .intro { font-size: clamp(24px,3vw,33px); }
+  .intro { font-size:21px; }
 }
 @media (max-width: 735px) {
   .hero-inner { grid-template-columns: minmax(0,1fr); grid-template-areas: "heading" "film" "question"; padding-block: 23px 20px; gap: 19px; }
-  .hero h1 { grid-template-columns: 1fr; gap: 14px; padding-bottom: 0; border: 0; }
+  .hero h1 { gap:0; }.paper-title { margin-top:10px; }
   .wordmark { font-size: clamp(63px,13vw,89px); }
   .paper-title { max-width: 35ch; font-size: clamp(20px,4.9vw,27px); line-height: 1.14; }
-  .hero-copy { padding: 14px 0 0; display: grid; grid-template-columns: 1fr auto; column-gap: 15px; align-items: center; border-top: 1px solid #79778e77; }
-  .hero-copy::before { display: none; }
+  .hero-copy { border-left:0; margin-top:0; padding: 14px 0 0; display: grid; grid-template-columns: 1fr auto; column-gap: 15px; align-items: center; border-top: 1px solid #79778e77; }
+
   .intro { max-width: none; font: 400 24px/1.2 var(--serif); letter-spacing: -.024em; }
   .film-question { grid-column: 1; margin-top: 3px; max-width: 43ch; font-size: 14px; }
   .hero-actions { grid-column: 2; grid-row: 1 / 3; justify-content: end; gap: 2px 12px; margin: 0; }
@@ -365,12 +339,9 @@ footer a { color: var(--ivory); font-size: 14px; }
   .domain-photo { aspect-ratio: 2.1; }
   .domain-ribbon a:nth-child(-n+2) .domain-photo { aspect-ratio: 3.05; }
   .domain-ribbon a > span:last-child { padding: 7px 5px 8px; font: 600 clamp(11px,2.9vw,15px)/1.2 var(--sans); letter-spacing: -.035em; text-align: center; }
-  .case-study { grid-template-columns: 1fr; gap: 12px; }
   .design-plates, .analysis-spread { grid-template-columns: minmax(0,1fr); gap: 12px; }
   .analysis-spread { margin-top: 24px; padding-top: 20px; }
   .analysis-spread > figure { max-width: none; }
-  .case-reading { padding: 5px 0; }
-  .case-reading .reading-meta { margin-bottom: 7px; }
   html { scroll-padding-top: 62px; }
   .nav nav { min-height: 50px; }
   .brand { font-size: 19px; gap: 4px; }
@@ -424,7 +395,7 @@ footer a { color: var(--ivory); font-size: 14px; }
   .statistics dd { font-size: 34px; }
 }
   </style>
-  <script defer src="assets/site.js?v=ssi-prose1"></script>
+  <script defer src="assets/site.js?v=plate1"></script>
 </head>
 <body>
 <a href="#main" class="skip">Skip to content</a>
@@ -435,10 +406,10 @@ footer a { color: var(--ivory); font-size: 14px; }
 <main id="main">
   <section class="hero" id="top">
     <div class="hero-inner">
-      <h1><span class="wordmark">CaveBench<span class="title-colon">:</span></span> <span class="paper-title">Benchmarking Abductive Physical Reasoning from Internal Observations</span></h1>
+      <h1><span class="wordmark"><i>Cave</i>Bench<span class="title-colon">:</span></span> <span class="paper-title">Benchmarking Abductive Physical Reasoning from Internal Observations</span></h1>
       <div class="hero-copy">
         <p class="intro">What moved the pendulums?</p>
-        <p class="film-question">Identify six carriage motions from seven views inside the apparatus.</p>
+        <p class="film-question">Trace six carriage motions from seven observations inside the apparatus.</p>
         <div class="hero-actions"><a class="read-paper" href="papers/CaveBench.pdf">Read the paper</a><a class="explore" href="#try-S03">Try this case</a></div>
       </div>
       <figure class="film" id="film" aria-label="Research film">
@@ -462,7 +433,7 @@ footer a { color: var(--ivory); font-size: 14px; }
       <p class="institution">Tsinghua University <small><span>* Equal contribution</span> · <span>† Corresponding author</span></small></p>
     </div>
     <div id="resources" class="links" aria-label="Project resources">
-      <a href="https://github.com/PIER-Lab/CaveBench">GitHub</a><a href="https://huggingface.co/datasets/linguanxin/CaveBench">Dataset</a><a href="papers/Supplement.pdf">Supplement</a><a href="https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1">Weights</a>
+      <a href="https://github.com/PIER-Lab/CaveBench">GitHub</a><a href="https://huggingface.co/datasets/linguanxin/CaveBench">Dataset</a><a href="papers/Supplement.pdf?v=plate1">Supplement</a><a href="https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1">Weights</a>
     </div>
   </div></div>
   <section class="section" id="dataset">
@@ -490,7 +461,7 @@ footer a { color: var(--ivory); font-size: 14px; }
         </tbody></table></div>
       <p>In the ten dielectric-response episodes (S11), the first three events show the dielectric fully inserted, partly inserted and withdrawn, in varying order. Questions for this apparatus start at three events. The test set therefore has 190 questions at each of the first two lengths and 200 at each length from three to six.</p>
     </details>
-    <div class="case-intro"><h3 id="viewer">Case studies</h3><a href="assets/cases/CaveBench_Case_Studies.pptx" download>Download editable slides</a></div>
+    <div class="case-intro"><h3 id="viewer">Case studies</h3><a href="assets/cases/CaveBench_Case_Studies.pptx?v=plate1" download>Download editable slides</a></div>
     <div id="browser">
       <div class="selectors">
         <label>Physical domain<select id="domain"></select></label>
@@ -520,6 +491,7 @@ footer a { color: var(--ivory); font-size: 14px; }
   <section class="section" id="leaderboard">
     <h2>Leaderboard</h2>
     <p>A sequence is correct when the model identifies every control at every event in chronological order. Controls applied together can be listed in any order.</p>
+    <figure id="length-comparison" class="length-comparison" hidden></figure>
     <div class="tabs" aria-label="Leaderboard view"><button data-table="domains" aria-pressed="true">By physical domain</button><button data-table="scenes" aria-pressed="false">By apparatus</button><button data-table="length" aria-pressed="false">By question length</button><button data-table="methods" aria-pressed="false">Adaptation methods</button></div>
     <div id="leaderboard-filters" class="result-controls">
       <fieldset id="k-filter"><legend>Events per question</legend><div class="k-options"></div></fieldset>

@@ -35,7 +35,8 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    tag.src = path + (path === 'assets/results.js' ? '?v=ssi-prose1' : '?v=atlas3');
+    const version = path === 'assets/results.js' ? 'plate1' : path === 'assets/case-reader.js' ? 'plate1' : 'atlas3';
+    tag.src = path + '?v=' + version;
     tag.onload = resolve;
     tag.onerror = () => { tag.remove(); reject(new Error(path)); };
     document.head.append(tag);
@@ -107,29 +108,16 @@ function answerText(parent, value) {
     parent.append(p);
   }
 }
-function caseStudy(item) {
-  const grid = node('div',undefined,'case-study');
-  const figure = node('figure',undefined,'case-sheet');
-  const zoom = node('a',undefined,'zoom');
-  zoom.href = 'assets/cases/'+item.id+'.webp';
-  const image = node('img');
-  image.src=zoom.href; image.alt=item.id+' '+item.title+' case sheet with observations, answer and event scores.';
-  image.loading='lazy'; image.decoding='async';
-  zoom.append(image,node('span','Open full-size sheet ↗','sheet-open'));
-  figure.append(zoom);
-  const aside=node('div',undefined,'case-reading');
-  const meta=node('p',nameFor(item.domain)+'  /  '+item.sample_id,'reading-meta');
-  const event=item.excerpt_event;
-  const heading=node('h4',item.model);
-  const locator=node('p',(event ? 'Event '+event+' · ' : '')+'Response excerpt','reading-subtitle');
-  const quote=node('blockquote');
-  answerText(quote,item.excerpt);
-  const more=node('details',undefined,'model-text');
-  more.append(node('summary','Full response from '+item.model));
-  const text=node('div',undefined,'full-explanation'); answerText(text,item.response_text); more.append(text);
-  const link=node('a','Case data (JSON) ↗','record-link'); link.href=pathFor(item,'worked.json');
-  aside.append(meta,heading,locator,quote,more,link);
-  grid.append(figure,aside); return grid;
+function sectionStyle(id, href) {
+  if (!document.getElementById(id)) {
+    const css = node('link');
+    css.id=id; css.rel='stylesheet'; css.href=href;
+    document.head.append(css);
+  }
+}
+function loadCaseReader() {
+  sectionStyle('reader-style','assets/case-reader.css?v=plate1');
+  return script('assets/case-reader.js');
 }
 function compareSteps(item) {
   const box=node('details');
@@ -148,7 +136,7 @@ function compareSteps(item) {
   box.append(node('p','Sequence exact match: '+(item.exact_match ? 'yes.':'no.')),wrapper);
   return box;
 }
-function episodeMedia(item, strip) {
+function episodeMedia(item) {
   const video=node('video');
   video.controls=true; video.playsInline=true; video.preload='none';
   video.setAttribute('aria-label',item.title+' episode video');
@@ -159,7 +147,7 @@ function episodeMedia(item, strip) {
   movieLink.href=video.src;
   caption.append(node('span','Exterior and interior views'),movieLink);
   const media=node('details',undefined,'case-media');
-  media.append(node('summary','Episode video and model input frames'),video,caption,node('h4','Model input frames'),strip);
+  media.append(node('summary','Episode video'),video,caption);
   return media;
 }
 function trySequence(item) {
@@ -234,7 +222,8 @@ async function renderScene(id, changeHash=false) {
   if (oldVideo) oldVideo.pause();
   let item;
   try {
-    item = entry.frames ? entry : await jsonFile(pathFor(entry,'worked.json'));
+    const record = entry.frames ? entry : jsonFile(pathFor(entry,'worked.json'));
+    [item] = await Promise.all([record, practice ? undefined : loadCaseReader()]);
   } catch {
     if (activeScene === anchor) {
       example.removeAttribute('data-scene');
@@ -247,7 +236,10 @@ async function renderScene(id, changeHash=false) {
   const header=node('div',undefined,'sceneinfo');
   const switchView=node('a',practice ? 'View worked example' : 'Solve this case');
   switchView.href=practice ? '#'+id : '#try-'+id;
-  header.append(node('h3',item.id+' · '+item.title),switchView);
+  const heading = node('h3',item.title);
+  const identity = node('div',undefined,'scene-identity');
+  identity.append(node('span',item.id+' / '+nameFor(item.domain),'scene-tag'),heading);
+  header.append(identity,switchView);
   const strip=node('div',undefined,'strip');
   item.frames.forEach((filename,n)=>{
     const fig=node('figure'); const zoom=node('a',undefined,'zoom');
@@ -269,7 +261,8 @@ async function renderScene(id, changeHash=false) {
     strip.classList.add('practice-frames');
     example.replaceChildren(header,node('h4','Model input frames'),strip,prompt,attempt);
   } else {
-    example.replaceChildren(header,caseStudy(item),episodeMedia(item,strip),prompt,attempt,compareSteps(item));
+    const reading = window.caveCaseReader(item, {node,pathFor,answerText,strip});
+    example.replaceChildren(header,reading,episodeMedia(item),prompt,attempt,compareSteps(item));
   }
   example.dataset.scene=id;
   example.removeAttribute('aria-busy');
@@ -309,7 +302,10 @@ async function showViewer() {
       for (const item of cases.filter(entry=>entry.domain===domain)) {
         const btn=node('button');
         btn.type='button'; btn.dataset.id=item.id; btn.setAttribute('aria-pressed','false');
-        btn.append(preview(item,0,'atlas-thumb'),node('span',item.id+' · '+item.title));
+        const thumb=node('img',undefined,'atlas-thumb');
+        thumb.alt=''; thumb.width=384; thumb.height=216; thumb.loading='lazy'; thumb.decoding='async';
+        thumb.dataset.source='assets/cases/thumbs/'+item.id+'.webp';
+        btn.append(thumb,node('span',item.id+' · '+item.title));
         btn.onclick=()=>{
           $('#apparatus-atlas').open=false;
           chooseScene(item);
@@ -321,10 +317,19 @@ async function showViewer() {
       section.append(node('h4',nameFor(domain)),grid);
       atlas.append(section);
     }
+    function loadAtlasImages() {
+      if (!$('#apparatus-atlas').open) return;
+      for (const img of atlas.querySelectorAll('img[data-source]')) {
+        img.src=img.dataset.source;
+        img.removeAttribute('data-source');
+      }
+    }
+    $('#apparatus-atlas').addEventListener('toggle', loadAtlasImages);
+    loadAtlasImages();
   }
   const target = cases.find(item=>item.id===location.hash.slice(1).replace(/^try-/, ''));
   if (!activeScene || (target && location.hash.slice(1) !== activeScene)) {
-    const first=target || cases[0];
+    const first=target || cases.find(item=>item.id==='S03') || cases[0];
     if ($('#domain').value && $('#domain').value !== first.domain) $('#domain').value='';
     updateSceneOptions(first.id);
     await renderScene(first.id);
@@ -332,6 +337,7 @@ async function showViewer() {
 }
 let resultsReady = false;
 async function showResults() {
+  sectionStyle('length-plot-style','assets/length-comparison.css?v=plate1');
   try {
     await Promise.all([sceneIndex(),script('assets/tables.js')]);
     await script('assets/results.js');

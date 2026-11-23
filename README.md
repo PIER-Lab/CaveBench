@@ -1,13 +1,13 @@
 # CaveBench: Benchmarking Abductive Physical Reasoning from Internal Observations
 
-[![CaveBench research film. Three observations of the driven pendulums at different times.](docs/assets/repository-cover.webp)](https://pier-lab.github.io/CaveBench/#film)
+[![CaveBench research film. Synchronized exterior and interior views of the driven pendulums.](docs/assets/repository-cover.webp)](https://pier-lab.github.io/CaveBench/#film)
 
 Guanxin Lin<sup>∗</sup>, Chen Yang<sup>∗</sup>, Shenxiang Zeng, Honghui Zhu, Xin Li, Wenbo Deng, Jiansheng Fan, Chen Wang<sup>†</sup>
 
 Tsinghua University  
 <sup>∗</sup> Equal contribution · <sup>†</sup> Corresponding author
 
-[Project page](https://pier-lab.github.io/CaveBench/) · [Paper](docs/papers/CaveBench.pdf) · [Supplement](docs/papers/Supplement.pdf) · [Hugging Face dataset](https://huggingface.co/datasets/linguanxin/CaveBench) · [Research video](https://pier-lab.github.io/CaveBench/#film) · [Model weights](https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1)
+[Project page](https://pier-lab.github.io/CaveBench/) · [Paper](docs/papers/CaveBench.pdf) · [Supplement](docs/papers/Supplement.pdf) · [Hugging Face dataset](https://huggingface.co/datasets/linguanxin/CaveBench) · [Research film](https://pier-lab.github.io/CaveBench/#film) · [Model weights](https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1)
 
 ## News
 
@@ -23,21 +23,23 @@ The dataset contains 9,000 training episodes, 1,000 validation episodes and 200 
 
 ## Case studies
 
-In the driven-pendulum experiment, three pendulums hang from a moving carriage. Use seven images of the pendulums to identify the carriage trajectory at each of six events. [Try the question](https://pier-lab.github.io/CaveBench/#try-S03)
+### S11 · Dielectric response
 
-Claude Sonnet 5.5 recovers five of the six trajectories. At the second event it predicts A, while the carriage follows C. Each case below includes the full prompt, synchronized interior and exterior video, the model’s response and the recorded controls.
+Three successive observations show the electroscope at full insertion, withdrawal and half insertion. The camera sees the leaves; the mica slab moves outside its view.
 
-<a href="https://pier-lab.github.io/CaveBench/#S03"><img src="docs/assets/cases/S03.webp" width="475" alt="Driven pendulums case sheet. Seven internal observations, the question, a passage from the model answer and a six-event comparison."></a>
+[![S11 observations F1–F3. The leaves have the smallest opening after full insertion, the widest after withdrawal and an intermediate opening after half insertion.](docs/assets/dielectric-sequence.webp)](https://pier-lab.github.io/CaveBench/#S11)
 
-| Domain | Case studies |
-|---|---|
-| Dynamics | [S01 · Cabin inertia](https://pier-lab.github.io/CaveBench/#S01) · [S02 · Rotation & gas](https://pier-lab.github.io/CaveBench/#S02) · [S03 · Driven pendulums](https://pier-lab.github.io/CaveBench/#S03) · [S04 · Tray impact](https://pier-lab.github.io/CaveBench/#S04) |
-| Thermal physics | [S05 · Moving heat source](https://pier-lab.github.io/CaveBench/#S05) · [S06 · Layered liquids](https://pier-lab.github.io/CaveBench/#S06) · [S07 · Heated gas bulbs](https://pier-lab.github.io/CaveBench/#S07) · [S08 · Bimetal supports](https://pier-lab.github.io/CaveBench/#S08) |
-| Electromagnetism | [S09 · Magnetic coils](https://pier-lab.github.io/CaveBench/#S09) · [S10 · Electric dipoles](https://pier-lab.github.io/CaveBench/#S10) · [S11 · Dielectric response](https://pier-lab.github.io/CaveBench/#S11) · [S12 · Conducting wires](https://pier-lab.github.io/CaveBench/#S12) |
-| Acoustics | [S13 · Standing waves](https://pier-lab.github.io/CaveBench/#S13) · [S14 · Wave scattering](https://pier-lab.github.io/CaveBench/#S14) · [S15 · Doppler response](https://pier-lab.github.io/CaveBench/#S15) · [S16 · Two-source ripples](https://pier-lab.github.io/CaveBench/#S16) |
-| Optics | [S17 · Photoelastic load](https://pier-lab.github.io/CaveBench/#S17) · [S18 · Double reflection](https://pier-lab.github.io/CaveBench/#S18) · [S19 · Graded refraction](https://pier-lab.github.io/CaveBench/#S19) · [S20 · Double-slit fringes](https://pier-lab.github.io/CaveBench/#S20) |
+**Claude Sonnet 5.5**
 
-[Editable PowerPoint](docs/assets/cases/CaveBench_Case_Studies.pptx) · [Individual case sheets](docs/assets/cases/) · [Episode files](docs/examples/) · [Example prompt, response and reference](docs/examples/S03/worked.json)
+> The leaf opening angle in each frame identifies the dielectric endpoint, since more mica means higher capacitance, lower voltage and a smaller opening.
+
+The model identified all six operations in this episode. [Read the case sheet](docs/assets/cases/S11.webp) · [Try the question](https://pier-lab.github.io/CaveBench/#try-S11)
+
+### Explore the 20 apparatuses
+
+[**Illustrated case index**](docs/assets/cases/README.md) · [Dynamics](docs/assets/cases/README.md#dynamics) · [Thermal physics](docs/assets/cases/README.md#thermal-physics) · [Electromagnetism](docs/assets/cases/README.md#electromagnetism) · [Acoustics](docs/assets/cases/README.md#acoustics) · [Optics](docs/assets/cases/README.md#optics)
+
+[Editable PowerPoint](docs/assets/cases/CaveBench_Case_Studies.pptx) · [Supplementary PDF](docs/papers/Supplement.pdf) · [Episode files and full model responses](docs/examples/)
 
 ## Leaderboard
 
