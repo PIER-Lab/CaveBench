@@ -1,6 +1,6 @@
 # Exact match by physical domain
 
-A question earns credit when every event matches the reference. Bold and underlined percentages rank first and second among the 27 models in each column.
+Exact match is the percentage of questions with the correct controls at every event. Bold marks the highest score in each column and underlining marks the second highest.
 
 [1 event](#domain-k1) · [2 events](#domain-k2) · [3 events](#domain-k3) · [4 events](#domain-k4) · [5 events](#domain-k5) · [6 events](#domain-k6)
 

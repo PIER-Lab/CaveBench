@@ -31,7 +31,7 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    tag.src = path + (path === 'assets/results.js' ? '?v=copy2' : '?v=atlas3');
+    tag.src = path + (path === 'assets/results.js' ? '?v=copy4' : '?v=atlas3');
     tag.onload = resolve;
     tag.onerror = () => { tag.remove(); reject(new Error(path)); };
     document.head.append(tag);
@@ -117,13 +117,13 @@ function caseStudy(item) {
   const meta=node('p',nameFor(item.domain)+'  /  '+item.sample_id,'reading-meta');
   const event=item.excerpt_event;
   const heading=node('h4',item.model);
-  const locator=node('p',(event ? 'Event '+event+' · ' : '')+'From the model’s answer','reading-subtitle');
+  const locator=node('p',(event ? 'Event '+event+' · ' : '')+'Response excerpt','reading-subtitle');
   const quote=node('blockquote');
   answerText(quote,item.excerpt);
   const more=node('details',undefined,'model-text');
-  more.append(node('summary','Read the full explanation'));
+  more.append(node('summary','Full model explanation'));
   const text=node('div',undefined,'full-explanation'); answerText(text,item.response_text); more.append(text);
-  const link=node('a','Download the example record ↗','record-link'); link.href=pathFor(item,'worked.json');
+  const link=node('a','Case data (JSON) ↗','record-link'); link.href=pathFor(item,'worked.json');
   aside.append(meta,heading,locator,quote,more,link);
   grid.append(figure,aside); return grid;
 }
@@ -198,7 +198,7 @@ function trySequence(item) {
     inputs[0].focus();
   });
   fields.onchange = () => { result.textContent = ''; };
-  panel.append(node('p', 'Use the internal frames and the apparatus description. Choose one control set for each event.'), fields, actions, result, reveal);
+  panel.append(node('p', 'Choose the control set applied between each pair of frames.'), fields, actions, result, reveal);
   return panel;
 }
 let activeScene = '';
@@ -243,7 +243,7 @@ async function renderScene(id, changeHash=false) {
     fig.append(zoom,node('figcaption',item.frame_labels?.[n] || 'Frame F'+n)); strip.append(fig);
   });
   const media=node('details',undefined,'case-media');
-  media.append(node('summary','Watch the episode and inspect its seven frames'),video,caption,node('h4','Model input frames'),strip);
+  media.append(node('summary','Episode video and model input frames'),video,caption,node('h4','Model input frames'),strip);
   const parts=[header,caseStudy(item),media,textPanel('Complete prompt',item.prompt),trySequence(item),compareSteps(item)];
   example.replaceChildren(...parts);
   example.dataset.scene=id;

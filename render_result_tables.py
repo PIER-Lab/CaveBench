@@ -1,4 +1,4 @@
-"""Render the repository's readable result tables from the public CSV files."""
+"""Generate Markdown tables of accuracy by domain, apparatus and adaptation method."""
 import argparse
 import csv
 import re
@@ -65,8 +65,8 @@ def model_rows(order, columns, values):
 def domain_tables(order):
     records = index("domain_by_length", ["model", "k", "domain"])
     lines = ["# Exact match by physical domain", "",
-             "A question earns credit when every event matches the reference. "
-             "Bold and underlined percentages rank first and second among the 27 models in each column.", "",
+             "Exact match is the percentage of questions with the correct controls at every event. "
+             "Bold marks the highest score in each column and underlining marks the second highest.", "",
              " · ".join(f"[{k} {'event' if k == '1' else 'events'}](#domain-k{k})" for k in LENGTHS), "",
              "[Download counts and percentages](../docs/assets/results/domain_by_length.csv)", ""]
     for k in LENGTHS:
@@ -98,8 +98,9 @@ def domain_tables(order):
 def scene_tables(order, scenes):
     records = index("scene_by_length", ["model", "scene", "k"])
     lines = ["# Exact match by apparatus and question length", "",
-             "Each cell gives exact-match accuracy (%) on ten questions at the indicated length. "
-             "S11 (dielectric response) covers three to six events.", "",
+             "Each column shows sequence exact match (%) for questions with `k` events. "
+             "Each apparatus contributes ten questions per available length. "
+             "Dielectric response (S11) begins at three events.", "",
              "[Download counts and percentages](../docs/assets/results/scene_by_length.csv)", ""]
     for d in DOMAINS[:-1]:
         links = [f"[{s['scene']} {s['apparatus']}](#{s['scene'].lower()})" for s in scenes if s["domain"] == d]
@@ -131,10 +132,11 @@ def adaptation_tables(scenes):
     cols = (*LENGTH_HEADERS, "Overall")
     lengths = (*LENGTHS, "Overall")
     lines = ["# Adaptation results by run and apparatus", "",
-             "Sequence exact match scores the whole answer. Event accuracy scores the control set at each event. "
-             "SimPO and KTO results include both seeds and their mean.", "",
-             "Each run covers 190 questions at lengths one and two and 200 at each length from three to six. "
-             "Each apparatus contributes ten questions per length. S11 covers lengths three to six.", "",
+             "Sequence exact match counts questions with every event correct. Event accuracy counts individual "
+             "events whose predicted controls match the recorded set. SimPO and KTO have two seeds each.", "",
+             "Question length (`k`) ranges from one to six events. There are ten questions per apparatus "
+             "at each available length. Dielectric response (S11) begins at three events, giving "
+             "190 questions each at one and two events and 200 each at three through six.", "",
              "[Counts by run and length](../docs/assets/results/adaptation_by_length.csv) · "
              "[Counts by run and apparatus](../docs/assets/results/adaptation_by_scene.csv) · "
              "[Question-level scores](adaptation_question_scores.csv)", "",

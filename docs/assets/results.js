@@ -183,9 +183,9 @@ async function updateLeaderboard() {
   const isDomain = view === 'domains';
   const note = isDomain
     ? 'Exact-match accuracy (%) at k = ' + k + '. ' + (k < 3 ? '190 questions, including 30 in electromagnetism and 40 in each other domain.' : '200 questions, 40 per domain.') +
-      ' Bold and underlined values rank first and second across the 27 configurations in each column.'
-    : scene + ' · ' + cases.find(c => c.id === scene).title + '. ' +
-      (scene === 'S11' ? 'Ten questions at each length from three to six events.' : 'Ten questions per length.');
+      ' The highest score in each column is bold and the second highest is underlined.'
+    : 'Exact-match accuracy (%) for ' + scene + ' · ' + cases.find(c => c.id === scene).title + '. ' +
+      (scene === 'S11' ? 'Ten questions per length for k = 3–6.' : 'Ten questions per length.');
   if (isDomain && k === 6) {
     const rows = tables.domains.rows.map(row => ({
       ...row,
@@ -281,7 +281,6 @@ function detailFilter(key, title, options, rerender) {
   $('#detail-filters').append(label);
 }
 
-// Only the presentation is pivoted. Counts and unrounded source values travel with the downloads.
 function pivotRows(records, rowKey, columnKey, columnOrder, metric, labelFields, format = percent) {
   const grouped = new Map();
   for (const r of records) {
@@ -322,6 +321,7 @@ function detailTable(headers, records, textColumns, caption, linkColumn = -1) {
     });
   }
   $('#detail-note').textContent = caption;
+  $('#detail-note').hidden = !caption;
   $('#detail-wrapper').hidden = false;
   $('#detail-status').textContent = '';
 }
@@ -356,7 +356,7 @@ function displayDetailed(view, records) {
     const rows = records.filter(r => r.k === detailState.k);
     detailTable(['Adapted method','Training seed','Both correct','Adapted only','SFT only','Both incorrect','Questions'],
       rows.map(r => [r.method,r.seed,r.both_correct,r.adapted_only,r.sft_only,r.both_incorrect,r.questions]), [0],
-      'Counts of questions solved by the Qwen3.5-9B SFT checkpoint, the preference-trained checkpoint, both or neither.');
+      'Each row compares a preference-trained checkpoint with Qwen3.5-9B SFT on the same questions.');
   } else if (view === 'effort_results') {
     const rows = records.filter(r => r.stage === detailState.stage);
     const key = r => r.model + ' · ' + r.effort;
@@ -368,18 +368,18 @@ function displayDetailed(view, records) {
   } else if (view === 'training_case') {
     detailTable(['Event','Reference','Baseline','SimPO · 20261108','SimPO · 20261109'],
       records.map(r => [r.event,r.reference,r.baseline,r.simpo_20261108,r.simpo_20261109]), [1,2,3,4],
-      'Dielectric response (S11), Figure 5. The two SimPO columns correspond to separate training seeds.');
+      'Dielectric response (S11), Figure 5. Each SimPO column is one training seed.');
   } else if (view === 'figure1') {
     detailTable(['Model','Correct','Questions','Exact match (%)'],
       records.map(r => [r.model,r.correct,r.total,percent(r.accuracy_pct)]), [0],
-      'Figure 1 compares five models on the same 200 six-event questions.');
+      'Figure 1. Exact matches on 200 six-event questions.');
   } else if (view === 'model_protocols') {
     const models = new Map(records.map(r => [r.model_key,r.model]));
     detailFilter('model', 'Model', [['','All ' + models.size + ' models'], ...models], rerender);
     const rows = records.filter(r => !detailState.model || r.model_key === detailState.model);
     detailTable(['Model','Visual input','Reasoning setting','Initial token cap','Answer completion','Completion token cap','Questions','Completion answers scored'],
       rows.map(r => [r.model,r.input_format,r.reasoning,r.primary_token_cap,r.completion_policy,r.completion_token_cap,r.questions,r.completion_selected]), [0,1,2,4],
-      'Questions are grouped by model and request settings. Token caps give the maximum output length.');
+      'Token caps are per request. The last column counts questions scored from a completion response.');
   } else if (view === 'event_positions') {
     const columns = lengths.map(String);
     const table = pivotRows(records, r => r.model_key, r => r.position, columns, 'accuracy_pct', r => [r.model]);
@@ -396,7 +396,7 @@ function displayDetailed(view, records) {
   } else if (view === 'error_categories') {
     detailTable(['Primary category','Cases','Direct support','Limited support'],
       records.map(r => [r.category,r.total,r.direct,r.limited]), [0],
-      'The 100 incorrect answers are grouped by primary error and by the strength of the evidence for that classification.');
+      'Each of the 100 incorrect responses has one primary error. Direct and limited refer to the evidence in the model’s response for that classification.');
   } else if (view === 'uniform_reference') {
     const format = value => {
       if (!value) return '—';
@@ -413,7 +413,7 @@ function displayDetailed(view, records) {
   } else if (view === 'benchmark_comparison') {
     detailTable(['Benchmark','Evidence','Task','Response','Source'],
       records.map(r => [r.benchmark,r.evidence,r.task,r.response,r.source]), [0,1,2,3,4],
-      'Inputs, tasks and answer formats in six benchmarks.', 4);
+      '', 4);
   }
 }
 

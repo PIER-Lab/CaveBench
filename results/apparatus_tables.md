@@ -1,6 +1,6 @@
 # Exact match by apparatus and question length
 
-Each cell gives exact-match accuracy (%) on ten questions at the indicated length. S11 (dielectric response) covers three to six events.
+Each column shows sequence exact match (%) for questions with `k` events. Each apparatus contributes ten questions per available length. Dielectric response (S11) begins at three events.
 
 [Download counts and percentages](../docs/assets/results/scene_by_length.csv)
 

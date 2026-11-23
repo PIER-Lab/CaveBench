@@ -15,7 +15,7 @@ Tsinghua University
 
 ## Introduction
 
-CaveBench evaluates whether a vision–language model can reconstruct the external controls applied to a physical apparatus from its internal observations. Each question contains the apparatus description, its permitted controls and an ordered sequence of images. The model identifies the set of controls applied at each event. The 20 apparatuses cover dynamics, thermal physics, electromagnetism, acoustics and optics.
+What changed outside an apparatus to produce the effects visible inside it? In CaveBench, a vision–language model sees a sequence of internal images and reads how the apparatus works. It identifies which of the available controls were applied at each event. The 20 apparatuses span dynamics, thermal physics, electromagnetism, acoustics and optics.
 
 ## Dataset
 
@@ -23,7 +23,7 @@ The dataset contains 9,000 training episodes, 1,000 validation episodes and 200 
 
 ## Case studies
 
-Each case follows one six-event episode. Read the seven observations from left to right, then compare Claude Sonnet 5.5’s answer with the recorded controls. The project page includes the complete prompt and model explanation, a synchronized exterior/interior video and a score for each event.
+In the driven-pendulum case below, Claude Sonnet 5.5 identifies the carriage trajectory at five of six events. At the second event it predicts trajectory A, while the carriage follows trajectory C. Open any case to see the synchronized inside and outside views, the full question and the model’s explanation.
 
 <a href="https://pier-lab.github.io/CaveBench/#S03"><img src="docs/assets/cases/S03.webp" width="475" alt="Driven pendulums case sheet. Seven internal observations, the question, a passage from the model answer and a six-event comparison."></a>
 
@@ -44,7 +44,7 @@ On the 200 six-event questions, GPT-6.1 Sol recovers 136 complete sequences (68.
 <details>
 <summary>Six-event exact match for all 27 models</summary>
 
-| Six-event reference or model | Type | Correct sequences | Exact match |
+| Model or baseline | Type | Correct sequences | Exact match |
 |---|---|---:|---:|
 | GPT-6.1 Sol | Proprietary | 136 / 200 | 68.0% |
 | GPT-6.1 Terra | Proprietary | 130 / 200 | 65.0% |
@@ -77,32 +77,26 @@ On the 200 six-event questions, GPT-6.1 Sol recovers 136 complete sequences (68.
 
 </details>
 
-[All 27 configurations](results/domain_tables.md#domain-k6) · [Uniform-choice reference by domain and length](docs/assets/results/uniform_reference.csv)
-
-**Accuracy by physical domain.** Each table compares 27 configurations across five domains. The test set contains 190 questions at each of the first two lengths and 200 at each of the remaining four.
+**Accuracy by physical domain.** There are 190 questions each at one and two events, and 200 each at three through six events.
 
 | Events per question | One | Two | Three | Four | Five | Six |
 |---|---|---|---|---|---|---|
 | GitHub | [k = 1](results/domain_tables.md#domain-k1) | [k = 2](results/domain_tables.md#domain-k2) | [k = 3](results/domain_tables.md#domain-k3) | [k = 4](results/domain_tables.md#domain-k4) | [k = 5](results/domain_tables.md#domain-k5) | [k = 6](results/domain_tables.md#domain-k6) |
 | Project page | [k = 1](https://pier-lab.github.io/CaveBench/#domain-k1) | [k = 2](https://pier-lab.github.io/CaveBench/#domain-k2) | [k = 3](https://pier-lab.github.io/CaveBench/#domain-k3) | [k = 4](https://pier-lab.github.io/CaveBench/#domain-k4) | [k = 5](https://pier-lab.github.io/CaveBench/#domain-k5) | [k = 6](https://pier-lab.github.io/CaveBench/#domain-k6) |
 
-**Accuracy by apparatus.** Each apparatus contributes ten questions per length. S11 (dielectric response) covers lengths three to six. [GitHub tables](results/apparatus_tables.md) · [Interactive tables](https://pier-lab.github.io/CaveBench/#apparatus-S01)
+**Accuracy by apparatus.** Each apparatus contributes ten questions at each available length. Dielectric response (S11) begins at three events. [GitHub tables](results/apparatus_tables.md) · [Interactive tables](https://pier-lab.github.io/CaveBench/#apparatus-S01)
 
 | Results and underlying counts | Data |
 |---|---|
 | Main leaderboard by domain, apparatus and question length | [Domain × length](docs/assets/results/domain_by_length.csv) · [Apparatus × length](docs/assets/results/scene_by_length.csv) · [Overall by length](docs/assets/length.csv) |
-| SFT, DPO, SimPO and KTO on Qwen3.5-9B, plus ReAct, Visual Sketchpad and ViperGPT on Gemini 3.8 Flash | [Read all runs by apparatus and length](results/adaptation_tables.md) · [CSV by run and length](docs/assets/results/adaptation_by_length.csv) · [CSV by apparatus](docs/assets/results/adaptation_by_scene.csv) · [Published summary](docs/assets/methods.csv) |
+| SFT, DPO, SimPO and KTO on Qwen3.5-9B, plus ReAct, Visual Sketchpad and ViperGPT on Gemini 3.8 Flash | [Results by apparatus and length](results/adaptation_tables.md) · [Run and length (CSV)](docs/assets/results/adaptation_by_length.csv) · [Apparatus (CSV)](docs/assets/results/adaptation_by_scene.csv) · [Method summary](docs/assets/methods.csv) |
 | Preference training vs. SFT on matched question IDs | [Paired outcomes for each seed and question length](docs/assets/results/paired_training.csv) · [Interactive comparison](https://pier-lab.github.io/CaveBench/#table-paired_training) |
 | Evaluation settings for the 27 leaderboard configurations | [Browse model protocols](https://pier-lab.github.io/CaveBench/#table-model_protocols) · [Download CSV](docs/assets/results/model_protocols.csv) |
-| Figure 1 comparison, Figure 5 dielectric-response predictions and Figure 6 reasoning-effort experiment | [Figure 1 counts](docs/assets/results/figure1.csv) · [Figure 5 event-by-event predictions](docs/assets/results/training_case.csv) · [Figure 6 scores by model, effort and apparatus](docs/assets/results/effort_results.csv) |
+| Results behind the paper figures | [Figure 1: correct sequences](docs/assets/results/figure1.csv) · [Figure 5: dielectric-response predictions](docs/assets/results/training_case.csv) · [Figure 6: initial and final accuracy at low, medium and high reasoning effort](docs/assets/results/effort_results.csv) |
 | Event-position accuracy on six-event questions, single- and two-label questions, and error classifications | [Event positions](docs/assets/results/event_positions.csv) · [Control composition](docs/assets/results/compound_by_length.csv) · [Error counts](docs/assets/results/error_categories.csv) |
 | Candidate-control vocabulary, uniform-choice probability and related benchmark tasks | [Apparatus statistics](docs/assets/results/scene_controls.csv) · [Uniform-choice reference](docs/assets/results/uniform_reference.csv) · [Benchmark comparison with sources](docs/assets/results/benchmark_comparison.csv) |
 
-The [detailed tables](https://pier-lab.github.io/CaveBench/#detailed-results) report sequence exact match and per-event accuracy. SimPO and KTO each have two training seeds. The reasoning-effort experiment reports initial and final scores at low, medium and high effort.
-
-Download the [31,860 question-level scores for the main comparison](results/question_scores.csv), the [scores for 11 adaptation runs and baselines](results/adaptation_question_scores.csv), or the [reasoning-effort results](results/effort_question_scores.csv).
-
-Run `python verify_results.py` to recompute the leaderboard, adaptation and reasoning-effort tables from the question scores. To check the Markdown tables against the CSV files, run `python render_result_tables.py --check`.
+[Interactive result tables](https://pier-lab.github.io/CaveBench/#detailed-results) · Question-level scores for [27 models on 1,180 questions](results/question_scores.csv), [11 adaptation runs and baselines](results/adaptation_question_scores.csv) and [three reasoning-effort settings](results/effort_question_scores.csv).
 
 ## Installation
 
@@ -116,9 +110,13 @@ python -m pip install -r requirements.txt
 
 ## Load the dataset
 
-With `huggingface_hub` installed, `python prepare_media.py --repo linguanxin/CaveBench --data ./dataset` downloads the question and label files and reconstructs all test input frames. Add `--all` to download the development episodes and dual-view videos.
+Download the test questions, reference labels and internal frames. Add `--all` to include the development episodes and dual-view videos.
 
-To inspect a question and its reference after preparing the dataset:
+```sh
+python prepare_media.py --repo linguanxin/CaveBench --data ./dataset
+```
+
+Read the first question and its recorded controls.
 
 ```python
 import json
@@ -162,14 +160,18 @@ The runner loads `Qwen/Qwen3.5-9B`, merges the SFT adapter, then loads the selec
 
 ### Other models with VLMEvalKit
 
-In a [VLMEvalKit environment](https://github.com/open-compass/VLMEvalKit), choose a registered multi-image model. The CaveBench runner sends the full prompt followed by the internal frames in chronological order. It writes the same predictions format as the other runners.
+Choose a registered multi-image model in [VLMEvalKit](https://github.com/open-compass/VLMEvalKit). The runner sends the prompt followed by the internal frames in chronological order.
 
 ```sh
 python run_vlmevalkit.py --data ./dataset --model Qwen2.5-VL-7B-Instruct --output predictions-vlmevalkit.jsonl
 python score.py --data ./dataset --predictions predictions-vlmevalkit.jsonl
 ```
 
-To reproduce the paired training analysis, run `python compare_training_runs.py --check`. The script pairs predictions by question ID and compares every preference-training seed with the same SFT checkpoint.
+### Reproduce result tables
+
+- `python verify_results.py` recomputes the leaderboard, adaptation and reasoning-effort scores from the question-level results.
+- `python compare_training_runs.py --check` pairs each preference-training seed with SFT by question ID.
+- `python render_result_tables.py --check` compares the Markdown tables with their source CSV files.
 
 ## Project page
 
@@ -192,7 +194,7 @@ python -m http.server 8000 --directory docs
 
 ## Acknowledgments
 
-The organization of the project page and supplementary results draws on [SSI-Bench](https://github.com/PIER-Lab/SSI-Bench). GPT-6.2-Astra wrote the research video's narration, which was synthesized with the audio tools in [Sci2Video](https://github.com/BioTender-max/sci2video).
+The case studies follow the presentation of questions and model answers in [SSI-Bench](https://github.com/PIER-Lab/SSI-Bench). The research film uses a script by GPT-6.2-Astra and narration synthesized with [Sci2Video](https://github.com/BioTender-max/sci2video).
 
 ## License
 

@@ -1,8 +1,8 @@
 # Adaptation results by run and apparatus
 
-Sequence exact match scores the whole answer. Event accuracy scores the control set at each event. SimPO and KTO results include both seeds and their mean.
+Sequence exact match counts questions with every event correct. Event accuracy counts individual events whose predicted controls match the recorded set. SimPO and KTO have two seeds each.
 
-Each run covers 190 questions at lengths one and two and 200 at each length from three to six. Each apparatus contributes ten questions per length. S11 covers lengths three to six.
+Question length (`k`) ranges from one to six events. There are ten questions per apparatus at each available length. Dielectric response (S11) begins at three events, giving 190 questions each at one and two events and 200 each at three through six.
 
 [Counts by run and length](../docs/assets/results/adaptation_by_length.csv) · [Counts by run and apparatus](../docs/assets/results/adaptation_by_scene.csv) · [Question-level scores](adaptation_question_scores.csv)
 

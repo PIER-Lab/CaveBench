@@ -1,8 +1,7 @@
-"""Public prefix inputs and strict answer semantics with unambiguous JSON extraction.
+"""Validate CaveBench questions and score control sequences.
 
-v3 accepts a complete operations object surrounded by explanatory prose. It does
-not infer operations from prose, repair JSON, fill missing events, consult truth,
-or choose between conflicting answer objects. The caller retains original text.
+The v3 parser accepts a complete JSON operations object within a model response.
+The scorer compares the resulting control sets to the reference in event order.
 """
 import hashlib,json,re
 from pathlib import Path
@@ -38,7 +37,7 @@ def valid_operations(ops,k,labels,candidates=None):
         if legal is not None and frozenset(step) not in legal:return False
     return True
 def unwrap_single_json_fence(text):
-    """Accept only a single fence enclosing the entire JSON, never extract from prose."""
+    """Strip a single Markdown fence when it encloses the entire response."""
     if not isinstance(text,str):return text
     stripped=text.strip()
     if stripped.startswith('```'):
@@ -48,12 +47,10 @@ def unwrap_single_json_fence(text):
     return text
 
 def _container_spans(text):
-    """Yield outermost balanced container spans; never extract a nested answer.
+    """Yield the start, end and completeness of each outermost JSON container.
 
-    Brackets inside JSON strings are ignored. An unfinished outer container is
-    returned as incomplete rather than letting an inner object become an answer.
-    Ordinary prose/math containers that contain no operations key are ignored
-    later, so a statement such as '[uncertain]' does not block a final JSON.
+    Quoted brackets belong to their string. A mismatched or unclosed outer
+    container yields one incomplete span, including any nested objects.
     """
     i=0
     while i<len(text):
@@ -75,12 +72,12 @@ def _container_spans(text):
 
 
 def analyze_answer(text,k,labels,candidates=None):
-    """Return extraction provenance without accessing any reference answer.
+    """Locate answer objects and return the parsed control sequence and status.
 
-    Identical repeated objects are one semantic answer (action order within an
-    event is immaterial). Different answers, malformed answer-like objects,
-    duplicate keys, nested wrappers, extra fields, illegal labels and incomplete
-    event lists are rejected. No partial object is repaired.
+    Valid objects have a single operations field and one permitted set of
+    controls per event. Repeats of the same sequence count as one answer,
+    regardless of label order within an event. Conflicting sequences or any
+    malformed answer object invalidate the response.
     """
     result={'operations':None,'status':'no_complete_answer_object',
             'candidate_count':0,'distinct_answer_count':0,'invalid_answer_objects':0,'spans':[]}
@@ -88,8 +85,7 @@ def analyze_answer(text,k,labels,candidates=None):
     answers={}
     for start,end,complete in _container_spans(text):
         fragment=text[start:end]
-        # Only quoted field names count; prose that simply mentions operations
-        # outside a JSON container is never interpreted as a prediction.
+        # Identify containers with a quoted operations key before parsing them.
         answer_like=bool(re.search(r"'operations'\s*:",fragment))
         for key_match in re.finditer(r'("(?:\\.|[^"\\])*")\s*:',fragment):
             try:answer_like=answer_like or json.loads(key_match.group(1))=='operations'

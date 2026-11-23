@@ -1,4 +1,4 @@
-"""Run an image-only CaveBench evaluation against a chat-completions endpoint."""
+"""Evaluate CaveBench prompts and internal frames with a chat-completions endpoint."""
 import argparse
 import base64
 import json
