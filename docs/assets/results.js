@@ -134,6 +134,7 @@ function renderLeaderboard(table, note, filename) {
     [...new Set(table.rows.map(row => row.values[i]).filter(value => value !== null))].sort((a,b) => b-a)) : null;
   for (const group of new Set(table.rows.map(row => row.group))) {
     const body = element.createTBody();
+    body.dataset.group = group;
     const band = body.insertRow();
     band.className = 'group';
     const th = node('th', group);

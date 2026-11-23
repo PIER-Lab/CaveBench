@@ -39,7 +39,7 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    const versions = {'assets/results.js':'matrix1', 'assets/offline-results.js':'matrix1', 'assets/case-reader.js':'portrait2'};
+    const versions = {'assets/results.js':'ssi-centered', 'assets/offline-results.js':'matrix1', 'assets/case-reader.js':'portrait2'};
     const version = versions[path] || 'atlas3';
     tag.src = path + '?v=' + version;
     tag.onload = resolve;
@@ -121,7 +121,7 @@ function sectionStyle(id, href) {
   }
 }
 function loadCaseReader() {
-  sectionStyle('reader-style','assets/case-reader.css?v=portrait2');
+  sectionStyle('reader-style','assets/case-reader.css?v=ssi-centered');
   return script('assets/case-reader.js');
 }
 function compareSteps(item) {
@@ -339,7 +339,7 @@ async function showViewer() {
 }
 let resultsReady = false;
 async function showResults() {
-  sectionStyle('length-plot-style','assets/length-comparison.css?v=matrix1');
+  sectionStyle('length-plot-style','assets/length-comparison.css?v=ssi-centered');
   try {
     await Promise.all([sceneIndex(),script('assets/tables.js')]);
     await script('assets/results.js');

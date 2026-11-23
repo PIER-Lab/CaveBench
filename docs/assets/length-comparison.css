@@ -1,33 +1,45 @@
-.length-comparison { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr); align-items:center; gap:clamp(25px,4vw,60px); padding:22px clamp(16px,3vw,40px); margin:24px 0 27px; border-block:1px solid #a69580; background:#e9e5da; }
-.section .trend-copy h3 { margin:0 0 8px; font:400 clamp(25px,2.6vw,39px)/1.07 var(--serif); letter-spacing:-.043em; }
-.section .trend-copy p { margin:0 0 15px; max-width:44ch; font-size:15px; line-height:1.5; }
-.trend-selectors { display:flex; flex-direction:column; align-items:flex-start; gap:5px; }
-.trend-selectors label { display:flex; gap:9px; align-items:center; }
-.trend-selectors select { min-height:32px; background:#f5f1e8; padding:3px 5px; width:min(235px,100%); font-size:13px; }
-.trend-key,.trend-caption i { display:inline-block; width:22px; border-top:3px solid #344f65; }
-.trend-key.key-1,.trend-caption i.key-1 { border-top:3px dashed #a15a3b; }
-.trend-plot { min-width:0; }
-.trend-plot svg { display:block; width:100%; height:auto; overflow:visible; }
-.trend-plot svg text { font:12px var(--sans); fill:#3d3838; }
-.trend-plot svg text.axis-title { font:600 12px var(--sans); }
-.chart-grid { stroke:#cbc4b8; stroke-width:.8px; }
-.trend-line { stroke:#344f65; fill:#344f65; }
-.trend-line polyline { stroke-width:2.7px; }
-.trend-line.series-1 {stroke:#a15a3b; fill:#a15a3b;}
-.trend-line.series-1 polyline { stroke-dasharray:5 3; }
-.section .trend-caption { display:flex; gap:12px 21px; justify-content:center; flex-wrap:wrap; margin:4px 0 0; }
-.trend-caption span { display:flex; gap:5px; align-items:center; font:13px var(--sans); }
-.trend-caption i { width:14px; }
-.task-matrix { max-height:70vh; overscroll-behavior-x:contain; }
-.task-matrix table { border-collapse:separate; border-spacing:0; }
-.task-matrix thead { position:sticky; top:0; z-index:2; }
-.task-matrix thead th { min-width:6.5rem; }
-.task-matrix thead button { white-space:normal; line-height:1.25; }
-.task-matrix thead button small { display:block; font:11px/1.6 var(--mono); color:var(--muted); }
-.task-matrix .matrix-domains th { text-align:left; background:#dce4e3; color:#344e58; }
-.task-matrix .matrix-domains td { text-align:left; color:var(--muted); font-size:12px; }
-.task-matrix thead tr:last-child th:nth-child(4n+2), .task-matrix .matrix-domains th, .task-matrix td:nth-child(4n+2) { border-left:1px solid var(--edge); }
-.task-matrix thead tr > :first-child, .task-matrix th[scope=row] { position:sticky; left:0; background:#f8f5ed; box-shadow:1px 0 #b6b6ad; }
-.task-matrix thead tr > :first-child { z-index:1; background:var(--wash); }
-.task-matrix #results th[scope=row] { min-width:7rem; max-width:10rem; white-space:normal; text-align:left; }
-@media(max-width:700px){.length-comparison{grid-template-columns:minmax(0,1fr);gap:15px;padding:16px 7px}.trend-copy{padding:0 6px}.trend-selectors{display:flex;flex-direction:row;flex-wrap:wrap;gap:6px 12px}.trend-selectors label{max-width:100%;gap:5px}.trend-selectors select{width:auto;max-width:calc(100% - 20px);min-height:35px}.trend-key{width:13px}.trend-plot svg text,.trend-plot svg text.axis-title{font-size:16px}.trend-caption span{font-size:12px}}
+.length-comparison {
+  display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.25fr); align-items: center; gap: clamp(18px,4vw,50px);
+  padding: 18px clamp(16px,3vw,32px); margin: 18px 0 24px; border: 1px solid var(--line); border-radius: 16px;
+  background: var(--panel); box-shadow: var(--panel-shadow);
+}
+.section .trend-copy h3 { margin: 0 0 8px; font: 750 clamp(18px,2vw,24px)/1.2 var(--sans); letter-spacing: -.02em; }
+.section .trend-copy p { margin: 0 0 12px; max-width: 44ch; font-size: 14px; line-height: 1.65; }
+.trend-selectors { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.trend-selectors label { display: flex; gap: 9px; align-items: center; }
+.trend-selectors select { min-height: 34px; padding: 4px 8px; width: min(235px,100%); font-size: 13px; }
+.trend-key, .trend-caption i { display: inline-block; width: 22px; border-top: 3px solid #82318e; }
+.trend-key.key-1, .trend-caption i.key-1 { border-top: 3px dashed #526fa2; }
+.trend-plot { min-width: 0; }
+.trend-plot svg { display: block; width: 100%; height: auto; overflow: visible; }
+.trend-plot svg text { font: 12px var(--sans); fill: var(--ink); }
+.trend-plot svg text.axis-title { font: 600 12px var(--sans); }
+.chart-grid { stroke: #dcd7e2; stroke-width: .8px; }
+.trend-line { stroke: #82318e; fill: #82318e; }
+.trend-line polyline { stroke-width: 2.7px; }
+.trend-line.series-1 { stroke: #526fa2; fill: #526fa2; }
+.trend-line.series-1 polyline { stroke-dasharray: 5 3; }
+.section .trend-caption { display: flex; gap: 8px 18px; justify-content: center; flex-wrap: wrap; margin: 4px 0 0; }
+.trend-caption span { display: flex; gap: 5px; align-items: center; font: 13px var(--sans); }
+.trend-caption i { width: 14px; }
+.task-matrix { max-height: 70vh; overscroll-behavior-x: contain; }
+.task-matrix thead { position: sticky; top: 0; z-index: 2; }
+.task-matrix thead th { min-width: 6.5rem; }
+.task-matrix thead button { white-space: normal; line-height: 1.25; }
+.task-matrix thead button small { display: block; font: 11px/1.6 var(--mono); color: var(--muted); }
+.task-matrix .matrix-domains th { text-align: left; background: #e8e2f0; color: var(--purple-ink); }
+.task-matrix .matrix-domains td { text-align: left; color: var(--muted); font-size: 12px; }
+.task-matrix thead tr:last-child th:nth-child(4n+2), .task-matrix .matrix-domains th, .task-matrix td:nth-child(4n+2) { border-left: 1px solid var(--line); }
+.task-matrix thead tr > :first-child, .task-matrix th[scope=row] { position: sticky; left: 0; background: var(--row-fill,#fff); box-shadow: 1px 0 var(--line); }
+.task-matrix thead tr > :first-child { z-index: 1; background: #f3f2f6; }
+.task-matrix #results th[scope=row] { min-width: 7rem; max-width: 10rem; white-space: normal; text-align: left; }
+@media (max-width: 700px) {
+  .length-comparison { grid-template-columns: minmax(0,1fr); gap: 15px; padding: 14px 9px; }
+  .trend-copy { padding: 0 4px; }
+  .trend-selectors { flex-direction: row; flex-wrap: wrap; gap: 6px 12px; }
+  .trend-selectors label { max-width: 100%; gap: 5px; }
+  .trend-selectors select { width: auto; max-width: calc(100% - 20px); min-height: 35px; }
+  .trend-key { width: 13px; }
+  .trend-plot svg text, .trend-plot svg text.axis-title { font-size: 16px; }
+  .trend-caption span { font-size: 12px; }
+}

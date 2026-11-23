@@ -72,30 +72,4 @@
   panel.addEventListener('keydown', event => {
     if (event.key === 'Escape' && panel.classList.contains('is-playing') && !document.fullscreenElement) close.click();
   });
-
-  const guide = document.querySelector('.domain-ribbon');
-  function loadGuide() {
-    if (document.getElementById('guide-style')) return;
-    const css = document.createElement('link');
-    css.id = 'guide-style';
-    css.rel = 'stylesheet';
-    css.href = 'assets/field-guide.css?v=exposure1';
-    const app = document.createElement('script');
-    app.src = 'assets/site.js?v=exposure1';
-    document.head.append(css, app);
-  }
-  const direct = () => location.hash && !['#top','#film','#release','#resources','#main'].includes(location.hash);
-  if (direct() || !('IntersectionObserver' in window)) loadGuide();
-  else {
-    const observer = new IntersectionObserver(entries => {
-      if (entries.some(entry => entry.isIntersecting)) { observer.disconnect(); loadGuide(); }
-    }, {rootMargin:'40px'});
-    observer.observe(guide);
-  }
-  window.addEventListener('hashchange', () => { if (direct()) loadGuide(); });
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    if (['#top','#main','#film'].includes(link.hash)) return;
-    link.addEventListener('focus', loadGuide, {once:true});
-    link.addEventListener('pointerdown', loadGuide, {once:true});
-  });
 })();
