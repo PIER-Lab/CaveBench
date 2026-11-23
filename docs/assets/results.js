@@ -472,7 +472,8 @@ function displayDetailed(view, records) {
   } else if (view === 'model_protocols') {
     detailFilter('model', 'Model', [['','All ' + records.length + ' models'], ...records.map(r => [r.model,r.model])], rerender);
     const rows = records.filter(r => !detailState.model || r.model === detailState.model);
-    detailTable(['Model','Reasoning mode'], rows.map(r => [r.model,r.reasoning]), [0,1], '');
+    detailTable(['Model','Reasoning mode'], rows.map(r => [r.model,r.reasoning]), [0,1],
+      'Enabled lets the model choose its reasoning effort. Default uses the provider’s setting.');
   } else if (view === 'main_event_by_length') {
     const columns = [...lengths.map(String), 'Overall'];
     const table = pivotRows(records, r => r.model_key, r => r.k, columns, 'event_accuracy_pct', r => [r.model], detailedPercent);
