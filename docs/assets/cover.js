@@ -48,7 +48,7 @@
     css.rel = 'stylesheet';
     css.href = 'assets/field-guide.css?v=leaves1';
     const app = document.createElement('script');
-    app.src = 'assets/site.js?v=leaves1';
+    app.src = 'assets/site.js?v=leaves2';
     document.head.append(css, app);
   }
   const direct = () => location.hash && !['#top','#film','#release','#resources','#main'].includes(location.hash);

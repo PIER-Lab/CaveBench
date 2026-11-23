@@ -353,7 +353,7 @@ whenNear($('#leaderboard'),showResults);
 let requestedAnchor = '';
 function needsAlignment(hash) {
   // Only content injected after navigation can move its own deep-link target.
-  return /^#(?:(?:try-)?S(?:0[1-9]|1\d|20)|viewer|leaderboard|detailed-results|(?:tasks|domain)-k[1-6]|apparatus-S\d{2}|scores-(?:length|methods)|table-.+)$/.test(hash);
+  return /^#(?:(?:try-)?S(?:0[1-9]|1\d|20)|viewer|leaderboard|analysis|detailed-results|(?:tasks|domain)-k[1-6]|apparatus-S\d{2}|scores-(?:length|methods)|table-.+)$/.test(hash);
 }
 function preserveAnchor() {
   if (!requestedAnchor || requestedAnchor !== location.hash) return;
