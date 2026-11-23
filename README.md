@@ -1,6 +1,6 @@
 # CaveBench: Benchmarking Abductive Physical Reasoning from Internal Observations
 
-[![CaveBench research film. Synchronized exterior and interior views of the driven pendulums.](docs/assets/repository-cover.webp)](https://pier-lab.github.io/CaveBench/#film)
+[![Watch the CaveBench research film on the gold-leaf electroscope.](docs/assets/video/CaveBench-overview.jpg)](https://pier-lab.github.io/CaveBench/#film)
 
 Guanxin Lin<sup>∗</sup>, Chen Yang<sup>∗</sup>, Shenxiang Zeng, Honghui Zhu, Xin Li, Wenbo Deng, Jiansheng Fan, Chen Wang<sup>†</sup>
 
@@ -11,7 +11,7 @@ Tsinghua University
 
 ## News
 
-- **2026-11-23.** The [research film](https://pier-lab.github.io/CaveBench/#film) follows six hidden carriage motions and compares two SimPO runs on the same 200 test questions. Explore the [20 apparatuses](docs/assets/cases/README.md) or [compare models across question lengths](https://pier-lab.github.io/CaveBench/#leaderboard).
+- **2026-11-23.** Watch the gold leaves of an electroscope move, then see the mica slab that drove the change. [Play the research film](https://pier-lab.github.io/CaveBench/#film) · [Try the same apparatus](https://pier-lab.github.io/CaveBench/#try-S11) · [Explore all 20 apparatuses](docs/assets/cases/README.md)
 
 ## Introduction
 

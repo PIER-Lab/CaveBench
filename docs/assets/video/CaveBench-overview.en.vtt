@@ -1,55 +1,70 @@
 WEBVTT
 
-00:00:00.360 --> 00:00:04.032
-Three pendulums swing
-inside a moving carriage.
+00:00:01.420 --> 00:00:03.652
+What made these gold leaves close?
 
-00:00:04.328 --> 00:00:06.488
-Can you reconstruct what moved them?
+00:00:03.953 --> 00:00:07.217
+The camera sees only the
+inside of the cabinet.
 
-00:00:06.992 --> 00:00:13.232
-On each run, a controller selects one of
-three motion profiles for each event.
+00:00:07.742 --> 00:00:14.654
+Replay the same moment. Outside, a sheet of
+mica slides between two capacitor plates.
 
-00:00:13.537 --> 00:00:17.809
-All three travel the same
-distance. Their timing differs.
+00:00:14.953 --> 00:00:22.321
+As the overlap grows, capacitance rises. With
+charge nearly fixed, the leaves draw together.
 
-00:00:18.192 --> 00:00:24.624
-The camera travels with the carriage. Each exposure
-catches the pendulums after a translation.
+00:00:22.692 --> 00:00:28.092
+Now read the experiment as the model
+does. Seven photographs, in order.
 
-00:00:25.015 --> 00:00:30.151
-Seven photographs record the initial
-state and six successive events.
+00:00:28.473 --> 00:00:30.443
+First, full insertion.
 
-00:00:30.473 --> 00:00:35.081
-The controller chose B, C, B, A, B, A.
+00:00:30.443 --> 00:00:31.803
+Then withdrawal.
 
-00:00:35.738 --> 00:00:40.082
-GPT-6.1 Sol recovered this whole sequence.
+00:00:31.803 --> 00:00:33.113
+Half insertion.
 
-00:00:40.412 --> 00:00:47.396
-CaveBench asks 1,180 questions across twenty
-apparatuses in five physical domains.
+00:00:33.113 --> 00:00:34.343
+Withdrawal.
 
-00:00:47.988 --> 00:00:55.140
-Across all six-event questions, Sol
-recovered 1,035 of 1,200 individual events.
+00:00:34.343 --> 00:00:35.673
+Half insertion.
 
-00:00:55.708 --> 00:01:02.188
-Requiring every event to match gives
-136 correct sequences out of 200.
+00:00:35.673 --> 00:00:36.969
+Withdrawal.
 
-00:01:02.597 --> 00:01:07.967
-On 200 six-event questions,
-SFT got 40 completely right,
+00:00:37.307 --> 00:00:40.739
+The model recovered all six
+commands in this trial.
 
-00:01:07.967 --> 00:01:13.709
-while two SimPO runs with different
-seeds got 63 and 64 completely right.
+00:00:41.363 --> 00:00:47.483
+In another cabinet, three transparent
+specimens change colour under polarized light.
 
-00:01:14.180 --> 00:01:19.676
-Both runs correctly answered the
-same 26 questions that SFT missed.
+00:00:47.787 --> 00:00:52.923
+A press changes their load. Rotating
+the optics also changes the pattern.
+
+00:00:53.488 --> 00:01:00.016
+Across twenty apparatuses, the question is the
+same. Which controls produced the evidence?
+
+00:01:00.583 --> 00:01:09.391
+GPT-6.1 Sol exact match fell from
+83.7% for one event to 68.0% for six.
+
+00:01:09.805 --> 00:01:15.895
+At six events, it matched 1,035
+individual events out of 1,200,
+
+00:01:15.895 --> 00:01:20.725
+but only 136 complete sequences out of 200.
+
+00:01:21.222 --> 00:01:26.022
+CaveBench. Reconstructing hidden
+events from what they leave behind.
 

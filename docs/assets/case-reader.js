@@ -27,7 +27,7 @@ window.caveCaseQuestions = {
 // Contiguous character ranges in the released model responses.
 const cavePassageRanges = {"S01": [1631, 2119], "S02": [76, 549], "S03": [481, 1009], "S04": [832, 1408], "S05": [352, 830], "S06": [20, 438], "S07": [507, 1078], "S08": [636, 1228], "S09": [103, 932], "S10": [665, 1093], "S11": [0, 515], "S12": [266, 946], "S13": [1606, 2145], "S14": [81, 651], "S15": [844, 1251], "S16": [762, 1251], "S17": [374, 892], "S18": [1314, 1812], "S19": [615, 1249], "S20": [604, 1175]};
 
-window.caveCaseReader = function (item, {node, pathFor, answerText, strip}) {
+window.caveCaseReader = function (item, {node, pathFor, answerText, strip, preview}) {
   const reader = node('section', undefined, 'instrument-reader');
   const stage = node('section', undefined, 'observation-stage');
   stage.setAttribute('aria-label', 'Internal observations');
@@ -44,13 +44,12 @@ window.caveCaseReader = function (item, {node, pathFor, answerText, strip}) {
     const step = item.steps[n-1];
     for (const button of controls.children) button.setAttribute('aria-pressed', String(Number(button.value)===n));
     const views = [n-1,n].map((frame, index) => {
-      const fig = node('figure'), zoom = node('a',undefined,'zoom'), img = node('img');
+      const fig = node('figure'), zoom = node('a',undefined,'zoom');
       zoom.href = pathFor(item,item.frames[frame]);
-      img.src = zoom.href; img.alt = item.title + ', frame F' + frame; img.width=960; img.height=540;
-      zoom.setAttribute('aria-label','Enlarge '+img.alt);
+      zoom.setAttribute('aria-label','Enlarge '+item.title+', frame F'+frame);
       const cap=node('figcaption');
       cap.append(node('b','F'+frame),node('span', index ? 'After event '+n : 'Before event '+n));
-      zoom.append(img); fig.append(zoom,cap); return fig;
+      zoom.append(preview(item,frame,'frame-thumb')); fig.append(zoom,cap); return fig;
     });
     pair.replaceChildren(...views);
     const lines = node('dl');

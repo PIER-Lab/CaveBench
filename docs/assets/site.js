@@ -20,6 +20,10 @@ function whenNear(element, run, margin='200px 0px') {
   observer.observe(element);
 }
 document.querySelectorAll('img[data-lazy-src]').forEach(img => whenNear(img, () => {
+  if (img.dataset.lazySrcset) {
+    img.srcset = img.dataset.lazySrcset;
+    img.removeAttribute('data-lazy-srcset');
+  }
   img.src = img.dataset.lazySrc;
   img.removeAttribute('data-lazy-src');
 }));
@@ -35,7 +39,7 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    const versions = {'assets/results.js':'matrix1', 'assets/offline-results.js':'matrix1', 'assets/case-reader.js':'reader2'};
+    const versions = {'assets/results.js':'matrix1', 'assets/offline-results.js':'matrix1', 'assets/case-reader.js':'leaves1'};
     const version = versions[path] || 'atlas3';
     tag.src = path + '?v=' + version;
     tag.onload = resolve;
@@ -70,9 +74,9 @@ function loadFailure(container, message, again) {
 function preview(item, frame, className) {
   const thumb = node('span', undefined, className);
   thumb.setAttribute('aria-hidden','true');
-  thumb.style.backgroundImage = 'url("assets/atlas.webp?v=atlas3")';
-  thumb.style.backgroundSize = '700% 2000%';
-  thumb.style.backgroundPosition = (frame * 100 / 6) + '% ' + ((Number(item.id.slice(1)) - 1) * 100 / 19) + '%';
+  thumb.style.backgroundImage = 'url("assets/observations/' + encodeURIComponent(item.id) + '.webp")';
+  thumb.style.backgroundSize = '400% 200%';
+  thumb.style.backgroundPosition = (frame % 4 * 100 / 3) + '% ' + (frame < 4 ? 0 : 100) + '%';
   return thumb;
 }
 
@@ -117,7 +121,7 @@ function sectionStyle(id, href) {
   }
 }
 function loadCaseReader() {
-  sectionStyle('reader-style','assets/case-reader.css?v=reader2');
+  sectionStyle('reader-style','assets/case-reader.css?v=leaves1');
   return script('assets/case-reader.js');
 }
 function compareSteps(item) {
@@ -141,7 +145,6 @@ function episodeMedia(item) {
   const video=node('video');
   video.controls=true; video.playsInline=true; video.preload='none';
   video.setAttribute('aria-label',item.title+' episode video');
-  video.poster='assets/posters/'+encodeURIComponent(item.id)+'.jpg?v=atlas3';
   video.src=pathFor(item,item.video);
   const caption=node('div',undefined,'video-caption');
   const movieLink=node('a','Open video ↗');
@@ -149,6 +152,9 @@ function episodeMedia(item) {
   caption.append(node('span','Exterior and interior views'),movieLink);
   const media=node('details',undefined,'case-media');
   media.append(node('summary','Episode video'),video,caption);
+  media.addEventListener('toggle', () => {
+    if (media.open && !video.poster) video.poster='assets/posters/'+encodeURIComponent(item.id)+'.jpg?v=atlas3';
+  });
   return media;
 }
 function trySequence(item) {
@@ -247,13 +253,7 @@ async function renderScene(id, changeHash=false) {
     const fig=node('figure'); const zoom=node('a',undefined,'zoom');
     zoom.setAttribute('aria-label', item.title+', '+(n ? 'internal observation after event '+n : 'initial internal observation'));
     zoom.href=pathFor(item,filename);
-    if (practice) {
-      const image=node('img');
-      image.alt=zoom.getAttribute('aria-label'); image.loading='lazy'; image.decoding='async';
-      image.src=zoom.href; zoom.append(image);
-    } else {
-      zoom.append(preview(item,n,'frame-thumb'));
-    }
+    zoom.append(preview(item,n,'frame-thumb'));
     fig.append(zoom,node('figcaption',item.frame_labels?.[n] || 'Frame F'+n)); strip.append(fig);
   });
   const prompt=textPanel('Full prompt and control definitions',item.prompt);
@@ -263,7 +263,7 @@ async function renderScene(id, changeHash=false) {
     strip.classList.add('practice-frames');
     example.replaceChildren(header,question,node('h4','Internal observations'),strip,prompt,attempt);
   } else {
-    const reading = window.caveCaseReader(item, {node,pathFor,answerText,strip});
+    const reading = window.caveCaseReader(item, {node,pathFor,answerText,strip,preview});
     example.replaceChildren(header,question,reading,episodeMedia(item),prompt,attempt,compareSteps(item));
   }
   example.dataset.scene=id;
@@ -331,7 +331,7 @@ async function showViewer() {
   }
   const target = cases.find(item=>item.id===location.hash.slice(1).replace(/^try-/, ''));
   if (!activeScene || (target && location.hash.slice(1) !== activeScene)) {
-    const first=target || cases.find(item=>item.id==='S03') || cases[0];
+    const first=target || cases.find(item=>item.id==='S11') || cases[0];
     if ($('#domain').value && $('#domain').value !== first.domain) $('#domain').value='';
     updateSceneOptions(first.id);
     await renderScene(first.id);
@@ -351,6 +351,10 @@ async function showResults() {
 whenNear($('#viewer'),showViewer);
 whenNear($('#leaderboard'),showResults);
 let requestedAnchor = '';
+function needsAlignment(hash) {
+  // Only content injected after navigation can move its own deep-link target.
+  return /^#(?:(?:try-)?S(?:0[1-9]|1\d|20)|viewer|leaderboard|detailed-results|(?:tasks|domain)-k[1-6]|apparatus-S\d{2}|scores-(?:length|methods)|table-.+)$/.test(hash);
+}
 function preserveAnchor() {
   if (!requestedAnchor || requestedAnchor !== location.hash) return;
   const id = requestedAnchor.slice(1);
@@ -374,10 +378,10 @@ document.addEventListener('click', event => {
   const tab = event.target.closest('button[data-table]');
   if (tab && !resultsReady && !tab.onclick) showResults().then(() => { if (resultsReady) tab.click(); });
   const link = event.target.closest('a[href^="#"]');
-  if (link && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) requestedAnchor=link.hash;
+  if (link && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) requestedAnchor=needsAlignment(link.hash) ? link.hash : '';
 });
 function openSection() {
-  requestedAnchor=location.hash;
+  requestedAnchor=needsAlignment(location.hash) ? location.hash : '';
   if (/^#(?:try-)?S(?:0[1-9]|1\d|20)$/.test(location.hash)) {
     $('#viewer').scrollIntoView({block:'start',behavior:'instant'});
     showViewer();
@@ -389,48 +393,6 @@ function openSection() {
 }
 openSection();
 window.addEventListener('hashchange',openSection);
-
-const film = $('#film video'), playButton = $('#film .film-play');
-if (playButton && film) {
-  const panel = $('#film');
-  const frame = panel.querySelector('.film-frame');
-  const closeButton = $('#close-film');
-  const filmError = $('#film-error');
-  film.controls = false;
-  playButton.hidden = false;
-  function showPoster() {
-    film.controls = false;
-    panel.classList.remove('is-playing');
-    playButton.hidden = false;
-  }
-  function playbackFailed() {
-    showPoster();
-    filmError.hidden = false;
-  }
-  playButton.onclick = () => {
-    filmError.hidden = true;
-    film.controls = true;
-    film.play().catch(playbackFailed);
-  };
-  frame.addEventListener('click', event => {
-    if (event.target === frame && !playButton.hidden) playButton.click();
-  });
-  film.addEventListener('play', () => {
-    panel.classList.add('is-playing');
-    playButton.hidden = true;
-    film.focus({preventScroll:true});
-  });
-  film.addEventListener('ended', showPoster);
-  film.addEventListener('error', playbackFailed);
-  closeButton.onclick = () => {
-    film.pause();
-    showPoster();
-    playButton.focus({preventScroll:true});
-  };
-  panel.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && panel.classList.contains('is-playing') && !document.fullscreenElement) closeButton.click();
-  });
-}
 
 const lightbox=$('#lightbox');
 document.addEventListener('click',e=>{
