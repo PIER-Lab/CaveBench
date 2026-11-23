@@ -32,7 +32,7 @@ function resourceList(settings) {
   if (settings.authorNote) byline.append(node('small',settings.authorNote));
   const links = $('#resources');
   links.replaceChildren();
-  for (const [title,to] of [['Paper',settings.paper],['Dataset',settings.dataset],['GitHub',settings.github],['arXiv',settings.arxiv],['Supplement',settings.supplement]]) {
+  for (const [title,to] of [['Paper',settings.paper],['Dataset',settings.dataset],['GitHub',settings.github],['arXiv',settings.arxiv],['Supplement',settings.supplement],['Video','#film'],['Weights',settings.weights]]) {
     if (!to) continue;
     const url = new URL(to,document.baseURI);
     if (!['https:','http:'].includes(url.protocol) && !(url.protocol==='file:' && !to.includes(':'))) continue;
@@ -95,6 +95,63 @@ function compareSteps(item) {
   box.append(node('p','Sequence exact match: '+(item.exact_match ? 'yes.':'no.')),wrapper);
   return box;
 }
+function trySequence(item) {
+  const panel = node('details', undefined, 'try-sequence');
+  panel.append(node('summary', 'Try the six-event question'));
+  const sets = JSON.parse(item.prompt.match(/ALLOWED EVENT LABEL SETS\s*\n(\[.*\])\s*\n/)[1]);
+  const reference = item.steps.map(step => step.expected);
+  const key = controls => JSON.stringify([...controls].sort());
+  const fields = node('div', undefined, 'answer-fields');
+  const inputs = reference.map((_, i) => {
+    const label = node('label', 'Event ' + (i + 1));
+    const select = node('select');
+    select.add(new Option('Choose controls', ''));
+    for (const controls of sets) select.add(new Option(controls.join(' + '), key(controls)));
+    label.append(select);
+    fields.append(label);
+    return select;
+  });
+  const actions = node('div', undefined, 'answer-actions');
+  const result = node('p', '', 'answer-result');
+  result.setAttribute('role', 'status');
+  const reveal = node('ol', undefined, 'answer-key');
+  reference.forEach(controls => reveal.append(node('li', controls.join(' + '))));
+  reveal.hidden = true;
+  function action(title, run) {
+    const button = node('button', title);
+    button.type = 'button';
+    button.onclick = run;
+    actions.append(button);
+    return button;
+  }
+  action('Check answer', () => {
+    const missing = inputs.find(input => !input.value);
+    if (missing) {
+      result.textContent = 'Choose a control set for each event.';
+      missing.focus();
+      return;
+    }
+    const misses = inputs.flatMap((input, i) => input.value === key(reference[i]) ? [] : [i + 1]);
+    result.textContent = misses.length
+      ? (6 - misses.length) + ' of 6 events correct. Revisit ' + (misses.length === 1 ? 'event ' : 'events ') + misses.join(', ') + '.'
+      : '6 of 6 events correct. The complete sequence matches.';
+  });
+  const toggle = action('Reveal reference', () => {
+    reveal.hidden = !reveal.hidden;
+    toggle.textContent = reveal.hidden ? 'Reveal reference' : 'Hide reference';
+    toggle.setAttribute('aria-expanded', String(!reveal.hidden));
+  });
+  toggle.setAttribute('aria-expanded', 'false');
+  action('Clear', () => {
+    inputs.forEach(input => { input.value = ''; });
+    result.textContent = '';
+    if (!reveal.hidden) toggle.click();
+    inputs[0].focus();
+  });
+  fields.onchange = () => { result.textContent = ''; };
+  panel.append(node('p', 'Use the internal frames and the apparatus description. Choose one control set for each event.'), fields, actions, result, reveal);
+  return panel;
+}
 function renderScene(id, changeHash=false) {
   const item=cases.find(i=>i.id===id);
   if (!item) return;
@@ -117,7 +174,7 @@ function renderScene(id, changeHash=false) {
     img.src=pathFor(item,filename); img.alt=item.title+', '+(n ? 'internal observation after event '+n : 'initial internal observation');
     zoom.href=img.src; zoom.append(img); fig.append(zoom,node('figcaption',item.frame_labels?.[n] || 'Frame F'+n)); strip.append(fig);
   });
-  const parts=[header,video,caption,node('h4','Model input frames'),strip,textPanel('Complete prompt',item.prompt),textPanel('Model response · '+item.model,item.response),compareSteps(item)];
+  const parts=[header,video,caption,node('h4','Model input frames'),strip,textPanel('Complete prompt',item.prompt),trySequence(item),textPanel('Model response · '+item.model,item.response),compareSteps(item)];
   $('#example').replaceChildren(...parts);
   document.querySelectorAll('#atlas button').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.id===id)));
   if (changeHash) history.replaceState(null,'','#'+id);
@@ -134,6 +191,10 @@ function moveScene(delta) {
 }
 $('#prev').onclick=()=>moveScene(-1);
 $('#next').onclick=()=>moveScene(1);
+$('#random-scene').onclick=()=>{
+  const others=matchingCases().filter(item=>item.id!==$('#scene').value);
+  if (others.length) chooseScene(others[Math.floor(Math.random()*others.length)]);
+};
 $('#domain').onchange=()=>{ updateSceneOptions(); renderScene($('#scene').value,true); };
 $('#scene').onchange=()=>renderScene($('#scene').value,true);
 

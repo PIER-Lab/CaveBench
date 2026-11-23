@@ -23,16 +23,36 @@
     <figure class="lead"><a class="zoom" href="assets/teaser.png" aria-label="Enlarge the CaveBench overview"><img src="assets/teaser.png" alt="Overview of all twenty apparatuses across five domains, with six-event accuracy for representative models."></a></figure>
     <p class="intro">Can a vision–language model reconstruct what happened outside an apparatus from the changes it sees inside? CaveBench gives the model an apparatus description and a sequence of internal images. At each event, the model identifies the complete set of controls that produced the observed response.</p>
   </section>
+  <section class="section" id="film">
+    <h2>Research video</h2>
+    <video class="overview-video" controls playsinline preload="none" poster="assets/video/CaveBench-overview.jpg" aria-label="CaveBench research video">
+      <source src="assets/video/CaveBench-overview.mp4" type="video/mp4">
+      <track kind="captions" src="assets/video/CaveBench-overview.en.vtt" srclang="en" label="English">
+    </video>
+    <div class="video-caption"><span>English narration and captions</span><a href="assets/video/CaveBench-overview.mp4" download>Download video</a></div>
+  </section>
   <section class="section" id="dataset">
     <h2>Dataset</h2>
     <p>Twenty apparatuses cover dynamics, thermal physics, electromagnetism, acoustics and optics. The 10,200 episodes are split into 9,000 for training, 1,000 for validation and 200 for testing. The test set contains 1,180 questions spanning one to six events.</p>
+    <details class="fold"><summary>Test set composition by domain</summary>
+      <div class="tablewrap" tabindex="0" role="region" aria-label="Test set composition"><table>
+        <thead><tr><th scope="col">Domain</th><th scope="col">Apparatuses</th><th scope="col">Episodes</th><th scope="col">Questions</th><th scope="col">Single-label events</th><th scope="col">Two-label events</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Dynamics</th><td>S01–S04</td><td>40</td><td>240</td><td>140</td><td>100</td></tr>
+          <tr><th scope="row">Thermal physics</th><td>S05–S08</td><td>40</td><td>240</td><td>68</td><td>172</td></tr>
+          <tr><th scope="row">Electromagnetism</th><td>S09–S12</td><td>40</td><td>220</td><td>203</td><td>37</td></tr>
+          <tr><th scope="row">Acoustics</th><td>S13–S16</td><td>40</td><td>240</td><td>108</td><td>132</td></tr>
+          <tr><th scope="row">Optics</th><td>S17–S20</td><td>40</td><td>240</td><td>179</td><td>61</td></tr>
+        </tbody></table></div>
+      <p>Event counts use each episode once. S11 (dielectric response) contributes questions at three to six events.</p>
+    </details>
     <h3 id="viewer">Dataset viewer</h3>
     <p>Explore one six-event test episode per apparatus. Compare the seven internal observations with the recorded controls and the model’s submitted answer.</p>
     <div id="browser">
       <div class="selectors">
         <label>Physical domain<select id="domain"></select></label>
         <label>Apparatus<select id="scene"></select></label>
-        <div class="pager"><button type="button" id="prev" aria-label="Previous scene">←</button><button type="button" id="next" aria-label="Next scene">→</button></div>
+        <div class="pager"><button type="button" id="prev" aria-label="Previous scene">←</button><button type="button" id="next" aria-label="Next scene">→</button><button type="button" id="random-scene">Random</button></div>
       </div>
       <article id="example" aria-live="polite"></article>
     </div>
@@ -78,6 +98,7 @@
     <p class="related-tables"><a href="#table-figure1" data-detail="figure1">View the six-event scores in Figure 1</a> · <a href="#table-compound_by_length" data-detail="compound_by_length">Compare single- and two-label events</a></p>
     <h3>Learning to recover a sequence</h3>
     <p>On Qwen3.5-9B, supervised fine-tuning raises six-event accuracy from 0.5% to 20.0%. Adding SimPO brings it to 31.8%. KTO reaches a similar single-event score to SimPO, yet recovers only 14.5% of complete sequences.</p>
+    <p>Pairing predictions on the same 200 questions shows where the SimPO gain comes from. Each training seed solves 27 six-event questions that SFT missed. Of the 40 questions SFT solved, the two runs retain 36 and 37, respectively. <a href="#table-paired_training" data-detail="paired_training">Compare paired outcomes at each question length</a>.</p>
     <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" src="assets/adaptation.png" alt="Comparison of Qwen3.5-9B predictions for the same input across adaptation methods."></a><figcaption>Qwen3.5-9B responses under different training conditions. Annotations explain how the predictions differ.</figcaption></figure>
     <p class="related-tables"><a href="#detailed-results" data-detail="training_case">Inspect the predictions in this figure</a> · <a href="#detailed-results" data-detail="adaptation_by_length">Compare adaptation runs</a></p>
     <h3>Reasoning effort</h3>

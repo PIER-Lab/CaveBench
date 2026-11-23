@@ -238,6 +238,7 @@ updateLeaderboard();
 const views = {
   adaptation_by_length: ['Adaptation by run and question length', 'Training and adaptation'],
   adaptation_by_scene: ['Adaptation by apparatus', 'Training and adaptation'],
+  paired_training: ['Paired outcomes against SFT', 'Training and adaptation'],
   training_case: ['Recorded predictions in Figure 5', 'Training and adaptation'],
   effort_results: ['Reasoning effort in Figure 6', 'Model analysis'],
   figure1: ['Six-event scores in Figure 1', 'Model analysis'],
@@ -325,7 +326,7 @@ function displayDetailed(view, records) {
   if (view === 'adaptation_by_scene') {
     detailFilter('scene', 'Apparatus', cases.map(c => [c.id, c.id + ' · ' + c.title]), rerender);
   }
-  if (view === 'compound_by_length') {
+  if (view === 'compound_by_length' || view === 'paired_training') {
     detailFilter('k', 'Events per question', lengths.map(k => [String(k), String(k)]), rerender);
   }
   if (view === 'effort_results') {
@@ -344,6 +345,11 @@ function displayDetailed(view, records) {
       (metric === 'accuracy_pct' ? 'Exact-match accuracy (%).' : 'Correctly predicted event sets (%).') +
       ' Individual training runs and their reported means are shown separately. Overall pools all eligible lengths.' +
       (view === 'adaptation_by_scene' && detailState.scene === 'S11' ? ' S11 has questions at three to six events.' : ''));
+  } else if (view === 'paired_training') {
+    const rows = records.filter(r => r.k === detailState.k);
+    detailTable(['Adapted method','Training seed','Both correct','Adapted only','SFT only','Both incorrect','Questions'],
+      rows.map(r => [r.method,r.seed,r.both_correct,r.adapted_only,r.sft_only,r.both_incorrect,r.questions]), [0],
+      'Each column counts exact matches for the same question IDs, pairing the supervised Qwen3.5-9B checkpoint with one preference-training run.');
   } else if (view === 'effort_results') {
     const rows = records.filter(r => r.stage === detailState.stage);
     const key = r => r.model + ' · ' + r.effort;

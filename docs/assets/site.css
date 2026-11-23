@@ -49,6 +49,16 @@ select, .pager button, .tabs button, #lightbox button,.copy { font-weight:570; p
 select { max-width:100%; }
 .pager { display:flex; gap:5px; }
 .pager button { line-height:1; font-size:18px; }
+.pager #random-scene { font-size:14px; }
+.answer-fields { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:9px 14px; }
+.answer-fields label { display:grid; min-width:0; gap:3px; color:var(--muted); font-size:13px; font-weight:600; }
+.answer-fields select { width:100%; }
+.answer-actions { display:flex; flex-wrap:wrap; gap:8px; margin:13px 0; }
+.answer-actions button { border:1px solid var(--edge); background:white; padding:6px 12px; border-radius:5px; }
+.answer-actions button:first-child { background:var(--dark); color:white; }
+.answer-result { color:var(--dark); font-weight:600; }
+.answer-key { padding-left:24px; }
+.overview-video { display:block; width:100%; aspect-ratio:16/9; border-radius:7px; background:#17232c; }
 button:hover,summary:hover { color:var(--accent); border-color:var(--accent); }
 article { padding:9px 20px 18px; }
 .sceneinfo { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; }
