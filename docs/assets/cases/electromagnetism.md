@@ -1,6 +1,6 @@
-# Electromagnetism
+<h1 align="center">Electromagnetism</h1>
 
-[All case studies](README.md) · [S09](#s09) · [S10](#s10) · [S11](#s11) · [S12](#s12)
+<p align="center"><a href="README.md">All case studies</a> · <a href="#s09">S09</a> · <a href="#s10">S10</a> · <a href="#s11">S11</a> · <a href="#s12">S12</a></p>
 
 <a name="s09"></a>
 
@@ -11,24 +11,6 @@ Compass needles respond to three coils beneath the apparatus. Which coil or coil
 [![Magnetic coils. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S09.webp)](S09.webp)
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S09) · [Watch the episode](../../examples/S09/dual_view.mp4)
-
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
-
-I could not work this out rigorously, so these are best guesses from rough visual cues.
-
-**F0 to F1.** The left column rotated strongly. The near-left needle now points red to the left and blue to the right. The middle-near needle also changed, with red toward the upper left. The other needles changed little. Coil1 sits on the left, so it is the likely source. Coil1 Positive would push north rightward and toward the far edge, but the red end went left, so this looks like Coil1Negative.
-
-**F1 to F2.** The left column changed again: the near-left needle now has blue toward the far edge and red toward the near edge. That means north points toward the near edge, which is the opposite of Coil2Positive's far-edge direction. The left-middle needle also flipped, with blue up and red down. The middle-near needle is still tilted red toward the upper left. This fits Coil2Negative, whose north end would point toward the near edge. A coil with a negative sign is the better fit here, though Coil1 and Coil2 are both plausible.
-
-**F2 to F3.** The right column changed: the right-middle needle now has red up and blue down, and the right-near needle has red to the upper left and blue to the lower right. That suggests Coil3, and the red end pointing upper left matches Coil3Positive.
-
-**F3 to F4.** Most needles flipped, with blue now pointing up in the left and middle columns and red toward the near edge. The near-middle needle has red pointing down. This suggests Coil2Negative, which would point north toward the near edge.
-
-**F4 to F5.** The near-middle needle has blue on the left and red on the right, so north points right. Coil1Positive pushes north rightward and toward the far edge, so this fits Coil1Positive.
-
-**F5 to F6.** The right-near needle has blue on the left and red on the right, so north points right. Coil3Negative would point north rightward and toward the near edge, so this fits Coil3Negative.
-
-</details>
 
 <details><summary>Full evaluation prompt</summary>
 
@@ -62,18 +44,32 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-<details><summary>Model answer and experiment log</summary>
+### Model Response · Claude Sonnet 5.5
+
+I could not work this out rigorously, so these are best guesses from rough visual cues.
+
+**F0 to F1.** The left column rotated strongly. The near-left needle now points red to the left and blue to the right. The middle-near needle also changed, with red toward the upper left. The other needles changed little. Coil1 sits on the left, so it is the likely source. Coil1 Positive would push north rightward and toward the far edge, but the red end went left, so this looks like Coil1Negative.
+
+**F1 to F2.** The left column changed again: the near-left needle now has blue toward the far edge and red toward the near edge. That means north points toward the near edge, which is the opposite of Coil2Positive's far-edge direction. The left-middle needle also flipped, with blue up and red down. The middle-near needle is still tilted red toward the upper left. This fits Coil2Negative, whose north end would point toward the near edge. A coil with a negative sign is the better fit here, though Coil1 and Coil2 are both plausible.
+
+**F2 to F3.** The right column changed: the right-middle needle now has red up and blue down, and the right-near needle has red to the upper left and blue to the lower right. That suggests Coil3, and the red end pointing upper left matches Coil3Positive.
+
+**F3 to F4.** Most needles flipped, with blue now pointing up in the left and middle columns and red toward the near edge. The near-middle needle has red pointing down. This suggests Coil2Negative, which would point north toward the near edge.
+
+**F4 to F5.** The near-middle needle has blue on the left and red on the right, so north points right. Coil1Positive pushes north rightward and toward the far edge, so this fits Coil1Positive.
+
+**F5 to F6.** The right-near needle has blue on the left and red on the right, so north points right. Coil3Negative would point north rightward and toward the near edge, so this fits Coil3Negative.
+
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | Coil1Negative | Coil1Negative |
 | 2 | Coil2Negative | Coil1Positive |
 | 3 | Coil3Positive | Coil3Positive |
 | 4 | Coil2Negative | Coil2Negative |
 | 5 | Coil1Positive | Coil2Positive |
 | 6 | Coil3Negative | Coil3Negative |
-
-</details>
 
 <a name="s10"></a>
 
@@ -85,7 +81,41 @@ Horizontal probe pairs respond to two electric dipoles. At each event, which dip
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S10) · [Watch the episode](../../examples/S10/dual_view.mp4)
 
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
+<details><summary>Full evaluation prompt</summary>
+
+Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
+
+APPARATUS AND PUBLIC CONTROL DEFINITIONS
+APPARATUS
+The fixed camera looks at two horizontal rows; image-right is world +x and image-up is +y. The upper row is Dipole A and the lower row is Dipole B. Each row has a light probe on the left and a dark probe on the right, both sliding horizontally between fixed outer spring anchors. A and B are separate, spatially distinct dipoles. In each dipole, the copper electrode is on the left and the blue electrode is on the right. A small neutral ivory body is fixed between the rows. The dipoles and the neutral body remain part of the apparatus throughout the sequence.
+
+CALIBRATION FACTS FOR THIS APPARATUS
+At the start of every sample, the hidden source magnitudes are A=37.5 microC and B=75.0 microC. A single source control changes A by 25.0 microC or B by 50.0 microC in the indicated direction; the sign of each source does not change. The four light probes have charge signs +, -, +, - from upper-left to lower-right. The two upper probes have mass 0.025 kg and spring damping 0.305 N s/m; the two lower probes have mass 0.550 kg and damping 1.20 N s/m. The neutral ivory body has mass 0.120 kg. These values are calibration information about the fixed apparatus, not labels for the hidden events.
+
+ALLOWED LABELS
+IncreaseChargeA: increase the magnitude of upper Dipole A while preserving its electrode signs.
+DecreaseChargeA: decrease the magnitude of upper Dipole A while preserving its electrode signs.
+IncreaseChargeB: increase the magnitude of lower Dipole B while preserving its electrode signs.
+DecreaseChargeB: decrease the magnitude of lower Dipole B while preserving its electrode signs.
+An event contains one label or one A label together with one B label. Do not add a label merely because a probe is still moving from an earlier event.
+
+OBSERVATION PROTOCOL FOR THIS PREFIX
+The evidence frame is taken about 3.5 s after its corresponding event, before the next one. Use fixed anchors, row identity, probe signs, relative displacement and persistent motion; one probe or colour alone does not identify an event.
+Capture times (physical/native capture time in seconds): F0=1.966667 s; F1=5.500000 s; F2=11.000000 s; F3=16.500000 s; F4=22.000000 s; F5=27.500000 s; F6=33.000000 s.
+
+ALLOWED ATOMIC LABELS
+IncreaseChargeA, DecreaseChargeA, IncreaseChargeB, DecreaseChargeB
+
+ALLOWED EVENT LABEL SETS
+[["IncreaseChargeA"],["DecreaseChargeA"],["IncreaseChargeB"],["DecreaseChargeB"],["IncreaseChargeA","IncreaseChargeB"],["DecreaseChargeB","IncreaseChargeA"],["DecreaseChargeA","IncreaseChargeB"],["DecreaseChargeA","DecreaseChargeB"]]
+
+REQUIRED OUTPUT
+Return only one valid JSON object with exactly one root field, "operations". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.
+FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key "operations". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [["IncreaseChargeA"], ["DecreaseChargeA"], ["IncreaseChargeB"], ["DecreaseChargeB"], ["IncreaseChargeA", "IncreaseChargeB"], ["DecreaseChargeB", "IncreaseChargeA"], ["DecreaseChargeA", "IncreaseChargeB"], ["DecreaseChargeA", "DecreaseChargeB"]].
+
+</details>
+
+### Model Response · Claude Sonnet 5.5
 
 I read each event from how far the probes moved between consecutive frames. In each row the left probe is light and the right probe is dark. The probes sit at their equilibrium positions, so closer together means stronger attraction. Probe positions are approximate pixel x-coordinates read from the images.
 
@@ -122,54 +152,16 @@ I read each event from how far the probes moved between consecutive frames. In e
 
 The F4 and F6 positions agree with each other, and F4 differs from F0 by a consistent offset. That offset is probably a persistent-motion or neutral-body effect, so I keep the sequence as read from the frame-to-frame changes.
 
-</details>
-
-<details><summary>Full evaluation prompt</summary>
-
-Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
-
-APPARATUS AND PUBLIC CONTROL DEFINITIONS
-APPARATUS
-The fixed camera looks at two horizontal rows; image-right is world +x and image-up is +y. The upper row is Dipole A and the lower row is Dipole B. Each row has a light probe on the left and a dark probe on the right, both sliding horizontally between fixed outer spring anchors. A and B are separate, spatially distinct dipoles. In each dipole, the copper electrode is on the left and the blue electrode is on the right. A small neutral ivory body is fixed between the rows. The dipoles and the neutral body remain part of the apparatus throughout the sequence.
-
-CALIBRATION FACTS FOR THIS APPARATUS
-At the start of every sample, the hidden source magnitudes are A=37.5 microC and B=75.0 microC. A single source control changes A by 25.0 microC or B by 50.0 microC in the indicated direction; the sign of each source does not change. The four light probes have charge signs +, -, +, - from upper-left to lower-right. The two upper probes have mass 0.025 kg and spring damping 0.305 N s/m; the two lower probes have mass 0.550 kg and damping 1.20 N s/m. The neutral ivory body has mass 0.120 kg. These values are calibration information about the fixed apparatus, not labels for the hidden events.
-
-ALLOWED LABELS
-IncreaseChargeA: increase the magnitude of upper Dipole A while preserving its electrode signs.
-DecreaseChargeA: decrease the magnitude of upper Dipole A while preserving its electrode signs.
-IncreaseChargeB: increase the magnitude of lower Dipole B while preserving its electrode signs.
-DecreaseChargeB: decrease the magnitude of lower Dipole B while preserving its electrode signs.
-An event contains one label or one A label together with one B label. Do not add a label merely because a probe is still moving from an earlier event.
-
-OBSERVATION PROTOCOL FOR THIS PREFIX
-The evidence frame is taken about 3.5 s after its corresponding event, before the next one. Use fixed anchors, row identity, probe signs, relative displacement and persistent motion; one probe or colour alone does not identify an event.
-Capture times (physical/native capture time in seconds): F0=1.966667 s; F1=5.500000 s; F2=11.000000 s; F3=16.500000 s; F4=22.000000 s; F5=27.500000 s; F6=33.000000 s.
-
-ALLOWED ATOMIC LABELS
-IncreaseChargeA, DecreaseChargeA, IncreaseChargeB, DecreaseChargeB
-
-ALLOWED EVENT LABEL SETS
-[["IncreaseChargeA"],["DecreaseChargeA"],["IncreaseChargeB"],["DecreaseChargeB"],["IncreaseChargeA","IncreaseChargeB"],["DecreaseChargeB","IncreaseChargeA"],["DecreaseChargeA","IncreaseChargeB"],["DecreaseChargeA","DecreaseChargeB"]]
-
-REQUIRED OUTPUT
-Return only one valid JSON object with exactly one root field, "operations". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.
-FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key "operations". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [["IncreaseChargeA"], ["DecreaseChargeA"], ["IncreaseChargeB"], ["DecreaseChargeB"], ["IncreaseChargeA", "IncreaseChargeB"], ["DecreaseChargeB", "IncreaseChargeA"], ["DecreaseChargeA", "IncreaseChargeB"], ["DecreaseChargeA", "DecreaseChargeB"]].
-
-</details>
-
-<details><summary>Model answer and experiment log</summary>
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | DecreaseChargeA + DecreaseChargeB | DecreaseChargeB + IncreaseChargeA |
 | 2 | IncreaseChargeA + IncreaseChargeB | DecreaseChargeA + IncreaseChargeB |
 | 3 | DecreaseChargeA + DecreaseChargeB | DecreaseChargeB + IncreaseChargeA |
 | 4 | IncreaseChargeA + IncreaseChargeB | IncreaseChargeB |
 | 5 | IncreaseChargeA + IncreaseChargeB | IncreaseChargeA + IncreaseChargeB |
 | 6 | DecreaseChargeA + DecreaseChargeB | DecreaseChargeA + DecreaseChargeB |
-
-</details>
 
 <a name="s11"></a>
 
@@ -180,29 +172,6 @@ A charged capacitor is connected to an electroscope. Use the leaf positions to i
 [![Dielectric response. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S11.webp)](S11.webp)
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S11) · [Watch the episode](../../examples/S11/dual_view.mp4)
-
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
-
-The leaf opening angle in each frame identifies the dielectric endpoint, since more mica means higher capacitance, lower voltage and a smaller opening.
-
-**Leaf states from the images**
-- F0, 0 coverage: wide opening (tips near y=295).
-- F1: nearly closed (tips near y=460), so the most coverage, which is full.
-- F2: identical to F0, so withdrawn.
-- F3: intermediate (tips near y=410), which is half coverage.
-- F4: identical to F0, so withdrawn.
-- F5: identical to F3, so half.
-- F6: identical to F0, so withdrawn.
-
-**Event sequence**
-1. F0 to F1: the slab goes from withdrawn to full, so InsertFully.
-2. F1 to F2: back to the F0 state, so WithdrawDielectric.
-3. F2 to F3: intermediate opening, so InsertHalf.
-4. F3 to F4: back to wide opening, so WithdrawDielectric.
-5. F4 to F5: intermediate opening, so InsertHalf.
-6. F5 to F6: back to wide opening, so WithdrawDielectric.
-
-</details>
 
 <details><summary>Full evaluation prompt</summary>
 
@@ -247,18 +216,37 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-<details><summary>Model answer and experiment log</summary>
+### Model Response · Claude Sonnet 5.5
+
+The leaf opening angle in each frame identifies the dielectric endpoint, since more mica means higher capacitance, lower voltage and a smaller opening.
+
+**Leaf states from the images**
+- F0, 0 coverage: wide opening (tips near y=295).
+- F1: nearly closed (tips near y=460), so the most coverage, which is full.
+- F2: identical to F0, so withdrawn.
+- F3: intermediate (tips near y=410), which is half coverage.
+- F4: identical to F0, so withdrawn.
+- F5: identical to F3, so half.
+- F6: identical to F0, so withdrawn.
+
+**Event sequence**
+1. F0 to F1: the slab goes from withdrawn to full, so InsertFully.
+2. F1 to F2: back to the F0 state, so WithdrawDielectric.
+3. F2 to F3: intermediate opening, so InsertHalf.
+4. F3 to F4: back to wide opening, so WithdrawDielectric.
+5. F4 to F5: intermediate opening, so InsertHalf.
+6. F5 to F6: back to wide opening, so WithdrawDielectric.
+
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | InsertFully | InsertFully |
 | 2 | WithdrawDielectric | WithdrawDielectric |
 | 3 | InsertHalf | InsertHalf |
 | 4 | WithdrawDielectric | WithdrawDielectric |
 | 5 | InsertHalf | InsertHalf |
 | 6 | WithdrawDielectric | WithdrawDielectric |
-
-</details>
 
 <a name="s12"></a>
 
@@ -269,23 +257,6 @@ Three suspended conductors move when current flows. Which pair carried current a
 [![Conducting wires. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S12.webp)](S12.webp)
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S12) · [Watch the episode](../../examples/S12/dual_view.mp4)
-
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
-
-I could not extract precise motion data from the images, so this sequence is a best-supported guess rather than a firm reconstruction.
-
-The slot order is blue (C) on the left, amber (B) in the middle, and red (A) on the right.
-
-What I could read from the frames:
-
-- **F0 to F1:** Blue's bottom end moves slightly right, amber's bottom end moves slightly left, and red barely changes. Blue and amber moving toward each other would mean attraction in a same-direction BC pair, so I chose BCSame.
-- **F1 to F2:** Red's end moves left, and its rods lean left at the bottom. Blue and amber look roughly unchanged. A red move toward amber suggests attraction in ABSame.
-- **F2 to F3:** Red moves back right, while blue and amber move back left. Blue returning left, away from amber, suggests repulsion, so I chose BCOpposite. Red moving right, away from amber, would also fit ABOpposite, but BCOpposite also accounts for the blue motion, so I chose it.
-- **F3 to F4:** Blue moves right and amber moves right and forward, with its rods swinging. Red is stable. I could not separate the candidates, so I chose BCSame.
-- **F4 to F5:** Red moves left, and amber and blue change little. I chose ABSame.
-- **F5 to F6:** Red returns right and blue returns slightly right. I chose ABOpposite.
-
-</details>
 
 <details><summary>Full evaluation prompt</summary>
 
@@ -315,15 +286,28 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-<details><summary>Model answer and experiment log</summary>
+### Model Response · Claude Sonnet 5.5
+
+I could not extract precise motion data from the images, so this sequence is a best-supported guess rather than a firm reconstruction.
+
+The slot order is blue (C) on the left, amber (B) in the middle, and red (A) on the right.
+
+What I could read from the frames:
+
+- **F0 to F1:** Blue's bottom end moves slightly right, amber's bottom end moves slightly left, and red barely changes. Blue and amber moving toward each other would mean attraction in a same-direction BC pair, so I chose BCSame.
+- **F1 to F2:** Red's end moves left, and its rods lean left at the bottom. Blue and amber look roughly unchanged. A red move toward amber suggests attraction in ABSame.
+- **F2 to F3:** Red moves back right, while blue and amber move back left. Blue returning left, away from amber, suggests repulsion, so I chose BCOpposite. Red moving right, away from amber, would also fit ABOpposite, but BCOpposite also accounts for the blue motion, so I chose it.
+- **F3 to F4:** Blue moves right and amber moves right and forward, with its rods swinging. Red is stable. I could not separate the candidates, so I chose BCSame.
+- **F4 to F5:** Red moves left, and amber and blue change little. I chose ABSame.
+- **F5 to F6:** Red returns right and blue returns slightly right. I chose ABOpposite.
+
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | BCSame | BCSame |
 | 2 | ABSame | ACSame |
 | 3 | BCOpposite | ABOpposite |
 | 4 | BCSame | BCOpposite |
 | 5 | ABSame | ABSame |
 | 6 | ABOpposite | ACOpposite |
-
-</details>

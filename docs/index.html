@@ -14,7 +14,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/webp" href="data:image/webp;base64,UklGRqYCAABXRUJQVlA4WAoAAAAQAAAAHAAAHAAAQUxQSLIBAAABkBxAAAE2F9u2bdu2bdu2bdtJbdvWBN3GfkfEBPDXlE2biFX8WdZDD7arTx4txcj/BLWdu+2mgG7B8cuCH3J81iUFMuIAVs8rfiD2QzqI5N671WgM6D0v/x7B1hdOEHJ118Zp/MGRBug/L/mOqRvqCM/fDAaQ778pA8Yfzb4R8UYBRi9KgkWkACweCsN6w9fkXkZCxX0FbPfu3N2QRvxcN0TeEfrKyBbEvtLD5GO5tPjSDS20P+mj8NriC7ePWii/ckXxcRlA7xkBdqthrQEQvZkPfZNInB4ESTsU3xkRfUuY6MuC4P5MAqPXmqTcEcL05LMNuxVIv7LH7YoQDI3DahMcFSNyt6Rhl6Qrgoz343FZCImnnpg9kUP9rR7+b8UVXlmrvlQmd/UrDs8liTsFGedhvx2u+Mk/UiN/+StRp6F+HKaakXxtCo9tFb8newXma2E9E82HSkg9NFT6noYBOJWAwEkoVjelUbqnofw9o9WI3XBB5IYT3peEMLgjr/z4a1eE2M5C+bk20s/1iT8N1jdFVR6rUfA1a2XEXYURcRZBwwJkbRG1F0XDFDlrAf4/AVZQOCDOAAAAsAUAnQEqHQAdAD6lQJxIpiOjITAYDADAFIlsZzVGFkpcz9N3oLcAejYRDwhk8gIp9EmBf38AAP7ucDkE8f/2BORsPhDQzjhYmLRMHIkpNzWuq/esg3KSxtaapnElElJhQ0rdAIdhOGAJW/49RXXnmRPxHnY9IsHRTwCYsX3m0xNhPIulTQKzy5zGcG9/303f/w7yu1ABH9pQv9Zrn6dz9/6aM43NBoafQRF9jRyaTxiQYR/h/BlDusUKMZtFSeH9eDxIiW/fhiPtj182AAA=">
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script defer src="assets/site.js?v=ssi-centered"></script>
+  <script defer src="assets/site.js?v=ssi-sections"></script>
   <style id="project-styles">
 @font-face {
   font-family: Inter;
@@ -174,7 +174,7 @@ button,summary { cursor: pointer; }
   .nav nav>div a+a::before { left: -6px; }
 }
 </style>
-  <link id="guide-style" rel="stylesheet" href="assets/field-guide.css?v=ssi-centered">
+  <link id="guide-style" rel="stylesheet" href="assets/field-guide.css?v=ssi-sections">
   <noscript><style>.exposure-reader,.exposure-question{display:none}.film-foot{margin-top:10px}.film:not(.is-playing) .overview-video{position:static;visibility:visible}</style></noscript>
 </head>
 <body>
@@ -218,6 +218,60 @@ button,summary { cursor: pointer; }
       <div><h2>Dataset</h2><p>Start with the initial frame, F0. Compare each new frame with the one before it, then use the apparatus description to choose the controls that explain the change. Two controls can act in the same interval.</p></div>
       <dl class="statistics"><div><dt>Apparatuses</dt><dd>20</dd></div><div><dt>Physical domains</dt><dd>5</dd></div><div><dt>Test questions</dt><dd>1,180</dd></div></dl>
     </div>
+    <section class="web-subsection" id="overview">
+      <h3>Overview</h3>
+      <div class="paper-panel overview-layout">
+        <figure class="overview-domains">
+    <nav class="domain-ribbon" aria-label="Case studies by physical domain">
+      <a href="#S03"><span class="domain-photo" style="--tile:0%" aria-hidden="true"></span><span>Dynamics</span></a>
+      <a href="#S05"><span class="domain-photo" style="--tile:25%" aria-hidden="true"></span><span>Thermal physics</span></a>
+      <a href="#S10"><span class="domain-photo" style="--tile:50%" aria-hidden="true"></span><span>Electromagnetism</span></a>
+      <a href="#S15"><span class="domain-photo" style="--tile:75%" aria-hidden="true"></span><span>Acoustics</span></a>
+      <a href="#S17"><span class="domain-photo" style="--tile:100%" aria-hidden="true"></span><span>Optics</span></a>
+    </nav>
+          <figcaption>Five physical domains, with four apparatuses in each. Select a domain to view an example.</figcaption>
+        </figure>
+        <figure class="overview-composition">
+          <div class="composition-chart" aria-hidden="true"><span>1,180</span></div>
+          <ul aria-label="Test questions by physical domain">
+            <li><i></i>Dynamics <b>240</b></li>
+            <li><i></i>Thermal physics <b>240</b></li>
+            <li><i></i>Electromagnetism <b>220</b></li>
+            <li><i></i>Acoustics <b>240</b></li>
+            <li><i></i>Optics <b>240</b></li>
+          </ul>
+          <figcaption>Distribution of the 1,180 test questions by physical domain.</figcaption>
+        </figure>
+      </div>
+    <p class="split-note">The training set contains 9,000 episodes and the validation set contains 1,000. The 200 test episodes yield 1,180 questions about sequences ranging from one to six events.</p>
+    <details class="fold"><summary>Test set composition by domain</summary>
+      <div class="tablewrap" tabindex="0" role="region" aria-label="Test set composition"><table>
+        <thead><tr><th scope="col">Domain</th><th scope="col">Apparatuses</th><th scope="col">Episodes</th><th scope="col">Questions</th><th scope="col">Single-label events</th><th scope="col">Two-label events</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Dynamics</th><td>S01–S04</td><td>40</td><td>240</td><td>140</td><td>100</td></tr>
+          <tr><th scope="row">Thermal physics</th><td>S05–S08</td><td>40</td><td>240</td><td>68</td><td>172</td></tr>
+          <tr><th scope="row">Electromagnetism</th><td>S09–S12</td><td>40</td><td>220</td><td>203</td><td>37</td></tr>
+          <tr><th scope="row">Acoustics</th><td>S13–S16</td><td>40</td><td>240</td><td>108</td><td>132</td></tr>
+          <tr><th scope="row">Optics</th><td>S17–S20</td><td>40</td><td>240</td><td>179</td><td>61</td></tr>
+        </tbody></table></div>
+      <p>In the dielectric-response apparatus (S11), the first three events show full insertion, half insertion and withdrawal in varying order. Comparing the three leaf openings lets the viewer identify the middle setting. The ten S11 episodes therefore contribute three- to six-event questions. Each of the other 190 episodes contributes all six question lengths.</p>
+    </details>
+    </section>
+    <div class="case-intro"><h3 id="viewer">Dataset Viewer</h3><a href="assets/cases/CaveBench_Case_Studies.pptx?v=portrait2" download>Download editable slides</a></div>
+    <div id="browser">
+      <div class="selectors">
+        <label>Physical domain<select id="domain"></select></label>
+        <label>Apparatus<select id="scene"></select></label>
+      </div>
+      <div class="viewer-toolbar"><div class="pager"><button type="button" id="prev" aria-label="Previous scene">Prev</button><button type="button" id="next" aria-label="Next scene">Next</button><button type="button" id="random-scene">Random</button></div><span id="viewer-position"></span></div>
+      <details class="apparatus-atlas" id="apparatus-atlas">
+        <summary>Browse all 20 apparatuses</summary>
+        <div id="atlas"></div>
+      </details>
+      <article id="example" aria-live="polite"></article>
+    </div>
+    <section class="web-subsection film-section" aria-label="Research film">
+      <h3>Research Film</h3>
     <figure class="film" id="film" aria-label="Gold-leaf electroscope experiment and research film">
         <div class="instrument-head"><h3>Gold-leaf electroscope</h3><span>S11 · Electromagnetism</span></div>
         <div class="film-frame">
@@ -251,41 +305,9 @@ button,summary { cursor: pointer; }
         </figcaption>
         <p id="film-error" role="status" hidden>Playback unavailable. <a href="assets/video/CaveBench-overview.mp4?v=leaves1">Open the MP4</a></p>
       </figure>
-    <nav class="domain-ribbon" aria-label="Case studies by physical domain">
-      <a href="#S03"><span class="domain-photo" style="--tile:0%" aria-hidden="true"></span><span>Dynamics</span></a>
-      <a href="#S05"><span class="domain-photo" style="--tile:25%" aria-hidden="true"></span><span>Thermal physics</span></a>
-      <a href="#S10"><span class="domain-photo" style="--tile:50%" aria-hidden="true"></span><span>Electromagnetism</span></a>
-      <a href="#S15"><span class="domain-photo" style="--tile:75%" aria-hidden="true"></span><span>Acoustics</span></a>
-      <a href="#S17"><span class="domain-photo" style="--tile:100%" aria-hidden="true"></span><span>Optics</span></a>
-    </nav>
-    <p class="split-note">The training set contains 9,000 episodes and the validation set contains 1,000. The 200 test episodes yield 1,180 questions about sequences ranging from one to six events.</p>
-    <details class="fold"><summary>Test set composition by domain</summary>
-      <div class="tablewrap" tabindex="0" role="region" aria-label="Test set composition"><table>
-        <thead><tr><th scope="col">Domain</th><th scope="col">Apparatuses</th><th scope="col">Episodes</th><th scope="col">Questions</th><th scope="col">Single-label events</th><th scope="col">Two-label events</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Dynamics</th><td>S01–S04</td><td>40</td><td>240</td><td>140</td><td>100</td></tr>
-          <tr><th scope="row">Thermal physics</th><td>S05–S08</td><td>40</td><td>240</td><td>68</td><td>172</td></tr>
-          <tr><th scope="row">Electromagnetism</th><td>S09–S12</td><td>40</td><td>220</td><td>203</td><td>37</td></tr>
-          <tr><th scope="row">Acoustics</th><td>S13–S16</td><td>40</td><td>240</td><td>108</td><td>132</td></tr>
-          <tr><th scope="row">Optics</th><td>S17–S20</td><td>40</td><td>240</td><td>179</td><td>61</td></tr>
-        </tbody></table></div>
-      <p>In the dielectric-response apparatus (S11), the first three events show full insertion, half insertion and withdrawal in varying order. Comparing the three leaf openings lets the viewer identify the middle setting. The ten S11 episodes therefore contribute three- to six-event questions. Each of the other 190 episodes contributes all six question lengths.</p>
-    </details>
-    <div class="case-intro"><h3 id="viewer">Case studies</h3><a href="assets/cases/CaveBench_Case_Studies.pptx?v=portrait2" download>Download editable slides</a></div>
-    <div id="browser">
-      <div class="selectors">
-        <label>Physical domain<select id="domain"></select></label>
-        <label>Apparatus<select id="scene"></select></label>
-        <div class="pager"><button type="button" id="prev" aria-label="Previous scene">←</button><button type="button" id="next" aria-label="Next scene">→</button><button type="button" id="random-scene">Random</button></div>
-      </div>
-      <details class="apparatus-atlas" id="apparatus-atlas">
-        <summary>Browse all 20 apparatuses</summary>
-        <div id="atlas"></div>
-      </details>
-      <article id="example" aria-live="polite"></article>
-    </div>
-    <div class="pipeline"><h3>Construction and evaluation</h3>
-    <figure><a class="zoom" href="assets/construction.png"><img loading="lazy" width="1800" height="963" sizes="(max-width: 735px) 90vw, 550px" data-lazy-srcset="assets/figures/construction-704.webp 704w, assets/figures/construction-1200.webp 1200w" data-lazy-src="assets/figures/construction-704.webp" alt="Episode generation, image and control synchronization, question construction and model evaluation."></a><figcaption>The simulator logs the controls applied between frames to form the reference answer. <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/figure_tables.md#figure-3">Figure 3 · episode and question counts</a></figcaption></figure>
+    </section>
+    <div class="pipeline web-subsection"><h3>Construction and Evaluation</h3>
+    <figure><a class="zoom" href="assets/construction.png"><img loading="lazy" width="1800" height="963" sizes="(max-width: 1100px) 90vw, 1020px" data-lazy-srcset="assets/figures/construction-704.webp 704w, assets/figures/construction-1200.webp 1200w" data-lazy-src="assets/figures/construction-704.webp" alt="Episode generation, image and control synchronization, question construction and model evaluation."></a><figcaption>The simulator logs the controls applied between frames to form the reference answer. <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/figure_tables.md#figure-3">Figure 3 · episode and question counts</a></figcaption></figure>
     </div>
     <details class="fold"><summary>Physical design and example questions</summary>
       <figure><a class="zoom" href="assets/resonance.png"><img loading="lazy" width="1485" height="563" sizes="(max-width: 1200px) 90vw, 1120px" data-lazy-srcset="assets/figures/resonance-704.webp 704w, assets/figures/resonance-1200.webp 1200w" data-lazy-src="assets/figures/resonance-704.webp" alt="Resonant rods illustrate reasoning from an observed response back to a hidden control."></a><figcaption>Abductive reasoning with resonant rods. The source frequency is 100 Hz.</figcaption></figure>
@@ -298,24 +320,19 @@ button,summary { cursor: pointer; }
     <div class="section-inner">
     <div class="results-head">
       <div><h2>Leaderboard</h2><p>A sequence is correct when every event matches its recorded controls in chronological order. Controls applied together may appear in either order.</p></div>
-      <figure class="exact-readout"><figcaption>GPT-6.1 Sol on six-event questions</figcaption>
-        <dl>
-          <div><dt>Individual events</dt><dd><b>86.25%</b><span>1,035 of 1,200</span></dd><i style="--value:86.25%" aria-hidden="true"></i></div>
-          <div><dt>Complete sequences</dt><dd><b>68.0%</b><span>136 of 200</span></dd><i style="--value:68%" aria-hidden="true"></i></div>
-        </dl>
-      </figure>
     </div>
-    <figure id="length-comparison" class="length-comparison" hidden></figure>
     <div class="tabs" aria-label="Leaderboard view"><button data-table="domains" aria-pressed="true">By physical domain</button><button data-table="tasks" aria-pressed="false">Compare 20 apparatuses</button><button data-table="scenes" aria-pressed="false">By apparatus</button><button data-table="length" aria-pressed="false">By question length</button><button data-table="methods" aria-pressed="false">Adaptation methods</button></div>
     <div id="leaderboard-filters" class="result-controls">
       <fieldset id="k-filter"><legend>Events per question</legend><div class="k-options"></div></fieldset>
       <label id="apparatus-filter" hidden>Apparatus<select id="result-apparatus"></select></label>
       <label id="matrix-filter" hidden>Cell values<select id="matrix-values"><option value="percent">Exact match (%)</option><option value="counts">Correct / total</option></select></label>
     </div>
+    <p class="sort-hint">Select a column heading to sort the results.</p>
+    <ul class="result-legend" id="result-legend" aria-label="Row colors"></ul>
     <div class="table-lede"><p id="table-note"></p><a id="download" href="assets/domains.csv" download>Download table CSV</a></div>
     <div class="tablewrap" tabindex="0" role="region" aria-label="Sortable leaderboard"><table id="results"></table></div>
     <p class="result-status" id="leaderboard-status" role="status"></p>
-    <div id="detailed-results">
+    <div id="detailed-results" class="web-subsection">
       <h3>Detailed tables</h3>
       <div class="detail-bar">
         <label>Result table<select id="detail-view"></select></label>
@@ -334,39 +351,53 @@ button,summary { cursor: pointer; }
   <section class="section" id="analysis">
     <div class="section-inner">
     <div class="analysis-head"><h2>Analysis</h2></div>
-    <h3>From one event to six</h3>
-    <div class="finding">
-      <div><p>All 27 model configurations score lower at six events than at one. Gemini 3.8 Flash recovers 115 of 190 single-event sequences (60.5%) and 43 of 200 six-event sequences (21.5%). MiniMax M3.1 Flash drops from 73 of 190 (38.4%) to 25 of 200 (12.5%).</p></div>
-      <figure class="score-plot"><figcaption>Six-event exact-match accuracy</figcaption>
+    <section class="web-subsection key-results">
+      <h3>Key Results</h3>
+      <div class="paper-panel">
+        <div class="analysis-cards">
+          <div class="analysis-card"><h4>From one event to six</h4><p>All 27 model configurations score lower at six events than at one. Gemini 3.8 Flash recovers 115 of 190 single-event sequences (60.5%) and 43 of 200 six-event sequences (21.5%). MiniMax M3.1 Flash drops from 73 of 190 (38.4%) to 25 of 200 (12.5%).</p></div>
+          <div class="analysis-card"><h4>Six-event exact match</h4><figure class="score-plot"><figcaption class="visually-hidden">Six-event exact-match accuracy</figcaption>
         <div><span>GPT-6.1 Sol</span><b style="--score:68%"></b><strong>68.0%</strong></div>
         <div><span>GPT-6.1 Terra</span><b style="--score:65%"></b><strong>65.0%</strong></div>
         <div><span>GPT-6 Luna</span><b style="--score:28.5%"></b><strong>28.5%</strong></div>
+      </figure></div>
+          <div class="analysis-card"><h4>Relative difficulty across domains</h4><p>Electromagnetism is MiniMax M3.1 Flash’s strongest domain on six-event questions (27.5%). It is the lowest-scoring domain for GPT-6.1 Sol (57.5%) and Terra (37.5%). Both reach their highest scores in thermal physics, at 80.0% and 85.0% respectively.</p></div>
+        </div>
+        <p class="related-tables"><a href="#table-main_event_by_length" data-detail="main_event_by_length">Event accuracy at each question length</a> · <a href="#table-compound_by_length" data-detail="compound_by_length">Compare single- and two-label events</a></p>
+      </div>
+      <figure class="exact-readout"><figcaption>GPT-6.1 Sol on six-event questions</figcaption>
+        <dl>
+          <div><dt>Individual events</dt><dd><b>86.25%</b><span>1,035 of 1,200</span></dd><i style="--value:86.25%" aria-hidden="true"></i></div>
+          <div><dt>Complete sequences</dt><dd><b>68.0%</b><span>136 of 200</span></dd><i style="--value:68%" aria-hidden="true"></i></div>
+        </dl>
       </figure>
-    </div>
-    <p>Electromagnetism is MiniMax M3.1 Flash’s strongest domain on six-event questions (27.5%). It is the lowest-scoring domain for GPT-6.1 Sol (57.5%) and Terra (37.5%). Both reach their highest scores in thermal physics, at 80.0% and 85.0% respectively.</p>
-    <p class="related-tables"><a href="#table-main_event_by_length" data-detail="main_event_by_length">Event accuracy at each question length</a> · <a href="#table-compound_by_length" data-detail="compound_by_length">Compare single- and two-label events</a></p>
-    <div class="analysis-spread">
-      <div><h3>Learning to recover a sequence</h3>
+      <figure id="length-comparison" class="length-comparison" hidden></figure>
+    </section>
+    <section class="analysis-spread web-subsection">
+      <h3>Learning to recover a sequence</h3>
+      <div class="paper-panel">
     <p>Qwen3.5-9B recovers one of 200 six-event sequences before task-specific training and 40 after supervised fine-tuning (SFT). Adding SimPO or KTO gives similar single-event accuracy across two seeds (86.8% and 86.3%, respectively). On six-event sequences, SFT + SimPO reaches 31.8% and SFT + KTO reaches 14.5%.</p>
     <p>SFT recovers 10 of the 40 six-event dynamics sequences. The two SimPO runs recover <a href="#table-adaptation_by_domain-k6?domain=Dynamics" data-detail="adaptation_by_domain">16 and 17</a>. Across the five domains, each SimPO run recovers 27 sequences that SFT missed. The runs agree on 26 of those sequences. <a href="https://github.com/PIER-Lab/CaveBench/blob/main/results/adaptation_tables.md#simpo-seeds">Compare the two training seeds</a>.</p>
     <p class="related-tables"><a href="#table-training_case" data-detail="training_case">Compare predictions for all six events</a> · <a href="#table-adaptation_by_domain-k6" data-detail="adaptation_by_domain">Compare adaptation by physical domain</a> · <a href="#table-adaptation_by_length" data-detail="adaptation_by_length">Compare question lengths</a> · <a href="#table-adaptation_by_position" data-detail="adaptation_by_position">Accuracy at each event by run</a> · <a href="https://github.com/PIER-Lab/CaveBench#local-qwen-checkpoints">Load the trained checkpoints</a></p>
+<figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" width="1485" height="1707" sizes="(max-width: 1100px) 90vw, 1020px" data-lazy-srcset="assets/figures/adaptation-704.webp 704w, assets/figures/adaptation-1200.webp 1200w" data-lazy-src="assets/figures/adaptation-704.webp" alt="Frames F0–F3 above Qwen3.5-9B’s explanations for event 3 before and after SFT + SimPO."></a><figcaption>At F3 the leaves are farther apart than at F1 and closer than at F2. The baseline predicts full insertion. After SFT + SimPO, the model identifies half insertion.</figcaption></figure>
       </div>
-    <figure><a class="zoom" href="assets/adaptation.png"><img loading="lazy" width="1485" height="1707" sizes="(max-width: 735px) 90vw, 550px" data-lazy-srcset="assets/figures/adaptation-704.webp 704w, assets/figures/adaptation-1200.webp 1200w" data-lazy-src="assets/figures/adaptation-704.webp" alt="Frames F0–F3 above Qwen3.5-9B’s explanations for event 3 before and after SFT + SimPO."></a><figcaption>At F3 the leaves are farther apart than at F1 and closer than at F2. The baseline predicts full insertion. After SFT + SimPO, the model identifies half insertion.</figcaption></figure>
-    </div>
-    <div class="analysis-spread">
-      <div><h3>Reasoning effort</h3>
+    </section>
+    <section class="analysis-spread web-subsection">
+      <h3>Reasoning effort</h3>
+      <div class="paper-panel">
     <p>Raising reasoning effort from low to high gives GPT-6.1 Sol 29 more correct final answers on the same 200 six-event questions, from 119 (59.5%) to 148 (74.0%). Gemini 3.8 Flash recovers 15 fewer sequences at high effort, dropping from 31 (15.5%) to 16 (8.0%).</p>
     <p class="related-tables"><a href="#table-effort_results" data-detail="effort_results">View the model and apparatus scores</a></p>
+<figure><a class="zoom" href="assets/effort.png"><img loading="lazy" width="1485" height="446" sizes="(max-width: 1100px) 90vw, 1020px" data-lazy-srcset="assets/figures/effort-704.webp 704w, assets/figures/effort-1200.webp 1200w" data-lazy-src="assets/figures/effort-704.webp" alt="Accuracy by reasoning effort, model and apparatus."></a><figcaption>Final-answer accuracy across ten episodes per apparatus.</figcaption></figure>
       </div>
-    <figure><a class="zoom" href="assets/effort.png"><img loading="lazy" width="1485" height="446" sizes="(max-width: 735px) 90vw, 550px" data-lazy-srcset="assets/figures/effort-704.webp 704w, assets/figures/effort-1200.webp 1200w" data-lazy-src="assets/figures/effort-704.webp" alt="Accuracy by reasoning effort, model and apparatus."></a><figcaption>Final-answer accuracy across ten episodes per apparatus.</figcaption></figure>
-    </div>
-    <div class="analysis-spread">
-      <div><h3>Error analysis</h3>
+    </section>
+    <section class="analysis-spread web-subsection">
+      <h3>Error analysis</h3>
+      <div class="paper-panel">
     <p>In 100 sampled incorrect six-event answers, models misread a visual cue in 38 cases, failed to connect observations across time in 31, misapplied a physical principle in 24 and selected the wrong combination of controls in seven.</p>
     <p class="related-tables"><a href="#table-error_categories" data-detail="error_categories">View counts by error category</a></p>
+<figure><a class="zoom" href="assets/errors.png"><img loading="lazy" width="1485" height="1170" sizes="(max-width: 1100px) 90vw, 1020px" data-lazy-srcset="assets/figures/errors-704.webp 704w, assets/figures/errors-1200.webp 1200w" data-lazy-src="assets/figures/errors-704.webp" alt="Four examples pairing the input images with the predicted and recorded controls, one for each error category."></a></figure>
       </div>
-    <figure><a class="zoom" href="assets/errors.png"><img loading="lazy" width="1485" height="1170" sizes="(max-width: 735px) 90vw, 550px" data-lazy-srcset="assets/figures/errors-704.webp 704w, assets/figures/errors-1200.webp 1200w" data-lazy-src="assets/figures/errors-704.webp" alt="Four examples pairing the input images with the predicted and recorded controls, one for each error category."></a></figure>
-    </div>
+    </section>
     </div>
   </section>
 </main>

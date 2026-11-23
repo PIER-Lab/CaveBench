@@ -39,7 +39,7 @@ function cachedFile(key, load) {
 function script(path) {
   return cachedFile(path, () => new Promise((resolve, reject) => {
     const tag = document.createElement('script');
-    const versions = {'assets/results.js':'ssi-centered', 'assets/offline-results.js':'matrix1', 'assets/case-reader.js':'portrait2'};
+    const versions = {'assets/results.js':'ssi-sections', 'assets/offline-results.js':'matrix1', 'assets/case-reader.js':'portrait2'};
     const version = versions[path] || 'atlas3';
     tag.src = path + '?v=' + version;
     tag.onload = resolve;
@@ -121,7 +121,7 @@ function sectionStyle(id, href) {
   }
 }
 function loadCaseReader() {
-  sectionStyle('reader-style','assets/case-reader.css?v=ssi-centered');
+  sectionStyle('reader-style','assets/case-reader.css?v=ssi-sections');
   return script('assets/case-reader.js');
 }
 function compareSteps(item) {
@@ -257,15 +257,19 @@ async function renderScene(id, changeHash=false) {
     fig.append(zoom,node('figcaption',item.frame_labels?.[n] || 'Frame F'+n)); strip.append(fig);
   });
   const prompt=textPanel('Full prompt and control definitions',item.prompt);
+  prompt.className='prompt-card';
+  prompt.open=true;
   const attempt=trySequence(item);
   if (practice) {
     attempt.open=true;
     strip.classList.add('practice-frames');
-    example.replaceChildren(header,question,node('h4','Internal observations'),strip,prompt,attempt);
+    example.replaceChildren(header,question,prompt,node('h4','Internal observations'),strip,attempt);
   } else {
     const reading = window.caveCaseReader(item, {node,pathFor,answerText,strip,preview});
-    example.replaceChildren(header,question,reading,episodeMedia(item),prompt,attempt,compareSteps(item));
+    example.replaceChildren(header,question,prompt,reading,episodeMedia(item),attempt,compareSteps(item));
   }
+  const available=matchingCases();
+  $('#viewer-position').textContent=(available.findIndex(scene=>scene.id===id)+1)+' / '+available.length;
   example.dataset.scene=id;
   example.removeAttribute('aria-busy');
 }
@@ -350,10 +354,11 @@ async function showResults() {
 }
 whenNear($('#viewer'),showViewer);
 whenNear($('#leaderboard'),showResults);
+whenNear($('.key-results'),showResults);
 let requestedAnchor = '';
 function needsAlignment(hash) {
   // Only content injected after navigation can move its own deep-link target.
-  return /^#(?:(?:try-)?S(?:0[1-9]|1\d|20)|viewer|leaderboard|analysis|detailed-results|(?:tasks|domain)-k[1-6]|apparatus-S\d{2}|scores-(?:length|methods)|table-.+)$/.test(hash);
+  return /^#(?:(?:try-)?S(?:0[1-9]|1\d|20)|viewer|film|leaderboard|analysis|detailed-results|(?:tasks|domain)-k[1-6]|apparatus-S\d{2}|scores-(?:length|methods)|table-.+)$/.test(hash);
 }
 function preserveAnchor() {
   if (!requestedAnchor || requestedAnchor !== location.hash) return;

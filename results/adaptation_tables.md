@@ -1,4 +1,4 @@
-# Adaptation results by run and apparatus
+<h1 align="center">Adaptation Results by Run and Apparatus</h1>
 
 Sequence exact match counts questions with every event correct. Event accuracy counts individual events whose predicted controls match the recorded set. SimPO and KTO have two seeds each.
 
@@ -6,45 +6,43 @@ Question length (`k`) ranges from one to six events. There are ten questions per
 
 [Counts by run and length](../docs/assets/results/adaptation_by_length.csv) · [Counts by run and apparatus](../docs/assets/results/adaptation_by_scene.csv) · [Question-level scores](adaptation_question_scores.csv) · [Six-event results by event position](#event-positions)
 
-## All runs
+## All Runs
 
-**Sequence exact match (%)**
+### Sequence Exact Match (%)
 
 | Model and method | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| [Qwen3.5-9B · Baseline](#qwen3-5-9b-baseline-baseline) | 23.7 | 3.2 | 4.0 | 1.0 | 1.0 | 0.5 | 5.4 |
-| [Qwen3.5-9B · SFT · seed 20261102](#qwen3-5-9b-sft-20261102) | 78.9 | 62.6 | 47.5 | 35.0 | 21.0 | 20.0 | 43.7 |
-| [Qwen3.5-9B · SFT + DPO · seed 20261106](#qwen3-5-9b-sft-dpo-20261106) | 86.3 | 74.2 | 69.0 | 52.5 | 29.0 | 30.5 | 56.5 |
 | [Qwen3.5-9B · SFT + SimPO · seed 20261108](#qwen3-5-9b-sft-simpo-20261108) | 87.4 | 72.6 | 65.0 | 57.0 | 32.0 | 31.5 | 57.2 |
 | [Qwen3.5-9B · SFT + SimPO · seed 20261109](#qwen3-5-9b-sft-simpo-20261109) | 86.3 | 72.6 | 66.5 | 55.0 | 33.0 | 32.0 | 57.2 |
 | [Qwen3.5-9B · SFT + SimPO · two-seed mean](#qwen3-5-9b-sft-simpo-mean) | 86.8 | 72.6 | 65.8 | 56.0 | 32.5 | 31.8 | 57.2 |
-| [Qwen3.5-9B · SFT + KTO · seed 20261107](#qwen3-5-9b-sft-kto-20261107) | 85.3 | 75.8 | 67.0 | 35.0 | 12.5 | 14.5 | 47.8 |
+| [Qwen3.5-9B · SFT + DPO · seed 20261106](#qwen3-5-9b-sft-dpo-20261106) | 86.3 | 74.2 | 69.0 | 52.5 | 29.0 | 30.5 | 56.5 |
 | [Qwen3.5-9B · SFT + KTO · seed 20261108](#qwen3-5-9b-sft-kto-20261108) | 87.4 | 73.7 | 69.0 | 41.5 | 19.0 | 14.5 | 50.3 |
 | [Qwen3.5-9B · SFT + KTO · two-seed mean](#qwen3-5-9b-sft-kto-mean) | 86.3 | 74.7 | 68.0 | 38.2 | 15.8 | 14.5 | 49.1 |
-| [Gemini 3.8 Flash · Baseline](#gemini-3-8-flash-baseline-baseline) | 60.5 | 38.4 | 36.0 | 28.5 | 25.5 | 21.5 | 34.8 |
+| [Qwen3.5-9B · SFT + KTO · seed 20261107](#qwen3-5-9b-sft-kto-20261107) | 85.3 | 75.8 | 67.0 | 35.0 | 12.5 | 14.5 | 47.8 |
+| [Qwen3.5-9B · SFT · seed 20261102](#qwen3-5-9b-sft-20261102) | 78.9 | 62.6 | 47.5 | 35.0 | 21.0 | 20.0 | 43.7 |
 | [Gemini 3.8 Flash · ReAct](#gemini-3-8-flash-react-published) | 64.2 | 47.9 | 37.5 | 34.0 | 26.5 | 26.0 | 39.1 |
-| [Gemini 3.8 Flash · Visual Sketchpad](#gemini-3-8-flash-visual-sketchpad-published) | 59.5 | 34.2 | 20.0 | 15.5 | 10.0 | 8.0 | 24.2 |
+| [Gemini 3.8 Flash · Baseline](#gemini-3-8-flash-baseline-baseline) | 60.5 | 38.4 | 36.0 | 28.5 | 25.5 | 21.5 | 34.8 |
 | [Gemini 3.8 Flash · ViperGPT](#gemini-3-8-flash-vipergpt-published) | 57.4 | 28.4 | 25.0 | 18.0 | 12.0 | 11.0 | 25.0 |
+| [Gemini 3.8 Flash · Visual Sketchpad](#gemini-3-8-flash-visual-sketchpad-published) | 59.5 | 34.2 | 20.0 | 15.5 | 10.0 | 8.0 | 24.2 |
+| [Qwen3.5-9B · Baseline](#qwen3-5-9b-baseline-baseline) | 23.7 | 3.2 | 4.0 | 1.0 | 1.0 | 0.5 | 5.4 |
 
-<details><summary>Event accuracy across all apparatuses</summary>
+### Event Accuracy Across All Apparatuses (%)
 
 | Model and method | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Qwen3.5-9B · Baseline | 23.7 | 18.4 | 23.0 | 19.0 | 18.8 | 19.1 | 19.7 |
-| Qwen3.5-9B · SFT · seed 20261102 | 78.9 | 73.7 | 66.3 | 57.4 | 49.2 | 54.5 | 58.3 |
-| Qwen3.5-9B · SFT + DPO · seed 20261106 | 86.3 | 82.9 | 82.2 | 68.1 | 56.1 | 67.3 | 69.2 |
 | Qwen3.5-9B · SFT + SimPO · seed 20261108 | 87.4 | 82.1 | 80.0 | 73.4 | 63.1 | 67.5 | 71.6 |
 | Qwen3.5-9B · SFT + SimPO · seed 20261109 | 86.3 | 82.1 | 81.0 | 72.0 | 61.0 | 66.9 | 70.8 |
 | Qwen3.5-9B · SFT + SimPO · two-seed mean | 86.8 | 82.1 | 80.5 | 72.7 | 62.0 | 67.2 | 71.2 |
-| Qwen3.5-9B · SFT + KTO · seed 20261107 | 85.3 | 83.9 | 80.8 | 51.1 | 33.4 | 57.0 | 57.4 |
+| Qwen3.5-9B · SFT + DPO · seed 20261106 | 86.3 | 82.9 | 82.2 | 68.1 | 56.1 | 67.3 | 69.2 |
 | Qwen3.5-9B · SFT + KTO · seed 20261108 | 87.4 | 83.4 | 82.7 | 59.8 | 47.7 | 58.4 | 63.2 |
 | Qwen3.5-9B · SFT + KTO · two-seed mean | 86.3 | 83.7 | 81.8 | 55.4 | 40.5 | 57.7 | 60.3 |
-| Gemini 3.8 Flash · Baseline | 60.5 | 56.3 | 58.0 | 55.9 | 52.5 | 53.3 | 54.9 |
+| Qwen3.5-9B · SFT + KTO · seed 20261107 | 85.3 | 83.9 | 80.8 | 51.1 | 33.4 | 57.0 | 57.4 |
+| Qwen3.5-9B · SFT · seed 20261102 | 78.9 | 73.7 | 66.3 | 57.4 | 49.2 | 54.5 | 58.3 |
 | Gemini 3.8 Flash · ReAct | 64.2 | 62.6 | 60.7 | 59.5 | 53.7 | 55.6 | 57.6 |
-| Gemini 3.8 Flash · Visual Sketchpad | 59.5 | 50.8 | 43.5 | 42.4 | 37.7 | 35.3 | 40.9 |
+| Gemini 3.8 Flash · Baseline | 60.5 | 56.3 | 58.0 | 55.9 | 52.5 | 53.3 | 54.9 |
 | Gemini 3.8 Flash · ViperGPT | 57.4 | 44.7 | 47.8 | 43.2 | 39.0 | 37.3 | 42.0 |
-
-</details>
+| Gemini 3.8 Flash · Visual Sketchpad | 59.5 | 50.8 | 43.5 | 42.4 | 37.7 | 35.3 | 40.9 |
+| Qwen3.5-9B · Baseline | 23.7 | 18.4 | 23.0 | 19.0 | 18.8 | 19.1 | 19.7 |
 
 <a name="simpo-seeds"></a>
 
@@ -87,7 +85,7 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 
 ## Qwen3.5-9B · Baseline
 
-**Sequence exact match (%)**
+### Sequence Exact Match (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -112,7 +110,7 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 30.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 5.0 |
 | S20 · Double-slit fringes | 30.0 | 20.0 | 0.0 | 0.0 | 0.0 | 0.0 | 8.3 |
 
-<details><summary>Event accuracy by apparatus</summary>
+### Event Accuracy by Apparatus (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -137,13 +135,11 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 30.0 | 15.0 | 13.3 | 12.5 | 14.0 | 13.3 | 14.3 |
 | S20 · Double-slit fringes | 30.0 | 30.0 | 16.7 | 37.5 | 22.0 | 23.3 | 25.7 |
 
-</details>
-
 <a name="qwen3-5-9b-sft-20261102"></a>
 
 ## Qwen3.5-9B · SFT · seed 20261102
 
-**Sequence exact match (%)**
+### Sequence Exact Match (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -168,7 +164,7 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 100.0 | 80.0 | 30.0 | 20.0 | 20.0 | 20.0 | 45.0 |
 | S20 · Double-slit fringes | 90.0 | 60.0 | 50.0 | 60.0 | 20.0 | 0.0 | 46.7 |
 
-<details><summary>Event accuracy by apparatus</summary>
+### Event Accuracy by Apparatus (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -193,13 +189,11 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 100.0 | 90.0 | 56.7 | 47.5 | 34.0 | 53.3 | 53.8 |
 | S20 · Double-slit fringes | 90.0 | 75.0 | 73.3 | 75.0 | 52.0 | 53.3 | 63.8 |
 
-</details>
-
 <a name="qwen3-5-9b-sft-dpo-20261106"></a>
 
 ## Qwen3.5-9B · SFT + DPO · seed 20261106
 
-**Sequence exact match (%)**
+### Sequence Exact Match (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -224,7 +218,7 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 100.0 | 80.0 | 70.0 | 60.0 | 10.0 | 20.0 | 56.7 |
 | S20 · Double-slit fringes | 90.0 | 60.0 | 80.0 | 70.0 | 10.0 | 20.0 | 55.0 |
 
-<details><summary>Event accuracy by apparatus</summary>
+### Event Accuracy by Apparatus (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -249,13 +243,11 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 100.0 | 90.0 | 80.0 | 70.0 | 28.0 | 66.7 | 63.8 |
 | S20 · Double-slit fringes | 90.0 | 75.0 | 86.7 | 87.5 | 50.0 | 68.3 | 71.9 |
 
-</details>
-
 <a name="qwen3-5-9b-sft-simpo-20261108"></a>
 
 ## Qwen3.5-9B · SFT + SimPO · seed 20261108
 
-**Sequence exact match (%)**
+### Sequence Exact Match (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -280,7 +272,7 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 100.0 | 80.0 | 60.0 | 50.0 | 20.0 | 40.0 | 58.3 |
 | S20 · Double-slit fringes | 90.0 | 60.0 | 70.0 | 70.0 | 20.0 | 10.0 | 53.3 |
 
-<details><summary>Event accuracy by apparatus</summary>
+### Event Accuracy by Apparatus (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -305,13 +297,11 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 100.0 | 90.0 | 76.7 | 72.5 | 54.0 | 68.3 | 70.5 |
 | S20 · Double-slit fringes | 90.0 | 75.0 | 83.3 | 82.5 | 60.0 | 61.7 | 71.0 |
 
-</details>
-
 <a name="qwen3-5-9b-sft-simpo-20261109"></a>
 
 ## Qwen3.5-9B · SFT + SimPO · seed 20261109
 
-**Sequence exact match (%)**
+### Sequence Exact Match (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -336,7 +326,7 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 100.0 | 80.0 | 60.0 | 40.0 | 20.0 | 40.0 | 56.7 |
 | S20 · Double-slit fringes | 90.0 | 60.0 | 70.0 | 70.0 | 20.0 | 10.0 | 53.3 |
 
-<details><summary>Event accuracy by apparatus</summary>
+### Event Accuracy by Apparatus (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -361,13 +351,11 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 100.0 | 90.0 | 80.0 | 70.0 | 54.0 | 70.0 | 71.0 |
 | S20 · Double-slit fringes | 90.0 | 75.0 | 83.3 | 87.5 | 60.0 | 60.0 | 71.4 |
 
-</details>
-
 <a name="qwen3-5-9b-sft-simpo-mean"></a>
 
 ## Qwen3.5-9B · SFT + SimPO · two-seed mean
 
-**Sequence exact match (%)**
+### Sequence Exact Match (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -392,7 +380,7 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 100.0 | 80.0 | 60.0 | 45.0 | 20.0 | 40.0 | 57.5 |
 | S20 · Double-slit fringes | 90.0 | 60.0 | 70.0 | 70.0 | 20.0 | 10.0 | 53.3 |
 
-<details><summary>Event accuracy by apparatus</summary>
+### Event Accuracy by Apparatus (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -417,13 +405,11 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 100.0 | 90.0 | 78.3 | 71.2 | 54.0 | 69.2 | 70.7 |
 | S20 · Double-slit fringes | 90.0 | 75.0 | 83.3 | 85.0 | 60.0 | 60.8 | 71.2 |
 
-</details>
-
 <a name="qwen3-5-9b-sft-kto-20261107"></a>
 
 ## Qwen3.5-9B · SFT + KTO · seed 20261107
 
-**Sequence exact match (%)**
+### Sequence Exact Match (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -448,7 +434,7 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 90.0 | 80.0 | 50.0 | 30.0 | 20.0 | 10.0 | 46.7 |
 | S20 · Double-slit fringes | 70.0 | 60.0 | 80.0 | 40.0 | 0.0 | 0.0 | 41.7 |
 
-<details><summary>Event accuracy by apparatus</summary>
+### Event Accuracy by Apparatus (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -473,13 +459,11 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 90.0 | 90.0 | 80.0 | 40.0 | 28.0 | 55.0 | 54.3 |
 | S20 · Double-slit fringes | 70.0 | 80.0 | 93.3 | 77.5 | 24.0 | 60.0 | 61.9 |
 
-</details>
-
 <a name="qwen3-5-9b-sft-kto-20261108"></a>
 
 ## Qwen3.5-9B · SFT + KTO · seed 20261108
 
-**Sequence exact match (%)**
+### Sequence Exact Match (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -504,7 +488,7 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 100.0 | 80.0 | 50.0 | 30.0 | 0.0 | 10.0 | 45.0 |
 | S20 · Double-slit fringes | 90.0 | 60.0 | 80.0 | 40.0 | 0.0 | 0.0 | 45.0 |
 
-<details><summary>Event accuracy by apparatus</summary>
+### Event Accuracy by Apparatus (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -529,13 +513,11 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 100.0 | 90.0 | 80.0 | 52.5 | 20.0 | 55.0 | 55.2 |
 | S20 · Double-slit fringes | 90.0 | 70.0 | 93.3 | 72.5 | 40.0 | 53.3 | 62.9 |
 
-</details>
-
 <a name="qwen3-5-9b-sft-kto-mean"></a>
 
 ## Qwen3.5-9B · SFT + KTO · two-seed mean
 
-**Sequence exact match (%)**
+### Sequence Exact Match (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -560,7 +542,7 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 95.0 | 80.0 | 50.0 | 30.0 | 10.0 | 10.0 | 45.8 |
 | S20 · Double-slit fringes | 80.0 | 60.0 | 80.0 | 40.0 | 0.0 | 0.0 | 43.3 |
 
-<details><summary>Event accuracy by apparatus</summary>
+### Event Accuracy by Apparatus (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -585,13 +567,11 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 95.0 | 90.0 | 80.0 | 46.2 | 24.0 | 55.0 | 54.8 |
 | S20 · Double-slit fringes | 80.0 | 75.0 | 93.3 | 75.0 | 32.0 | 56.7 | 62.4 |
 
-</details>
-
 <a name="gemini-3-8-flash-baseline-baseline"></a>
 
 ## Gemini 3.8 Flash · Baseline
 
-**Sequence exact match (%)**
+### Sequence Exact Match (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -616,7 +596,7 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 20.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 3.3 |
 | S20 · Double-slit fringes | 70.0 | 20.0 | 20.0 | 30.0 | 20.0 | 40.0 | 33.3 |
 
-<details><summary>Event accuracy by apparatus</summary>
+### Event Accuracy by Apparatus (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -641,13 +621,11 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 20.0 | 20.0 | 20.0 | 22.5 | 16.0 | 10.0 | 16.7 |
 | S20 · Double-slit fringes | 70.0 | 40.0 | 53.3 | 70.0 | 52.0 | 66.7 | 59.5 |
 
-</details>
-
 <a name="gemini-3-8-flash-react-published"></a>
 
 ## Gemini 3.8 Flash · ReAct
 
-**Sequence exact match (%)**
+### Sequence Exact Match (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -672,7 +650,7 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 10.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 1.7 |
 | S20 · Double-slit fringes | 80.0 | 40.0 | 50.0 | 70.0 | 50.0 | 60.0 | 58.3 |
 
-<details><summary>Event accuracy by apparatus</summary>
+### Event Accuracy by Apparatus (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -697,13 +675,11 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 10.0 | 15.0 | 10.0 | 27.5 | 12.0 | 13.3 | 15.2 |
 | S20 · Double-slit fringes | 80.0 | 65.0 | 80.0 | 87.5 | 80.0 | 88.3 | 82.4 |
 
-</details>
-
 <a name="gemini-3-8-flash-visual-sketchpad-published"></a>
 
 ## Gemini 3.8 Flash · Visual Sketchpad
 
-**Sequence exact match (%)**
+### Sequence Exact Match (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -728,7 +704,7 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
 | S20 · Double-slit fringes | 70.0 | 20.0 | 10.0 | 0.0 | 0.0 | 10.0 | 18.3 |
 
-<details><summary>Event accuracy by apparatus</summary>
+### Event Accuracy by Apparatus (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -753,13 +729,11 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 0.0 | 0.0 | 3.3 | 20.0 | 8.0 | 16.7 | 11.0 |
 | S20 · Double-slit fringes | 70.0 | 50.0 | 50.0 | 35.0 | 34.0 | 41.7 | 41.9 |
 
-</details>
-
 <a name="gemini-3-8-flash-vipergpt-published"></a>
 
 ## Gemini 3.8 Flash · ViperGPT
 
-**Sequence exact match (%)**
+### Sequence Exact Match (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -784,7 +758,7 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S19 · Graded refraction | 10.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 1.7 |
 | S20 · Double-slit fringes | 60.0 | 30.0 | 20.0 | 0.0 | 0.0 | 0.0 | 18.3 |
 
-<details><summary>Event accuracy by apparatus</summary>
+### Event Accuracy by Apparatus (%)
 
 | Apparatus | k = 1 | k = 2 | k = 3 | k = 4 | k = 5 | k = 6 | Overall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -808,5 +782,3 @@ At event 3, Qwen3.5-9B recovered the complete control set in 115 of 200 question
 | S18 · Double reflection | 10.0 | 5.0 | 6.7 | 10.0 | 6.0 | 6.7 | 7.1 |
 | S19 · Graded refraction | 10.0 | 15.0 | 10.0 | 12.5 | 28.0 | 16.7 | 17.1 |
 | S20 · Double-slit fringes | 60.0 | 45.0 | 63.3 | 57.5 | 42.0 | 55.0 | 52.9 |
-
-</details>

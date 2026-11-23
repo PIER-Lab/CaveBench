@@ -1,6 +1,6 @@
-# Optics
+<h1 align="center">Optics</h1>
 
-[All case studies](README.md) · [S17](#s17) · [S18](#s18) · [S19](#s19) · [S20](#s20)
+<p align="center"><a href="README.md">All case studies</a> · <a href="#s17">S17</a> · <a href="#s18">S18</a> · <a href="#s19">S19</a> · <a href="#s20">S20</a></p>
 
 <a name="s17"></a>
 
@@ -11,30 +11,6 @@ The specimen responds to compression and to a rotating optical control. Which lo
 [![Photoelastic load. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S17.webp)](S17.webp)
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S17) · [Watch the episode](../../examples/S17/dual_view.mp4)
-
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
-
-Reading the frames: the reference strip looks alike in F0, F1, F3 and F6 (a gray/dark band). It looks bright and white in F2, F4 and F5. The strip changes only with rotation, so I infer the rotation state from it and treat the other events as load changes.
-
-Strip states: F0 is dark (alpha 12), F1 is dark, F2 is bright, F3 is dark, F4 is bright, F5 is bright, F6 is dark.
-
-The strip's intensity depends on sin²(2(θ−α)). Its axis runs from 10 to 40 degrees, so at α=12 it is near extinction on the left. At α=50 or 88 it would look different. A rotation of 38 degrees shifts 2α by 76 degrees. Dark-versus-bright is therefore not a simple function of α, so I use the sequence of changes.
-
-Event 1 (F0 to F1): the strip is unchanged and the specimens change only slightly. The dogbone gains some color and the disk is similar. This is a load event, most likely IncreaseLoad (load 0.32 to 0.61).
-
-Event 2 (F1 to F2): the strip changes from dark to bright, so this is a rotation. The specimen patterns change a lot.
-
-Event 3 (F2 to F3): the strip returns to dark, so this is a rotation. F3 looks much like F1, which suggests the alpha is back at 12 and the event is the reverse rotation. If event 2 was clockwise (alpha 50), event 3 is counterclockwise (alpha 12). F3 resembling F1 is consistent with this.
-
-Event 4 (F3 to F4): the strip turns bright again and F4 looks identical to F2, so alpha is back at 50. This is RotateClockwise.
-
-Event 5 (F4 to F5): the strip stays bright, so this is a load event. The specimens look slightly less colored in the dogbone, with a lower retardance. This suggests DecreaseLoad (load 0.61 to 0.32).
-
-Event 6 (F5 to F6): the strip turns dark, so this is a rotation back to alpha 12, which is RotateCounterclockwise.
-
-For event 2, going from 12 to 50 requires clockwise, since the alternative of 12 to −26 would also give a bright strip. I choose clockwise. Events 3 and 4 follow from that choice. Event 6 returns to alpha 12 from 50 by counterclockwise rotation.
-
-</details>
 
 <details><summary>Full evaluation prompt</summary>
 
@@ -68,18 +44,38 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-<details><summary>Model answer and experiment log</summary>
+### Model Response · Claude Sonnet 5.5
+
+Reading the frames: the reference strip looks alike in F0, F1, F3 and F6 (a gray/dark band). It looks bright and white in F2, F4 and F5. The strip changes only with rotation, so I infer the rotation state from it and treat the other events as load changes.
+
+Strip states: F0 is dark (alpha 12), F1 is dark, F2 is bright, F3 is dark, F4 is bright, F5 is bright, F6 is dark.
+
+The strip's intensity depends on sin²(2(θ−α)). Its axis runs from 10 to 40 degrees, so at α=12 it is near extinction on the left. At α=50 or 88 it would look different. A rotation of 38 degrees shifts 2α by 76 degrees. Dark-versus-bright is therefore not a simple function of α, so I use the sequence of changes.
+
+Event 1 (F0 to F1): the strip is unchanged and the specimens change only slightly. The dogbone gains some color and the disk is similar. This is a load event, most likely IncreaseLoad (load 0.32 to 0.61).
+
+Event 2 (F1 to F2): the strip changes from dark to bright, so this is a rotation. The specimen patterns change a lot.
+
+Event 3 (F2 to F3): the strip returns to dark, so this is a rotation. F3 looks much like F1, which suggests the alpha is back at 12 and the event is the reverse rotation. If event 2 was clockwise (alpha 50), event 3 is counterclockwise (alpha 12). F3 resembling F1 is consistent with this.
+
+Event 4 (F3 to F4): the strip turns bright again and F4 looks identical to F2, so alpha is back at 50. This is RotateClockwise.
+
+Event 5 (F4 to F5): the strip stays bright, so this is a load event. The specimens look slightly less colored in the dogbone, with a lower retardance. This suggests DecreaseLoad (load 0.61 to 0.32).
+
+Event 6 (F5 to F6): the strip turns dark, so this is a rotation back to alpha 12, which is RotateCounterclockwise.
+
+For event 2, going from 12 to 50 requires clockwise, since the alternative of 12 to −26 would also give a bright strip. I choose clockwise. Events 3 and 4 follow from that choice. Event 6 returns to alpha 12 from 50 by counterclockwise rotation.
+
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | IncreaseLoad | IncreaseLoad |
 | 2 | RotateClockwise | RotateCounterclockwise |
 | 3 | RotateCounterclockwise | RotateClockwise |
 | 4 | RotateClockwise | RotateCounterclockwise |
 | 5 | DecreaseLoad | DecreaseLoad |
 | 6 | RotateCounterclockwise | RotateCounterclockwise |
-
-</details>
 
 <a name="s18"></a>
 
@@ -90,40 +86,6 @@ Light reaches a screen after reflections from two mirrors. For each event, ident
 [![Double reflection. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S18.webp)](S18.webp)
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S18) · [Watch the episode](../../examples/S18/worked/dual_view.mp4)
-
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
-
-I estimated each event from the spot shifts between frames. I did not run a full ray-trace, so the fine distinctions below rest on rough sensitivity estimates.
-
-**Scale and spot positions.** The grid spacing of 0.5 m is about 82 px, so 1 px is about 0.0061 m. Spot positions (px) are:
-
-| Frame | Red | Green | Blue |
-|---|---|---|---|
-| F0 | (479, 270) | (571, 161) | (313, 475) |
-| F1 | (443, 255) | (542, 149) | (258, 461) |
-| F2 | (365, 254) | (472, 145) | (155, 477) |
-| F3 | (404, 255) | (507, 147) | (205, 470) |
-| F4 | (365, 254) | (472, 145) | (155, 477) |
-| F5 | (368, 220) | (484, 120) | (140, 424) |
-| F6 | (407, 224) | (519, 125) | (191, 421) |
-
-**Shifts per event (red).**
-- E1 (F0→F1): (-36, -15)
-- E2 (F1→F2): (-78, -1)
-- E3 (F2→F3): (+39, +1)
-- E4 (F3→F4): (-39, -1)
-- E5 (F4→F5): (+3, -34)
-- E6 (F5→F6): (+39, +4)
-
-**Sensitivities.**
-- Mirror2 yaw: a 2° rotation turns the reflected ray by 4°. Over the remaining path of about 2.7 m this gives roughly 0.19 m, or about 31 px, with a longer-path factor on top. A Mirror2 yaw step is therefore about ±39 px, and E3, E4 and E6 fit this size. Mirror2Right moves the beam toward +x, so E3 and E6 are Mirror2Right and E4 is Mirror2Left.
-- Mirror1 yaw: a 1° rotation turns the beam by 2°, and the path of about 6.5 m gives roughly 0.2 m, or about 35 px. For red, Mirror1 yaw shifts the spot in x by an amount of that order. E1 is (-36, -15), which looks like a Mirror1 yaw. Its normal is (-0.9, 0, 0.43), so a yaw changes the direction mostly in x. Mirror1Left gives a shift toward -x, so E1 is Mirror1Left, and the -15 px in y is probably a small cross-coupling.
-- E2 is -78 px, which is about 2 × 39. A single Mirror2Left would give -39, so -78 needs Mirror1Left (-36) plus Mirror2Left (-39), giving -75. E2 is therefore Mirror1Left with Mirror2Left.
-- E5 is a pure y shift of -34 px with x unchanged. Mirror2 pitch of 1.5° gives a 3° beam change over about 2.7 m, or about 0.14 m, which is about 23 px. Mirror1 pitch of 1° gives 2° over about 6.5 m, or about 0.23 m, which is about 38 px. The y shift of -34 px is closer to the Mirror1 value, so E5 is Mirror1Down.
-
-**Check on E1's y shift.** If E1 were Mirror1Left alone, the -15 px in y would come from cross-coupling. The E2 y shift is -1, though, and Mirror1Left appears in both E1 and E2, so the y shift should have repeated. Perhaps the E1 y shift comes from the rotated geometry. I could not resolve this, and I kept Mirror1Left for E1.
-
-</details>
 
 <details><summary>Full evaluation prompt</summary>
 
@@ -164,18 +126,48 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-<details><summary>Model answer and experiment log</summary>
+### Model Response · Claude Sonnet 5.5
+
+I estimated each event from the spot shifts between frames. I did not run a full ray-trace, so the fine distinctions below rest on rough sensitivity estimates.
+
+**Scale and spot positions.** The grid spacing of 0.5 m is about 82 px, so 1 px is about 0.0061 m. Spot positions (px) are:
+
+| Frame | Red | Green | Blue |
+|---|---|---|---|
+| F0 | (479, 270) | (571, 161) | (313, 475) |
+| F1 | (443, 255) | (542, 149) | (258, 461) |
+| F2 | (365, 254) | (472, 145) | (155, 477) |
+| F3 | (404, 255) | (507, 147) | (205, 470) |
+| F4 | (365, 254) | (472, 145) | (155, 477) |
+| F5 | (368, 220) | (484, 120) | (140, 424) |
+| F6 | (407, 224) | (519, 125) | (191, 421) |
+
+**Shifts per event (red).**
+- E1 (F0→F1): (-36, -15)
+- E2 (F1→F2): (-78, -1)
+- E3 (F2→F3): (+39, +1)
+- E4 (F3→F4): (-39, -1)
+- E5 (F4→F5): (+3, -34)
+- E6 (F5→F6): (+39, +4)
+
+**Sensitivities.**
+- Mirror2 yaw: a 2° rotation turns the reflected ray by 4°. Over the remaining path of about 2.7 m this gives roughly 0.19 m, or about 31 px, with a longer-path factor on top. A Mirror2 yaw step is therefore about ±39 px, and E3, E4 and E6 fit this size. Mirror2Right moves the beam toward +x, so E3 and E6 are Mirror2Right and E4 is Mirror2Left.
+- Mirror1 yaw: a 1° rotation turns the beam by 2°, and the path of about 6.5 m gives roughly 0.2 m, or about 35 px. For red, Mirror1 yaw shifts the spot in x by an amount of that order. E1 is (-36, -15), which looks like a Mirror1 yaw. Its normal is (-0.9, 0, 0.43), so a yaw changes the direction mostly in x. Mirror1Left gives a shift toward -x, so E1 is Mirror1Left, and the -15 px in y is probably a small cross-coupling.
+- E2 is -78 px, which is about 2 × 39. A single Mirror2Left would give -39, so -78 needs Mirror1Left (-36) plus Mirror2Left (-39), giving -75. E2 is therefore Mirror1Left with Mirror2Left.
+- E5 is a pure y shift of -34 px with x unchanged. Mirror2 pitch of 1.5° gives a 3° beam change over about 2.7 m, or about 0.14 m, which is about 23 px. Mirror1 pitch of 1° gives 2° over about 6.5 m, or about 0.23 m, which is about 38 px. The y shift of -34 px is closer to the Mirror1 value, so E5 is Mirror1Down.
+
+**Check on E1's y shift.** If E1 were Mirror1Left alone, the -15 px in y would come from cross-coupling. The E2 y shift is -1, though, and Mirror1Left appears in both E1 and E2, so the y shift should have repeated. Perhaps the E1 y shift comes from the rotated geometry. I could not resolve this, and I kept Mirror1Left for E1.
+
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | Mirror1Left | Mirror1Down + Mirror2Left |
 | 2 | Mirror1Left + Mirror2Left | Mirror1Right + Mirror2Left |
 | 3 | Mirror2Right | Mirror1Left |
 | 4 | Mirror2Left | Mirror1Right |
 | 5 | Mirror1Down | Mirror1Down + Mirror2Down |
 | 6 | Mirror2Right | Mirror1Left |
-
-</details>
 
 <a name="s19"></a>
 
@@ -186,31 +178,6 @@ Three light rays pass through a graded-index insert before reaching a screen. Ho
 [![Graded refraction. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S19.webp)](S19.webp)
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S19) · [Watch the episode](../../examples/S19/dual_view.mp4)
-
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
-
-I could not derive these from a quantitative model, so they are best-guess labels based on how the three spots move between frames. I read the spot positions (x, y in image pixels) off each frame.
-
-| Frame | Spot 1 | Spot 2 | Spot 3 |
-|---|---|---|---|
-| F0 | (422, 147) | (404, 207) | (408, 360) |
-| F1 | (452, 170) | (433, 204) | (441, 355) |
-| F2 | (418, 249) | (448, 251) | (470, 307) |
-| F3 | (398, 238) | (438, 259) | (470, 307) |
-| F4 | (518, 107) | (525, 179) | (527, 405) |
-| F5 | (528, 86) | (545, 186) | (541, 405) |
-| F6 | (513, 144) | (526, 207) | (523, 361) |
-
-Each transition, with my reasoning:
-
-1. **F0→F1:** All spots shift right by about 30 px and the spread shrinks slightly. I read this as a translation along the beam axis, so medium_right.
-2. **F1→F2:** The spots converge strongly and move down toward the middle, which looks like a transverse shift. I chose medium_near.
-3. **F2→F3:** Spot 1 moves left and up, spot 2 moves left, and spot 3 stays put. This is a small change in the tilt or yaw of the insert, so I chose medium_counterrotate.
-4. **F3→F4:** The spots spread out vertically and jump right, which looks like the insert moving back to a centred position. That suggests medium_far, undoing the earlier near shift.
-5. **F4→F5:** Spots 1 and 2 shift right and spot 3 shifts slightly right, with the top spot moving up and the spread growing. I chose medium_rotate.
-6. **F5→F6:** The spread shrinks again and the spots move left and down toward the F0 pattern. I chose medium_left.
-
-</details>
 
 <details><summary>Full evaluation prompt</summary>
 
@@ -252,18 +219,39 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-<details><summary>Model answer and experiment log</summary>
+### Model Response · Claude Sonnet 5.5
+
+I could not derive these from a quantitative model, so they are best-guess labels based on how the three spots move between frames. I read the spot positions (x, y in image pixels) off each frame.
+
+| Frame | Spot 1 | Spot 2 | Spot 3 |
+|---|---|---|---|
+| F0 | (422, 147) | (404, 207) | (408, 360) |
+| F1 | (452, 170) | (433, 204) | (441, 355) |
+| F2 | (418, 249) | (448, 251) | (470, 307) |
+| F3 | (398, 238) | (438, 259) | (470, 307) |
+| F4 | (518, 107) | (525, 179) | (527, 405) |
+| F5 | (528, 86) | (545, 186) | (541, 405) |
+| F6 | (513, 144) | (526, 207) | (523, 361) |
+
+Each transition, with my reasoning:
+
+1. **F0→F1:** All spots shift right by about 30 px and the spread shrinks slightly. I read this as a translation along the beam axis, so medium_right.
+2. **F1→F2:** The spots converge strongly and move down toward the middle, which looks like a transverse shift. I chose medium_near.
+3. **F2→F3:** Spot 1 moves left and up, spot 2 moves left, and spot 3 stays put. This is a small change in the tilt or yaw of the insert, so I chose medium_counterrotate.
+4. **F3→F4:** The spots spread out vertically and jump right, which looks like the insert moving back to a centred position. That suggests medium_far, undoing the earlier near shift.
+5. **F4→F5:** Spots 1 and 2 shift right and spot 3 shifts slightly right, with the top spot moving up and the spread growing. I chose medium_rotate.
+6. **F5→F6:** The spread shrinks again and the spots move left and down toward the F0 pattern. I chose medium_left.
+
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | medium_right | medium_rotate |
 | 2 | medium_near | medium_far |
 | 3 | medium_counterrotate | medium_left |
 | 4 | medium_far | medium_near |
 | 5 | medium_rotate | medium_counterrotate |
 | 6 | medium_left | medium_right |
-
-</details>
 
 <a name="s20"></a>
 
@@ -274,35 +262,6 @@ A coherent light source illuminates two adjustable slits. Which changes in slit 
 [![Double-slit fringes. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S20.webp)](S20.webp)
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S20) · [Watch the episode](../../examples/S20/dual_view.mp4)
-
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
-
-Reading the frames, F1 and F3 look identical, and F2, F4 and F6 look identical, so the states alternate between a few distinct patterns.
-
-**State estimates**
-- F0 has fringe pitch of about 26 px and an envelope first minimum near ±130 px from center.
-- F1 has finer fringes (about 20 px pitch) and a wider envelope, with the first minimum near ±160 px. Both the envelope and the fringe pitch changed from F0.
-- F2 has coarse fringes (about 37 px pitch) and a narrow central envelope.
-- F5 has fringes of about 36 px pitch and a central envelope roughly 2.5 times wider than F2's.
-
-**Event reasoning**
-1. F0→F1: the fringes became tighter, so spacing increased. The envelope in F0 had its first minimum at about ±130 px, and in F1 the minimum is wider at about ±160 px. A wider envelope means the slits widened. This gives IncreaseSpacing and WidenSlits.
-2. F1→F2: the fringes became coarser (spacing decreased) and the envelope narrowed (slits narrowed). This gives DecreaseSpacing and NarrowSlits.
-3. F2→F3: F3 equals F1, so the change reverses the previous one: IncreaseSpacing and WidenSlits.
-4. F3→F4: F4 equals F2, so the change is again DecreaseSpacing and NarrowSlits.
-5. F4→F5: the fringes are about the same pitch (spacing unchanged), but the envelope is wider, so the slits widened. This gives WidenSlits alone.
-6. F5→F6: F6 returns to the F2 pattern, with a narrower envelope and the same fringe pitch, so NarrowSlits alone.
-
-**Consistency check on endpoints**
-Because each control drives its shaft to a fixed endpoint, the states are limited to a few shaft angles. The width endpoints are -123 and +92, and the spacing endpoints are +135 and -76.
-- F1 and F3 are width +92 with spacing +135.
-- F2, F4 and F6 are width -123 with spacing -76.
-- F5 is width +92 with spacing -76, which fits the coarse fringes with a wide envelope.
-- F0 has intermediate initial values.
-
-The sequence is consistent with these endpoints.
-
-</details>
 
 <details><summary>Full evaluation prompt</summary>
 
@@ -347,15 +306,40 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-<details><summary>Model answer and experiment log</summary>
+### Model Response · Claude Sonnet 5.5
+
+Reading the frames, F1 and F3 look identical, and F2, F4 and F6 look identical, so the states alternate between a few distinct patterns.
+
+**State estimates**
+- F0 has fringe pitch of about 26 px and an envelope first minimum near ±130 px from center.
+- F1 has finer fringes (about 20 px pitch) and a wider envelope, with the first minimum near ±160 px. Both the envelope and the fringe pitch changed from F0.
+- F2 has coarse fringes (about 37 px pitch) and a narrow central envelope.
+- F5 has fringes of about 36 px pitch and a central envelope roughly 2.5 times wider than F2's.
+
+**Event reasoning**
+1. F0→F1: the fringes became tighter, so spacing increased. The envelope in F0 had its first minimum at about ±130 px, and in F1 the minimum is wider at about ±160 px. A wider envelope means the slits widened. This gives IncreaseSpacing and WidenSlits.
+2. F1→F2: the fringes became coarser (spacing decreased) and the envelope narrowed (slits narrowed). This gives DecreaseSpacing and NarrowSlits.
+3. F2→F3: F3 equals F1, so the change reverses the previous one: IncreaseSpacing and WidenSlits.
+4. F3→F4: F4 equals F2, so the change is again DecreaseSpacing and NarrowSlits.
+5. F4→F5: the fringes are about the same pitch (spacing unchanged), but the envelope is wider, so the slits widened. This gives WidenSlits alone.
+6. F5→F6: F6 returns to the F2 pattern, with a narrower envelope and the same fringe pitch, so NarrowSlits alone.
+
+**Consistency check on endpoints**
+Because each control drives its shaft to a fixed endpoint, the states are limited to a few shaft angles. The width endpoints are -123 and +92, and the spacing endpoints are +135 and -76.
+- F1 and F3 are width +92 with spacing +135.
+- F2, F4 and F6 are width -123 with spacing -76.
+- F5 is width +92 with spacing -76, which fits the coarse fringes with a wide envelope.
+- F0 has intermediate initial values.
+
+The sequence is consistent with these endpoints.
+
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | IncreaseSpacing + WidenSlits | IncreaseSpacing + NarrowSlits |
 | 2 | DecreaseSpacing + NarrowSlits | DecreaseSpacing + WidenSlits |
 | 3 | IncreaseSpacing + WidenSlits | IncreaseSpacing + NarrowSlits |
 | 4 | DecreaseSpacing + NarrowSlits | DecreaseSpacing + WidenSlits |
 | 5 | WidenSlits | NarrowSlits |
 | 6 | NarrowSlits | WidenSlits |
-
-</details>

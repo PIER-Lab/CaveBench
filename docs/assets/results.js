@@ -132,9 +132,15 @@ function renderLeaderboard(table, note, filename) {
   });
   const allRanks = ['domains','tasks'].includes(leaderboard.view) ? table.columns.map((_, i) =>
     [...new Set(table.rows.map(row => row.values[i]).filter(value => value !== null))].sort((a,b) => b-a)) : null;
-  for (const group of new Set(table.rows.map(row => row.group))) {
+  const groups = [...new Set(table.rows.map(row => row.group))];
+  const legend = $('#result-legend');
+  legend.replaceChildren();
+  for (const group of groups) {
     const body = element.createTBody();
     body.dataset.group = group;
+    const key = node('li',group.replace(/ Models$/, ''));
+    key.dataset.group = group;
+    legend.append(key);
     const band = body.insertRow();
     band.className = 'group';
     const th = node('th', group);

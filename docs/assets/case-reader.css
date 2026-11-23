@@ -6,8 +6,18 @@
 #example > .case-question { max-width: 76ch; margin: 0 0 16px; color: var(--ink); }
 .sceneinfo h3 { margin: 4px 0 0; font: 760 clamp(20px,2.2vw,26px)/1.2 var(--sans); letter-spacing: -.02em; }
 .sceneinfo > a, .case-sheet a { font: 600 14px/1.4 var(--sans); }
+.section #example .prompt-card {
+  position: relative; margin: 12px 0 16px; padding: 0 12px; overflow: hidden; border: 1px solid rgba(45,21,56,.12);
+  border-radius: 12px; background: linear-gradient(rgba(255,255,255,.78),rgba(255,255,255,.66));
+}
+.prompt-card > summary { min-height: 44px; padding: 10px 56px 10px 0; }
+.prompt-card pre { max-height: 220px; overflow: auto; clear: both; padding: 0 5px 0 0; background: transparent; border-radius: 0; font-size: 14px; line-height: 1.55; }
+.prompt-card .copy { position: absolute; top: 6px; right: 12px; margin: 0; }
 .instrument-reader { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); gap: 0 22px; align-items: start; }
 .observation-stage, .case-reading { min-width: 0; }
+.instrument-reader .observation-stage {
+  padding: 12px; border: 1px solid rgba(45,21,56,.12); border-radius: 12px; background: rgba(255,255,255,.78);
+}
 .stage-top, .stage-navigation, .event-dial, .event-verdict, .case-sheet { display: flex; align-items: center; }
 .stage-top { justify-content: space-between; padding: 0 0 8px; color: var(--ink); gap: 10px; border-bottom: 1px solid var(--line); }
 .stage-top h4 { margin: 0; font: 750 clamp(17px,1.7vw,21px)/1.3 var(--sans); letter-spacing: -.02em; }

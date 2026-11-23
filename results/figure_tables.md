@@ -1,10 +1,12 @@
-# Data for the paper figures
+<h1 align="center">Data for the Paper Figures</h1>
 
 [Six-event accuracy](#figure-1) · [Dataset construction](#figure-3) · [Training case](#figure-5) · [Reasoning effort](#figure-6) · [Error categories](#error-categories)
 
 <a name="figure-1"></a>
 
 ## Figure 1 · Six-event accuracy
+
+[![Benchmark overview and six-event accuracy](../docs/assets/figures/teaser-704.webp)](../docs/assets/figures/teaser-1200.webp)
 
 | Model | Correct sequences | Test questions | Exact match (%) |
 | --- | ---: | ---: | ---: |
@@ -19,6 +21,8 @@
 <a name="figure-3"></a>
 
 ## Figure 3 · Dataset construction
+
+[![Construction of the CaveBench dataset](../docs/assets/figures/construction-704.webp)](../docs/assets/figures/construction-1200.webp)
 
 | Quantity | Count |
 | --- | ---: |
@@ -42,6 +46,8 @@
 
 ## Figure 5 · Dielectric response after preference training
 
+[![Dielectric response before and after preference training](../docs/assets/figures/adaptation-704.webp)](../docs/assets/figures/adaptation-1200.webp)
+
 In S11 sample 0007, the Qwen3.5-9B baseline confuses full and half insertion at events 1 and 3. Both SimPO runs recover all six controls.
 
 | Event | Reference | Qwen3.5-9B baseline | SFT + SimPO (seed 20261108) | SFT + SimPO (seed 20261109) |
@@ -58,6 +64,8 @@ In S11 sample 0007, the Qwen3.5-9B baseline confuses full and half insertion at 
 <a name="figure-6"></a>
 
 ## Figure 6 · Reasoning effort by apparatus
+
+[![Six-event exact match at three levels of reasoning effort](../docs/assets/figures/effort-704.webp)](../docs/assets/figures/effort-1200.webp)
 
 GPT-6.1 Sol and Gemini 3.8 Flash each answer the same ten six-event questions per apparatus at low, medium and high reasoning effort. Scores are final sequence exact match (%).
 
@@ -90,6 +98,8 @@ GPT-6.1 Sol and Gemini 3.8 Flash each answer the same ten six-event questions pe
 <a name="error-categories"></a>
 
 ## Error categories
+
+[![Error categories in six-event responses](../docs/assets/figures/errors-704.webp)](../docs/assets/figures/errors-1200.webp)
 
 Each of the 100 incorrect six-event responses received one primary error category. The direct and limited counts reflect the strength of the evidence for that category in the response. Visual identification accounted for 38 responses and evidence integration for 31.
 

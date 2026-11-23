@@ -3,6 +3,7 @@ import argparse
 import csv
 import io
 import re
+from html import escape
 from collections import defaultdict
 from decimal import Decimal, ROUND_HALF_UP
 from fractions import Fraction
@@ -75,19 +76,16 @@ def count_percent(record, correct="correct", total="total"):
 
 
 def model_rows(order, columns, values):
-    lines = table("Model", columns)
-    last_group = None
+    lines = [row(["Model", *columns, "Type"]), row(["---", *(["---:"] * len(columns)), "---"])]
+    types = {"Proprietary Models": "Proprietary", "Open-Weight Models": "Open-weight"}
     for entry in order:
-        if entry["Group"] != last_group:
-            last_group = entry["Group"]
-            lines.append(row([f"**{last_group}**", *([""] * len(columns))]))
-        lines.append(row([entry["Model"], *values(entry["Model"])]))
+        lines.append(row([entry["Model"], *values(entry["Model"]), types[entry["Group"]]]))
     return lines
 
 
 def domain_tables(order):
     records = index("domain_by_length", ["model", "k", "domain"])
-    lines = ["# Exact match by physical domain", "",
+    lines = ["# Exact Match by Physical Domain", "",
              "Exact match is the percentage of questions with the correct controls at every event. "
              "Bold marks the highest score in each column and underlining marks the second highest.", "",
              " · ".join(f"[{k} {'event' if k == '1' else 'events'}](#domain-k{k})" for k in LENGTHS), "",
@@ -106,7 +104,8 @@ def domain_tables(order):
                    for d in DOMAINS}
         def values(model):
             return [ranked_percent(records[model, k, d], top_two[d]) for d in DOMAINS]
-        lines.extend([*model_rows(order, DOMAINS, values), ""])
+        ranked = sorted(order, key=lambda m: measured(records[m["Model"], k, "Overall"]), reverse=True)
+        lines.extend([*model_rows(ranked, DOMAINS, values), ""])
     events = index("main_event_by_length", ["model", "k"])
     lengths = (*LENGTHS, "Overall")
     lines.extend(heading("event-by-length", "Event accuracy by question length"))
@@ -124,10 +123,10 @@ def domain_tables(order):
 
 def scene_tables(order, scenes):
     records = index("scene_by_length", ["model", "scene", "k"])
-    lines = ["# Exact match by apparatus and question length", "",
+    lines = ["# Exact Match by Apparatus and Question Length", "",
              "Each column shows sequence exact match (%) for questions with `k` events. "
              "Each apparatus contributes ten questions per available length. "
-             "Dielectric response (S11) begins at three events.", "",
+             "Dielectric response (S11) begins at three events. Models are ranked by six-event exact match.", "",
              "[Download counts and percentages](../docs/assets/results/scene_by_length.csv)", ""]
     for d in DOMAINS[:-1]:
         links = [f"[{s['scene']} {s['apparatus']}](#{s['scene'].lower()})" for s in scenes if s["domain"] == d]
@@ -136,7 +135,8 @@ def scene_tables(order, scenes):
     for s in scenes:
         sid = s["scene"]
         lines.extend(heading(sid.lower(), f"{sid} · {s['apparatus']}"))
-        lines.extend(model_rows(order, LENGTH_HEADERS,
+        ranked = sorted(order, key=lambda m: measured(records[m["Model"], sid, "6"]), reverse=True)
+        lines.extend(model_rows(ranked, LENGTH_HEADERS,
                                 lambda m: [percent(records[m, sid, k]) for k in LENGTHS]))
         lines.append("")
     return lines
@@ -144,10 +144,12 @@ def scene_tables(order, scenes):
 
 def task_matrices(order, scenes):
     records = index("scene_by_length", ["model", "k", "scene"])
-    lines = ["# Apparatus accuracy at each question length", "",
+    totals = index("domain_by_length", ["model", "k", "domain"])
+    lines = ["# Apparatus Accuracy at Each Question Length", "",
              "Each column is an apparatus and each row is a model. A cell gives the percentage of ten questions "
              "with every event correct. Dielectric response (S11) uses three reference states and starts at three events. "
-             "A dash marks its two untested lengths. Bold and underlining mark the two highest distinct scores in each column.", "",
+             "A dash marks its two untested lengths. Bold and underlining mark the two highest distinct scores in each column. "
+             "Both panels rank models by exact match across all apparatuses at the indicated question length.", "",
              " · ".join(f"[k = {k}](#tasks-k{k})" for k in LENGTHS), "",
              "[Counts and percentages (CSV)](../docs/assets/results/scene_by_length.csv) · "
              "[Follow one apparatus across lengths](apparatus_tables.md)", ""]
@@ -159,6 +161,7 @@ def task_matrices(order, scenes):
     for k in LENGTHS:
         lines.extend(heading(f"tasks-k{k}", f"{k} {'event' if k == '1' else 'events'} per question"))
         lines.extend([f"[Interactive table](https://pier-lab.github.io/CaveBench/#tasks-k{k})", ""])
+        ranked = sorted(order, key=lambda m: measured(totals[m["Model"], k, "Overall"]), reverse=True)
         for panel in (scenes[:10], scenes[10:]):
             ids = [s['scene'] for s in panel]
             leaders = {}
@@ -166,7 +169,7 @@ def task_matrices(order, scenes):
                 column = [records[m['Model'], k, sid] for m in order]
                 scores = {measured(r) for r in column if int(r['total'])}
                 leaders[sid] = sorted(scores, reverse=True)[:2]
-            lines.extend(model_rows(order, ids, lambda m: [ranked_percent(records[m, k, sid], leaders[sid]) for sid in ids]))
+            lines.extend(model_rows(ranked, ids, lambda m: [ranked_percent(records[m, k, sid], leaders[sid]) for sid in ids]))
             lines.append("")
     return lines
 
@@ -204,9 +207,9 @@ def adaptation_domains():
     records = index("adaptation_by_domain", ["model", "method", "run", "k", "domain"])
     runs = list(dict.fromkeys(key[:3] for key in records))
     lines = [
-        "# Adaptation results by physical domain", "",
+        "# Adaptation Results by Physical Domain", "",
         "Each column gives sequence exact match (%) within a physical domain. Overall pools all questions "
-        "at that length. For SimPO and KTO, the two-seed mean gives equal weight to the two runs.", "",
+        "at that length and determines the row order. For SimPO and KTO, the two-seed mean gives equal weight to the two runs.", "",
         " · ".join(f"[{k} {'event' if k == '1' else 'events'}](#adaptation-k{k})" for k in LENGTHS), "",
         "[Download correct counts, denominators and event accuracy](../docs/assets/results/adaptation_by_domain.csv)"
         " · [Results for individual apparatuses](adaptation_tables.md) · [Question-level scores](adaptation_question_scores.csv)", ""
@@ -221,7 +224,7 @@ def adaptation_domains():
         lines.extend([f"{counts['Overall']} questions per run, with {note} "
                       f"[Interactive table](https://pier-lab.github.io/CaveBench/#table-adaptation_by_domain-k{k})", "",
                       *table("Model and method", DOMAINS)])
-        for run in runs:
+        for run in sorted(runs, key=lambda run: measured(records[run + (k, "Overall")]), reverse=True):
             label = f"[{method_title(run)}](adaptation_tables.md#{run_anchor(run)})"
             lines.append(row([label, *[count_percent(records[run + (k, d)]) for d in DOMAINS]]))
         lines.append("")
@@ -230,16 +233,18 @@ def adaptation_domains():
 
 def figure_tables(order, scenes):
     """Report the values plotted in the paper and the counts behind the error analysis."""
-    lines = ["# Data for the paper figures", "",
+    lines = ["# Data for the Paper Figures", "",
              "[Six-event accuracy](#figure-1) · [Dataset construction](#figure-3) · "
              "[Training case](#figure-5) · [Reasoning effort](#figure-6) · [Error categories](#error-categories)", ""]
     lines.extend(heading("figure-1", "Figure 1 · Six-event accuracy"))
+    lines.extend([figure("teaser", "Benchmark overview and six-event accuracy"), ""])
     lines.extend(table("Model", ["Correct sequences", "Test questions", "Exact match (%)"]))
     for r in read(DATA / "figure1.csv"):
         lines.append(row([r["model"], r["correct"], r["total"], percent(r)]))
     lines.extend(["", "[Download figure data](../docs/assets/results/figure1.csv) · [All 27 models](domain_tables.md#domain-k6)", ""])
 
     lines.extend(heading("figure-3", "Figure 3 · Dataset construction"))
+    lines.extend([figure("construction", "Construction of the CaveBench dataset"), ""])
     lines.extend([*table("Quantity", ["Count"]),
                   row(["Physical domains", len({s["domain"] for s in scenes})]),
                   row(["Apparatuses per domain", 4]),
@@ -256,6 +261,7 @@ def figure_tables(order, scenes):
                   " · [Test counts by apparatus](../docs/assets/results/scene_controls.csv)", ""])
 
     lines.extend(heading("figure-5", "Figure 5 · Dielectric response after preference training"))
+    lines.extend([figure("adaptation", "Dielectric response before and after preference training"), ""])
     lines.extend(["In S11 sample 0007, the Qwen3.5-9B baseline confuses full and half insertion at events 1 and 3. "
                   "Both SimPO runs recover all six controls.", "",
                   row(["Event", "Reference", "Qwen3.5-9B baseline", "SFT + SimPO (seed 20261108)", "SFT + SimPO (seed 20261109)"]),
@@ -265,6 +271,7 @@ def figure_tables(order, scenes):
     lines.extend(["", "[Download per-event predictions](../docs/assets/results/training_case.csv)", ""])
 
     lines.extend(heading("figure-6", "Figure 6 · Reasoning effort by apparatus"))
+    lines.extend([figure("effort", "Six-event exact match at three levels of reasoning effort"), ""])
     lines.extend(["GPT-6.1 Sol and Gemini 3.8 Flash each answer the same ten six-event questions per apparatus "
                   "at low, medium and high reasoning effort. Scores are final sequence exact match (%).", "",
                   row(["Apparatus", "Domain", "Sol low", "Sol medium", "Sol high", "Gemini low", "Gemini medium", "Gemini high"]),
@@ -280,6 +287,7 @@ def figure_tables(order, scenes):
                   " · [Question-level scores](effort_question_scores.csv)", ""])
 
     lines.extend(heading("error-categories", "Error categories"))
+    lines.extend([figure("errors", "Error categories in six-event responses"), ""])
     lines.extend(["Each of the 100 incorrect six-event responses received one primary error category. "
                   "The direct and limited counts reflect the strength of the evidence for that category in the response. "
                   "Visual identification accounted for 38 responses and evidence integration for 31.", "",
@@ -290,6 +298,10 @@ def figure_tables(order, scenes):
         lines.append(row([r["category"], *[r[f] for f in fields]]))
     lines.append(row(["Total", *[sum(int(r[f]) for r in errors) for f in fields]]))
     return [*lines, "", "[Download error counts](../docs/assets/results/error_categories.csv)"]
+
+
+def figure(name, alt):
+    return f"[![{alt}](../docs/assets/figures/{name}-704.webp)](../docs/assets/figures/{name}-1200.webp)"
 
 
 def simpo_seed_comparison():
@@ -325,7 +337,8 @@ def adaptation_tables(scenes):
     runs = list(dict.fromkeys(key[:3] for key in summaries))
     cols = (*LENGTH_HEADERS, "Overall")
     lengths = (*LENGTHS, "Overall")
-    lines = ["# Adaptation results by run and apparatus", "",
+    ranked = sorted(runs, key=lambda run: measured(summaries[run + ("Overall",)]), reverse=True)
+    lines = ["# Adaptation Results by Run and Apparatus", "",
              "Sequence exact match counts questions with every event correct. Event accuracy counts individual "
              "events whose predicted controls match the recorded set. SimPO and KTO have two seeds each.", "",
              "Question length (`k`) ranges from one to six events. There are ten questions per apparatus "
@@ -334,15 +347,15 @@ def adaptation_tables(scenes):
              "[Counts by run and length](../docs/assets/results/adaptation_by_length.csv) · "
              "[Counts by run and apparatus](../docs/assets/results/adaptation_by_scene.csv) · "
              "[Question-level scores](adaptation_question_scores.csv) · [Six-event results by event position](#event-positions)", "",
-             "## All runs", "", "**Sequence exact match (%)**", "", *table("Model and method", cols)]
-    for run in runs:
+             "## All Runs", "", "### Sequence Exact Match (%)", "", *table("Model and method", cols)]
+    for run in ranked:
         link = f"[{method_title(run)}](#{run_anchor(run)})"
         lines.append(row([link, *[percent(summaries[run + (k,)]) for k in lengths]]))
-    lines.extend(["", "<details><summary>Event accuracy across all apparatuses</summary>", "",
+    lines.extend(["", "### Event Accuracy Across All Apparatuses (%)", "",
                   *table("Model and method", cols)])
-    for run in runs:
+    for run in ranked:
         lines.append(row([method_title(run), *[percent(summaries[run + (k,)], True) for k in lengths]]))
-    lines.extend(["", "</details>", ""])
+    lines.append("")
     lines.extend(simpo_seed_comparison())
     lines.extend(heading("event-positions", "Event accuracy by position on six-event questions"))
     lines.extend(["Each column scores one position in the same 200 six-event questions. An event is correct "
@@ -360,18 +373,13 @@ def adaptation_tables(scenes):
     for run in runs:
         lines.extend(heading(run_anchor(run), method_title(run)))
         for event in (False, True):
-            if event:
-                lines.extend(["<details><summary>Event accuracy by apparatus</summary>", ""])
-            else:
-                lines.extend(["**Sequence exact match (%)**", ""])
+            lines.extend(["### Event Accuracy by Apparatus (%)" if event else "### Sequence Exact Match (%)", ""])
             lines.extend(table("Apparatus", cols))
             for s in scenes:
                 sid = s["scene"]
                 lines.append(row([f"{sid} · {s['apparatus']}",
                                   *[percent(by_scene[run + (sid, k)], event) for k in lengths]]))
             lines.append("")
-            if event:
-                lines.extend(["</details>", ""])
     return lines
 
 
@@ -396,6 +404,7 @@ def main():
                  "adaptation_tables.md": adaptation_tables(scenes), "adaptation_domains.md": adaptation_domains(),
                  "figure_tables.md": figure_tables(order, scenes)}
     for name, lines in documents.items():
+        lines[0] = f'<h1 align="center">{escape(lines[0].removeprefix("# "))}</h1>'
         content = "\n".join(lines).rstrip() + "\n"
         output(OUT / name, content, args.check)
 

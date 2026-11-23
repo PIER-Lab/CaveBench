@@ -1,6 +1,6 @@
-# Dynamics
+<h1 align="center">Dynamics</h1>
 
-[All case studies](README.md) · [S01](#s01) · [S02](#s02) · [S03](#s03) · [S04](#s04)
+<p align="center"><a href="README.md">All case studies</a> · <a href="#s01">S01</a> · <a href="#s02">S02</a> · <a href="#s03">S03</a> · <a href="#s04">S04</a></p>
 
 <a name="s01"></a>
 
@@ -11,25 +11,6 @@ The ball, pendulum and other objects respond to the motion of a closed vehicle. 
 [![Cabin inertia. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S01.webp)](S01.webp)
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S01) · [Watch the episode](../../examples/S01/dual_view.mp4)
-
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
-
-This is a best-supported guess from rough image cues, not a rigorous derivation.
-
-Assumed response rules:
-- Accelerate: the bob swings backward (toward the camera, appearing lower in the image), the ball rolls backward, and the balloon leans forward.
-- Brake: the opposite of Accelerate.
-- TurnLeft: the vehicle accelerates leftward, so dense bodies move right in the image relative to the cabin; for a right turn they move left. The balloon moves opposite to the dense bodies.
-
-Frame-by-frame readings (F0 baseline: bob at x≈395, y≈237; ball at 477, 383; balloon upright):
-- **F1:** The bob moves right and lower (435, 231) and the ball moves right and lower (508, 384). The balloon is unchanged. Rightward dense motion suggests TurnLeft. The bob's lower position suggests a mild Accelerate, but the bob's height is ambiguous. Best guess: Accelerate + TurnLeft.
-- **F2:** The bob is at 398, 240 and the ball has moved left and up (452, 372). The bob is near center and the ball is left and forward. Forward ball motion suggests Brake. Left ball motion suggests TurnRight. Best guess: Brake + TurnRight.
-- **F3:** The bob is far left (380, 234), the ball is right and lower (510, 384), and the balloon leans slightly left. Bob left and ball right is inconsistent, probably from inherited swing. Ball right suggests TurnLeft, and its lower position suggests Accelerate. Best guess: Accelerate + TurnLeft.
-- **F4:** The bob is at 402, 209, higher in the image, which suggests the bob moved forward. The ball is at 504, 366, up and right. The balloon leans left and back, so the air accelerates right. Best guess: Brake + TurnLeft.
-- **F5:** The bob is at 381, 232. The ball is at 442, 383, left and lower. The balloon is slightly right. Ball left suggests TurnRight, and lower suggests Accelerate. Best guess: Accelerate + TurnRight.
-- **F6:** The bob is far left (356, 236), the ball is at 507, 368, and the balloon is displaced right and large. Bob left with the balloon right suggests lateral acceleration to the left of the image, so TurnRight. The ball is higher, which suggests Brake. Best guess: Brake + TurnRight.
-
-</details>
 
 <details><summary>Full evaluation prompt</summary>
 
@@ -58,18 +39,33 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-<details><summary>Model answer and experiment log</summary>
+### Model Response · Claude Sonnet 5.5
+
+This is a best-supported guess from rough image cues, not a rigorous derivation.
+
+Assumed response rules:
+- Accelerate: the bob swings backward (toward the camera, appearing lower in the image), the ball rolls backward, and the balloon leans forward.
+- Brake: the opposite of Accelerate.
+- TurnLeft: the vehicle accelerates leftward, so dense bodies move right in the image relative to the cabin; for a right turn they move left. The balloon moves opposite to the dense bodies.
+
+Frame-by-frame readings (F0 baseline: bob at x≈395, y≈237; ball at 477, 383; balloon upright):
+- **F1:** The bob moves right and lower (435, 231) and the ball moves right and lower (508, 384). The balloon is unchanged. Rightward dense motion suggests TurnLeft. The bob's lower position suggests a mild Accelerate, but the bob's height is ambiguous. Best guess: Accelerate + TurnLeft.
+- **F2:** The bob is at 398, 240 and the ball has moved left and up (452, 372). The bob is near center and the ball is left and forward. Forward ball motion suggests Brake. Left ball motion suggests TurnRight. Best guess: Brake + TurnRight.
+- **F3:** The bob is far left (380, 234), the ball is right and lower (510, 384), and the balloon leans slightly left. Bob left and ball right is inconsistent, probably from inherited swing. Ball right suggests TurnLeft, and its lower position suggests Accelerate. Best guess: Accelerate + TurnLeft.
+- **F4:** The bob is at 402, 209, higher in the image, which suggests the bob moved forward. The ball is at 504, 366, up and right. The balloon leans left and back, so the air accelerates right. Best guess: Brake + TurnLeft.
+- **F5:** The bob is at 381, 232. The ball is at 442, 383, left and lower. The balloon is slightly right. Ball left suggests TurnRight, and lower suggests Accelerate. Best guess: Accelerate + TurnRight.
+- **F6:** The bob is far left (356, 236), the ball is at 507, 368, and the balloon is displaced right and large. Bob left with the balloon right suggests lateral acceleration to the left of the image, so TurnRight. The ball is higher, which suggests Brake. Best guess: Brake + TurnRight.
+
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | Accelerate + TurnLeft | Accelerate + TurnLeft |
 | 2 | Brake + TurnRight | Brake + TurnRight |
 | 3 | Accelerate + TurnLeft | Accelerate + TurnLeft |
 | 4 | Brake + TurnLeft | Brake + TurnLeft |
 | 5 | Accelerate + TurnRight | Accelerate + TurnRight |
 | 6 | Brake + TurnRight | Brake + TurnLeft |
-
-</details>
 
 <a name="s02"></a>
 
@@ -80,19 +76,6 @@ Loads and gas-filled tubes move on a rotating deck. At each event, which directi
 [![Rotation & gas. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S02.webp)](S02.webp)
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S02) · [Watch the episode](../../examples/S02/dual_view.mp4)
-
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
-
-Estimating deck angle from the red assembly position (viewed from above):
-- F0: red at 12 o'clock (angle 90°). Capture at 1.97 s, before any event, so this is the reference.
-- F1 (t=6): red at about 4 o'clock (~ -20°). The deck turned clockwise by about 110°. Event 1 began at 2 s, so 4 s elapsed. Ramping toward 30°/s would give roughly 100°, so event 1 is ClockwiseAccelerate.
-- F2 (t=11): red at about 6 o'clock (-100°), a further 80° clockwise over 5 s, about 16°/s. The speed fell to roughly the 12°/s detent, so event 2 is ClockwiseDecelerate.
-- F3 (t=16): red at about 11 o'clock (~125°). Going from -100° to 125° clockwise is -100 → -235, i.e. 135° clockwise, about 27°/s. That fits ClockwiseAccelerate, so event 3 is ClockwiseAccelerate.
-- F4 (t=21): red at about 9 o'clock (~180°). From 125° clockwise would go to about 125 - 60 = 65°, but the observed 180° is 55° counterclockwise, which could also be 305° clockwise. The channel position also shifted: the channel in F3 spans the right side, and in F4 it spans the top-left. Using the red assembly (F3 at about 125°, F4 at about 180°), a counterclockwise move of 55° over 5 s is about 11°/s, matching the low detent in the counterclockwise direction. Event 4 would be CounterclockwiseDecelerate, but that would require counterclockwise motion already in progress, so it must be CounterclockwiseAccelerate with the transient still ramping. The measured 55° is less than the 150° expected at 30°/s, so the ramp-up is slow. At 12°/s, 60° would fit well. I'll choose CounterclockwiseAccelerate since a reversal needs a high-speed detent.
-- F5 (t=26): red at about 6 o'clock (-100°=260°). From 180° that is 80° counterclockwise, about 16°/s, which is a lower speed. Event 5 is CounterclockwiseDecelerate.
-- F6 (t=31): red at about 9 o'clock (180°). From 260° to 180° is 80° clockwise, so the direction reversed to clockwise. Event 6 is ClockwiseAccelerate.
-
-</details>
 
 <details><summary>Full evaluation prompt</summary>
 
@@ -122,18 +105,27 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-<details><summary>Model answer and experiment log</summary>
+### Model Response · Claude Sonnet 5.5
+
+Estimating deck angle from the red assembly position (viewed from above):
+- F0: red at 12 o'clock (angle 90°). Capture at 1.97 s, before any event, so this is the reference.
+- F1 (t=6): red at about 4 o'clock (~ -20°). The deck turned clockwise by about 110°. Event 1 began at 2 s, so 4 s elapsed. Ramping toward 30°/s would give roughly 100°, so event 1 is ClockwiseAccelerate.
+- F2 (t=11): red at about 6 o'clock (-100°), a further 80° clockwise over 5 s, about 16°/s. The speed fell to roughly the 12°/s detent, so event 2 is ClockwiseDecelerate.
+- F3 (t=16): red at about 11 o'clock (~125°). Going from -100° to 125° clockwise is -100 → -235, i.e. 135° clockwise, about 27°/s. That fits ClockwiseAccelerate, so event 3 is ClockwiseAccelerate.
+- F4 (t=21): red at about 9 o'clock (~180°). From 125° clockwise would go to about 125 - 60 = 65°, but the observed 180° is 55° counterclockwise, which could also be 305° clockwise. The channel position also shifted: the channel in F3 spans the right side, and in F4 it spans the top-left. Using the red assembly (F3 at about 125°, F4 at about 180°), a counterclockwise move of 55° over 5 s is about 11°/s, matching the low detent in the counterclockwise direction. Event 4 would be CounterclockwiseDecelerate, but that would require counterclockwise motion already in progress, so it must be CounterclockwiseAccelerate with the transient still ramping. The measured 55° is less than the 150° expected at 30°/s, so the ramp-up is slow. At 12°/s, 60° would fit well. I'll choose CounterclockwiseAccelerate since a reversal needs a high-speed detent.
+- F5 (t=26): red at about 6 o'clock (-100°=260°). From 180° that is 80° counterclockwise, about 16°/s, which is a lower speed. Event 5 is CounterclockwiseDecelerate.
+- F6 (t=31): red at about 9 o'clock (180°). From 260° to 180° is 80° clockwise, so the direction reversed to clockwise. Event 6 is ClockwiseAccelerate.
+
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | ClockwiseAccelerate | ClockwiseAccelerate |
 | 2 | ClockwiseDecelerate | ClockwiseDecelerate |
 | 3 | ClockwiseAccelerate | ClockwiseAccelerate |
 | 4 | CounterclockwiseAccelerate | CounterclockwiseAccelerate |
 | 5 | CounterclockwiseDecelerate | CounterclockwiseDecelerate |
 | 6 | ClockwiseAccelerate | ClockwiseAccelerate |
-
-</details>
 
 <a name="s03"></a>
 
@@ -144,16 +136,6 @@ Three pendulums hang from a carriage driven along a rail. Which of the three pro
 [![Driven pendulums. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S03.webp)](S03.webp)
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S03) · [Watch the episode](../../examples/S03/dual_view.mp4)
-
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
-
-I could not derive these labels by simulation or measurement. They are a best guess from a rough reading of the frames, with no reliable evidence behind any individual event.
-
-The physics suggests residual oscillation after each move depends on the profile's delay and weight relative to each pendulum's period. The three periods are about 1.69 s (0.72 m), 2.08 s (1.08 m) and 2.48 s (1.52 m). A double-pulse profile cancels a mode when its delay is about half that mode's period. The delays are 0.866 s, 1.053 s and 1.246 s, which are roughly half of 1.73 s, 2.1 s and 2.49 s. So A suppresses the short pendulum, B the medium one, and C the long one.
-
-In the frames, the pendulum in the middle slot (the burgundy-looking one, apparently the long copper pendulum) swings the most in F4 and F6, and the left one swings less. That would point to the long pendulum being left unsuppressed in those events, which argues against C there. The evidence is too weak to resolve further, so the answer below is a guess.
-
-</details>
 
 <details><summary>Full evaluation prompt</summary>
 
@@ -190,18 +172,24 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-<details><summary>Model answer and experiment log</summary>
+### Model Response · Claude Sonnet 5.5
+
+I could not derive these labels by simulation or measurement. They are a best guess from a rough reading of the frames, with no reliable evidence behind any individual event.
+
+The physics suggests residual oscillation after each move depends on the profile's delay and weight relative to each pendulum's period. The three periods are about 1.69 s (0.72 m), 2.08 s (1.08 m) and 2.48 s (1.52 m). A double-pulse profile cancels a mode when its delay is about half that mode's period. The delays are 0.866 s, 1.053 s and 1.246 s, which are roughly half of 1.73 s, 2.1 s and 2.49 s. So A suppresses the short pendulum, B the medium one, and C the long one.
+
+In the frames, the pendulum in the middle slot (the burgundy-looking one, apparently the long copper pendulum) swings the most in F4 and F6, and the left one swings less. That would point to the long pendulum being left unsuppressed in those events, which argues against C there. The evidence is too weak to resolve further, so the answer below is a guess.
+
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | TrajectoryB | TrajectoryB |
 | 2 | TrajectoryA | TrajectoryC |
 | 3 | TrajectoryB | TrajectoryB |
 | 4 | TrajectoryA | TrajectoryA |
 | 5 | TrajectoryB | TrajectoryB |
 | 6 | TrajectoryA | TrajectoryA |
-
-</details>
 
 <a name="s04"></a>
 
@@ -212,21 +200,6 @@ Eight objects rest on a tray. From the changes in their positions and orientatio
 [![Tray impact. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S04.webp)](S04.webp)
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S04) · [Watch the episode](../../examples/S04/worked/dual_view.mp4)
-
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
-
-Reading the frames as tray-relative displacements, with image-up as +z:
-
-- **F0 to F1:** the tower fell toward the upper-left. Every body shifted left and up: the ivory body moved from (602,187) to (575,160), the teal block from (538,238) to (511,211), the ochre drum from (322,348) to (295,321), and the barrel from (642,348) to (617,330).
-- A body lags the tray, so a uniform shift of about (-27, -27) px means the tray accelerated toward the right and toward the bottom.
-- Right-and-down tray motion means the tray was pushed toward +x and -z. LeftImpact pushes toward +x, and UpImpact pushes toward -z. Event 1 is therefore Left+Up.
-- **F1 to F2:** everything shifted right and down by about (+26, +27). The tray accelerated left and up, which means RightImpact (toward -x) plus DownImpact (toward +z). Event 2 is Right+Down.
-- **F2 to F3:** the ivory body moved from (601,186) to (575,186), the block from (537,238) to (511,238), the drum from (321,348) to (295,348), and the puck from (399,368) to (373,368). This is a left shift only, so the tray moved right: LeftImpact.
-- **F3 to F4:** the ivory body moved from (575,186) to (602,160), the block from (511,238) to (535,211), the drum from (295,348) to (318,324), and the barrel from (614,355) to (641,330). The shift is right and up, so the tray moved left and down. Left motion is RightImpact, and motion toward -z is UpImpact. Event 4 is Right+Up.
-- **F4 to F5:** the ivory body moved from (602,160) to (628,160), the block from (535,211) to (560,211), and the drum from (318,324) to (343,324). This is a right shift only, so the tray moved left: RightImpact.
-- **F5 to F6:** the ivory body moved from (628,160) to (601,186), the block from (560,211) to (533,238), and the drum from (343,324) to (315,352). The shift is left and down, so the tray moved right and up. Right motion is LeftImpact, and motion toward +z is DownImpact. Event 6 is Down+Left.
-
-</details>
 
 <details><summary>Full evaluation prompt</summary>
 
@@ -256,15 +229,26 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-<details><summary>Model answer and experiment log</summary>
+### Model Response · Claude Sonnet 5.5
+
+Reading the frames as tray-relative displacements, with image-up as +z:
+
+- **F0 to F1:** the tower fell toward the upper-left. Every body shifted left and up: the ivory body moved from (602,187) to (575,160), the teal block from (538,238) to (511,211), the ochre drum from (322,348) to (295,321), and the barrel from (642,348) to (617,330).
+- A body lags the tray, so a uniform shift of about (-27, -27) px means the tray accelerated toward the right and toward the bottom.
+- Right-and-down tray motion means the tray was pushed toward +x and -z. LeftImpact pushes toward +x, and UpImpact pushes toward -z. Event 1 is therefore Left+Up.
+- **F1 to F2:** everything shifted right and down by about (+26, +27). The tray accelerated left and up, which means RightImpact (toward -x) plus DownImpact (toward +z). Event 2 is Right+Down.
+- **F2 to F3:** the ivory body moved from (601,186) to (575,186), the block from (537,238) to (511,238), the drum from (321,348) to (295,348), and the puck from (399,368) to (373,368). This is a left shift only, so the tray moved right: LeftImpact.
+- **F3 to F4:** the ivory body moved from (575,186) to (602,160), the block from (511,238) to (535,211), the drum from (295,348) to (318,324), and the barrel from (614,355) to (641,330). The shift is right and up, so the tray moved left and down. Left motion is RightImpact, and motion toward -z is UpImpact. Event 4 is Right+Up.
+- **F4 to F5:** the ivory body moved from (602,160) to (628,160), the block from (535,211) to (560,211), and the drum from (318,324) to (343,324). This is a right shift only, so the tray moved left: RightImpact.
+- **F5 to F6:** the ivory body moved from (628,160) to (601,186), the block from (560,211) to (533,238), and the drum from (343,324) to (315,352). The shift is left and down, so the tray moved right and up. Right motion is LeftImpact, and motion toward +z is DownImpact. Event 6 is Down+Left.
+
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | LeftImpact + UpImpact | LeftImpact + UpImpact |
 | 2 | RightImpact + DownImpact | DownImpact + RightImpact |
 | 3 | LeftImpact | LeftImpact |
 | 4 | RightImpact + UpImpact | RightImpact + UpImpact |
 | 5 | RightImpact | RightImpact |
 | 6 | DownImpact + LeftImpact | DownImpact + LeftImpact |
-
-</details>

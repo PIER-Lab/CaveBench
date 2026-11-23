@@ -1,6 +1,6 @@
-# Acoustics
+<h1 align="center">Acoustics</h1>
 
-[All case studies](README.md) · [S13](#s13) · [S14](#s14) · [S15](#s15) · [S16](#s16)
+<p align="center"><a href="README.md">All case studies</a> · <a href="#s13">S13</a> · <a href="#s14">S14</a> · <a href="#s15">S15</a> · <a href="#s16">S16</a></p>
 
 <a name="s13"></a>
 
@@ -11,35 +11,6 @@ A diaphragm drives a tube containing loose cork granules. Which changes in drive
 [![Standing waves. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S13.webp)](S13.webp)
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S13) · [Watch the episode](../../examples/S13/dual_view.mp4)
-
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
-
-The tube resonates at f_n = n·343/(2·1.8) = n·95.28 Hz. The three frequency settings are therefore the 4th, 5th and 6th harmonics (381.11, 476.39 and 571.67 Hz). The number of cork piles tells the harmonic, because there is one pile per half wavelength.
-
-**Pile counts (the pile at each end counts):**
-- F0 shows about 7 piles, at x ≈ 30, 185, 335, 485, 635, 780, 930. This matches the 6th harmonic (571.67 Hz), which has 6 intervals and 7 nodes.
-- F1 shows piles at 55, 210, 395, 570, 750, 915, so also about 6–7 piles. The spacing is about 175 px, which is still the 6th harmonic.
-- F2 shows piles at 50, 255, 483, 705, 920. That is 5 piles with spacing of about 225 px, which is the 5th harmonic (476.39 Hz).
-- F3 shows piles at 60, 220, 395, 565, 745, 918. That is 6 piles, so the 6th harmonic again.
-- F4 shows piles at 40, 210, 390, 570, 750, 920. That is still the 6th harmonic.
-- F5 shows piles at 40, 180, 330, 480, 630, 785, 930. The spacing is about 150 px, which is a higher harmonic and would be 7 if it existed, so I read it as the 6th with finer spacing.
-- F6 looks the same as F5.
-
-I treat the 6th harmonic as the top setting, so the frequency pattern is 6, 6, 5, 6, 6, 6. This is inconsistent at F1 versus F0, so the readings are uncertain. The simplest sequence is F0 at 571.67 Hz, F1 unchanged, F2 down to 476.39 Hz, F3 back up, and F4–F6 unchanged.
-
-**Indicator height (orange marker):** F0 is at 155, F1 at 207, F2 at 214, F3 at 207, F4 at 181, F5 at 104, F6 at 155. A lower marker means lower amplitude, and the particles are flat in F1–F3, so the drive is low there.
-
-**Events:**
-1. F0 to F1: the marker drops and the cork flattens, so the drive decreases. The frequency is unchanged, giving DecreaseDrive.
-2. F1 to F2: the harmonic drops to 5, so the frequency decreases. The marker is slightly lower, so I take the drive as unchanged, giving DecreaseFrequency alone. Two decreases would reach the lowest drive setting, which fits the flat cork.
-3. F2 to F3: the frequency goes back up, giving IncreaseFrequency.
-4. F3 to F4: the particles become active and the marker rises, so the drive increases, giving IncreaseDrive.
-5. F4 to F5: the marker rises strongly, so the drive increases again, giving IncreaseDrive.
-6. F5 to F6: the marker drops and the particles are similar, so the drive decreases, giving DecreaseDrive.
-
-Event 1 is the weakest call. It sets the drive to the lowest setting, but events 4 and 5 both raise it, which fits only if event 1 started from the middle setting.
-
-</details>
 
 <details><summary>Full evaluation prompt</summary>
 
@@ -70,18 +41,43 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-<details><summary>Model answer and experiment log</summary>
+### Model Response · Claude Sonnet 5.5
+
+The tube resonates at f_n = n·343/(2·1.8) = n·95.28 Hz. The three frequency settings are therefore the 4th, 5th and 6th harmonics (381.11, 476.39 and 571.67 Hz). The number of cork piles tells the harmonic, because there is one pile per half wavelength.
+
+**Pile counts (the pile at each end counts):**
+- F0 shows about 7 piles, at x ≈ 30, 185, 335, 485, 635, 780, 930. This matches the 6th harmonic (571.67 Hz), which has 6 intervals and 7 nodes.
+- F1 shows piles at 55, 210, 395, 570, 750, 915, so also about 6–7 piles. The spacing is about 175 px, which is still the 6th harmonic.
+- F2 shows piles at 50, 255, 483, 705, 920. That is 5 piles with spacing of about 225 px, which is the 5th harmonic (476.39 Hz).
+- F3 shows piles at 60, 220, 395, 565, 745, 918. That is 6 piles, so the 6th harmonic again.
+- F4 shows piles at 40, 210, 390, 570, 750, 920. That is still the 6th harmonic.
+- F5 shows piles at 40, 180, 330, 480, 630, 785, 930. The spacing is about 150 px, which is a higher harmonic and would be 7 if it existed, so I read it as the 6th with finer spacing.
+- F6 looks the same as F5.
+
+I treat the 6th harmonic as the top setting, so the frequency pattern is 6, 6, 5, 6, 6, 6. This is inconsistent at F1 versus F0, so the readings are uncertain. The simplest sequence is F0 at 571.67 Hz, F1 unchanged, F2 down to 476.39 Hz, F3 back up, and F4–F6 unchanged.
+
+**Indicator height (orange marker):** F0 is at 155, F1 at 207, F2 at 214, F3 at 207, F4 at 181, F5 at 104, F6 at 155. A lower marker means lower amplitude, and the particles are flat in F1–F3, so the drive is low there.
+
+**Events:**
+1. F0 to F1: the marker drops and the cork flattens, so the drive decreases. The frequency is unchanged, giving DecreaseDrive.
+2. F1 to F2: the harmonic drops to 5, so the frequency decreases. The marker is slightly lower, so I take the drive as unchanged, giving DecreaseFrequency alone. Two decreases would reach the lowest drive setting, which fits the flat cork.
+3. F2 to F3: the frequency goes back up, giving IncreaseFrequency.
+4. F3 to F4: the particles become active and the marker rises, so the drive increases, giving IncreaseDrive.
+5. F4 to F5: the marker rises strongly, so the drive increases again, giving IncreaseDrive.
+6. F5 to F6: the marker drops and the particles are similar, so the drive decreases, giving DecreaseDrive.
+
+Event 1 is the weakest call. It sets the drive to the lowest setting, but events 4 and 5 both raise it, which fits only if event 1 started from the middle setting.
+
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | DecreaseDrive | DecreaseDrive + DecreaseFrequency |
 | 2 | DecreaseFrequency | DecreaseFrequency + IncreaseDrive |
 | 3 | IncreaseFrequency | DecreaseDrive + IncreaseFrequency |
 | 4 | IncreaseDrive | IncreaseDrive |
 | 5 | IncreaseDrive | IncreaseDrive + IncreaseFrequency |
 | 6 | DecreaseDrive | DecreaseDrive |
-
-</details>
 
 <a name="s14"></a>
 
@@ -92,18 +88,6 @@ Waves travel through an elastic surface around fixed columns. From which edge or
 [![Wave scattering. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S14.webp)](S14.webp)
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S14) · [Watch the episode](../../examples/S14/dual_view.mp4)
-
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
-
-I could only partly read the images, so most of these answers are best guesses.
-
-F1 is the only frame with clear wave fronts. They are curved bands that appear to originate from the left and the bottom-left, and a bright band also runs along the top-right. F1 is captured 1.8 s after the event start, which is about 1.4 s after the pulse ends. At 1.8 m/s, the wave has travelled roughly 2.5 m.
-
-A pulse from the left edge would give vertical fronts about 2.5 m in from the left edge. A bottom pulse would give horizontal fronts. The curved bands that appear to come from the left and the bottom-left suggest both left and front, but this is uncertain.
-
-F2 onward is too complex to decode. I fell back on plausible, varied combinations for events 2 to 6.
-
-</details>
 
 <details><summary>Full evaluation prompt</summary>
 
@@ -137,18 +121,26 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-<details><summary>Model answer and experiment log</summary>
+### Model Response · Claude Sonnet 5.5
+
+I could only partly read the images, so most of these answers are best guesses.
+
+F1 is the only frame with clear wave fronts. They are curved bands that appear to originate from the left and the bottom-left, and a bright band also runs along the top-right. F1 is captured 1.8 s after the event start, which is about 1.4 s after the pulse ends. At 1.8 m/s, the wave has travelled roughly 2.5 m.
+
+A pulse from the left edge would give vertical fronts about 2.5 m in from the left edge. A bottom pulse would give horizontal fronts. The curved bands that appear to come from the left and the bottom-left suggest both left and front, but this is uncertain.
+
+F2 onward is too complex to decode. I fell back on plausible, varied combinations for events 2 to 6.
+
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | pulse_front + pulse_left | pulse_back + pulse_left |
 | 2 | pulse_right | pulse_front |
 | 3 | pulse_back | pulse_back |
 | 4 | pulse_left + pulse_right | pulse_back + pulse_right |
 | 5 | pulse_front | pulse_front + pulse_right |
 | 6 | pulse_back + pulse_left | pulse_back + pulse_right |
-
-</details>
 
 <a name="s15"></a>
 
@@ -160,7 +152,32 @@ A moving siren emits a fixed tone toward a stationary receiver. At each event, d
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S15) · [Watch the episode](../../examples/S15/dual_view.mp4)
 
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
+<details><summary>Full evaluation prompt</summary>
+
+Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
+
+APPARATUS AND PUBLIC CONTROL DEFINITIONS
+Apparatus: a siren mounted on a rail cart emits a steady 100 Hz tone. A stationary receiving horn is beyond one end of the straight rail; the cart stays on the same side of this horn throughout the experiment. The cart, rail and control lever are outside the interior camera view. The camera faces a fixed listening cabinet containing either 9 or 11 vertical, narrow-band indicator rods with orange paper flags, fixed bottom supports and a back wall. Rod heights are not ordered from left to right; alternate supports occupy slightly different depths. Count the installed rods in the initial image. From shortest rod to longest rod, a 9-rod bank is calibrated at 100.8, 100.6, 100.4, 100.2, 100.0, 99.8, 99.6, 99.4, 99.2 Hz; an 11-rod bank is calibrated at 101.0, 100.8, 100.6, 100.4, 100.2, 100.0, 99.8, 99.6, 99.4, 99.2, 99.0 Hz. Do not assume frequency order follows left-to-right screen position. These are calibrated amplitude indicators: their slow, camera-visible motion displays each channel's response envelope, rather than literal 100 Hz displacement. There is no audio input. The cart is stationary before the first event. The apparatus state is not reset between events.
+
+External controls: each event selects exactly one of four cart settings. SlowApproach means low-speed travel toward the receiving horn; FastApproach means high-speed travel toward the horn; SlowRecede means low-speed travel away from the horn; FastRecede means high-speed travel away from the horn. Low and high nominal speeds are approximately 0.64 and 2.15 m/s. The source tone itself is unchanged.
+
+OBSERVATION PROTOCOL FOR THIS PREFIX
+The initial image is taken before the first cart setting; the cart is initially stationary. Each later image is one native response frame for the next cart setting. Indicator rods display slow response envelopes, with previous envelope motion retained. No audio or exterior cart image is supplied.
+Capture times (physical/native capture time in seconds): F0=2.383333 s; F1=8.533334 s; F2=14.433334 s; F3=18.566668 s; F4=26.933334 s; F5=30.916668 s; F6=37.116669 s.
+
+ALLOWED ATOMIC LABELS
+SlowApproach, FastApproach, FastRecede, SlowRecede
+
+ALLOWED EVENT LABEL SETS
+[["SlowApproach"],["FastApproach"],["FastRecede"],["SlowRecede"]]
+
+REQUIRED OUTPUT
+Return only one valid JSON object with exactly one root field, "operations". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.
+FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key "operations". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [["SlowApproach"], ["FastApproach"], ["FastRecede"], ["SlowRecede"]].
+
+</details>
+
+### Model Response · Claude Sonnet 5.5
 
 I counted 9 rods in F0, so the bank is the 9-rod calibration.
 
@@ -191,45 +208,16 @@ Which rod moved in each frame:
 - F5: F5 looks the same as F3, with rod 3 leaning again, so I read it as FastRecede.
 - F6: rod 9 (the shortest, about 100.8 Hz) tilted most, so I read it as FastApproach.
 
-</details>
-
-<details><summary>Full evaluation prompt</summary>
-
-Infer exactly 6 hidden events from exactly 7 chronological interior images F0-F6. F0 is the initial evidence frame before the first event. Each subsequent image adds one new event. Use only these supplied images and the public apparatus description. Reconstruct the complete unordered set of controls at every supplied event; events are ordered in time.
-
-APPARATUS AND PUBLIC CONTROL DEFINITIONS
-Apparatus: a siren mounted on a rail cart emits a steady 100 Hz tone. A stationary receiving horn is beyond one end of the straight rail; the cart stays on the same side of this horn throughout the experiment. The cart, rail and control lever are outside the interior camera view. The camera faces a fixed listening cabinet containing either 9 or 11 vertical, narrow-band indicator rods with orange paper flags, fixed bottom supports and a back wall. Rod heights are not ordered from left to right; alternate supports occupy slightly different depths. Count the installed rods in the initial image. From shortest rod to longest rod, a 9-rod bank is calibrated at 100.8, 100.6, 100.4, 100.2, 100.0, 99.8, 99.6, 99.4, 99.2 Hz; an 11-rod bank is calibrated at 101.0, 100.8, 100.6, 100.4, 100.2, 100.0, 99.8, 99.6, 99.4, 99.2, 99.0 Hz. Do not assume frequency order follows left-to-right screen position. These are calibrated amplitude indicators: their slow, camera-visible motion displays each channel's response envelope, rather than literal 100 Hz displacement. There is no audio input. The cart is stationary before the first event. The apparatus state is not reset between events.
-
-External controls: each event selects exactly one of four cart settings. SlowApproach means low-speed travel toward the receiving horn; FastApproach means high-speed travel toward the horn; SlowRecede means low-speed travel away from the horn; FastRecede means high-speed travel away from the horn. Low and high nominal speeds are approximately 0.64 and 2.15 m/s. The source tone itself is unchanged.
-
-OBSERVATION PROTOCOL FOR THIS PREFIX
-The initial image is taken before the first cart setting; the cart is initially stationary. Each later image is one native response frame for the next cart setting. Indicator rods display slow response envelopes, with previous envelope motion retained. No audio or exterior cart image is supplied.
-Capture times (physical/native capture time in seconds): F0=2.383333 s; F1=8.533334 s; F2=14.433334 s; F3=18.566668 s; F4=26.933334 s; F5=30.916668 s; F6=37.116669 s.
-
-ALLOWED ATOMIC LABELS
-SlowApproach, FastApproach, FastRecede, SlowRecede
-
-ALLOWED EVENT LABEL SETS
-[["SlowApproach"],["FastApproach"],["FastRecede"],["SlowRecede"]]
-
-REQUIRED OUTPUT
-Return only one valid JSON object with exactly one root field, "operations". Its value must contain exactly 6 nonempty lists, in chronological event order. Every inner list must equal one allowed event label set and comply with the control rules above. Order within an event list does not matter. Even if uncertain, select your best-supported allowed answer for every event. Never return an empty list, null, unknown, abstention, or a missing event. Do not output markdown, commentary, or additional fields.
-FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole JSON key "operations". Choose the most likely legal answer for EVERY event even when uncertain. Do not abstain, return an empty answer, or omit simultaneous actions. Your final visible answer must be only the JSON object. Legal action sets for one event: [["SlowApproach"], ["FastApproach"], ["FastRecede"], ["SlowRecede"]].
-
-</details>
-
-<details><summary>Model answer and experiment log</summary>
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | SlowApproach | FastApproach |
 | 2 | SlowRecede | SlowApproach |
 | 3 | FastRecede | SlowRecede |
 | 4 | FastRecede | SlowApproach |
 | 5 | FastRecede | SlowRecede |
 | 6 | FastApproach | FastRecede |
-
-</details>
 
 <a name="s16"></a>
 
@@ -240,30 +228,6 @@ Two plungers drive ripples in a tank. For each observed pattern, identify the ph
 [![Two-source ripples. Seven chronological observations, the recorded controls and a response by Claude Sonnet 5.5.](S16.webp)](S16.webp)
 
 [Solve the six-event question](https://pier-lab.github.io/CaveBench/#try-S16) · [Watch the episode](../../examples/S16/dual_view.mp4)
-
-<details><summary>Read the full explanation by Claude Sonnet 5.5</summary>
-
-I could not measure phases from the images, so this answer is a rough estimate from the colour patterns near each plunger, not a derived result.
-
-Each frame is sampled 5.64 s after its command, which is 0.64 s into the next cycle, so the phase at capture is 2π·0.64 plus the command phase. The 1.00 s transition has finished by then.
-
-Plunger displacement is sin(2πt + φ), with 2π·0.64 = 230.4°. The sine of 230.4° plus φ gives the height at the plunger:
-- φ=0: sin(230.4°) = −0.77, so below the mean (blue).
-- φ=90: sin(320.4°) = −0.64, so below the mean.
-- φ=180: sin(50.4°) = +0.77, so above the mean (orange).
-- φ=270 would give sin(140.4°) = +0.64, but it is not available.
-
-For B, the phase is φ_A + δ.
-
-Readings by frame (colour at the plunger centre):
-- F1: A is dark blue and B is orange, so they are roughly opposite. This suggests δ=180 with A at φ=0 (A = −0.77, B = +0.77), so event 1 is DeltaBA_180deg with PhaseA_0deg.
-- F2: A is orange and B is dark blue. A is +, so φ_A=180 (+0.77), and B is at 360°, which is 0 and would read near-mean. B is dark, so this is not a clean fit. Alternatively φ_A=90 with δ=90 gives B = 180+230 = 50.4° → +0.77, which does not fit either. I will take A=180 with δ=180 as the best guess, giving B = −0.77.
-- F3: A is small and grey-blue, near zero, while B is also small and dark. This is hard to read, so I guess A=90, δ=90, which gives A = −0.64 and B = +0.77 (B is not clearly orange, so this is weak).
-- F4: both are orange, so the phases are about equal and positive. I take φ=180 with δ=0.
-- F5: A is orange and B is grey with an orange ring around it, so B is near zero. I take A=180 with δ=90, which gives B = sin(140.4°) = +0.64.
-- F6: A is grey (small) and B is dark blue. I take A=90 with δ=180 as a guess, which gives B = sin(50.4°+180°) = −0.77.
-
-</details>
 
 <details><summary>Full evaluation prompt</summary>
 
@@ -291,15 +255,35 @@ FINAL ANSWER CONTRACT: Give exactly 6 chronological event arrays under the sole 
 
 </details>
 
-<details><summary>Model answer and experiment log</summary>
+### Model Response · Claude Sonnet 5.5
+
+I could not measure phases from the images, so this answer is a rough estimate from the colour patterns near each plunger, not a derived result.
+
+Each frame is sampled 5.64 s after its command, which is 0.64 s into the next cycle, so the phase at capture is 2π·0.64 plus the command phase. The 1.00 s transition has finished by then.
+
+Plunger displacement is sin(2πt + φ), with 2π·0.64 = 230.4°. The sine of 230.4° plus φ gives the height at the plunger:
+- φ=0: sin(230.4°) = −0.77, so below the mean (blue).
+- φ=90: sin(320.4°) = −0.64, so below the mean.
+- φ=180: sin(50.4°) = +0.77, so above the mean (orange).
+- φ=270 would give sin(140.4°) = +0.64, but it is not available.
+
+For B, the phase is φ_A + δ.
+
+Readings by frame (colour at the plunger centre):
+- F1: A is dark blue and B is orange, so they are roughly opposite. This suggests δ=180 with A at φ=0 (A = −0.77, B = +0.77), so event 1 is DeltaBA_180deg with PhaseA_0deg.
+- F2: A is orange and B is dark blue. A is +, so φ_A=180 (+0.77), and B is at 360°, which is 0 and would read near-mean. B is dark, so this is not a clean fit. Alternatively φ_A=90 with δ=90 gives B = 180+230 = 50.4° → +0.77, which does not fit either. I will take A=180 with δ=180 as the best guess, giving B = −0.77.
+- F3: A is small and grey-blue, near zero, while B is also small and dark. This is hard to read, so I guess A=90, δ=90, which gives A = −0.64 and B = +0.77 (B is not clearly orange, so this is weak).
+- F4: both are orange, so the phases are about equal and positive. I take φ=180 with δ=0.
+- F5: A is orange and B is grey with an orange ring around it, so B is near zero. I take A=180 with δ=90, which gives B = sin(140.4°) = +0.64.
+- F6: A is grey (small) and B is dark blue. I take A=90 with δ=180 as a guess, which gives B = sin(50.4°+180°) = −0.77.
+
+### Model Answer and Experiment Log
 
 | Event | Model answer | Recorded control |
-| --- | --- | --- |
+| ---: | --- | --- |
 | 1 | DeltaBA_180deg + PhaseA_0deg | DeltaBA_180deg + PhaseA_180deg |
 | 2 | DeltaBA_180deg + PhaseA_180deg | DeltaBA_180deg + PhaseA_0deg |
 | 3 | DeltaBA_90deg + PhaseA_90deg | DeltaBA_180deg + PhaseA_90deg |
 | 4 | DeltaBA_0deg + PhaseA_180deg | DeltaBA_0deg + PhaseA_0deg |
 | 5 | DeltaBA_90deg + PhaseA_180deg | DeltaBA_90deg + PhaseA_0deg |
 | 6 | DeltaBA_180deg + PhaseA_90deg | DeltaBA_90deg + PhaseA_90deg |
-
-</details>
