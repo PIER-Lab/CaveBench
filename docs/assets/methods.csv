@@ -1,0 +1,10 @@
+Group,Method,k = 1,k = 2,k = 3,k = 4,k = 5,k = 6,Overall
+Training-Based (Qwen3.5-9B),Baseline,23.7,3.2,4.0,1.0,1.0,0.5,5.4
+Training-Based (Qwen3.5-9B),SFT,78.9,62.6,47.5,35.0,21.0,20.0,43.7
+Training-Based (Qwen3.5-9B),SFT + DPO,86.3,74.2,69.0,52.5,29.0,30.5,56.5
+Training-Based (Qwen3.5-9B),SFT + SimPO,86.8,72.6,65.8,56.0,32.5,31.8,57.2
+Training-Based (Qwen3.5-9B),SFT + KTO,86.3,74.7,68.0,38.2,15.8,14.5,49.1
+Training-Free (Gemini 3.8 Flash),Baseline,60.5,38.4,36.0,28.5,25.5,21.5,34.8
+Training-Free (Gemini 3.8 Flash),ReAct,64.2,47.9,37.5,34.0,26.5,26.0,39.1
+Training-Free (Gemini 3.8 Flash),Visual Sketchpad,59.5,34.2,20.0,15.5,10.0,8.0,24.2
+Training-Free (Gemini 3.8 Flash),ViperGPT,57.4,28.4,25.0,18.0,12.0,11.0,25.0

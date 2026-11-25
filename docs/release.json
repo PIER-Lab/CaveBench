@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "Guanxin Lin",
+    "Chen Yang",
+    "Shenxiang Zeng",
+    "Honghui Zhu",
+    "Xin Li",
+    "Wenbo Deng",
+    "Jiansheng Fan",
+    "Chen Wang"
+  ],
+  "affiliations": [
+    "Tsinghua University"
+  ],
+  "authorNote": "Guanxin Lin and Chen Yang contributed equally. Chen Wang is the corresponding author.",
+  "github": "https://github.com/PIER-Lab/CaveBench",
+  "weights": "https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1",
+  "paper": "https://arxiv.org/abs/2611.32251",
+  "supplement": "https://arxiv.org/pdf/2611.32251#page=12",
+  "dataset": "https://huggingface.co/datasets/linguanxin/CaveBench"
+}

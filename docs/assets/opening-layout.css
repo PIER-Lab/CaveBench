@@ -1,0 +1,125 @@
+/* The engraved margins frame the masthead and fade into the film mount. */
+.hero#top {
+  --opening-ink: #153e37;
+  padding: clamp(33px, 3.1vw, 54px) var(--margin) clamp(21px, 2.05vw, 34px);
+  background:
+    radial-gradient(ellipse at 0% 0%, #f4e7d3, transparent 49%),
+    radial-gradient(ellipse at 100% 0%, #dcebe2, transparent 49%),
+    #faf9f3;
+}
+.hero#top::before {
+  inset: -8% -2% 0;
+  background: linear-gradient(105deg, #b3894b, #bfa683 22%, transparent 37% 63%, #79998b 80%, #517c6e);
+  mask: url("strata.webp") center 51% / max(1200px, 100%) auto no-repeat;
+  opacity: .9;
+}
+.hero#top::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent 61%, #faf9f3);
+}
+.hero#top .hero-inner { max-width: 1310px; }
+.hero#top .logotype {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(10px, 1vw, 17px);
+  color: var(--opening-ink);
+  font: 500 clamp(60px, 6.45vw, 96px)/.98 Georgia, "Times New Roman", serif;
+  letter-spacing: -.068em;
+}
+.hero#top .logotype img { width: clamp(75px, 7.8vw, 116px); height: auto; }
+.hero#top .paper-subtitle {
+  max-width: 1050px;
+  margin: 12px auto 0;
+  color: #253e37;
+  font: 400 clamp(24px, 2.2vw, 35px)/1.18 Georgia, "Times New Roman", serif;
+  letter-spacing: -.028em;
+  text-wrap: balance;
+}
+.hero#top .credits { margin-top: 19px; }
+.hero#top .authors { font-size: clamp(14px, 1.14vw, 17px); }
+.hero#top .institution { margin-top: 5px; }
+.hero#top .links { margin-top: 22px; gap: 8px; }
+.hero#top #resources a {
+  min-height: 38px;
+  padding: 8px 15px;
+  border: 1px solid #20463a;
+  border-radius: 999px;
+  background: linear-gradient(165deg, #33594b, #20493e 72%);
+  box-shadow: inset 0 1px 0 #ffffff26, 0 2px 3px #153e3714;
+  color: white;
+}
+.hero#top #resources a:is(:hover, :focus-visible) {
+  background: #183d34;
+  box-shadow: inset 0 1px 0 #ffffff24, 0 5px 10px -4px #234c4352;
+}
+.nav { background: #fffefa; box-shadow: 0 1px 6px #193a3106; }
+.nav nav > div a::after, .nav nav > div a[aria-current]::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: #3a7163;
+  transform-origin: left center;
+}
+.nav nav > div a:not([aria-current]):not(:hover):not(:focus-visible)::after { transform: scaleX(0); }
+.nav nav > div a:is(:hover, :focus-visible, [aria-current])::after { transform: scaleX(1); }
+
+.film-feature#film {
+  background:
+    radial-gradient(ellipse at 12% 87%, #e6ede4, transparent 50%),
+    radial-gradient(ellipse at 96% 86%, #f0e7d6, transparent 51%),
+    #faf9f3;
+  padding-block: 2px clamp(35px, 4vw, 66px);
+}
+#film .film-spread {
+  max-width: 1100px;
+  padding: clamp(5px, .65vw, 9px);
+  border: 1px solid #c9d2c3;
+  border-radius: 17px;
+  background: linear-gradient(150deg, #fffefa, #e8eee6 70%, #f7f4e9);
+  box-shadow: inset 0 1px 0 #fff, 0 3px 6px -4px #293c3545, 0 21px 44px -23px #324d4290;
+}
+#film .film-screen { border: 1px solid #aebfb4; border-radius: 9px; box-shadow: none; }
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .nav nav > div a::after { transition: transform .22s ease-out; }
+  .hero#top #resources a { transition: transform .18s ease, box-shadow .18s ease; }
+  .hero#top #resources a:is(:hover, :focus-visible) { transform: translateY(-2px); }
+  .hero#top #resources a:active { transform: translateY(0); }
+  .hero#top .logotype, .hero#top .paper-subtitle, .hero#top .credits, .hero#top #resources {
+    animation: cover-arrival .48s cubic-bezier(.2,.65,.32,1) backwards;
+  }
+  .hero#top .paper-subtitle { animation-delay: .04s; }
+  .hero#top .credits { animation-delay: .08s; }
+  .hero#top #resources { animation-delay: .12s; }
+  @supports (animation-timeline: scroll()) {
+    .nav::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 -1px;
+      height: 2px;
+      pointer-events: none;
+      background: linear-gradient(90deg, #386f61 0%, #80a28c 70%, #b09663);
+      transform-origin: left;
+      animation: reading-progress linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+@keyframes cover-arrival {
+  from { opacity: .25; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes reading-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (max-width: 630px) {
+  .hero#top .paper-subtitle { max-width: 35ch; }
+  .hero#top .logotype { font-size: 55px; }
+  .hero#top .logotype img { width: 71px; }
+  .hero#top #resources a { padding-inline: 9px; }
+  #film .film-spread { border-radius: 12px; }
+  #film .film-screen { border-radius: 7px; }
+}

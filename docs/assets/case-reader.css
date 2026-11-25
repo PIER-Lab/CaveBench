@@ -1,0 +1,70 @@
+.sceneinfo { align-items: end; margin: 8px 0 16px; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
+.scene-tag, .stage-top > span, .stage-navigation > span, .event-verdict dt, .case-sheet, .case-outcome dt {
+  color: var(--muted); font: 600 12px/1.45 var(--sans);
+}
+.scene-tag { color: var(--accent); }
+.sceneinfo h3 { margin: 4px 0 0; font: 400 clamp(27px,3.4vw,43px)/1.14 Georgia,serif; letter-spacing: -.02em; }
+.instrument-reader, #example > .case-media {
+  width: min(100%, 960px); margin-inline: auto; min-width: 0;
+}
+.instrument-reader > section + section, #example > .case-media { margin-top: clamp(28px,4vw,52px); }
+.instrument-reader .case-plate > h4, #example > .case-media > h4 {
+  margin: 0 0 14px; font: 400 clamp(24px,2.5vw,34px)/1.2 Georgia,serif; letter-spacing: -.03em;
+}
+.observation-stage {
+  padding: clamp(12px,2vw,24px); border: 1px solid var(--line); border-radius: 6px; background: var(--panel);
+}
+.stage-top, .stage-navigation, .event-dial, .event-verdict, .case-sheet {
+  display: flex; align-items: center;
+}
+.stage-top { justify-content: space-between; padding-bottom: 9px; gap: 10px; border-bottom: 1px solid var(--line); }
+.stage-top h4 { margin: 0; font: 700 clamp(18px,1.8vw,24px)/1.3 var(--sans); letter-spacing: -.02em; }
+.stage-top > span { white-space: nowrap; }
+.stage-navigation { gap: 12px; margin: 16px 0 9px; }
+.event-dial { flex-wrap: wrap; gap: 4px; }
+.event-dial button {
+  min-height: 34px; min-width: 36px; padding: 4px 8px; border: 1px solid var(--line-strong); border-radius: 3px;
+  color: var(--ink); background: var(--panel-strong); font: 600 13px var(--sans); cursor: pointer;
+}
+.event-dial button[aria-pressed=true] { color: #fff; border-color: var(--accent); background: var(--accent); }
+.observation-pair { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+.section .observation-pair figure, .section .contact-strip figure { margin: 0; }
+.observation-pair figure { overflow: hidden; border: 1px solid var(--line); border-radius: 3px; background: var(--panel-strong); }
+.observation-pair figcaption { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 7px; margin: 0; padding: 5px 8px; font-size: 12px; }
+.observation-pair figcaption b { color: var(--accent); }
+.event-verdict { justify-content: space-between; gap: 12px; margin-top: 8px; padding: 9px 12px; background: var(--tint); border-radius: 3px; }
+.event-verdict dl { flex: 1; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 15px; margin: 0; }
+.event-verdict dd { margin: 3px 0 0; font: 650 14px/1.4 var(--sans); overflow-wrap: anywhere; }
+.event-verdict .verdict-label { flex: none; margin: 0; color: #925038; font: 700 13px/1.3 var(--sans); }
+.event-verdict .verdict-label[data-match=true] { color: #19694e; }
+.contact-strip { margin-top: 14px; }
+.contact-strip .strip { grid-template-columns: repeat(7,minmax(0,1fr)); gap: 4px; }
+.contact-strip figcaption { font-size: 11px; margin: 3px 0 0; }
+.contact-strip a { overflow: hidden; border: 1px solid var(--line); border-radius: 3px; }
+.case-plate { border-top: 1px solid var(--line); padding-top: 20px; }
+.section .case-plate > figure { margin: 0; }
+.case-plate > figure > a { border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
+.prompt-plate img { aspect-ratio: auto 1383 / 1004; }
+.response-plate img { aspect-ratio: auto 1383 / 1697; }
+.case-plate > details { border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+.case-plate summary { cursor: pointer; padding: 6px 0; font-weight: 600; color: var(--accent); }
+.apparatus-prompt > div, .case-plate .full-explanation { max-width: 78ch; margin: 12px auto; line-height: 1.65; }
+.case-plate .full-explanation { max-height: none; overflow: visible; }
+.case-plate pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.case-outcome {
+  display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; padding: 12px 16px; margin: 0 0 14px;
+  border-radius: 4px; background: var(--tint);
+}
+.case-outcome dd { margin: 4px 0 0; color: var(--ink); font: 650 15px/1.4 var(--sans); }
+.case-outcome a { color: var(--accent); }
+.case-sheet { flex-wrap: wrap; gap: 10px 18px; margin-top: 12px; }
+.case-sheet a { color: var(--accent); }
+#example > .case-media video { aspect-ratio: 32/9; background: var(--panel); border-radius: 4px; }
+
+@media (max-width: 640px) {
+  .event-verdict { align-items: flex-start; flex-wrap: wrap; }
+  .event-verdict dl { flex-basis: 100%; }
+  .case-outcome { grid-template-columns: 1fr; gap: 8px; }
+  .case-outcome > div { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .case-outcome dd { margin: 0; text-align: right; }
+}

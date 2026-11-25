@@ -1,0 +1,253 @@
+model,effort,stage,scene,apparatus,domain,correct,total,accuracy_pct,correct_events,total_events,event_accuracy_pct
+GPT-6.1 Sol,Low,Primary,S01,Cabin inertia,Dynamics,1,10,10.0,40,60,66.66666667
+GPT-6.1 Sol,Low,Primary,S02,Rotation & gas,Dynamics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Low,Primary,S03,Driven pendulums,Dynamics,4,10,40.0,45,60,75.0
+GPT-6.1 Sol,Low,Primary,S04,Tray impact,Dynamics,7,10,70.0,46,60,76.66666667
+GPT-6.1 Sol,Low,Primary,S05,Moving heat source,Thermal,9,10,90.0,59,60,98.33333333
+GPT-6.1 Sol,Low,Primary,S06,Layered liquids,Thermal,7,10,70.0,56,60,93.33333333
+GPT-6.1 Sol,Low,Primary,S07,Heated gas bulbs,Thermal,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Low,Primary,S08,Bimetal supports,Thermal,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Low,Primary,S09,Magnetic coils,Electromagnetism,3,10,30.0,47,60,78.33333333
+GPT-6.1 Sol,Low,Primary,S10,Electric dipoles,Electromagnetism,2,10,20.0,36,60,60.0
+GPT-6.1 Sol,Low,Primary,S11,Dielectric response,Electromagnetism,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Low,Primary,S12,Conducting wires,Electromagnetism,3,10,30.0,49,60,81.66666667
+GPT-6.1 Sol,Low,Primary,S13,Standing waves,Acoustics,9,10,90.0,58,60,96.66666667
+GPT-6.1 Sol,Low,Primary,S14,Wave scattering,Acoustics,1,10,10.0,35,60,58.33333333
+GPT-6.1 Sol,Low,Primary,S15,Doppler response,Acoustics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Low,Primary,S16,Two-source ripples,Acoustics,8,10,80.0,53,60,88.33333333
+GPT-6.1 Sol,Low,Primary,S17,Photoelastic load,Optics,7,10,70.0,52,60,86.66666667
+GPT-6.1 Sol,Low,Primary,S18,Double reflection,Optics,0,10,0.0,35,60,58.33333333
+GPT-6.1 Sol,Low,Primary,S19,Graded refraction,Optics,0,10,0.0,20,60,33.33333333
+GPT-6.1 Sol,Low,Primary,S20,Double-slit fringes,Optics,8,10,80.0,57,60,95.0
+GPT-6.1 Sol,Low,Primary,Overall,All apparatuses,Overall,119,200,59.5,988,1200,82.33333333
+GPT-6.1 Sol,Low,Final,S01,Cabin inertia,Dynamics,1,10,10.0,40,60,66.66666667
+GPT-6.1 Sol,Low,Final,S02,Rotation & gas,Dynamics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Low,Final,S03,Driven pendulums,Dynamics,4,10,40.0,45,60,75.0
+GPT-6.1 Sol,Low,Final,S04,Tray impact,Dynamics,7,10,70.0,46,60,76.66666667
+GPT-6.1 Sol,Low,Final,S05,Moving heat source,Thermal,9,10,90.0,59,60,98.33333333
+GPT-6.1 Sol,Low,Final,S06,Layered liquids,Thermal,7,10,70.0,56,60,93.33333333
+GPT-6.1 Sol,Low,Final,S07,Heated gas bulbs,Thermal,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Low,Final,S08,Bimetal supports,Thermal,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Low,Final,S09,Magnetic coils,Electromagnetism,3,10,30.0,47,60,78.33333333
+GPT-6.1 Sol,Low,Final,S10,Electric dipoles,Electromagnetism,2,10,20.0,36,60,60.0
+GPT-6.1 Sol,Low,Final,S11,Dielectric response,Electromagnetism,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Low,Final,S12,Conducting wires,Electromagnetism,3,10,30.0,49,60,81.66666667
+GPT-6.1 Sol,Low,Final,S13,Standing waves,Acoustics,9,10,90.0,58,60,96.66666667
+GPT-6.1 Sol,Low,Final,S14,Wave scattering,Acoustics,1,10,10.0,35,60,58.33333333
+GPT-6.1 Sol,Low,Final,S15,Doppler response,Acoustics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Low,Final,S16,Two-source ripples,Acoustics,8,10,80.0,53,60,88.33333333
+GPT-6.1 Sol,Low,Final,S17,Photoelastic load,Optics,7,10,70.0,52,60,86.66666667
+GPT-6.1 Sol,Low,Final,S18,Double reflection,Optics,0,10,0.0,35,60,58.33333333
+GPT-6.1 Sol,Low,Final,S19,Graded refraction,Optics,0,10,0.0,20,60,33.33333333
+GPT-6.1 Sol,Low,Final,S20,Double-slit fringes,Optics,8,10,80.0,57,60,95.0
+GPT-6.1 Sol,Low,Final,Overall,All apparatuses,Overall,119,200,59.5,988,1200,82.33333333
+GPT-6.1 Sol,Medium,Primary,S01,Cabin inertia,Dynamics,2,10,20.0,42,60,70.0
+GPT-6.1 Sol,Medium,Primary,S02,Rotation & gas,Dynamics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Medium,Primary,S03,Driven pendulums,Dynamics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Medium,Primary,S04,Tray impact,Dynamics,8,10,80.0,50,60,83.33333333
+GPT-6.1 Sol,Medium,Primary,S05,Moving heat source,Thermal,9,10,90.0,59,60,98.33333333
+GPT-6.1 Sol,Medium,Primary,S06,Layered liquids,Thermal,6,10,60.0,56,60,93.33333333
+GPT-6.1 Sol,Medium,Primary,S07,Heated gas bulbs,Thermal,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Medium,Primary,S08,Bimetal supports,Thermal,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Medium,Primary,S09,Magnetic coils,Electromagnetism,3,10,30.0,46,60,76.66666667
+GPT-6.1 Sol,Medium,Primary,S10,Electric dipoles,Electromagnetism,2,10,20.0,35,60,58.33333333
+GPT-6.1 Sol,Medium,Primary,S11,Dielectric response,Electromagnetism,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Medium,Primary,S12,Conducting wires,Electromagnetism,5,10,50.0,52,60,86.66666667
+GPT-6.1 Sol,Medium,Primary,S13,Standing waves,Acoustics,9,10,90.0,58,60,96.66666667
+GPT-6.1 Sol,Medium,Primary,S14,Wave scattering,Acoustics,0,10,0.0,32,60,53.33333333
+GPT-6.1 Sol,Medium,Primary,S15,Doppler response,Acoustics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Medium,Primary,S16,Two-source ripples,Acoustics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Medium,Primary,S17,Photoelastic load,Optics,9,10,90.0,57,60,95.0
+GPT-6.1 Sol,Medium,Primary,S18,Double reflection,Optics,2,10,20.0,48,60,80.0
+GPT-6.1 Sol,Medium,Primary,S19,Graded refraction,Optics,0,10,0.0,18,60,30.0
+GPT-6.1 Sol,Medium,Primary,S20,Double-slit fringes,Optics,9,10,90.0,58,60,96.66666667
+GPT-6.1 Sol,Medium,Primary,Overall,All apparatuses,Overall,134,200,67.0,1031,1200,85.91666667
+GPT-6.1 Sol,Medium,Final,S01,Cabin inertia,Dynamics,2,10,20.0,42,60,70.0
+GPT-6.1 Sol,Medium,Final,S02,Rotation & gas,Dynamics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Medium,Final,S03,Driven pendulums,Dynamics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Medium,Final,S04,Tray impact,Dynamics,8,10,80.0,50,60,83.33333333
+GPT-6.1 Sol,Medium,Final,S05,Moving heat source,Thermal,9,10,90.0,59,60,98.33333333
+GPT-6.1 Sol,Medium,Final,S06,Layered liquids,Thermal,6,10,60.0,56,60,93.33333333
+GPT-6.1 Sol,Medium,Final,S07,Heated gas bulbs,Thermal,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Medium,Final,S08,Bimetal supports,Thermal,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Medium,Final,S09,Magnetic coils,Electromagnetism,3,10,30.0,46,60,76.66666667
+GPT-6.1 Sol,Medium,Final,S10,Electric dipoles,Electromagnetism,2,10,20.0,35,60,58.33333333
+GPT-6.1 Sol,Medium,Final,S11,Dielectric response,Electromagnetism,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Medium,Final,S12,Conducting wires,Electromagnetism,5,10,50.0,52,60,86.66666667
+GPT-6.1 Sol,Medium,Final,S13,Standing waves,Acoustics,9,10,90.0,58,60,96.66666667
+GPT-6.1 Sol,Medium,Final,S14,Wave scattering,Acoustics,0,10,0.0,32,60,53.33333333
+GPT-6.1 Sol,Medium,Final,S15,Doppler response,Acoustics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Medium,Final,S16,Two-source ripples,Acoustics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,Medium,Final,S17,Photoelastic load,Optics,9,10,90.0,57,60,95.0
+GPT-6.1 Sol,Medium,Final,S18,Double reflection,Optics,2,10,20.0,48,60,80.0
+GPT-6.1 Sol,Medium,Final,S19,Graded refraction,Optics,0,10,0.0,18,60,30.0
+GPT-6.1 Sol,Medium,Final,S20,Double-slit fringes,Optics,9,10,90.0,58,60,96.66666667
+GPT-6.1 Sol,Medium,Final,Overall,All apparatuses,Overall,134,200,67.0,1031,1200,85.91666667
+GPT-6.1 Sol,High,Primary,S01,Cabin inertia,Dynamics,5,10,50.0,41,60,68.33333333
+GPT-6.1 Sol,High,Primary,S02,Rotation & gas,Dynamics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Primary,S03,Driven pendulums,Dynamics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Primary,S04,Tray impact,Dynamics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Primary,S05,Moving heat source,Thermal,9,10,90.0,59,60,98.33333333
+GPT-6.1 Sol,High,Primary,S06,Layered liquids,Thermal,7,10,70.0,57,60,95.0
+GPT-6.1 Sol,High,Primary,S07,Heated gas bulbs,Thermal,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Primary,S08,Bimetal supports,Thermal,8,10,80.0,48,60,80.0
+GPT-6.1 Sol,High,Primary,S09,Magnetic coils,Electromagnetism,6,10,60.0,36,60,60.0
+GPT-6.1 Sol,High,Primary,S10,Electric dipoles,Electromagnetism,6,10,60.0,48,60,80.0
+GPT-6.1 Sol,High,Primary,S11,Dielectric response,Electromagnetism,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Primary,S12,Conducting wires,Electromagnetism,6,10,60.0,54,60,90.0
+GPT-6.1 Sol,High,Primary,S13,Standing waves,Acoustics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Primary,S14,Wave scattering,Acoustics,1,10,10.0,26,60,43.33333333
+GPT-6.1 Sol,High,Primary,S15,Doppler response,Acoustics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Primary,S16,Two-source ripples,Acoustics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Primary,S17,Photoelastic load,Optics,5,10,50.0,46,60,76.66666667
+GPT-6.1 Sol,High,Primary,S18,Double reflection,Optics,4,10,40.0,24,60,40.0
+GPT-6.1 Sol,High,Primary,S19,Graded refraction,Optics,0,10,0.0,0,60,0.0
+GPT-6.1 Sol,High,Primary,S20,Double-slit fringes,Optics,9,10,90.0,58,60,96.66666667
+GPT-6.1 Sol,High,Primary,Overall,All apparatuses,Overall,146,200,73.0,977,1200,81.41666667
+GPT-6.1 Sol,High,Final,S01,Cabin inertia,Dynamics,5,10,50.0,48,60,80.0
+GPT-6.1 Sol,High,Final,S02,Rotation & gas,Dynamics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Final,S03,Driven pendulums,Dynamics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Final,S04,Tray impact,Dynamics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Final,S05,Moving heat source,Thermal,9,10,90.0,59,60,98.33333333
+GPT-6.1 Sol,High,Final,S06,Layered liquids,Thermal,7,10,70.0,57,60,95.0
+GPT-6.1 Sol,High,Final,S07,Heated gas bulbs,Thermal,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Final,S08,Bimetal supports,Thermal,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Final,S09,Magnetic coils,Electromagnetism,6,10,60.0,50,60,83.33333333
+GPT-6.1 Sol,High,Final,S10,Electric dipoles,Electromagnetism,6,10,60.0,48,60,80.0
+GPT-6.1 Sol,High,Final,S11,Dielectric response,Electromagnetism,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Final,S12,Conducting wires,Electromagnetism,6,10,60.0,54,60,90.0
+GPT-6.1 Sol,High,Final,S13,Standing waves,Acoustics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Final,S14,Wave scattering,Acoustics,1,10,10.0,40,60,66.66666667
+GPT-6.1 Sol,High,Final,S15,Doppler response,Acoustics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Final,S16,Two-source ripples,Acoustics,10,10,100.0,60,60,100.0
+GPT-6.1 Sol,High,Final,S17,Photoelastic load,Optics,5,10,50.0,46,60,76.66666667
+GPT-6.1 Sol,High,Final,S18,Double reflection,Optics,4,10,40.0,43,60,71.66666667
+GPT-6.1 Sol,High,Final,S19,Graded refraction,Optics,0,10,0.0,18,60,30.0
+GPT-6.1 Sol,High,Final,S20,Double-slit fringes,Optics,9,10,90.0,58,60,96.66666667
+GPT-6.1 Sol,High,Final,Overall,All apparatuses,Overall,148,200,74.0,1061,1200,88.41666667
+Gemini 3.8 Flash,Low,Primary,S01,Cabin inertia,Dynamics,2,10,20.0,23,60,38.33333333
+Gemini 3.8 Flash,Low,Primary,S02,Rotation & gas,Dynamics,1,10,10.0,23,60,38.33333333
+Gemini 3.8 Flash,Low,Primary,S03,Driven pendulums,Dynamics,0,10,0.0,22,60,36.66666667
+Gemini 3.8 Flash,Low,Primary,S04,Tray impact,Dynamics,4,10,40.0,36,60,60.0
+Gemini 3.8 Flash,Low,Primary,S05,Moving heat source,Thermal,2,10,20.0,38,60,63.33333333
+Gemini 3.8 Flash,Low,Primary,S06,Layered liquids,Thermal,1,10,10.0,30,60,50.0
+Gemini 3.8 Flash,Low,Primary,S07,Heated gas bulbs,Thermal,1,10,10.0,32,60,53.33333333
+Gemini 3.8 Flash,Low,Primary,S08,Bimetal supports,Thermal,0,10,0.0,24,60,40.0
+Gemini 3.8 Flash,Low,Primary,S09,Magnetic coils,Electromagnetism,0,10,0.0,25,60,41.66666667
+Gemini 3.8 Flash,Low,Primary,S10,Electric dipoles,Electromagnetism,0,10,0.0,17,60,28.33333333
+Gemini 3.8 Flash,Low,Primary,S11,Dielectric response,Electromagnetism,8,10,80.0,48,60,80.0
+Gemini 3.8 Flash,Low,Primary,S12,Conducting wires,Electromagnetism,0,10,0.0,16,60,26.66666667
+Gemini 3.8 Flash,Low,Primary,S13,Standing waves,Acoustics,0,10,0.0,18,60,30.0
+Gemini 3.8 Flash,Low,Primary,S14,Wave scattering,Acoustics,0,10,0.0,23,60,38.33333333
+Gemini 3.8 Flash,Low,Primary,S15,Doppler response,Acoustics,6,10,60.0,38,60,63.33333333
+Gemini 3.8 Flash,Low,Primary,S16,Two-source ripples,Acoustics,0,10,0.0,11,60,18.33333333
+Gemini 3.8 Flash,Low,Primary,S17,Photoelastic load,Optics,1,10,10.0,27,60,45.0
+Gemini 3.8 Flash,Low,Primary,S18,Double reflection,Optics,0,10,0.0,3,60,5.0
+Gemini 3.8 Flash,Low,Primary,S19,Graded refraction,Optics,0,10,0.0,9,60,15.0
+Gemini 3.8 Flash,Low,Primary,S20,Double-slit fringes,Optics,2,10,20.0,46,60,76.66666667
+Gemini 3.8 Flash,Low,Primary,Overall,All apparatuses,Overall,28,200,14.0,509,1200,42.41666667
+Gemini 3.8 Flash,Low,Final,S01,Cabin inertia,Dynamics,2,10,20.0,23,60,38.33333333
+Gemini 3.8 Flash,Low,Final,S02,Rotation & gas,Dynamics,1,10,10.0,28,60,46.66666667
+Gemini 3.8 Flash,Low,Final,S03,Driven pendulums,Dynamics,0,10,0.0,23,60,38.33333333
+Gemini 3.8 Flash,Low,Final,S04,Tray impact,Dynamics,4,10,40.0,36,60,60.0
+Gemini 3.8 Flash,Low,Final,S05,Moving heat source,Thermal,2,10,20.0,38,60,63.33333333
+Gemini 3.8 Flash,Low,Final,S06,Layered liquids,Thermal,1,10,10.0,30,60,50.0
+Gemini 3.8 Flash,Low,Final,S07,Heated gas bulbs,Thermal,1,10,10.0,32,60,53.33333333
+Gemini 3.8 Flash,Low,Final,S08,Bimetal supports,Thermal,0,10,0.0,24,60,40.0
+Gemini 3.8 Flash,Low,Final,S09,Magnetic coils,Electromagnetism,0,10,0.0,30,60,50.0
+Gemini 3.8 Flash,Low,Final,S10,Electric dipoles,Electromagnetism,0,10,0.0,17,60,28.33333333
+Gemini 3.8 Flash,Low,Final,S11,Dielectric response,Electromagnetism,10,10,100.0,60,60,100.0
+Gemini 3.8 Flash,Low,Final,S12,Conducting wires,Electromagnetism,0,10,0.0,18,60,30.0
+Gemini 3.8 Flash,Low,Final,S13,Standing waves,Acoustics,0,10,0.0,18,60,30.0
+Gemini 3.8 Flash,Low,Final,S14,Wave scattering,Acoustics,0,10,0.0,23,60,38.33333333
+Gemini 3.8 Flash,Low,Final,S15,Doppler response,Acoustics,6,10,60.0,42,60,70.0
+Gemini 3.8 Flash,Low,Final,S16,Two-source ripples,Acoustics,0,10,0.0,11,60,18.33333333
+Gemini 3.8 Flash,Low,Final,S17,Photoelastic load,Optics,2,10,20.0,33,60,55.0
+Gemini 3.8 Flash,Low,Final,S18,Double reflection,Optics,0,10,0.0,4,60,6.66666667
+Gemini 3.8 Flash,Low,Final,S19,Graded refraction,Optics,0,10,0.0,11,60,18.33333333
+Gemini 3.8 Flash,Low,Final,S20,Double-slit fringes,Optics,2,10,20.0,46,60,76.66666667
+Gemini 3.8 Flash,Low,Final,Overall,All apparatuses,Overall,31,200,15.5,547,1200,45.58333333
+Gemini 3.8 Flash,Medium,Primary,S01,Cabin inertia,Dynamics,0,10,0.0,23,60,38.33333333
+Gemini 3.8 Flash,Medium,Primary,S02,Rotation & gas,Dynamics,6,10,60.0,49,60,81.66666667
+Gemini 3.8 Flash,Medium,Primary,S03,Driven pendulums,Dynamics,2,10,20.0,30,60,50.0
+Gemini 3.8 Flash,Medium,Primary,S04,Tray impact,Dynamics,7,10,70.0,49,60,81.66666667
+Gemini 3.8 Flash,Medium,Primary,S05,Moving heat source,Thermal,1,10,10.0,31,60,51.66666667
+Gemini 3.8 Flash,Medium,Primary,S06,Layered liquids,Thermal,2,10,20.0,31,60,51.66666667
+Gemini 3.8 Flash,Medium,Primary,S07,Heated gas bulbs,Thermal,0,10,0.0,30,60,50.0
+Gemini 3.8 Flash,Medium,Primary,S08,Bimetal supports,Thermal,1,10,10.0,31,60,51.66666667
+Gemini 3.8 Flash,Medium,Primary,S09,Magnetic coils,Electromagnetism,2,10,20.0,33,60,55.0
+Gemini 3.8 Flash,Medium,Primary,S10,Electric dipoles,Electromagnetism,0,10,0.0,10,60,16.66666667
+Gemini 3.8 Flash,Medium,Primary,S11,Dielectric response,Electromagnetism,10,10,100.0,60,60,100.0
+Gemini 3.8 Flash,Medium,Primary,S12,Conducting wires,Electromagnetism,0,10,0.0,18,60,30.0
+Gemini 3.8 Flash,Medium,Primary,S13,Standing waves,Acoustics,0,10,0.0,23,60,38.33333333
+Gemini 3.8 Flash,Medium,Primary,S14,Wave scattering,Acoustics,0,10,0.0,26,60,43.33333333
+Gemini 3.8 Flash,Medium,Primary,S15,Doppler response,Acoustics,7,10,70.0,50,60,83.33333333
+Gemini 3.8 Flash,Medium,Primary,S16,Two-source ripples,Acoustics,0,10,0.0,7,60,11.66666667
+Gemini 3.8 Flash,Medium,Primary,S17,Photoelastic load,Optics,2,10,20.0,31,60,51.66666667
+Gemini 3.8 Flash,Medium,Primary,S18,Double reflection,Optics,0,10,0.0,1,60,1.66666667
+Gemini 3.8 Flash,Medium,Primary,S19,Graded refraction,Optics,0,10,0.0,6,60,10.0
+Gemini 3.8 Flash,Medium,Primary,S20,Double-slit fringes,Optics,1,10,10.0,33,60,55.0
+Gemini 3.8 Flash,Medium,Primary,Overall,All apparatuses,Overall,41,200,20.5,572,1200,47.66666667
+Gemini 3.8 Flash,Medium,Final,S01,Cabin inertia,Dynamics,0,10,0.0,29,60,48.33333333
+Gemini 3.8 Flash,Medium,Final,S02,Rotation & gas,Dynamics,6,10,60.0,49,60,81.66666667
+Gemini 3.8 Flash,Medium,Final,S03,Driven pendulums,Dynamics,2,10,20.0,30,60,50.0
+Gemini 3.8 Flash,Medium,Final,S04,Tray impact,Dynamics,7,10,70.0,52,60,86.66666667
+Gemini 3.8 Flash,Medium,Final,S05,Moving heat source,Thermal,1,10,10.0,31,60,51.66666667
+Gemini 3.8 Flash,Medium,Final,S06,Layered liquids,Thermal,2,10,20.0,31,60,51.66666667
+Gemini 3.8 Flash,Medium,Final,S07,Heated gas bulbs,Thermal,1,10,10.0,36,60,60.0
+Gemini 3.8 Flash,Medium,Final,S08,Bimetal supports,Thermal,1,10,10.0,32,60,53.33333333
+Gemini 3.8 Flash,Medium,Final,S09,Magnetic coils,Electromagnetism,3,10,30.0,42,60,70.0
+Gemini 3.8 Flash,Medium,Final,S10,Electric dipoles,Electromagnetism,0,10,0.0,12,60,20.0
+Gemini 3.8 Flash,Medium,Final,S11,Dielectric response,Electromagnetism,10,10,100.0,60,60,100.0
+Gemini 3.8 Flash,Medium,Final,S12,Conducting wires,Electromagnetism,0,10,0.0,18,60,30.0
+Gemini 3.8 Flash,Medium,Final,S13,Standing waves,Acoustics,0,10,0.0,30,60,50.0
+Gemini 3.8 Flash,Medium,Final,S14,Wave scattering,Acoustics,0,10,0.0,26,60,43.33333333
+Gemini 3.8 Flash,Medium,Final,S15,Doppler response,Acoustics,7,10,70.0,50,60,83.33333333
+Gemini 3.8 Flash,Medium,Final,S16,Two-source ripples,Acoustics,0,10,0.0,7,60,11.66666667
+Gemini 3.8 Flash,Medium,Final,S17,Photoelastic load,Optics,2,10,20.0,31,60,51.66666667
+Gemini 3.8 Flash,Medium,Final,S18,Double reflection,Optics,0,10,0.0,2,60,3.33333333
+Gemini 3.8 Flash,Medium,Final,S19,Graded refraction,Optics,0,10,0.0,7,60,11.66666667
+Gemini 3.8 Flash,Medium,Final,S20,Double-slit fringes,Optics,1,10,10.0,33,60,55.0
+Gemini 3.8 Flash,Medium,Final,Overall,All apparatuses,Overall,43,200,21.5,608,1200,50.66666667
+Gemini 3.8 Flash,High,Primary,S01,Cabin inertia,Dynamics,0,10,0.0,7,60,11.66666667
+Gemini 3.8 Flash,High,Primary,S02,Rotation & gas,Dynamics,0,10,0.0,15,60,25.0
+Gemini 3.8 Flash,High,Primary,S03,Driven pendulums,Dynamics,0,10,0.0,2,60,3.33333333
+Gemini 3.8 Flash,High,Primary,S04,Tray impact,Dynamics,0,10,0.0,8,60,13.33333333
+Gemini 3.8 Flash,High,Primary,S05,Moving heat source,Thermal,0,10,0.0,7,60,11.66666667
+Gemini 3.8 Flash,High,Primary,S06,Layered liquids,Thermal,0,10,0.0,7,60,11.66666667
+Gemini 3.8 Flash,High,Primary,S07,Heated gas bulbs,Thermal,0,10,0.0,17,60,28.33333333
+Gemini 3.8 Flash,High,Primary,S08,Bimetal supports,Thermal,0,10,0.0,4,60,6.66666667
+Gemini 3.8 Flash,High,Primary,S09,Magnetic coils,Electromagnetism,0,10,0.0,10,60,16.66666667
+Gemini 3.8 Flash,High,Primary,S10,Electric dipoles,Electromagnetism,0,10,0.0,5,60,8.33333333
+Gemini 3.8 Flash,High,Primary,S11,Dielectric response,Electromagnetism,10,10,100.0,60,60,100.0
+Gemini 3.8 Flash,High,Primary,S12,Conducting wires,Electromagnetism,1,10,10.0,19,60,31.66666667
+Gemini 3.8 Flash,High,Primary,S13,Standing waves,Acoustics,0,10,0.0,4,60,6.66666667
+Gemini 3.8 Flash,High,Primary,S14,Wave scattering,Acoustics,0,10,0.0,6,60,10.0
+Gemini 3.8 Flash,High,Primary,S15,Doppler response,Acoustics,0,10,0.0,1,60,1.66666667
+Gemini 3.8 Flash,High,Primary,S16,Two-source ripples,Acoustics,0,10,0.0,0,60,0.0
+Gemini 3.8 Flash,High,Primary,S17,Photoelastic load,Optics,1,10,10.0,13,60,21.66666667
+Gemini 3.8 Flash,High,Primary,S18,Double reflection,Optics,0,10,0.0,0,60,0.0
+Gemini 3.8 Flash,High,Primary,S19,Graded refraction,Optics,0,10,0.0,3,60,5.0
+Gemini 3.8 Flash,High,Primary,S20,Double-slit fringes,Optics,0,10,0.0,9,60,15.0
+Gemini 3.8 Flash,High,Primary,Overall,All apparatuses,Overall,12,200,6.0,197,1200,16.41666667
+Gemini 3.8 Flash,High,Final,S01,Cabin inertia,Dynamics,0,10,0.0,20,60,33.33333333
+Gemini 3.8 Flash,High,Final,S02,Rotation & gas,Dynamics,0,10,0.0,35,60,58.33333333
+Gemini 3.8 Flash,High,Final,S03,Driven pendulums,Dynamics,0,10,0.0,29,60,48.33333333
+Gemini 3.8 Flash,High,Final,S04,Tray impact,Dynamics,0,10,0.0,13,60,21.66666667
+Gemini 3.8 Flash,High,Final,S05,Moving heat source,Thermal,0,10,0.0,28,60,46.66666667
+Gemini 3.8 Flash,High,Final,S06,Layered liquids,Thermal,1,10,10.0,26,60,43.33333333
+Gemini 3.8 Flash,High,Final,S07,Heated gas bulbs,Thermal,0,10,0.0,20,60,33.33333333
+Gemini 3.8 Flash,High,Final,S08,Bimetal supports,Thermal,0,10,0.0,9,60,15.0
+Gemini 3.8 Flash,High,Final,S09,Magnetic coils,Electromagnetism,1,10,10.0,33,60,55.0
+Gemini 3.8 Flash,High,Final,S10,Electric dipoles,Electromagnetism,0,10,0.0,12,60,20.0
+Gemini 3.8 Flash,High,Final,S11,Dielectric response,Electromagnetism,10,10,100.0,60,60,100.0
+Gemini 3.8 Flash,High,Final,S12,Conducting wires,Electromagnetism,1,10,10.0,21,60,35.0
+Gemini 3.8 Flash,High,Final,S13,Standing waves,Acoustics,0,10,0.0,25,60,41.66666667
+Gemini 3.8 Flash,High,Final,S14,Wave scattering,Acoustics,0,10,0.0,23,60,38.33333333
+Gemini 3.8 Flash,High,Final,S15,Doppler response,Acoustics,1,10,10.0,22,60,36.66666667
+Gemini 3.8 Flash,High,Final,S16,Two-source ripples,Acoustics,0,10,0.0,10,60,16.66666667
+Gemini 3.8 Flash,High,Final,S17,Photoelastic load,Optics,1,10,10.0,28,60,46.66666667
+Gemini 3.8 Flash,High,Final,S18,Double reflection,Optics,0,10,0.0,2,60,3.33333333
+Gemini 3.8 Flash,High,Final,S19,Graded refraction,Optics,0,10,0.0,12,60,20.0
+Gemini 3.8 Flash,High,Final,S20,Double-slit fringes,Optics,1,10,10.0,39,60,65.0
+Gemini 3.8 Flash,High,Final,Overall,All apparatuses,Overall,16,200,8.0,467,1200,38.91666667

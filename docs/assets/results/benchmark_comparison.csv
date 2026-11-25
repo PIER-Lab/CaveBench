@@ -1,0 +1,9 @@
+benchmark,evidence,target
+Physion,Initial segment of a simulated interaction,Whether two designated objects will touch later
+IntPhys 2019,Matched clips with possible or impossible events,Physical plausibility of each clip
+QuantiPhy,Video and a physical quantity supplied as context,"A requested measurement, such as speed or size"
+CLEVRER,Video of moving and colliding objects,"Descriptive, explanatory, predictive, or counterfactual event questions"
+ComPhy,Target video and four reference clips with recurring objects,"Hidden properties such as mass and charge, and their effects on events"
+BlackSwanSuite,Video before and after an unseen event (Detective task),The unexpected event connecting the visible segments
+PHYRE,Initial arrangement and a specified goal in a simulator,A placement of objects that achieves the goal
+CaveBench,Apparatus description and ordered internal observations,"All applied external controls, grouped by interval"

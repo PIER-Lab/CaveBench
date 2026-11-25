@@ -1,0 +1,9 @@
+torch==2.10.0
+torchvision==0.25.0
+transformers==5.22.1
+peft==0.20.0
+trl==0.29.0
+accelerate==1.15.0
+datasets==4.8.4
+qwen-vl-utils==0.0.14
+git+https://github.com/modelscope/ms-swift.git@680df5c670d7e8add906ac49381d603869410612

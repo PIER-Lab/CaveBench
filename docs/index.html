@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#faf8f3">
+  <meta name="description" content="CaveBench evaluates abductive physical reasoning from internal observations. Explore twenty apparatuses, video examples and results from 27 vision–language model configurations.">
+  <title>CaveBench: Benchmarking Abductive Physical Reasoning from Internal Observations</title>
+  <meta property="og:title" content="CaveBench: Benchmarking Abductive Physical Reasoning from Internal Observations">
+  <meta property="og:description" content="Watch 20 physics experiments from inside and outside the apparatus, then follow a hidden sound source through its Doppler shift.">
+  <meta property="og:url" content="https://pier-lab.github.io/CaveBench/">
+  <meta property="og:image" content="https://pier-lab.github.io/CaveBench/assets/video/CaveBench-overview.jpg?v=selective-focus-3">
+  <meta property="og:image:alt" content="Three pendulums swing above a layered montage of CaveBench experiments.">
+  <meta name="citation_arxiv_id" content="2611.32251">
+  <link rel="canonical" href="https://pier-lab.github.io/CaveBench/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/webp" href="assets/cave-logo.webp">
+  <script defer src="assets/reading-history.js?v=doppler-1"></script>
+  <link rel="preload" as="image" href="assets/video/CaveBench-overview.webp?v=selective-focus-3" fetchpriority="high">
+  <script>
+  // Let the opening film start as soon as its sources and captions have been parsed.
+  if (!document.hidden && ['', '#top', '#film'].includes(location.hash)) {
+    const openingFilm = new MutationObserver(() => {
+      const captions = document.querySelector('.overview-video track');
+      if (!captions) return;
+      openingFilm.disconnect();
+      if (!document.hidden) captions.parentElement.play().catch(() => {});
+    });
+    openingFilm.observe(document.documentElement, {childList:true, subtree:true});
+  }
+  </script>
+  <script defer src="assets/site.js?v=leaderboard-k6"></script>
+  <style id="project-styles">
+/* Shared page typography and the research film. */
+:root {
+  color-scheme: light;
+  --paper:#fcfaf6; --ivory:#fffefa; --ink:#1f3139; --text:#30424a; --muted:#52636a;
+  --accent:#22646b; --copper:#a5462c; --edge:#dcded6; --wash:#f1f5f2;
+  --sans:"Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --serif:Georgia, "Times New Roman", serif;
+  --mono:Consolas, "SFMono-Regular", monospace;
+  --measure:1140px; --margin:clamp(20px,5vw,76px);
+  font:16px/1.55 var(--sans); color:var(--text);
+}
+* { box-sizing:border-box; }
+html { scroll-padding-top:76px; }
+body { margin:0; background:var(--paper); -webkit-font-smoothing:antialiased; }
+h1,h2,h3,h4,p,dl,dd,figure { margin:0; }
+a { color:var(--accent); text-underline-offset:.22em; }
+button,select { font:inherit; color:inherit; }
+button,summary { cursor:pointer; }
+[hidden] { display:none !important; }
+:focus-visible { outline:3px solid #a6462c; outline-offset:4px; }
+.visually-hidden,.skip:not(:focus) { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+.skip:focus { position:fixed; z-index:99; top:7px; left:12px; padding:8px 14px; background:white; }
+.nav { position:sticky; z-index:30; top:0; background:#fffefa; border-bottom:1px solid var(--edge); }
+.nav nav,footer>div,.section-inner { width:min(var(--measure),calc(100% - var(--margin)*2)); margin-inline:auto; }
+.nav nav,footer>div { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.nav nav { min-height:56px; }
+.nav a,.links a,footer a { text-decoration:none; }
+.nav a { color:var(--ink); }
+.brand { display:inline-flex; align-items:center; gap:8px; font:600 22px/1 var(--serif); letter-spacing:-.045em; }
+.brand img { width:37px; height:auto; }
+.nav nav>div { display:flex; gap:clamp(18px,2.6vw,38px); }
+.nav nav>div a { min-height:55px; display:inline-flex; align-items:center; font-size:14px; font-weight:600; color:#40555b; position:relative; }
+.nav nav>div a:hover,.nav nav>div a[aria-current] { color:var(--copper); }
+.nav nav>div a[aria-current]::after { content:""; position:absolute; inset:auto 0 0; height:2px; background:var(--copper); }
+
+.hero { position:relative; isolation:isolate; padding:clamp(34px,4.1vw,65px) var(--margin) 24px; overflow:hidden; text-align:center; }
+.hero::before { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; background:var(--paper) url("assets/thermal-contours.webp") center 48% / max(1200px,100%) auto no-repeat; }
+.hero::before { mask-image:linear-gradient(to bottom,black 67%,transparent); }
+.hero-inner { max-width:1150px; margin-inline:auto; }
+.hero h1 { color:var(--ink); }
+.logotype { display:block; font:500 clamp(58px,6.2vw,92px)/.97 var(--serif); letter-spacing:-.072em; }
+.paper-subtitle { display:block; max-width:48ch; margin:14px auto 0; color:#2d4852; font:400 clamp(24px,2.35vw,36px)/1.13 var(--serif); letter-spacing:-.03em; text-wrap:balance; }
+.subtitle-break { display:block; }
+.credits { margin:19px auto 0; }
+.authors { color:#2d3f47; font-size:clamp(14px,1.18vw,17px); line-height:1.65; text-wrap:balance; }
+.authors span,.institution small span { white-space:nowrap; }
+.authors sup,.institution sup { color:var(--copper); font-size:.67em; margin-left:1px; }
+.authors a,.institution a { color:inherit; text-decoration:none; }
+.authors a:hover,.institution a:hover { color:var(--accent); text-decoration:underline; }
+.institution { margin:4px 0 0; font-size:14px; color:var(--muted); text-wrap:balance; }
+.institution small { margin-left:9px; font-size:12px; }
+.institution small br { display:none; }
+.author-roles { display:inline-flex; align-items:center; gap:11px; margin-left:9px; padding-left:12px; border-left:1px solid #cdd3cf; color:#5e6969; font-size:13px; }
+.links { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:7px; margin:20px 0 0; }
+.links a { min-height:38px; display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:7px 14px; color:#2c434b; background:#fffefa; border:1px solid #cdd6d4; border-radius:999px; font:600 14px/1.2 var(--sans); }
+.links a:first-child { color:white; background:var(--accent); border-color:var(--accent); }
+.links a:hover { color:#184e52; background:#e9f2ef; border-color:#76a09a; }
+.links a:first-child:hover { color:white; background:#165457; }
+.links svg { width:15px; height:15px; display:block; flex:none; }
+.links .heroResource__icon { fill:currentColor; }
+.hero-summary { max-width:72ch; margin:20px auto 0; font:400 clamp(16px,1.15vw,18px)/1.59 var(--sans); color:#465a5e; text-wrap:pretty; }
+
+.film-feature { background:var(--paper); padding:5px var(--margin) clamp(38px,5.5vw,82px); }
+.film-spread { max-width:1080px; margin-inline:auto; }
+.film-screen { position:relative; isolation:isolate; aspect-ratio:16/9; overflow:hidden; background:#e0ebe7; border-radius:13px; border:1px solid #c0ceca; box-shadow:0 15px 40px -23px #354b4c80; }
+.overview-video { display:block; width:100%; height:100%; object-fit:contain; }
+.film-screen { container-type:inline-size; }
+.overview-video::cue { font-family:system-ui,sans-serif; font-size:clamp(12px,1.65cqw,21px); line-height:1.3; color:#fff; background:rgba(15,29,34,.88); }
+footer { border-top:1px solid var(--edge); background:#f5f5ee; color:var(--ink); }
+footer>div { min-height:80px; }
+footer strong { font:600 24px/1 var(--serif); letter-spacing:-.045em; }
+footer a { color:var(--accent); font-weight:600; }
+@media(max-width:720px) {
+  :root { --margin:18px; }
+  .hero { padding-top:32px; }
+  .subtitle-break { display:none; }
+  .brand { gap:5px; font-size:19px; }
+  .brand img { width:29px; }
+  .nav nav { gap:8px; }
+  .nav nav>div { gap:13px; }
+  .nav nav>div a { font-size:13px; }
+  .institution small { display:block; margin:3px auto 0; }
+  .links { gap:6px; }
+  .links a { min-height:35px; padding:6px 11px; font-size:13px; }
+  .hero-summary { font-size:16px; }
+  .film-screen { border-radius:8px; }
+}
+</style>
+  <link id="guide-style" rel="stylesheet" href="assets/field-guide.css?v=doppler-1">
+  <link rel="stylesheet" href="assets/table-layout.css?v=doppler-1">
+  <link rel="stylesheet" href="assets/opening-layout.css?v=contour-cover-1">
+  <link rel="stylesheet" href="assets/atlas-layout.css?v=doppler-1">
+  <link rel="stylesheet" href="assets/evaluation-layout.css?v=doppler-1">
+  <link rel="stylesheet" href="assets/motion-gallery.css?v=equal-strip-1">
+  <link rel="stylesheet" href="assets/section-motion.css?v=chapter-engraving-1">
+  <link rel="stylesheet" href="assets/research-plates.css?v=studio-1">
+  <script defer src="assets/section-motion.js?v=section-entrance-1"></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+<header class="nav"><nav aria-label="Main navigation"><a class="brand" href="#top" aria-label="CaveBench home"><img src="assets/cave-logo.webp" width="48" height="28" alt=""><span>CaveBench</span></a><div><button id="view-back" type="button" hidden>← Back</button><a href="#dataset">Apparatus atlas</a><a href="#leaderboard">Leaderboard</a><a href="#overview">Benchmark design</a><a href="#evaluation">Results</a><a href="#error-analysis">Error analysis</a><a href="#citation">Cite</a></div></nav></header>
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="paper-title">
+    <div class="hero-inner">
+      <h1 id="paper-title"><span class="logotype"><img src="assets/cave-logo.webp" width="240" height="137" alt="">CaveBench<span class="visually-hidden">: </span></span><span class="paper-subtitle">Benchmarking Abductive Physical Reasoning from Internal Observations</span></h1>
+      <div class="credits" id="release"><div class="credits-inner">
+    <div id="byline">
+      <p class="authors"><span>Guanxin Lin<sup>1,*</sup></span>, <span><a href="https://ccyydd.github.io/" target="_blank" rel="noopener">Chen Yang</a><sup>1,*</sup></span>, <span><a href="https://orcid.org/0009-0001-8157-8757" target="_blank" rel="noopener">Shenxiang Zeng</a><sup>1</sup></span>, <span>Honghui Zhu<sup>1</sup></span>, <span>Xin Li<sup>1</sup></span>, <span>Wenbo Deng<sup>1</sup></span>, <span><a href="https://www.civil.tsinghua.edu.cn/ce/info/1130/1786.htm" target="_blank" rel="noopener">Jiansheng Fan</a><sup>1</sup></span>, <span><a href="https://www.civil.tsinghua.edu.cn/ce/info/1134/2436.htm" target="_blank" rel="noopener">Chen Wang</a><sup>1,†</sup></span></p>
+      <p class="institution"><sup>1</sup>Tsinghua University <span class="author-roles"><span>* Equal contribution</span><span>† <a href="mailto:chwang@tsinghua.edu.cn">Corresponding author</a></span></span></p>
+    </div>
+    <nav class="links" id="resources" aria-label="Project resources">
+      <a href="https://arxiv.org/abs/2611.32251" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M6 3h8l4 4v14H6z M14 3v5h4 M9 12h6 M9 16h6"/></svg><span>Paper</span></a>
+
+      <a href="https://github.com/PIER-Lab/CaveBench" target="_blank" rel="noopener"><svg aria-hidden="true" class="heroResource__icon" viewbox="0 0 16 16">
+<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" fill="currentColor"></path>
+</svg><span>GitHub</span></a>
+      <a href="https://github.com/PIER-Lab/CaveBench-Gen" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z M3 7l9 5 9-5 M12 12v10"/></svg><span>Unity Simulator</span></a>
+      <a href="https://huggingface.co/datasets/linguanxin/CaveBench" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v7c0 4 14 4 14 0V5 M5 12v6c0 4 14 4 14 0v-6"/></svg><span>Dataset</span></a>
+      <a href="https://github.com/PIER-Lab/CaveBench/releases/tag/cavebench-qwen35-adapters-v1" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="m12 3 9 4.5-9 4.5-9-4.5z M3 12l9 4.5 9-4.5 M3 16.5l9 4.5 9-4.5"/></svg><span>Weights</span></a>
+    </nav>
+  </div></div>
+    </div>
+  </section>
+  <section class="film-feature" id="film" aria-label="Research film">
+    <div class="film-spread">
+      <div class="film-screen">
+        <video class="overview-video" muted loop controls controlslist="nodownload" playsinline preload="none" width="1920" height="1080" poster="assets/video/CaveBench-overview.webp?v=selective-focus-3" aria-label="CaveBench research film featuring 20 physics experiments and a closer look at the Doppler effect">
+          <source media="(max-width: 700px)" src="assets/video/CaveBench-overview-mobile.mp4?v=selective-focus-3" type="video/mp4">
+          <source src="assets/video/CaveBench-overview.mp4?v=selective-focus-3" type="video/mp4">
+          <track kind="captions" src="data:text/vtt;base64,V0VCVlRUCgowMDowMDowMC4zMDAgLS0+IDAwOjAwOjAzLjkwMApbU29mdCBlbGVjdHJvbmljIG11c2ljIGJlZ2lucy5dCgowMDowMToyMi40MDAgLS0+IDAwOjAxOjI1LjU5MgpCZWhpbmQgdGhlc2UgZmxhZ3MsIGEgc2lyZW4gaXMgbW92aW5nLgoKMDA6MDE6MjUuOTMyIC0tPiAwMDowMToyNy44MDQKQ2FuIHlvdSB0ZWxsIHdoaWNoIHdheSBpdCB3ZW50PwoKMDA6MDE6MjguMTQwIC0tPiAwMDowMTozMi42NzYKT3V0c2lkZSB0aGUgY2FiaW5ldCwgYSBjYXJ0IGNhcnJpZXMgYSBzaXJlbiBhbG9uZyBhIHJhaWwuCgowMDowMTozMy4wMTUgLS0+IDAwOjAxOjM1LjUzNQpBIGZpeGVkIGhvcm4gcmVjZWl2ZXMgaXRzIHRvbmUuCgowMDowMTozNS41MzUgLS0+IDAwOjAxOjM4LjM5MQpUaGUgc291cmNlIHN0YXlzIGF0IDEwMCBIei4KCjAwOjAxOjM4LjcyMyAtLT4gMDA6MDE6NDEuNzcxCldhdGNoIHRoZSB3YXZlZnJvbnRzIGFoZWFkIG9mIGFuIGFwcHJvYWNoaW5nIHNvdXJjZS4KCjAwOjAxOjQyLjA5OCAtLT4gMDA6MDE6NDQuMTE4ClRoZXkgYXJyaXZlIGNsb3NlciB0b2dldGhlci4KCjAwOjAxOjQ0LjExOCAtLT4gMDA6MDE6NDcuNDI2CkFzIHRoZSBzb3VyY2UgcmVjZWRlcywgdGhleSBzcHJlYWQgYXBhcnQuCgowMDowMTo0Ny43NjUgLS0+IDAwOjAxOjUyLjU0MQpJbnNpZGUsIG5pbmUgdHVuZWQgcm9kcyB0dXJuIHRoZSBzaGlmdCBpbnRvIHZpc2libGUgbW90aW9uLgoKMDA6MDE6NTIuODkwIC0tPiAwMDowMTo1NS45NDAKU2hvcnRlciByb2RzIHJlc3BvbmQgdG8gaGlnaGVyIGZyZXF1ZW5jaWVzLgoKMDA6MDE6NTUuOTQwIC0tPiAwMDowMTo1OC43MjIKTG9uZ2VyIHJvZHMgcmVzcG9uZCB0byBsb3dlciBvbmVzLgoKMDA6MDE6NTkuMDU3IC0tPiAwMDowMjowMi41MTMKQ29tcGFyZSB0aGUgZmlyc3QgYW5kIGxhc3QgZXZlbnRzIGluIHRoZSBzYW1lIHJ1bi4KCjAwOjAyOjAyLjg0OCAtLT4gMDA6MDI6MDUuNTY4ClRoZSBjYXJ0IGZpcnN0IGFwcHJvYWNoZXMgdGhlIGhvcm4gcXVpY2tseS4KCjAwOjAyOjA1LjU2OCAtLT4gMDA6MDI6MDguNzUyCkluIHRoZSBsYXN0IGV2ZW50LCBpdCBxdWlja2x5IHJlY2VkZXMuCgowMDowMjowOS4wOTggLS0+IDAwOjAyOjEzLjg1MApUaGUgbW9kZWwgc2VlcyBvbmUgaW50ZXJpb3IgaW1hZ2UKcGVyIGV2ZW50LCBwbHVzIHRoZSBpbml0aWFsIGZyYW1lLgoKMDA6MDI6MTQuMTgyIC0tPiAwMDowMjoxNy45MjYKSXRzIHRhc2sgaXMgdG8gcmVjb3ZlciBhbGwgc2l4IGNhcnQgc2V0dGluZ3MgaW4gb3JkZXIuCgowMDowMjoxOC4yNjUgLS0+IDAwOjAyOjIyLjg5NwpBY3Jvc3MgMjAgYXBwYXJhdHVzZXMsIENhdmVCZW5jaCBhc2tzIHRoZSBzYW1lIHF1ZXN0aW9uLgoKMDA6MDI6MjMuMjIzIC0tPiAwMDowMjoyNS4xNjcKV2hhdCBoYXBwZW5lZCBvdXRzaWRlIHRoZSB2aWV3Pwo=" srclang="en" label="English" default>
+          <track kind="captions" src="data:text/vtt;base64,V0VCVlRUCgowMDowMDowMC4yNTAgLS0+IDAwOjAwOjAyLjUwMArvvLvnlLXlrZDphY3kuZDmuJDotbfvvL0KCjAwOjAwOjEyLjAwMCAtLT4gMDA6MDA6MTUuNTAwCui9puWOoumHjOeahOaRhuWSjOawlOeQg++8jOiDveWRiuivieS9oOi9puaAjuS5iOW8gOWQl++8nwoKMDA6MDA6MTUuNTAwIC0tPiAwMDowMDoxOS4wMDAK6KeC5a+f6YeN54mp5ZKM5rCU5rOh77yM5Yik5pat55S15py655qE6L2s5ZCR5ZKM5b+r5oWi44CCCgowMDowMDoxOS4wMDAgLS0+IDAwOjAwOjIyLjUwMArku47kuInlj6rmkYbnmoTov5DliqjvvIzovqjorqTlsI/ovabotbDov4fnmoTovajov7njgIIKCjAwOjAwOjIyLjUwMCAtLT4gMDA6MDA6MjYuMDAwCueci+aJmOebmOS4iueahOeJqeS9k+aAjuS5iOWKqO+8jOeMnOWTquWHoOS+p+WPl+WIsOS6huaVsuWHu+OAggoKMDA6MDA6MjYuMDAwIC0tPiAwMDowMDoyOS41MDAK54Ot5rqQ5bey57uP56e75byA44CC5p2/5LiK55qE54Ot5paR6IO95ZGK6K+J5L2g5a6D5b6A5ZOq5YS/6LWw5LqG5ZCX77yfCgowMDowMDoyOS41MDAgLS0+IDAwOjAwOjMzLjAwMArlk6rkuIDlsYLmtrLkvZPooqvliqDng63kuobvvJ/lk6rkuIDlsYLlnKjlhrfljbTvvJ8KCjAwOjAwOjMzLjAwMCAtLT4gMDA6MDA6MzYuNTAwCuS7jua2sumdoueahOWNh+mZje+8jOWIpOaWreWTquWHoOS4queQg+azoeWPl+S6hueDreOAggoKMDA6MDA6MzYuNTAwIC0tPiAwMDowMDo0MC4wMDAK6YeR5bGe5pSv6ISa5Y+X54Ot5Lya5byv5puy44CC5L2g6IO955yL5Ye65piv5ZOq55uP54Gv5Lqu6L+H5ZCX77yfCgowMDowMDo0MC4wMDAgLS0+IDAwOjAwOjQzLjUwMArku47mjIfljZfpkojnmoTlgY/ovazvvIzliKTmlq3lk6rkupvnur/lnIjpgJrnlLXvvIzku6Xlj4rnlLXmtYHnmoTmnoHmgKfjgIIKCjAwOjAwOjQzLjUwMCAtLT4gMDA6MDA6NDcuMDAwCuWTquS4queUteWBtuaegeWtkOeahOeUteiNt+mHj+WPmOS6hu+8n+aYr+WinuWKoOi/mOaYr+WHj+Wwke+8nwoKMDA6MDA6NDcuMDAwIC0tPiAwMDowMDo1MC41MDAK6KeC5a+f6aqM55S15Zmo55qE6YeR5bGe566U77yM5Yik5pat5LqR5q+N54mH5o+S5YWl5LqG5aSa5rex44CCCgowMDowMDo1MC41MDAgLS0+IDAwOjAwOjU0LjAwMArlk6rkuIDlr7nlr7znur/pgJrkuobnlLXvvJ/lroPku6znmoTnlLXmtYHlkIzlkJHov5jmmK/lj43lkJHvvJ8KCjAwOjAwOjU0LjAwMCAtLT4gMDA6MDA6NTcuNTAwCuS7jumpu+azoueahOWPmOWMlu+8jOWIhui+qOmikeeOh+aIluaMr+W5heeahOiwg+iKguOAggoKMDA6MDA6NTcuNTAwIC0tPiAwMDowMTowMS4wMDAK5rOi5LuO5ZOq5p2h6L655Lyg5p2l77yf5pyJ5Yeg5Liq5pWy5Ye75Zmo5ZCM5pe25ZCv5Yqo5LqG77yfCgowMDowMTowMS4wMDAgLS0+IDAwOjAxOjA0LjUwMArlk6rmoLnmnYbmjK/lvpfmnIDljonlrrPvvJ/lo7DmupDlnKjpnaDov5HvvIzov5jmmK/lnKjov5znprvvvJ8KCjAwOjAxOjA0LjUwMCAtLT4gMDA6MDE6MDguMDAwCueci+S4pOWIl+awtOazouaAjuagt+WPoOWKoO+8jOi+qOiupOS4pOS4quazoua6kOeahOebuOS9jeiuvue9ruOAggoKMDA6MDE6MDguMDAwIC0tPiAwMDowMToxMS41MDAK5b2p6Imy5p2h57q55Y+Y5LqG44CC5piv6L296I235Y+Y5LqG77yM6L+Y5piv5YWJ5a2m5YWD5Lu26L2s5LqG77yfCgowMDowMToxMS41MDAgLS0+IDAwOjAxOjE1LjAwMArku47lj43lsITlg4/nmoTlj5jljJbvvIzliKTmlq3lk6rpnaLplZzlrZDlkJHlk6rovrnovazkuobjgIIKCjAwOjAxOjE1LjAwMCAtLT4gMDA6MDE6MTguNTAwCuWFieeCueenu+WKqOS6huOAguS4remXtOeahOS7i+i0qOaAjuagt+W5s+enu+aIluaXi+i9rOS6hu+8nwoKMDA6MDE6MTguNTAwIC0tPiAwMDowMToyMi4wMDAK5Lqu57q56Ze06Led5ZKM5Lqu5Yy65a695bqm5Y+Y5LqG44CC5Lik5p2h57yd5piv5oCO5LmI6LCD55qE77yfCgowMDowMToyMi40MDAgLS0+IDAwOjAxOjI1LjU5Mgrov5nkuIDmjpLlsI/ml5flkI7pnaLvvIzmnInkuIDkuKrnp7vliqjnmoTorabnrJvlo7DmupDjgIIKCjAwOjAxOjI1LjkzMiAtLT4gMDA6MDE6MjcuODA0CuS9oOiDveWIpOaWreWug+W+gOWTqui+uei1sOS6huWQl++8nwoKMDA6MDE6MjguMTQwIC0tPiAwMDowMTozMi42NzYK6KOF572u5aSW6Z2i77yM5LiA6L6G5bCP6L2m6L29552A6K2m56yb5rK/6L2o6YGT56e75Yqo44CCCgowMDowMTozMy4wMTUgLS0+IDAwOjAxOjM1LjUzNQrlm7rlrprnmoTmjqXmlLblloflj63mi77lj5borabnrJvlo7DjgIIKCjAwOjAxOjM1LjUzNSAtLT4gMDA6MDE6MzguMzkxCuitpuesm+WPkeWHuueahOWjsOmfs+Wni+e7iOaYryAxMDAgSHrjgIIKCjAwOjAxOjM4LjcyMyAtLT4gMDA6MDE6NDEuNzcxCuWjsOa6kOmdoOi/keaXtu+8jOeVmeaEj+Wug+WJjeaWueeahOazoumdouOAggoKMDA6MDE6NDIuMDk4IC0tPiAwMDowMTo0NC4xMTgK5rOi6Z2i5Y+Y5b6X5pu05a+G5LqG44CCCgowMDowMTo0NC4xMTggLS0+IDAwOjAxOjQ3LjQyNgrlo7DmupDov5znprvml7bvvIzms6LpnaLkuYvpl7TnmoTot53nprvlj5jlpKfjgIIKCjAwOjAxOjQ3Ljc2NSAtLT4gMDA6MDE6NTIuNTQxCuijhee9ruWGhemDqO+8jOS5neagueaMr+WKqOadhuiuqemikeeOh+eahOWPmOWMluWPmOW+l+WPr+ingeOAggoKMDA6MDE6NTIuODkwIC0tPiAwMDowMTo1NS45NDAK6L6D55+t55qE5p2G5Zyo6L6D6auY6aKR546H5LiL5YWx5oyv44CCCgowMDowMTo1NS45NDAgLS0+IDAwOjAxOjU4LjcyMgrovoPplb/nmoTmnYblnKjovoPkvY7popHnjofkuIvlhbHmjK/jgIIKCjAwOjAxOjU5LjA1NyAtLT4gMDA6MDI6MDIuNTEzCueOsOWcqOWvueavlOWQjOS4gOasoeWunumqjOmHjOeahOmmluWwvuS4pOS4quS6i+S7tuOAggoKMDA6MDI6MDIuODQ4IC0tPiAwMDowMjowNS41NjgK56ys5LiA5qyh77yM5bCP6L2m5b+r6YCf6Z2g6L+R5o6l5pS25ZaH5Y+t44CCCgowMDowMjowNS41NjggLS0+IDAwOjAyOjA4Ljc1MgrmnIDlkI7kuIDmrKHvvIzlsI/ovablv6vpgJ/ov5znprvjgIIKCjAwOjAyOjA5LjA5OCAtLT4gMDA6MDI6MTMuODUwCuaooeWei+eci+WIsOS4gOW8oOWIneWni+Wbvu+8jOS7peWPiuavj+asoeaTjeS9nOWQjueahOS4gOW8oOWGhemDqOWbvuWDj+OAggoKMDA6MDI6MTQuMTgyIC0tPiAwMDowMjoxNy45MjYK5a6D6KaB5oyJ6aG65bqP6L+Y5Y6f5bCP6L2m55qE5YWo6YOo5YWt5qyh6K6+572u44CCCgowMDowMjoxOC4yNjUgLS0+IDAwOjAyOjIyLjg5NwpDYXZlQmVuY2gg55qEIDIwIOWll+eJqeeQhuijhee9rumDveWcqOmXruWQjOS4gOS4qumXrumimOOAggoKMDA6MDI6MjMuMjIzIC0tPiAwMDowMjoyNS4xNjcK5Zyo6ZWc5aS055yL5LiN5Yiw55qE5Zyw5pa577yM5Y+R55Sf5LqG5LuA5LmI77yfCg==" srclang="zh-Hans" label="简体中文">
+        </video>
+      </div>
+    </div>
+  </section>
+  <section class="section chapter apparatus-chapter" id="dataset" aria-labelledby="dataset-heading">
+    <div class="section-inner" id="viewer">
+      <header class="atlas-heading motion-heading">
+        <div><h2 id="dataset-heading">Apparatus atlas</h2>
+        <p>Explore 20 experiments through two synchronized views. Each question uses the internal observation.</p></div>
+      </header>
+      <div id="browser">
+        <noscript><p>The paper includes illustrated examples for all 20 apparatuses.</p></noscript>
+        <div id="apparatus-atlas"><div id="atlas" class="motion-atlas">
+          <div class="motion-domains" role="group" aria-label="Jump to a physical domain">
+            <button type="button" data-domain-start="0" aria-pressed="true">Dynamics<span class="motion-ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
+            <button type="button" data-domain-start="4" aria-pressed="false">Thermal physics<span class="motion-ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
+            <button type="button" data-domain-start="8" aria-pressed="false">Electromagnetism<span class="motion-ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
+            <button type="button" data-domain-start="12" aria-pressed="false">Acoustics<span class="motion-ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
+            <button type="button" data-domain-start="16" aria-pressed="false">Optics<span class="motion-ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
+          </div>
+          <div id="motion-rail" class="motion-rail" role="region" aria-label="Apparatus videos">
+          <div class="motion-track">
+            <a class="specimen motion-card" href="#S01" data-scene="S01" data-domain="Dynamics" data-context="From inside the cabin, track the pendulum, tethered balloon and ball wherever they appear. The vehicle can accelerate or brake, turn left or right, or change speed and turn together." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S01.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S01.webp" data-src="assets/motion/S01.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S01 · Dynamics</span><span class="motion-name">Cabin inertia</span><span class="motion-question">How did the vehicle change speed or steer at each step?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S02" data-scene="S02" data-domain="Dynamics" data-context="Watch the spring-mounted loads, shaft pointer and gas-filled sphere from above. Each motor command sets both the direction, clockwise or counterclockwise, and the speed, fast or slow." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S02.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S02.webp" data-src="assets/motion/S02.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S02 · Dynamics</span><span class="motion-name">Rotation &amp; gas</span><span class="motion-question">Which way did the deck spin, and at which speed?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S03" data-scene="S03" data-domain="Dynamics" data-context="Compare the swings of pendulums of different lengths after each trip. Each motion has a delayed second part: it starts earlier and contributes more in profile A, later and less in C, and falls between those extremes in B." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S03.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S03.webp" data-src="assets/motion/S03.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S03 · Dynamics</span><span class="motion-name">Driven pendulums</span><span class="motion-question">Which programmed carriage motion produced these swings after each stop?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S04" data-scene="S04" data-domain="Dynamics" data-context="Follow the balls and sliding objects against the tray markings as the tray recoils. The opening blow hits two perpendicular edges, while later blows can hit one edge or two perpendicular edges together." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S04.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S04.webp" data-src="assets/motion/S04.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S04 · Dynamics</span><span class="motion-name">Tray impact</span><span class="motion-question">Which edges of the tray did the hammers strike at each step?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S05" data-scene="S05" data-domain="Thermal" data-context="Follow the shifting patches of heat against the stationary ones as the plate slowly cools. The heater can move left, right, toward the near edge or toward the far edge, combining two axes for a diagonal move." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S05.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S05.webp" data-src="assets/motion/S05.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S05 · Thermal physics</span><span class="motion-name">Moving heat source</span><span class="motion-question">Which way did the hidden heater travel beneath the plate?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S06" data-scene="S06" data-domain="Thermal" data-context="Track the coloured floats against the boundary between the water below and the silicone fluid above. For each step, identify both the active jacket (upper or lower) and its supply (hot or cold)." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S06.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S06.webp" data-src="assets/motion/S06.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S06 · Thermal physics</span><span class="motion-name">Layered liquids</span><span class="motion-question">Which liquid layer was heated or cooled at each step?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S07" data-scene="S07" data-domain="Thermal" data-context="Compare the liquid level in each glass bulb with its previous level. A warm-water cap can heat the left, middle or right bulb, and two caps can heat a pair together." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S07.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S07.webp" data-src="assets/motion/S07.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S07 · Thermal physics</span><span class="motion-name">Heated gas bulbs</span><span class="motion-question">Which of the three connected gas bulbs received heat at each step?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S08" data-scene="S08" data-domain="Thermal" data-context="Watch the ring and its pointer as the metal strips beneath them bend. Report the powered lamp or pair of lamps over the left, rear and right supports." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S08.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S08.webp" data-src="assets/motion/S08.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S08 · Thermal physics</span><span class="motion-name">Bimetal supports</span><span class="motion-question">Which lamps heated the strips supporting the brass ring at each step?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S09" data-scene="S09" data-domain="Electromagnetism" data-context="Compare the red north tips of the compass needles across the table. Each step powers one of the left, centre or right coils with either positive or negative current." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S09.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S09.webp" data-src="assets/motion/S09.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S09 · Electromagnetism</span><span class="motion-name">Magnetic coils</span><span class="motion-question">Which coil was powered, and what was its current polarity?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S10" data-scene="S10" data-domain="Electromagnetism" data-context="Compare the separation of the spring-mounted probes in the upper and lower rows. The magnitude can rise or fall in either row alone, or change independently in both rows together." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S10.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S10.webp" data-src="assets/motion/S10.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S10 · Electromagnetism</span><span class="motion-name">Electric dipoles</span><span class="motion-question">Which dipoles changed charge, and did the charge magnitude rise or fall?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S11" data-scene="S11" data-domain="Electromagnetism" data-context="Track the opening between the gold electroscope leaves as the hidden mica sheet moves. The sheet starts fully withdrawn, then switches among three positions, fully withdrawn, halfway in and fully in." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S11.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S11.webp" data-src="assets/motion/S11.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S11 · Electromagnetism</span><span class="motion-name">Dielectric response</span><span class="motion-question">How far was the mica inserted between the capacitor plates at each step?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S12" data-scene="S12" data-domain="Electromagnetism" data-context="Follow the suspended conductors marked red (A), amber (B) and blue (C) as they swing. Each switch setting selects one pair carrying currents in the same or opposite directions." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S12.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S12.webp" data-src="assets/motion/S12.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S12 · Electromagnetism</span><span class="motion-name">Conducting wires</span><span class="motion-question">Which two bars carried current, and did their currents run in the same direction?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S13" data-scene="S13" data-domain="Acoustics" data-context="Compare the spacing of the cork piles in the tube with the height of the orange pressure marker. Frequency and drive amplitude can each increase or decrease, separately or together." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S13.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S13.webp" data-src="assets/motion/S13.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S13 · Acoustics</span><span class="motion-name">Standing waves</span><span class="motion-question">How did the driving frequency or amplitude change at each step?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S14" data-scene="S14" data-domain="Acoustics" data-context="Trace the curved wavefronts around the fixed columns and back toward the rim. A strike can come from the left, right, near or far edge, or from any two edges together." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S14.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S14.webp" data-src="assets/motion/S14.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S14 · Acoustics</span><span class="motion-name">Wave scattering</span><span class="motion-question">Which membrane edges launched the waves seen among the columns?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S15" data-scene="S15" data-domain="Acoustics" data-context="Watch which orange flags respond most strongly on the tuned rods as the hidden siren moves. Each setting sends the siren toward or away from the horn at either low or high speed." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S15.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S15.webp" data-src="assets/motion/S15.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S15 · Acoustics</span><span class="motion-name">Doppler response</span><span class="motion-question">Was the siren moving toward or away from the horn, and how fast?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S16" data-scene="S16" data-domain="Acoustics" data-context="Read the ripple bands around blue plunger A on the left and orange plunger B on the right. At every step report A’s phase relative to the clock and B’s relative to A, each in phase, a quarter-cycle ahead or half a cycle ahead." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S16.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S16.webp" data-src="assets/motion/S16.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S16 · Acoustics</span><span class="motion-name">Two-source ripples</span><span class="motion-question">What was the phase of source A, and how did B compare with A?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S17" data-scene="S17" data-domain="Optics" data-context="Compare the coloured fringes in the specimens with the pattern on the unloaded reference strip above them. Each step either increases or decreases compression, or turns the polarizer wheel clockwise or counterclockwise as viewed from outside the right wall." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S17.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S17.webp" data-src="assets/motion/S17.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S17 · Optics</span><span class="motion-name">Photoelastic load</span><span class="motion-question">Did the press load change, or did the polarizer wheel turn?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S18" data-scene="S18" data-domain="Optics" data-context="Follow the red, green and blue spots on the grid after the rays reflect from both mirrors in sequence. The upstream mirror, the downstream mirror or both can turn, each left, right, up or down." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S18.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S18.webp" data-src="assets/motion/S18.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S18 · Optics</span><span class="motion-name">Double reflection</span><span class="motion-question">Which mirrors turned between frames, and in what directions?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S19" data-scene="S19" data-domain="Optics" data-context="Compare the amber spots with the fixed marks on the receiver. Each step moves the insert toward the source or receiver, shifts it toward or away from the camera, or rotates it in either direction about its vertical axis." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S19.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S19.webp" data-src="assets/motion/S19.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S19 · Optics</span><span class="motion-name">Graded refraction</span><span class="motion-question">In which direction did the graded-index insert slide or rotate?</span></span>
+            </a>
+            <a class="specimen motion-card" href="#S20" data-scene="S20" data-domain="Optics" data-context="Compare the spacing of the fine fringes with the width of the broader diffraction envelope. The two slits can widen or narrow together, their centres can move closer or farther apart, or both adjustments can occur at once." draggable="false">
+              <span class="motion-screen" style="background-image:url('assets/motion/S20.webp')"><video muted autoplay loop playsinline preload="none" width="1920" height="540" aria-hidden="true" poster="assets/motion/S20.webp" data-src="assets/motion/S20.mp4?v=paired-hd"></video><span class="motion-lenses" aria-hidden="true"><span>Exterior view</span><span>Internal observation</span></span></span>
+              <span class="motion-caption"><span class="motion-series">S20 · Optics</span><span class="motion-name">Double-slit fringes</span><span class="motion-question">How did the slit width or the distance between the slits change?</span></span>
+            </a>
+          </div>
+          <button type="button" class="motion-step motion-previous" aria-label="Previous apparatus">←</button>
+          <button type="button" class="motion-step motion-next" aria-label="Next apparatus">→</button>
+          </div>
+        </div></div>
+        <div id="viewer-status" role="status"></div>
+        <div id="scene-reader" tabindex="-1" hidden>
+      <div class="viewer-toolbar"><div class="pager"><button type="button" id="prev" aria-label="Previous scene">Prev</button><button type="button" id="next" aria-label="Next scene">Next</button></div><span id="viewer-position"></span></div>
+          <article id="example" aria-live="polite"></article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section research-section chapter leaderboard-chapter" id="leaderboard" aria-labelledby="leaderboard-heading">
+    <div class="section-inner chapter-body leaderboard-panel">
+      <header class="evidence-title">
+        <span id="scores" aria-hidden="true"></span>
+        <h2 id="leaderboard-heading">Leaderboard</h2>
+        <p>Exact-match accuracy across all 20 apparatuses. A sequence scores only when every control is recovered at every event.</p>
+      </header>
+      <div class="score-sheet leaderboard-panel">
+        <div id="leaderboard-filters" class="result-controls"><fieldset id="k-filter"><legend>Events per question</legend><div class="k-options"></div></fieldset></div>
+        <div class="table-lede"><p id="table-note"></p></div>
+        <div class="tablewrap" role="region" aria-label="Accuracy by apparatus"><table id="results"></table></div>
+        <p id="leaderboard-status" class="result-status" role="status"></p>
+        <p class="leaderboard-reading table-finding"></p>
+      </div>
+    </div>
+  </section>
+  <section class="section chapter method-chapter" id="overview" aria-labelledby="overview-heading">
+    <div class="section-inner">
+      <header class="method-heading">
+        <h2 id="overview-heading">Benchmark design</h2>
+        <p>A model sees the apparatus from the inside. Its task is to recover the complete set of external controls at each event, in the order they occurred.</p>
+      </header>
+      <div class="task-plates">
+        <article>
+          <figure class="paper-figure">
+        <a class="zoom" href="assets/teaser.png">
+          <img src="assets/figures/teaser-704.webp" srcset="assets/figures/teaser-704.webp 704w, assets/figures/teaser-1200.webp 1200w" sizes="(min-width: 1100px) 660px, (min-width: 800px) 52vw, 92vw" width="1485" height="705" loading="lazy" decoding="async" alt="Examples from the five physical domains, with interior views, apparatus illustrations and six-event scores.">
+        </a>
+      </figure>
+          <h3>Inside five physical domains</h3><p>Motion, temperature, charge, sound and light each leave different clues about the controls outside the camera’s view.</p>
+        </article>
+        <article>
+          <figure class="paper-figure">
+        <a class="zoom" href="assets/resonance.png">
+          <img src="assets/figures/resonance-704.webp" srcset="assets/figures/resonance-704.webp 704w, assets/figures/resonance-1200.webp 1200w" sizes="(min-width: 1100px) 660px, (min-width: 800px) 52vw, 92vw" width="1485" height="563" loading="lazy" decoding="async" alt="Resonant rods, the hidden sound source, and the interior observations used to infer its motion.">
+        </a>
+      </figure>
+          <h3>Reading a change in resonance</h3><p>Each rod responds to a different frequency. A shift in which rod vibrates lets the observer use the Doppler effect to infer how the hidden source moved.</p>
+        </article>
+      </div>
+      <section id="construction" class="build-block">
+        <h3>From episodes to questions</h3>
+        <div class="construction-spread">
+          <figure class="paper-figure">
+        <a class="zoom" href="assets/construction.png">
+          <img src="assets/figures/construction-704.webp" srcset="assets/figures/construction-704.webp 704w, assets/figures/construction-1200.webp 1200w" sizes="(min-width: 1100px) 660px, (min-width: 800px) 52vw, 92vw" width="1800" height="963" loading="lazy" decoding="async" alt="Pipeline from simulated episodes and synchronized control logs to internal image sequences and scored questions.">
+        </a>
+      </figure>
+          <div class="split-register">
+            <dl>
+              <div><dt>Training episodes</dt><dd>9,000</dd></div><div><dt>Validation episodes</dt><dd>1,000</dd></div>
+              <div><dt>Test episodes</dt><dd>200</dd></div><div><dt>Test questions</dt><dd>1,180</dd></div>
+            </dl>
+            <p>Each episode pairs an external control log with internal observations. Cutting a test episode at successive events produces questions of different lengths.</p>
+            <p><a href="https://github.com/PIER-Lab/CaveBench-Gen">Generate episodes in Unity &#8599;</a></p>
+          </div>
+        </div>
+        <div class="domain-sheet">
+        <div class="tablewrap printed-table"><table><caption>Test questions by physical domain</caption>
+        <thead><tr><th scope="col">Domain</th><th scope="col">Apparatuses</th><th scope="col">Episodes</th><th scope="col">Questions</th><th scope="col">Single-label events</th><th scope="col">Two-label events</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Dynamics</th><td>S01–S04</td><td>40</td><td>240</td><td>140</td><td>100</td></tr>
+          <tr><th scope="row">Thermal physics</th><td>S05–S08</td><td>40</td><td>240</td><td>68</td><td>172</td></tr>
+          <tr><th scope="row">Electromagnetism</th><td>S09–S12</td><td>40</td><td>220</td><td>203</td><td>37</td></tr>
+          <tr><th scope="row">Acoustics</th><td>S13–S16</td><td>40</td><td>240</td><td>108</td><td>132</td></tr>
+          <tr><th scope="row">Optics</th><td>S17–S20</td><td>40</td><td>240</td><td>179</td><td>61</td></tr>
+        </tbody><tfoot><tr><th scope="row">Total</th><td>S01–S20</td><td>200</td><td>1,180</td><td>698</td><td>502</td></tr></tfoot></table></div>
+      <p class="table-finding">Each domain has 40 test episodes. In the dielectric-response apparatus, viewers need to see full insertion, half insertion and withdrawal to distinguish the middle setting. Its ten episodes therefore start at three-event questions, giving electromagnetism 220 questions and each other domain 240.</p>
+        </div>
+      </section>
+    </div>
+  </section>
+  <section class="section research-section chapter evidence-chapter" id="evaluation" aria-labelledby="evaluation-heading">
+    <div class="section-inner chapter-body">
+      <header class="evidence-title">
+        <h2 id="evaluation-heading">Evaluation results</h2>
+        <p>We evaluate 27 model configurations across question lengths, training methods and reasoning settings.</p>
+      </header>
+      <div class="evaluation-comparison">
+        <section class="model-summary" aria-labelledby="model-summary-heading">
+          <h3 id="model-summary-heading">Six-event accuracy</h3>
+          <div class="rank-comparison">
+            <ol>
+              <li><span class="rank-model">GPT-6.1 Sol</span><span class="rank-track" aria-hidden="true"><i style="width:68.0%"></i></span><b>68.0%</b></li>
+              <li><span class="rank-model">GPT-6.1 Terra</span><span class="rank-track" aria-hidden="true"><i style="width:65.0%"></i></span><b>65.0%</b></li>
+              <li><span class="rank-model">GPT-6 Luna</span><span class="rank-track" aria-hidden="true"><i style="width:28.5%"></i></span><b>28.5%</b></li>
+              <li><span class="rank-model">MiniMax M3.1 Flash</span><span class="rank-track" aria-hidden="true"><i style="width:12.5%"></i></span><b>12.5%</b></li>
+            </ol>
+            <div class="rank-axis" aria-hidden="true"><span>0</span><span>50</span><span>100%</span></div>
+          </div>
+          <p class="chart-reading">Sol reconstructs 136 of the 200 sequences. MiniMax M3.1 Flash, the strongest open-weight model, reconstructs 25.</p>
+        </section>
+        <section class="chapter-topic length-summary" id="question-length" aria-labelledby="length-heading">
+          <h3 id="length-heading">Accuracy by question length</h3>
+    <div class="key-results"><figure id="length-comparison" class="length-comparison" hidden></figure></div>
+          <p class="chart-reading">All 27 configurations score lower on six-event questions than on single-event questions.</p>
+        </section>
+      </div>
+      <article id="training-seeds" class="chapter-topic research-finding"><span id="analysis" aria-hidden="true"></span>
+        <div class="section-copy"><h3>Training results</h3></div>
+        <div class="tablewrap printed-table"><table id="training-results">
+          <caption>Qwen3.5-9B exact-match accuracy (%) by number of events</caption>
+          <thead><tr><th scope="col">Method</th><th scope="col">1 event</th><th scope="col">2 events</th><th scope="col">3 events</th><th scope="col">4 events</th><th scope="col">5 events</th><th scope="col">6 events</th><th scope="col">Overall</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Baseline</th><td>23.7</td><td>3.2</td><td>4.0</td><td>1.0</td><td>1.0</td><td>0.5</td><td>5.4</td></tr>
+            <tr><th scope="row">SFT</th><td>78.9</td><td>62.6</td><td>47.5</td><td>35.0</td><td>21.0</td><td>20.0</td><td>43.7</td></tr>
+            <tr><th scope="row">SFT + DPO</th><td>86.3</td><td>74.2</td><td><strong>69.0</strong></td><td>52.5</td><td>29.0</td><td>30.5</td><td>56.5</td></tr>
+            <tr><th scope="row">SFT + SimPO</th><td><strong>86.8</strong></td><td>72.6</td><td>65.8</td><td><strong>56.0</strong></td><td><strong>32.5</strong></td><td><strong>31.8</strong></td><td><strong>57.2</strong></td></tr>
+            <tr><th scope="row">SFT + KTO</th><td>86.3</td><td><strong>74.7</strong></td><td>68.0</td><td>38.2</td><td>15.8</td><td>14.5</td><td>49.1</td></tr>
+          </tbody>
+        </table></div>
+        <p class="table-finding">Supervised fine-tuning raises six-event accuracy from 0.5% to 20.0%. Adding SimPO gives the highest six-event score (31.8%) and the highest overall score (57.2%). KTO improves single-event accuracy over SFT (78.9% to 86.3%), yet its six-event score falls to 14.5%.</p>
+      </article>
+      <article id="reasoning-effort" class="chapter-topic research-finding">
+        <div class="section-copy"><h3>Reasoning effort</h3>
+        </div>
+        <figure class="paper-figure">
+        <a class="zoom" href="assets/effort.png">
+          <img src="assets/figures/effort-704.webp" srcset="assets/figures/effort-704.webp 704w, assets/figures/effort-1200.webp 1200w" sizes="(max-width: 1020px) 92vw, 980px" width="1485" height="446" loading="lazy" decoding="async" alt="Six-event accuracy across reasoning settings for GPT-6.1 Sol and Gemini 3.8 Flash, including apparatus-level results.">
+        </a>
+      </figure>
+        <div class="tablewrap printed-table"><table><caption>Accuracy and mean token use on the same 200 six-event questions</caption><thead><tr><th scope="col">Model</th><th scope="col">Effort</th><th scope="col">Initial exact (%)</th><th scope="col">Final exact (%)</th><th scope="col">Final event accuracy (%)</th><th scope="col">Output tokens</th><th scope="col">Reasoning tokens</th></tr></thead><tbody>
+            <tr><th scope="row">GPT-6.1 Sol</th><td>Low</td><td>59.5</td><td>59.5</td><td>82.33</td><td>520.4</td><td>471.9</td></tr>
+            <tr><th scope="row">GPT-6.1 Sol</th><td>Medium</td><td>67.0</td><td>67.0</td><td>85.92</td><td>1,266.1</td><td>1,217.6</td></tr>
+            <tr><th scope="row">GPT-6.1 Sol</th><td>High</td><td>73.0</td><td>74.0</td><td>88.42</td><td>3,330.1</td><td>3,287.4</td></tr>
+            <tr><th scope="row">Gemini 3.8 Flash</th><td>Low</td><td>14.0</td><td>15.5</td><td>45.58</td><td>1,841.2</td><td>1,785.9</td></tr>
+            <tr><th scope="row">Gemini 3.8 Flash</th><td>Medium</td><td>20.5</td><td>21.5</td><td>50.67</td><td>5,345.2</td><td>5,279.5</td></tr>
+            <tr><th scope="row">Gemini 3.8 Flash</th><td>High</td><td>6.0</td><td>8.0</td><td>38.92</td><td>5,869.8</td><td>5,773.1</td></tr>
+          </tbody></table></div>
+        <p class="table-finding">Increasing effort from low to high gives GPT-6.1 Sol 29 more correct final answers (59.5% to 74.0%). Gemini 3.8 Flash performs best at medium effort (21.5%). At high effort it uses more tokens and answers 8.0% correctly.</p>
+      </article>
+    </div>
+  </section>
+  <section class="section research-section chapter error-chapter" id="error-analysis" aria-labelledby="error-analysis-heading">
+    <div class="section-inner chapter-body">
+      <header class="evidence-title">
+        <h2 id="error-analysis-heading">Error analysis</h2>
+        <p>We classified 100 incorrect six-event answers by their primary error. Each example pairs the recorded operation with the model’s interpretation of the same observations.</p>
+      </header>
+      <div class="error-plates">
+        <figure class="error-plate upper-left">
+          <figcaption><h3>Visual identification</h3><strong>38<span>%</span></strong></figcaption>
+          <div class="error-share" aria-hidden="true"><i style="width:38%"></i></div>
+          <a class="zoom error-crop" href="assets/figures/error-analysis-full.webp" aria-label="Enlarge the full set of annotated error examples">
+            <img src="assets/figures/error-analysis-1200.webp" width="1200" height="945" loading="lazy" decoding="async" alt="Electric probes. The model misses the lower probes’ motion and attributes the charge change to the wrong dipole.">
+          </a>
+          <p><b>Electric probes.</b> The model misses the lower probes’ motion and attributes the charge change to the wrong dipole.</p>
+        </figure>
+        <figure class="error-plate lower-left">
+          <figcaption><h3>Evidence integration</h3><strong>31<span>%</span></strong></figcaption>
+          <div class="error-share" aria-hidden="true"><i style="width:31%"></i></div>
+          <a class="zoom error-crop" href="assets/figures/error-analysis-full.webp" aria-label="Enlarge the full set of annotated error examples">
+            <img src="assets/figures/error-analysis-1200.webp" width="1200" height="945" loading="lazy" decoding="async" alt="Layered liquids. The model assigns a frame to the preceding command and infers cooling instead of heating.">
+          </a>
+          <p><b>Layered liquids.</b> The model assigns a frame to the preceding command and infers cooling instead of heating.</p>
+        </figure>
+        <figure class="error-plate upper-right">
+          <figcaption><h3>Physical inference</h3><strong>24<span>%</span></strong></figcaption>
+          <div class="error-share" aria-hidden="true"><i style="width:24%"></i></div>
+          <a class="zoom error-crop" href="assets/figures/error-analysis-full.webp" aria-label="Enlarge the full set of annotated error examples">
+            <img src="assets/figures/error-analysis-1200.webp" width="1200" height="945" loading="lazy" decoding="async" alt="Photoelasticity. The model attributes the fringe change to an increase in load. The recorded operation was a counterclockwise rotation.">
+          </a>
+          <p><b>Photoelasticity.</b> The model attributes the fringe change to an increase in load. The recorded operation was a counterclockwise rotation.</p>
+        </figure>
+        <figure class="error-plate lower-right">
+          <figcaption><h3>Action composition</h3><strong>7<span>%</span></strong></figcaption>
+          <div class="error-share" aria-hidden="true"><i style="width:7%"></i></div>
+          <a class="zoom error-crop" href="assets/figures/error-analysis-full.webp" aria-label="Enlarge the full set of annotated error examples">
+            <img src="assets/figures/error-analysis-1200.webp" width="1200" height="945" loading="lazy" decoding="async" alt="Three gas bulbs. The model identifies heating in the first bulb but omits the second bulb heated in the same event.">
+          </a>
+          <p><b>Three gas bulbs.</b> The model identifies heating in the first bulb but omits the second bulb heated in the same event.</p>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <section class="section citation" id="citation" aria-labelledby="citation-heading">
+    <div class="section-inner">
+      <div class="citation-head"><h2 id="citation-heading">Citation</h2><button type="button" class="copy-citation" aria-label="Copy BibTeX citation">Copy BibTeX</button></div>
+      <pre id="bibtex"><code>@misc{lin2026cavebench,
+  title  = {{CaveBench}: Benchmarking Abductive Physical Reasoning from Internal Observations},
+  author = {Lin, Guanxin and Yang, Chen and Zeng, Shenxiang and Zhu, Honghui and Li, Xin and Deng, Wenbo and Fan, Jiansheng and Wang, Chen},
+  year   = {2026},
+  eprint = {2611.32251},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CV},
+  url    = {https://arxiv.org/abs/2611.32251}
+}</code></pre>
+    </div>
+  </section>
+</main>
+<footer><div><strong>CaveBench</strong><a href="#top">Back to top</a></div></footer>
+<dialog id="lightbox" aria-label="Enlarged figure"><header><button type="button" id="image-close" aria-label="Close enlarged image">Close ×</button><button type="button" id="image-scale">Actual size</button></header><div class="lightbox-stage"><img alt=""></div></dialog>
+<script>
+(() => {
+  const copy = document.querySelector('.copy-citation');
+  const citation = document.getElementById('bibtex');
+  copy.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(citation.textContent);
+      copy.textContent = '✓ Copied!';
+    } catch {
+      const range = document.createRange();
+      range.selectNodeContents(citation);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      copy.textContent = 'Citation selected';
+    }
+    setTimeout(() => { copy.textContent = 'Copy BibTeX'; }, 2000);
+  });
+
+  const links = [...document.querySelectorAll('.nav nav > div a[href^="#"]')];
+  const sections = links.map(link => document.querySelector(link.hash));
+  let scheduled = false;
+  function updateNav() {
+    let active = -1;
+    sections.forEach((section, i) => {
+      if (section.getBoundingClientRect().top <= 120) active = i;
+    });
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+      active = sections.length - 1;
+    }
+    links.forEach((link, i) => {
+      if (i === active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+    scheduled = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!scheduled) {
+      scheduled = true;
+      requestAnimationFrame(updateNav);
+    }
+  }, {passive:true});
+  updateNav();
+})();
+</script>
+  <script src="assets/motion-gallery.js?v=equal-strip-1" defer></script>
+</body>
+</html>

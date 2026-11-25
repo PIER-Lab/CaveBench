@@ -1,0 +1,28 @@
+model,reasoning
+GPT-6.1 Sol,Medium
+GPT-6.1 Terra,Medium
+GPT-6 Luna,Medium
+GPT-5.6 Luna,Medium
+Gemini 3.8 Flash,Medium
+Gemini 3.6 Flash,Medium
+Gemini 3.5 Flash Lite,Medium
+Claude Sonnet 5.5,Medium
+Claude Haiku 5.5,Medium
+Claude Sonnet 5,Medium
+Qwen3.8 Flash,Enabled
+Qwen3.8 27B,Medium
+Qwen3.7 Plus,Enabled
+GLM 5.3 Flash,High
+GLM 5V Turbo,Enabled
+DeepSeek V4.1 Flash,High
+MiniMax M3.1 Flash,Medium
+MiniMax M3,Enabled
+Seed 2.1 Turbo,Enabled
+Seed-2.0-Lite,Medium
+Seed-2.0-Mini,Medium
+Kimi K2.6,Enabled
+Kimi K2.5,Enabled
+Gemma 4 31B,Enabled
+Llama 4 Maverick,Default
+Qwen3.5-9B,Enabled
+DeepSeek V4 Flash,High

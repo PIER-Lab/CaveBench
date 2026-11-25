@@ -1,0 +1,69 @@
+model_key,model,input_format,reasoning,primary_token_cap,completion_policy,completion_token_cap,questions,completion_selected
+01_openai_gpt_6_1_sol,GPT-6.1 Sol,Prompt + ordered frames F0-Fk,Medium,8192,Conditional (Low),2048,1180,4
+02_openai_gpt_6_1_terra,GPT-6.1 Terra,Prompt + ordered frames F0-Fk,Medium,8192,Conditional (None),1024,1180,5
+03_openai_gpt_6_luna,GPT-6 Luna,Prompt + ordered frames F0-Fk,Medium,4096,Conditional (None),1024,26,0
+03_openai_gpt_6_luna,GPT-6 Luna,Prompt + ordered frames F0-Fk,Medium,8192,Conditional (None),1024,392,14
+03_openai_gpt_6_luna,GPT-6 Luna,Prompt + ordered frames F0-Fk,Medium,16384,Conditional (None),1024,762,8
+04_openai_gpt_5_6_luna,GPT-5.6 Luna,Prompt + ordered frames F0-Fk,Medium,16384,Conditional (None),1024,1180,17
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Prompt + ordered frames F0-Fk,Medium,4096,Conditional (Low),2048,257,22
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Prompt + ordered frames F0-Fk,Medium,6144,Conditional (Low),2048,199,19
+05_google_gemini_3_8_flash,Gemini 3.8 Flash,Prompt + ordered frames F0-Fk,Medium,16384,Conditional (Low),2048,724,15
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Prompt + ordered frames F0-Fk,Medium,6144,Conditional (Minimal),2048,81,5
+06_google_gemini_3_6_flash,Gemini 3.6 Flash,Prompt + ordered frames F0-Fk,Medium,16384,Conditional (Minimal),2048,1099,4
+07_google_gemini_3_5_flash_lite,Gemini 3.5 Flash Lite,Prompt + ordered frames F0-Fk,Medium,12288,Conditional (Minimal),2048,1180,2
+08_anthropic_claude_sonnet_5_5,Claude Sonnet 5.5,Prompt + ordered frames F0-Fk,Medium,8192,Conditional (Low),2048,1180,4
+09_anthropic_claude_haiku_5_5,Claude Haiku 5.5,Prompt + ordered frames F0-Fk,Medium,16384,Conditional (None),1024,1180,0
+10_anthropic_claude_sonnet_5,Claude Sonnet 5,Prompt + ordered frames F0-Fk,Medium,8192,Conditional (None),1024,1180,58
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Prompt + ordered frames F0-Fk,Enabled,6144,Conditional (Off),1024,1,1
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Prompt + ordered frames F0-Fk,Enabled,8192,Conditional (Off),1024,989,682
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Prompt + ordered frames F0-Fk,Enabled,12288,Conditional (Off),1024,110,73
+11_qwen_qwen3_8_flash,Qwen3.8 Flash,Prompt + ordered frames F0-Fk,Enabled,24576,Conditional (Off),1024,80,20
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Prompt + ordered frames F0-Fk,Medium,4096,Conditional (None),1024,5,2
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Prompt + ordered frames F0-Fk,Medium,6144,Conditional (None),1024,265,39
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Prompt + ordered frames F0-Fk,Medium,8192,Conditional (None),1024,405,67
+12_qwen_qwen3_8_27b,Qwen3.8 27B,Prompt + ordered frames F0-Fk,Medium,16384,Conditional (None),1024,505,13
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Prompt + ordered frames F0-Fk,Enabled,4096,Conditional (Off),1024,4,4
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Prompt + ordered frames F0-Fk,Enabled,6144,Conditional (Off),1024,810,605
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Prompt + ordered frames F0-Fk,Enabled,8192,Conditional (Off),1024,140,91
+13_qwen_qwen3_7_plus,Qwen3.7 Plus,Prompt + ordered frames F0-Fk,Enabled,16384,Conditional (Off),1024,226,11
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Prompt + ordered frames F0-Fk,High,6144,Conditional (Low),2048,1152,609
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Prompt + ordered frames F0-Fk,High,12288,Conditional (Low),2048,15,10
+14_z_ai_glm_5_3_flash,GLM 5.3 Flash,Prompt + ordered frames F0-Fk,High,32768,Conditional (Low),2048,13,7
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Prompt + ordered frames F0-Fk,Enabled,4096,Conditional (Off),1024,548,429
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Prompt + ordered frames F0-Fk,Enabled,6144,Conditional (Off),1024,270,187
+15_z_ai_glm_5v_turbo,GLM 5V Turbo,Prompt + ordered frames F0-Fk,Enabled,16384,Conditional (Off),1024,362,11
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Prompt + ordered frames F0-Fk,High,4096,Conditional (None),1024,393,367
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Prompt + ordered frames F0-Fk,High,8192,Conditional (None),1024,457,404
+16_deepseek_deepseek_v4_1_flash_1017,DeepSeek V4.1 Flash,Prompt + ordered frames F0-Fk,High,32768,Conditional (None),1024,330,158
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Prompt + ordered frames F0-Fk,Medium,4096,Conditional (Low),2048,15,13
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Prompt + ordered frames F0-Fk,Medium,6144,Conditional (Low),2048,676,430
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Prompt + ordered frames F0-Fk,Medium,8192,Conditional (Low),2048,366,194
+17_minimax_minimax_m3_1_flash,MiniMax M3.1 Flash,Prompt + ordered frames F0-Fk,Medium,24576,Conditional (Low),2048,123,19
+18_minimax_minimax_m3,MiniMax M3,Prompt + ordered frames F0-Fk,Enabled,4096,Conditional (Off),1024,6,6
+18_minimax_minimax_m3,MiniMax M3,Prompt + ordered frames F0-Fk,Enabled,5120,Conditional (Off),1024,475,398
+18_minimax_minimax_m3,MiniMax M3,Prompt + ordered frames F0-Fk,Enabled,8192,Conditional (Off),1024,396,286
+18_minimax_minimax_m3,MiniMax M3,Prompt + ordered frames F0-Fk,Enabled,24576,Conditional (Off),1024,303,137
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Prompt + ordered frames F0-Fk,Enabled,4096,Conditional (Off),1024,801,796
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Prompt + ordered frames F0-Fk,Enabled,6144,Conditional (Off),1024,229,229
+19_bytedance_seed_seed_2_1_turbo,Seed 2.1 Turbo,Prompt + ordered frames F0-Fk,Enabled,24576,Conditional (Off),1024,150,143
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Prompt + ordered frames F0-Fk,Medium,4096,Conditional (None),1024,6,4
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Prompt + ordered frames F0-Fk,Medium,5120,Conditional (None),1024,604,217
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Prompt + ordered frames F0-Fk,Medium,6144,Conditional (None),1024,316,123
+20_bytedance_seed_seed_2_0_lite,Seed-2.0-Lite,Prompt + ordered frames F0-Fk,Medium,16384,Conditional (None),1024,254,2
+21_bytedance_seed_seed_2_0_mini,Seed-2.0-Mini,Prompt + ordered frames F0-Fk,Medium,16384,Conditional (None),1024,1180,21
+22_moonshotai_kimi_k2_6,Kimi K2.6,Prompt + ordered frames F0-Fk,Enabled,4096,Conditional (Off),1024,871,865
+22_moonshotai_kimi_k2_6,Kimi K2.6,Prompt + ordered frames F0-Fk,Enabled,6144,Conditional (Off),1024,295,286
+22_moonshotai_kimi_k2_6,Kimi K2.6,Prompt + ordered frames F0-Fk,Enabled,16384,Conditional (Off),1024,14,13
+23_moonshotai_kimi_k2_5,Kimi K2.5,Prompt + ordered frames F0-Fk,Enabled,4096,Conditional (Off),1024,806,806
+23_moonshotai_kimi_k2_5,Kimi K2.5,Prompt + ordered frames F0-Fk,Enabled,6144,Conditional (Off),1024,229,228
+23_moonshotai_kimi_k2_5,Kimi K2.5,Prompt + ordered frames F0-Fk,Enabled,16384,Conditional (Off),1024,145,105
+25_google_gemma_4_31b_it,Gemma 4 31B,Prompt + ordered frames F0-Fk,Enabled,6144,Conditional (Off),1024,529,276
+25_google_gemma_4_31b_it,Gemma 4 31B,Prompt + ordered frames F0-Fk,Enabled,12288,Conditional (Off),1024,277,116
+25_google_gemma_4_31b_it,Gemma 4 31B,Prompt + ordered frames F0-Fk,Enabled,16384,Conditional (Off),1024,374,31
+26_meta_llama_llama_4_maverick,Llama 4 Maverick,Prompt + ordered frames F0-Fk,Default,8192,Conditional (Default),1024,1180,96
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Prompt + ordered frames F0-Fk,Enabled,6144,Conditional (Off),1024,994,989
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Prompt + ordered frames F0-Fk,Enabled,12288,Conditional (Off),1024,114,108
+27_qwen_qwen3_5_9b,Qwen3.5-9B,Prompt + ordered frames F0-Fk,Enabled,16384,Conditional (Off),1024,72,51
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Prompt + ordered frames F0-Fk,High,4096,Conditional (None),1024,855,852
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Prompt + ordered frames F0-Fk,High,8192,Conditional (None),1024,190,187
+28_deepseek_deepseek_v4_flash_vision_exp,DeepSeek V4 Flash,Prompt + ordered frames F0-Fk,High,24576,Conditional (None),1024,135,118

@@ -1,0 +1,125 @@
+/* Let the document scroll as a whole, including long result tables. */
+.tablewrap,
+#detailed-results .tablewrap,
+#leaderboard .leaderboard-panel > .tablewrap {
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+.tablewrap > table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.tablewrap > table :is(th, td),
+.tablewrap > table thead button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.tablewrap > table thead button { width: 100%; }
+#results th[scope="row"] { white-space: normal; }
+
+@media (min-width: 700px) {
+  #results thead,
+  #detail-table thead { position: sticky; top: 56px; z-index: 2; }
+}
+
+/* Scene headings and scores share the same columns at both widths. */
+.task-matrix { container: apparatus-table / inline-size; }
+
+.task-matrix > #results > thead th,
+.task-matrix > #results th[scope="row"] {
+  min-width: 0;
+  max-width: none;
+}
+
+.task-matrix > #results thead th,
+.task-matrix > #results tbody td { padding: 5px 6px; }
+
+.task-matrix > #results thead th:not(:first-child),
+.task-matrix > #results tbody td {
+  border-left: 1px solid var(--line);
+  text-align: center;
+}
+
+.task-matrix > #results thead tr > :first-child,
+.task-matrix > #results th[scope="row"] {
+  position: static;
+  box-shadow: none;
+  padding-inline: 10px;
+}
+
+.matrix-domain-name {
+  display: block;
+  margin-bottom: 3px;
+  line-height: 1.25;
+}
+
+.matrix-scores {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  column-gap: 3px;
+}
+
+@container apparatus-table (min-width: 990px) {
+  .task-matrix > #results thead th:not(:first-child),
+  .task-matrix > #results tbody td { padding-inline: 2px; }
+  .matrix-scores {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 1px;
+  }
+  .matrix-scores > span { word-spacing: -.18em; }
+}
+
+#results .matrix-scores button {
+  min-height: 23px;
+  width: 100%;
+  text-align: center;
+  color: #32565b;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+#results .matrix-scores button:hover,
+#results .matrix-scores button:focus-visible {
+  background: #c9dbd6;
+  border-radius: 3px;
+}
+
+.matrix-scores > span {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+}
+
+#results .matrix-scores .best { color: #204957; font-weight: 800; }
+.matrix-scores .missing { color: var(--muted); }
+
+@media (max-width: 700px) {
+  .tablewrap > table :is(th, td) { padding-inline: 3px; }
+  .task-matrix > #results thead th,
+  .task-matrix > #results tbody td { padding-inline: 2px; }
+  .task-matrix > #results th[scope="row"] { padding-inline: 3px; }
+  .matrix-scores { column-gap: 1px; }
+}
+
+/* Mark the active sort without changing the width of a scene column. */
+#results thead button[data-direction] {
+  color: #133d37;
+  background: #d0dfd8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#results thead button[data-direction]::after {
+  display: inline-block;
+  margin-left: 1px;
+  border-inline: 3px solid transparent;
+  vertical-align: .15em;
+  content: "";
+}
+#results thead button[data-direction="down"]::after { border-top: 4px solid currentColor; }
+#results thead button[data-direction="up"]::after { border-bottom: 4px solid currentColor; }

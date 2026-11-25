@@ -1,0 +1,877 @@
+{
+  "scenes": {
+    "S01": {
+      "title": "Cabin inertia",
+      "prose": [
+        "A camera near the rear of a closed vehicle looks toward the front. Locate the red pendulum suspended on the far left, the green helium balloon tethered on the far right and the blue ball in a shallow bowl along the table’s centreline. A cabin may lack one of these bodies, so establish which are present in the initial view. Use the table edges and roof supports to distinguish motion across the cabin from motion along its direction of travel.",
+        "The vehicle keeps moving forward. When its speed or steering changes, the dense pendulum and ball respond through inertia, while the balloon responds to the pressure gradient in the accelerating cabin air. Follow the pendulum relative to its pivot, the balloon relative to its tether, and the ball relative to the bowl. The images show the bodies during each new control. Swinging and rolling persist, so compare how their motion changes across frames rather than treating a displacement already present as a new response.",
+        "For each event identify any change in speed, Accelerate or Brake, and any change in steering, TurnLeft or TurnRight, relative to the vehicle. Either control can act alone, or a speed change and a steering change can occur together. Return the event sets in time order under the single JSON key “operations”, grouping simultaneous controls in the same set."
+      ],
+      "task": "Which speed or steering controls acted at each event?",
+      "allowed_labels": [
+        "Accelerate",
+        "Brake",
+        "TurnLeft",
+        "TurnRight"
+      ],
+      "allowed_event_sets": [
+        [
+          "Accelerate"
+        ],
+        [
+          "Brake"
+        ],
+        [
+          "TurnLeft"
+        ],
+        [
+          "TurnRight"
+        ],
+        [
+          "Accelerate",
+          "TurnLeft"
+        ],
+        [
+          "Accelerate",
+          "TurnRight"
+        ],
+        [
+          "Brake",
+          "TurnLeft"
+        ],
+        [
+          "Brake",
+          "TurnRight"
+        ]
+      ]
+    },
+    "S02": {
+      "title": "Rotation & gas",
+      "prose": [
+        "A stationary overhead camera looks down on a deck rotating about its vertical shaft. Coloured loads slide along radial guides against springs anchored nearer the centre. A small pointer on the shaft is coupled to the deck through viscous drag and a restoring spring. Near the rim, a sealed channel partly encircles the deck and holds water and a light gas-filled sphere. Distinguish this sphere from the larger coloured loads in the guides.",
+        "The deck starts at rest. Follow its orientation beneath the stationary camera and compare the extension of each spring with its own guide. As rotation becomes faster, a load tends to sit farther from the centre. The pointer and the sphere respond differently from the solid loads because the pointer is coupled through drag and the sphere moves within the water. Images are taken during the response to successive commands; a reversal can therefore leave motion from the preceding direction in the same image.",
+        "Which motor setting was selected at each event? In the overhead view, ClockwiseAccelerate and CounterclockwiseAccelerate select the higher speed in the named direction, whereas ClockwiseDecelerate and CounterclockwiseDecelerate select the lower speed. Each command selects a complete speed and direction together. Give a single combined label per event and return the chronological list of event sets under the sole JSON key “operations”."
+      ],
+      "task": "Which motor setting was selected at each event?",
+      "allowed_labels": [
+        "ClockwiseAccelerate",
+        "ClockwiseDecelerate",
+        "CounterclockwiseAccelerate",
+        "CounterclockwiseDecelerate"
+      ],
+      "allowed_event_sets": [
+        [
+          "ClockwiseAccelerate"
+        ],
+        [
+          "ClockwiseDecelerate"
+        ],
+        [
+          "CounterclockwiseAccelerate"
+        ],
+        [
+          "CounterclockwiseDecelerate"
+        ]
+      ]
+    },
+    "S03": {
+      "title": "Driven pendulums",
+      "prose": [
+        "A camera attached to a carriage looks at pendulums hanging from its overhead beam. The burgundy pendulum is shortest, the teal one intermediate and the copper one longest. Identify them by colour and length in the initial image; their positions along the beam vary across installations, and a smaller ivory pendulum may also be present. The beam, walls and camera all move with the carriage.",
+        "Each programmed journey covers the same distance along the rail. Travel starts to the right and alternates direction thereafter. The carriage combines a smooth initial movement with a delayed movement in the same direction. The delayed contribution begins earliest and has the greatest relative weight in profile A, latest and with the least weight in profile C, and between these in profile B. The pendulums respond at different natural periods. Compare their deflections relative to their pivots after the carriage stops, allowing for any swing inherited from the preceding journey.",
+        "Which trajectory was selected for each journey? TrajectoryA, TrajectoryB and TrajectoryC identify the shape of the programmed movement. The direction of travel is already given by the alternating sequence. Use the pattern across pendulums of different lengths to select a single profile per journey, and return the chronological one-label sets under the sole JSON key “operations”."
+      ],
+      "task": "Which programmed trajectory moved the carriage at each event?",
+      "allowed_labels": [
+        "TrajectoryA",
+        "TrajectoryB",
+        "TrajectoryC"
+      ],
+      "allowed_event_sets": [
+        [
+          "TrajectoryA"
+        ],
+        [
+          "TrajectoryB"
+        ],
+        [
+          "TrajectoryC"
+        ]
+      ]
+    },
+    "S04": {
+      "title": "Tray impact",
+      "prose": [
+        "A camera is fixed to a rectangular tray and looks down at the bodies resting on it. Locate the tall tower, balls, sliding drum, low puck, short block, rolling barrel and the ivory body in the initial image. Their positions can vary. The rim, the lines across the tray and the coloured fixtures near the rim stay fixed relative to the camera and provide spatial references. External hammers face the left, right, far and near edges; in this view the far edge is at the top.",
+        "Each hammer strikes the tray inward from its own edge. The tray and camera recoil together while the free objects lag behind. A ball may keep rolling after the tray begins to return, the drum may slide, and the tower can tip and remain down. Read the displacement of several separated bodies against the same tray markings. A new change shared by a ball and a low sliding object can reveal a recoil that the position of the fallen tower alone would no longer show. The observations follow the contacts, while motion from successive strikes can overlap.",
+        "Which edges were struck at each event? LeftImpact, RightImpact, UpImpact and DownImpact refer to the edge receiving the strike. The opening strike uses perpendicular edges together. A later strike may use a single edge or a perpendicular pair containing a left or right edge and a top or bottom edge. Return the complete sets in event order under the single JSON key “operations”."
+      ],
+      "task": "Which side or sides of the tray were struck at each event?",
+      "allowed_labels": [
+        "LeftImpact",
+        "RightImpact",
+        "UpImpact",
+        "DownImpact"
+      ],
+      "allowed_event_sets": [
+        [
+          "LeftImpact"
+        ],
+        [
+          "RightImpact"
+        ],
+        [
+          "UpImpact"
+        ],
+        [
+          "DownImpact"
+        ],
+        [
+          "LeftImpact",
+          "UpImpact"
+        ],
+        [
+          "DownImpact",
+          "LeftImpact"
+        ],
+        [
+          "RightImpact",
+          "UpImpact"
+        ],
+        [
+          "DownImpact",
+          "RightImpact"
+        ]
+      ]
+    },
+    "S05": {
+      "title": "Moving heat source",
+      "prose": [
+        "A fixed camera looks down from the near edge of a conductive plate. A heater travels underneath on a gantry, while stationary heaters lie near the far-left, far-right and near-right regions. They share the same power and footprint. The moving heater’s starting position can vary. Image-right follows the horizontal axis of the plate, and image-up points toward the far edge. The straight grey seams across the coating remain fixed as the heater moves.",
+        "The near, middle and far coating bands use the same colours for temperature, but their response becomes progressively slower from near to far. Each band also cools more slowly than it warms. A hot patch can therefore remain behind after the gantry leaves, and its leading edge can fade or appear late as it crosses a seam. Compare successive views against the stationary warm regions. Each image after the initial view is taken after the mobile heater has finished its movement, while both the plate and its coating retain a thermal history.",
+        "Which direction did the heater travel? MoveLeft and MoveRight describe the horizontal axis; MoveUp goes toward the far edge and MoveDown toward the near edge. A diagonal movement uses a horizontal command and a near or far command simultaneously. Report all active labels for each movement in chronological order under the single JSON key “operations”."
+      ],
+      "task": "In which direction or directions did the mobile heater move at each event?",
+      "allowed_labels": [
+        "MoveLeft",
+        "MoveRight",
+        "MoveUp",
+        "MoveDown"
+      ],
+      "allowed_event_sets": [
+        [
+          "MoveLeft"
+        ],
+        [
+          "MoveRight"
+        ],
+        [
+          "MoveUp"
+        ],
+        [
+          "MoveDown"
+        ],
+        [
+          "MoveLeft",
+          "MoveUp"
+        ],
+        [
+          "MoveDown",
+          "MoveLeft"
+        ],
+        [
+          "MoveRight",
+          "MoveUp"
+        ],
+        [
+          "MoveDown",
+          "MoveRight"
+        ]
+      ]
+    },
+    "S06": {
+      "title": "Layered liquids",
+      "prose": [
+        "A fixed camera looks slightly down into an upright glass vessel. Water fills the lower part and silicone fluid floats above it. Each layer has its own external temperature-control jacket. Sealed floats with coloured cores move freely through the vessel; each core colour identifies a family with a particular density. Use the initial image to locate the vessel rim, the free surface and the interface, then identify floats in each family on either side of the interface.",
+        "The liquids start cold. Over the range of temperatures used here, warming the water increases its density, whereas warming the silicone fluid decreases its density. Cooling changes the densities in the reverse directions. A float’s buoyancy therefore depends on the liquid around it and on its own density family. Compare the heights of several floats relative to the interface across successive observations. Each image follows the start of the new valve setting, while the temperatures continue to change and floats displaced by an earlier setting may still be moving.",
+        "Which jacket was connected to which source at each event? LowerLayer and UpperLayer select the jacket; Heat and Cool select the supply connected to it. Every event requires a choice from each group, even when it uses the same jacket or source as a previous event. Return the paired labels in chronological event order under the single JSON key “operations”."
+      ],
+      "task": "Which layer was heated or cooled at each event?",
+      "allowed_labels": [
+        "LowerLayer",
+        "UpperLayer",
+        "Heat",
+        "Cool"
+      ],
+      "allowed_event_sets": [
+        [
+          "Heat",
+          "LowerLayer"
+        ],
+        [
+          "Cool",
+          "LowerLayer"
+        ],
+        [
+          "Heat",
+          "UpperLayer"
+        ],
+        [
+          "Cool",
+          "UpperLayer"
+        ]
+      ]
+    },
+    "S07": {
+      "title": "Heated gas bulbs",
+      "prose": [
+        "A fixed oblique camera shows connected glass bulbs arranged on the left, in the middle and on the right. Each has a visible liquid meniscus. Trace its height against the envelope of its own bulb and use the backboard and rigid supports as fixed references. Warm-water caps outside the view supply heat to individual bulbs.",
+        "Heating changes the state of gas in the connected apparatus, so a thermal contact at one location can shift liquid levels elsewhere. Begin with the menisci in the initial image and compare their movements across each subsequent observation. The bulbs can retain heat from an earlier contact, and the oblique view can make equal heights in different envelopes look different on screen.",
+        "Which bulbs received heat during each contact? HeatLeftBulb, HeatMiddleBulb and HeatRightBulb refer to their positions in the camera view. A contact can heat a bulb on its own or a pair of distinct bulbs together. Return the full set for every contact in chronological order under the single JSON key “operations”."
+      ],
+      "task": "Which bulb or bulbs received heat at each event?",
+      "display_labels": {
+        "heat_bulb_1": "HeatLeftBulb",
+        "heat_bulb_2": "HeatMiddleBulb",
+        "heat_bulb_3": "HeatRightBulb"
+      },
+      "allowed_labels": [
+        "heat_bulb_1",
+        "heat_bulb_2",
+        "heat_bulb_3"
+      ],
+      "allowed_event_sets": [
+        [
+          "heat_bulb_1"
+        ],
+        [
+          "heat_bulb_2"
+        ],
+        [
+          "heat_bulb_3"
+        ],
+        [
+          "heat_bulb_1",
+          "heat_bulb_2"
+        ],
+        [
+          "heat_bulb_1",
+          "heat_bulb_3"
+        ],
+        [
+          "heat_bulb_2",
+          "heat_bulb_3"
+        ]
+      ]
+    },
+    "S08": {
+      "title": "Bimetal supports",
+      "prose": [
+        "A brass ring is supported by ceramic balls at the inner ends of radial strips. Each strip is clamped to the base at its outer end. From the camera’s slightly elevated front view, the aluminium-backed strip is on the left, the stainless-steel strip at the rear and the copper-backed strip on the right. Each lower metal is bonded to an upper layer of Invar. A rigid pointer is attached to the ring, whose central bearing lets it rise and tilt.",
+        "An external lamp is aimed at each strip. When a strip warms, the bonded layers expand by different amounts and bend the free end, changing the height at which it supports the ring. Read both the ring’s tilt and the inclination of its pointer relative to the fixed clamps. Each observation follows establishment of the current lamp setting; a strip that was heated earlier can still be warm, while a newly heated strip can still be bending.",
+        "Which lamps are powered in each setting? SelectLeftLamp, SelectRearLamp and SelectRightLamp refer to the aluminium-, stainless-steel- and copper-backed strips respectively. A lamp may act alone or with any other lamp. A selection specifies the complete set that is powered until the next event, so a previously selected lamp may switch off. Return the chronological event sets under the sole JSON key “operations”."
+      ],
+      "task": "Which lamp or lamps were selected at each event?",
+      "allowed_labels": [
+        "SelectLeftLamp",
+        "SelectRearLamp",
+        "SelectRightLamp"
+      ],
+      "allowed_event_sets": [
+        [
+          "SelectLeftLamp"
+        ],
+        [
+          "SelectRearLamp"
+        ],
+        [
+          "SelectRightLamp"
+        ],
+        [
+          "SelectLeftLamp",
+          "SelectRearLamp"
+        ],
+        [
+          "SelectLeftLamp",
+          "SelectRightLamp"
+        ],
+        [
+          "SelectRearLamp",
+          "SelectRightLamp"
+        ]
+      ]
+    },
+    "S09": {
+      "title": "Magnetic coils",
+      "prose": [
+        "An overhead camera looks down on compass needles mounted on fixed brass pivots. A red tip points north and a blue tip south. Use the initial image to identify the occupied pivots; an empty position remains empty throughout the experiment. Hidden coils stand beyond the near edge of the table, aligned with its left, central and right regions. The far edge lies toward the top of the image.",
+        "With positive current the left coil points its north end toward the far edge and to the right, the central coil toward the far edge, and the right coil toward the far edge and to the left. Negative current reverses the selected coil’s poles. The direction of its magnetic field varies with position. Compare the red tips across the occupied pivots after each command rather than following just the nearest needle. Each observation is taken with the selected contact powered, while current and needle motion can persist through the neutral interval between commands.",
+        "Which coil is powered and with which polarity? Choose LeftCoilPositive or LeftCoilNegative for the left coil, CentreCoilPositive or CentreCoilNegative for the central coil, and RightCoilPositive or RightCoilNegative for the right coil. Each event powers a single coil with a single polarity. Return a chronological list of one-label sets under the sole JSON key “operations”."
+      ],
+      "task": "Which coil was powered, and with which polarity, at each event?",
+      "display_labels": {
+        "Coil1Positive": "LeftCoilPositive",
+        "Coil1Negative": "LeftCoilNegative",
+        "Coil2Positive": "CentreCoilPositive",
+        "Coil2Negative": "CentreCoilNegative",
+        "Coil3Positive": "RightCoilPositive",
+        "Coil3Negative": "RightCoilNegative"
+      },
+      "allowed_labels": [
+        "Coil1Positive",
+        "Coil1Negative",
+        "Coil2Positive",
+        "Coil2Negative",
+        "Coil3Positive",
+        "Coil3Negative"
+      ],
+      "allowed_event_sets": [
+        [
+          "Coil1Positive"
+        ],
+        [
+          "Coil1Negative"
+        ],
+        [
+          "Coil2Positive"
+        ],
+        [
+          "Coil2Negative"
+        ],
+        [
+          "Coil3Positive"
+        ],
+        [
+          "Coil3Negative"
+        ]
+      ]
+    },
+    "S10": {
+      "title": "Electric dipoles",
+      "prose": [
+        "The camera faces horizontal rows of electrical probes. Dipole A occupies the upper row and dipole B the lower. Each dipole has a copper electrode on its left and a blue electrode on its right. Between the fixed outer spring anchors, a positively charged probe slides on the left and a negatively charged probe on the right. A neutral ivory body sits between the rows and provides a stationary point of reference.",
+        "The lower source starts with a larger charge magnitude and its control changes that magnitude by a larger increment than the upper control. In either row the electrodes keep their signs. Changing a source changes the forces on its spring-mounted probes. Compare the separation and displacement of the probes against the anchors in successive images. The probes in the lower row are heavier and respond more slowly; a position seen after a command can therefore reflect motion inherited from an earlier event.",
+        "Identify any change in the upper source, IncreaseChargeA or DecreaseChargeA, and any change in the lower source, IncreaseChargeB or DecreaseChargeB. A command may change a source by itself or change both sources simultaneously. Each selected dipole takes a single direction of change. Return all selected labels for each event in chronological order under the sole JSON key “operations”."
+      ],
+      "task": "Which dipole charge magnitudes increased or decreased at each event?",
+      "allowed_labels": [
+        "IncreaseChargeA",
+        "DecreaseChargeA",
+        "IncreaseChargeB",
+        "DecreaseChargeB"
+      ],
+      "allowed_event_sets": [
+        [
+          "IncreaseChargeA"
+        ],
+        [
+          "DecreaseChargeA"
+        ],
+        [
+          "IncreaseChargeB"
+        ],
+        [
+          "DecreaseChargeB"
+        ],
+        [
+          "IncreaseChargeA",
+          "IncreaseChargeB"
+        ],
+        [
+          "DecreaseChargeB",
+          "IncreaseChargeA"
+        ],
+        [
+          "DecreaseChargeA",
+          "IncreaseChargeB"
+        ],
+        [
+          "DecreaseChargeA",
+          "DecreaseChargeB"
+        ]
+      ]
+    },
+    "S11": {
+      "title": "Dielectric response",
+      "prose": [
+        "Inside a glazed cabinet, a pair of gold electroscope leaves hangs from separate necks under a conducting crosshead. A wire connects the crosshead to an isolated, charged parallel-plate capacitor beyond the cabinet. A carriage can slide mica sideways into the gap. In the initial image the mica is fully withdrawn and the like-charged leaves spread apart. Judge the opening of each leaf from the downward vertical through its own point of attachment; the camera’s slight obliquity can make the projected deflections look unequal.",
+        "As more mica overlaps the plates, the capacitor can store more charge at a given voltage. Here the charged assembly is isolated, so its voltage falls as the mica moves inward and the force pushing the leaves apart weakens. Withdrawal does the reverse. The carriage then holds its selected endpoint. Each observation follows the carriage movement, but the gold foils can still be responding to the preceding change through gravity, elasticity and damping. Follow both leaves relative to the fixed frame across successive views.",
+        "Which endpoint was selected at each event? InsertHalf puts the mica at the intermediate overlap, InsertFully covers the plates, and WithdrawDielectric clears them. Each command moves the carriage to a different endpoint; starting from the fully withdrawn position it must move inward, although an earlier endpoint may be revisited after another selection. Return the chronological one-label sets under the single JSON key “operations”."
+      ],
+      "task": "Which dielectric endpoint was selected at each event?",
+      "allowed_labels": [
+        "InsertHalf",
+        "InsertFully",
+        "WithdrawDielectric"
+      ],
+      "allowed_event_sets": [
+        [
+          "InsertHalf"
+        ],
+        [
+          "InsertFully"
+        ],
+        [
+          "WithdrawDielectric"
+        ]
+      ]
+    },
+    "S12": {
+      "title": "Conducting wires",
+      "prose": [
+        "Parallel horizontal copper conductors hang from a rigid frame on pairs of nonmagnetic rods. Red collars identify conductor A, amber collars B and blue collars C. Their slots and suspension heights can change between installations. Use the initial image to identify each bar and its fixed overhead anchors. The camera views the apparatus obliquely from the front, so conductors that appear next to each other on screen may sit at slightly different heights.",
+        "The external switchboard establishes currents in a selected pair of bars. Parallel currents in the same direction attract the bars, while opposite currents repel them. Follow their separation and the swing of each conductor relative to its anchors across successive frames. The image for an event is taken after the electrical contacts have established the new currents. A conductor can nevertheless still be moving from an earlier selection, so consider the movement of the whole array as well as the newest change in separation.",
+        "Which conductors were selected and what was the relative current direction? ABSame, ABOpposite, BCSame, BCOpposite, ACSame and ACOpposite each name a conductor pair together with a direction relationship. Choose a single combined label for each switchboard setting and return the chronological event sets under the sole JSON key “operations”."
+      ],
+      "task": "Which conductor pair was powered and how did its currents compare?",
+      "allowed_labels": [
+        "ABSame",
+        "ABOpposite",
+        "BCSame",
+        "BCOpposite",
+        "ACSame",
+        "ACOpposite"
+      ],
+      "allowed_event_sets": [
+        [
+          "ABSame"
+        ],
+        [
+          "ABOpposite"
+        ],
+        [
+          "BCSame"
+        ],
+        [
+          "BCOpposite"
+        ],
+        [
+          "ACSame"
+        ],
+        [
+          "ACOpposite"
+        ]
+      ]
+    },
+    "S13": {
+      "title": "Standing waves",
+      "prose": [
+        "A transparent horizontal tube has a vibrating diaphragm on the left and a closed piston on the right. Cork granules lie along the bottom. A microphone near the right end feeds a detector that drives an orange marker vertically along a fixed rail. The front-facing camera shows the cork pattern along the tube and the position of the marker in the same image.",
+        "The spacing of the cork accumulations reflects the standing wave in the tube. Changing the driving frequency shifts its wavelength and where the standing wave has high or low sound pressure. The orange marker measures local sound pressure near the microphone, so its height can change when the wave pattern shifts or the diaphragm drive becomes stronger. Compare the granules and marker together in the observation period after each adjustment, taking account of the preceding pattern and of granules that continue to move.",
+        "Which settings changed? The frequency wheel steps up with IncreaseFrequency and down with DecreaseFrequency. The amplitude lever steps up with IncreaseDrive and down with DecreaseDrive. Either control may move alone, or each can move in a chosen direction at the same event. Return the complete event sets in chronological order under the sole JSON key “operations”."
+      ],
+      "task": "Which changes to drive frequency or diaphragm amplitude occurred at each event?",
+      "allowed_labels": [
+        "IncreaseFrequency",
+        "DecreaseFrequency",
+        "IncreaseDrive",
+        "DecreaseDrive"
+      ],
+      "allowed_event_sets": [
+        [
+          "IncreaseFrequency"
+        ],
+        [
+          "DecreaseFrequency"
+        ],
+        [
+          "IncreaseDrive"
+        ],
+        [
+          "DecreaseDrive"
+        ],
+        [
+          "IncreaseDrive",
+          "IncreaseFrequency"
+        ],
+        [
+          "DecreaseDrive",
+          "IncreaseFrequency"
+        ],
+        [
+          "DecreaseFrequency",
+          "IncreaseDrive"
+        ],
+        [
+          "DecreaseDrive",
+          "DecreaseFrequency"
+        ]
+      ]
+    },
+    "S14": {
+      "title": "Wave scattering",
+      "prose": [
+        "An overhead camera looks down on a rectangular elastic membrane with stationary cylindrical columns inside its rim. Image-left and image-right are the side edges, the near edge is at the bottom and the far edge is at the top. External strikers make brief contacts at these edges. Establish the arrangement of the columns in the initial image so their positions can be used as landmarks in the later views.",
+        "A contact launches a pulse inward across the membrane. Its wavefront splits around columns and is reflected by both the columns and the rim. When strikers act together, their waves can pass through the same region, while reflections from an earlier event can remain visible. The event image is captured after the last actual contact, once the fronts have travelled into the interior. Compare the orientation, curvature and position of the fronts against the columns and against the previous observation when identifying their edges of origin.",
+        "Which edges were struck? pulse_left, pulse_right, pulse_front and pulse_back refer to the left, right, near and far edges in the overhead image. A striker can act alone or alongside any other striker, including the one on the opposite edge. Return the complete sets in chronological order under the sole JSON key “operations”."
+      ],
+      "task": "Which edge striker or strikers launched the pulse at each event?",
+      "allowed_labels": [
+        "pulse_left",
+        "pulse_right",
+        "pulse_front",
+        "pulse_back"
+      ],
+      "allowed_event_sets": [
+        [
+          "pulse_left"
+        ],
+        [
+          "pulse_right"
+        ],
+        [
+          "pulse_front"
+        ],
+        [
+          "pulse_back"
+        ],
+        [
+          "pulse_back",
+          "pulse_front"
+        ],
+        [
+          "pulse_back",
+          "pulse_left"
+        ],
+        [
+          "pulse_back",
+          "pulse_right"
+        ],
+        [
+          "pulse_front",
+          "pulse_left"
+        ],
+        [
+          "pulse_front",
+          "pulse_right"
+        ],
+        [
+          "pulse_left",
+          "pulse_right"
+        ]
+      ]
+    },
+    "S15": {
+      "title": "Doppler response",
+      "prose": [
+        "A cart outside the view carries a siren along a straight rail toward or away from a fixed receiving horn. Its emitted tone stays constant. The camera faces an enclosed bank of tuned rods carrying orange flags. Identify the rods by their heights relative to their individual supports in the initial image. Their arrangement from left to right need not follow their tuning order, and neighbouring rods can stand at different depths.",
+        "The cart begins at rest. Motion toward the horn raises the received frequency and motion away lowers it; the shift grows with the cart’s speed. The shorter rods are tuned to higher frequencies and the longer ones to lower frequencies. The middle of the tuning range corresponds to the stationary siren. Compare the strongest moving flags and their neighbours across successive images. Each flag shows a rod’s slowly varying response amplitude, so the pattern can retain some motion from a previous setting.",
+        "Which cart setting produced each response? SlowApproach and FastApproach move the cart toward the horn; SlowRecede and FastRecede move it away. Direction and speed are selected together. Use a single combined label for each event and return the chronological one-label sets under the sole JSON key “operations”."
+      ],
+      "task": "Was the source approaching or receding, and at what speed setting?",
+      "allowed_labels": [
+        "SlowApproach",
+        "FastApproach",
+        "FastRecede",
+        "SlowRecede"
+      ],
+      "allowed_event_sets": [
+        [
+          "SlowApproach"
+        ],
+        [
+          "FastApproach"
+        ],
+        [
+          "FastRecede"
+        ],
+        [
+          "SlowRecede"
+        ]
+      ]
+    },
+    "S16": {
+      "title": "Two-source ripples",
+      "prose": [
+        "Look down into a rectangular ripple tank. A blue plunger on the left, called A, and an orange plunger on the right, called B, move vertically at the same steady frequency. The initial view shows the flat surface before they are powered. Their external actuators have different controls: the left plunger takes its phase from a clock running throughout the experiment, while the right plunger takes its phase relative to the left. The body colours identify the plungers; the colour in the surrounding water shows surface height.",
+        "In the water, orange or brown indicates a surface above the mean level, blue a surface below it and grey a surface near the mean. Compare the bands close to each plunger and the pattern where waves from the sources meet. A setting can shift the motion of both sources together or change their timing relative to one another. Every event image catches the running clock at the same point, with the unshifted reference below its midpoint and still falling. Earlier waves continue across the tank and reflect from its walls.",
+        "Recover the settings of both controls. For A, use AInPhase, AAtQuadrature or AInAntiphase relative to the running clock. For B, use BInPhaseWithA, BAtQuadratureToA or BInAntiphaseWithA relative to A. In phase means moving together; in antiphase the motions oppose each other. The quadrature option leads its reference, reaching the upper turning point as the reference rises through its middle position. Include both settings even when a control retains its previous value, and return the chronological event sets under the sole JSON key “operations”."
+      ],
+      "task": "Which absolute phase of A and relative phase of B were set at each event?",
+      "display_labels": {
+        "PhaseA_0deg": "AInPhase",
+        "PhaseA_90deg": "AAtQuadrature",
+        "PhaseA_180deg": "AInAntiphase",
+        "DeltaBA_0deg": "BInPhaseWithA",
+        "DeltaBA_90deg": "BAtQuadratureToA",
+        "DeltaBA_180deg": "BInAntiphaseWithA"
+      },
+      "allowed_labels": [
+        "PhaseA_0deg",
+        "PhaseA_90deg",
+        "PhaseA_180deg",
+        "DeltaBA_0deg",
+        "DeltaBA_90deg",
+        "DeltaBA_180deg"
+      ],
+      "allowed_event_sets": [
+        [
+          "DeltaBA_0deg",
+          "PhaseA_0deg"
+        ],
+        [
+          "DeltaBA_90deg",
+          "PhaseA_0deg"
+        ],
+        [
+          "DeltaBA_180deg",
+          "PhaseA_0deg"
+        ],
+        [
+          "DeltaBA_0deg",
+          "PhaseA_90deg"
+        ],
+        [
+          "DeltaBA_90deg",
+          "PhaseA_90deg"
+        ],
+        [
+          "DeltaBA_180deg",
+          "PhaseA_90deg"
+        ],
+        [
+          "DeltaBA_0deg",
+          "PhaseA_180deg"
+        ],
+        [
+          "DeltaBA_90deg",
+          "PhaseA_180deg"
+        ],
+        [
+          "DeltaBA_180deg",
+          "PhaseA_180deg"
+        ]
+      ]
+    },
+    "S17": {
+      "title": "Photoelastic load",
+      "prose": [
+        "A fixed camera looks through crossed polarizers at a press holding transparent specimens of different shapes. Locate the narrow-waisted dogbone, the arch and the perforated disk in the initial view; their order can vary. The upper crosshead presses them against a fixed lower anvil. A narrow optical strip above the crosshead lies outside the load path. Its material axes turn progressively across its width, giving the camera a reference for the orientation of the shared polarizers.",
+        "A turn of the polarizers changes the strip’s brightness pattern as well as the appearance of the specimens. A change in press load changes stress in the specimens but leaves the strip optically unchanged. Compare these responses from one observation to the next, following the patterns around the neck, arch legs and hole. The dogbone responds fastest and the disk retains stress longest. Images are taken after the drive ends, so colours or fringes left by an earlier load can persist.",
+        "Which single control was operated at each event? IncreaseLoad and DecreaseLoad change compression. RotateClockwise and RotateCounterclockwise describe turns viewed from outside the right wall, facing inward. A clockwise turn of that wheel increases the optical angle measured counterclockwise from image-right in the camera view; a counterclockwise turn decreases it. Give a single label per event and return the chronological sets under the sole JSON key “operations”."
+      ],
+      "task": "Did the apparatus change its load or rotate the optical control at each event?",
+      "allowed_labels": [
+        "IncreaseLoad",
+        "DecreaseLoad",
+        "RotateClockwise",
+        "RotateCounterclockwise"
+      ],
+      "allowed_event_sets": [
+        [
+          "IncreaseLoad"
+        ],
+        [
+          "DecreaseLoad"
+        ],
+        [
+          "RotateClockwise"
+        ],
+        [
+          "RotateCounterclockwise"
+        ]
+      ]
+    },
+    "S18": {
+      "title": "Double reflection",
+      "prose": [
+        "A fixed red ray, green ray and blue ray reach a flat receiver after reflecting from an upstream mirror and then a downstream mirror. The upstream mirror stands to the left of the downstream mirror. The camera is near the outgoing part of the optical path and looks toward the receiver; it sees the illuminated spots and the rectangular grid, while the mirrors and their supports are outside its field of view. In the initial image both stages are at their reference yaw and pitch settings. Identify the coloured spots against the grid and retain their identities throughout the sequence.",
+        "The red ray starts in line with the upstream mirror and travels straight downstream. The green source is lower and farther to the left, sending its ray upward and toward the right. The blue source is higher and farther to the right, sending its ray downward and toward the left. These distinct launch paths strike the same mirrors at different places. When the upstream mirror turns, it changes the outgoing direction and the point where each ray meets the downstream mirror; the rays must then reflect again before reaching the grid. When the downstream mirror turns alone, the incoming rays still follow their previous paths up to that mirror. A rightward yaw turns the downstream axis toward image-right; an upward pitch tips the selected mirror’s normal upward. The upstream mirror uses the same size of increment for yaw and pitch. The downstream mirror moves farther per command, and its yaw increment is larger than its pitch increment. Read horizontal and vertical spot shifts against the fixed grid, comparing the group displacement and changes in relative spacing. Each image follows completion of the commanded turn. An unselected axis retains its preceding orientation, so use the previous spot pattern as the starting point for the next comparison.",
+        "Which mirror turned, and in what direction? For the upstream stage choose UpstreamMirrorLeft, UpstreamMirrorRight, UpstreamMirrorUp or UpstreamMirrorDown. For the downstream stage choose DownstreamMirrorLeft, DownstreamMirrorRight, DownstreamMirrorUp or DownstreamMirrorDown. Each stage can take a single turn per event. A stage may act by itself, or both may turn simultaneously. Return every selected turn in chronological event sets under the sole JSON key “operations”."
+      ],
+      "task": "Which mirror or mirrors turned, and in which direction, at each event?",
+      "display_labels": {
+        "Mirror1Left": "UpstreamMirrorLeft",
+        "Mirror1Right": "UpstreamMirrorRight",
+        "Mirror1Up": "UpstreamMirrorUp",
+        "Mirror1Down": "UpstreamMirrorDown",
+        "Mirror2Left": "DownstreamMirrorLeft",
+        "Mirror2Right": "DownstreamMirrorRight",
+        "Mirror2Up": "DownstreamMirrorUp",
+        "Mirror2Down": "DownstreamMirrorDown"
+      },
+      "allowed_labels": [
+        "Mirror1Left",
+        "Mirror1Right",
+        "Mirror1Up",
+        "Mirror1Down",
+        "Mirror2Left",
+        "Mirror2Right",
+        "Mirror2Up",
+        "Mirror2Down"
+      ],
+      "allowed_event_sets": [
+        [
+          "Mirror1Left"
+        ],
+        [
+          "Mirror1Right"
+        ],
+        [
+          "Mirror1Up"
+        ],
+        [
+          "Mirror1Down"
+        ],
+        [
+          "Mirror2Left"
+        ],
+        [
+          "Mirror2Right"
+        ],
+        [
+          "Mirror2Up"
+        ],
+        [
+          "Mirror2Down"
+        ],
+        [
+          "Mirror1Left",
+          "Mirror2Left"
+        ],
+        [
+          "Mirror1Left",
+          "Mirror2Right"
+        ],
+        [
+          "Mirror1Left",
+          "Mirror2Up"
+        ],
+        [
+          "Mirror1Left",
+          "Mirror2Down"
+        ],
+        [
+          "Mirror1Right",
+          "Mirror2Left"
+        ],
+        [
+          "Mirror1Right",
+          "Mirror2Right"
+        ],
+        [
+          "Mirror1Right",
+          "Mirror2Up"
+        ],
+        [
+          "Mirror1Right",
+          "Mirror2Down"
+        ],
+        [
+          "Mirror1Up",
+          "Mirror2Left"
+        ],
+        [
+          "Mirror1Up",
+          "Mirror2Right"
+        ],
+        [
+          "Mirror1Up",
+          "Mirror2Up"
+        ],
+        [
+          "Mirror1Up",
+          "Mirror2Down"
+        ],
+        [
+          "Mirror1Down",
+          "Mirror2Left"
+        ],
+        [
+          "Mirror1Down",
+          "Mirror2Right"
+        ],
+        [
+          "Mirror1Down",
+          "Mirror2Up"
+        ],
+        [
+          "Mirror1Down",
+          "Mirror2Down"
+        ]
+      ]
+    },
+    "S19": {
+      "title": "Graded refraction",
+      "prose": [
+        "Fixed collimated rays travel from a source on the left through a transparent graded-index insert to a receiver on the right. The insert starts near the optical centre and is carried by a movable support. The camera is near the receiver, looking back toward the source. Locate the amber spots against the receiver border and fixed reference marks in the initial image. The spots have a similar colour, so follow their relative positions across the sequence.",
+        "The refractive index varies smoothly within the insert and approaches that of the surrounding medium near its boundary. Translating the insert changes the part of this profile traversed by each ray. Rotating it changes the profile’s orientation across the paths. Compare the whole spot pattern with its preceding position after each carriage movement. The carriage keeps the pose reached at the end of an event; the following change therefore acts on rays already passing through a shifted or rotated profile.",
+        "Which single carriage control acted at each event? medium_left and medium_right translate the insert along the beam toward the source or the receiver. medium_near and medium_far move it across the beam toward or away from the camera. medium_rotate and medium_counterrotate turn it in the positive or negative sense about the vertical axis. Return the chronological one-label sets under the sole JSON key “operations”."
+      ],
+      "task": "How did the insert move at each event?",
+      "allowed_labels": [
+        "medium_left",
+        "medium_right",
+        "medium_near",
+        "medium_far",
+        "medium_rotate",
+        "medium_counterrotate"
+      ],
+      "allowed_event_sets": [
+        [
+          "medium_left"
+        ],
+        [
+          "medium_right"
+        ],
+        [
+          "medium_near"
+        ],
+        [
+          "medium_far"
+        ],
+        [
+          "medium_rotate"
+        ],
+        [
+          "medium_counterrotate"
+        ]
+      ]
+    },
+    "S20": {
+      "title": "Double-slit fringes",
+      "prose": [
+        "A coherent light source illuminates a pair of parallel vertical slits. Opaque knife edges form the openings. A width mechanism adjusts the slits equally, while a separate mechanism adjusts the distance between their centres. Beyond them the camera faces a fixed receiver carrying a pattern of fine bright fringes inside a much broader diffraction envelope. Use the fixed screen edges and marks to locate both features in the initial image and in subsequent observations.",
+        "When the slit centres move farther apart, neighbouring bright fringes are closer together; moving the centres closer together spreads the fringes apart. Slit width affects the broader envelope: narrowing the slits spreads its minima outward and widening them brings the minima inward. Changing either setting can alter how many bright bands are visible. Compare their spacing as well as where the envelope dims, since a simultaneous movement can change these features in different directions. Each image shows the completed adjustment, with an unselected mechanism holding its preceding position.",
+        "Which controls moved? NarrowSlits and WidenSlits act on the common slit width. IncreaseSpacing and DecreaseSpacing act on the distance between the centres. A mechanism may act alone, or a width adjustment and a spacing adjustment may be made together. Return all selected labels in chronological event sets under the sole JSON key “operations”."
+      ],
+      "task": "Which slit-width or centre-spacing controls changed the pattern at each event?",
+      "allowed_labels": [
+        "NarrowSlits",
+        "WidenSlits",
+        "IncreaseSpacing",
+        "DecreaseSpacing"
+      ],
+      "allowed_event_sets": [
+        [
+          "NarrowSlits"
+        ],
+        [
+          "WidenSlits"
+        ],
+        [
+          "IncreaseSpacing"
+        ],
+        [
+          "DecreaseSpacing"
+        ],
+        [
+          "IncreaseSpacing",
+          "NarrowSlits"
+        ],
+        [
+          "DecreaseSpacing",
+          "NarrowSlits"
+        ],
+        [
+          "IncreaseSpacing",
+          "WidenSlits"
+        ],
+        [
+          "DecreaseSpacing",
+          "WidenSlits"
+        ]
+      ]
+    }
+  }
+}

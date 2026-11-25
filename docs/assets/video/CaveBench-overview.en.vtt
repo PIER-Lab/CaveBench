@@ -1,0 +1,59 @@
+WEBVTT
+
+00:00:00.300 --> 00:00:03.900
+[Soft electronic music begins.]
+
+00:01:22.400 --> 00:01:25.592
+Behind these flags, a siren is moving.
+
+00:01:25.932 --> 00:01:27.804
+Can you tell which way it went?
+
+00:01:28.140 --> 00:01:32.676
+Outside the cabinet, a cart carries a siren along a rail.
+
+00:01:33.015 --> 00:01:35.535
+A fixed horn receives its tone.
+
+00:01:35.535 --> 00:01:38.391
+The source stays at 100 Hz.
+
+00:01:38.723 --> 00:01:41.771
+Watch the wavefronts ahead of an approaching source.
+
+00:01:42.098 --> 00:01:44.118
+They arrive closer together.
+
+00:01:44.118 --> 00:01:47.426
+As the source recedes, they spread apart.
+
+00:01:47.765 --> 00:01:52.541
+Inside, nine tuned rods turn the shift into visible motion.
+
+00:01:52.890 --> 00:01:55.940
+Shorter rods respond to higher frequencies.
+
+00:01:55.940 --> 00:01:58.722
+Longer rods respond to lower ones.
+
+00:01:59.057 --> 00:02:02.513
+Compare the first and last events in the same run.
+
+00:02:02.848 --> 00:02:05.568
+The cart first approaches the horn quickly.
+
+00:02:05.568 --> 00:02:08.752
+In the last event, it quickly recedes.
+
+00:02:09.098 --> 00:02:13.850
+The model sees one interior image
+per event, plus the initial frame.
+
+00:02:14.182 --> 00:02:17.926
+Its task is to recover all six cart settings in order.
+
+00:02:18.265 --> 00:02:22.897
+Across 20 apparatuses, CaveBench asks the same question.
+
+00:02:23.223 --> 00:02:25.167
+What happened outside the view?

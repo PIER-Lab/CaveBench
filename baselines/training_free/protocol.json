@@ -1,0 +1,670 @@
+{
+  "program_instructions": {
+    "sketchpad_v1": "Infer the hidden physical operations from the public scene description and images. Choose one explicit legal action set for EVERY one of the {k} events, even if uncertain. Never omit an event or return an empty answer. Public explanations must refer to visible evidence. Return Python for the visual sketchpad to crop, mark or compare images. You will see the actual generated images and may revise your observations over several turns. Set answer when ready. Python execution supports variables, lists/dicts, indexing, if/else, bounded for\nover range(n) with n<=7, len, str, arithmetic, and tool(\"NAME\", argument=value).\nNo imports, attributes, functions, while, comprehensions or file access. Set answer to\n{\"operations\": [[labels],...]} when finished. Tool image returns contain an \"image\" reference.\nExample syntax only: c=tool(\"Crop\",image=\"F0\",bbox=[0.1,0.1,0.5,0.5]).\nUse the actual problem to decide what to observe; this example is not a recommended region.\nComplete legal interface example without a physical answer:\nc = tool(\"Crop\", image=\"F0\", bbox=[0.0,0.0,1.0,1.0])\nv = tool(\"VQA\", images=[c[\"image\"]], question=\"Describe what is visible in this image.\")\nobservation = v[\"text\"]\nFor the real task, set answer to an operations object or a VQA text containing its\ncomplete operations JSON. Do not use print, imports, attributes or invented functions.\n\nAvailable pixel tools (all image arguments use F0..Fk or returned T references):\nCrop(image,bbox=[x0,y0,x1,y1]); ZoomIn(image,bbox,factor=2); Mark(image,boxes=[bbox,...]);\nPanel(images=[ref,...]); Statistics(image,bbox optional); Difference(first,second).\nBounding boxes are normalized to [0,1]. Outputs from pixel tools are actual pixels/statistics,\nnot ground-truth physical actions. Do not infer physical identities from filenames.\nVQA(images=[ref,...],question=...) sends those images and the original public problem\nto the same vision model and returns {\"text\": actual_response, \"note\": ...}, which may\nbe wrong. Use at most 2 VQA calls. All image-producing calls return a dictionary with\nan \"image\" field holding its registered reference. Pass result[\"image\"] to another\nimage tool, NEVER the whole dictionary. Original image references are quoted strings\nsuch as \"F0\", not variables. Statistics returns RGB statistics, not object coordinates.\nOnly the supplied frames are available. Do not access files, network, imports or hidden data.\n\nTRANSPORT: Return one ordinary text JSON object with exactly one field, \"program\", whose string contains the complete program. This is program text for our local interpreter, NOT a native function/tool call. Do not use built-in tools or function-call channels. The interpreter will return actual observations next turn. The program must not invent tool outputs.",
+    "sketchpad_v2": "Infer the hidden physical operations from the public scene description and images. Choose one explicit legal action set for EVERY one of the {k} events, even if uncertain. Never omit an event or return an empty answer. Public explanations must refer to visible evidence. Return Python for the visual sketchpad to crop, mark or compare images. You will see the actual generated images and may revise your observations over several turns. Set answer when ready. Python execution supports variables, lists/dicts, indexing, if/else, bounded for\nover range(n) with n<=7, len, str, arithmetic, and tool(\"NAME\", argument=value).\nNo imports, attributes, functions, while, comprehensions or file access. Set answer to\n{\"operations\": [[labels],...]} when finished. Tool image returns contain an \"image\" reference.\nExample syntax only: c=tool(\"Crop\",image=\"F0\",bbox=[0.1,0.1,0.5,0.5]).\nUse the actual problem to decide what to observe; this example is not a recommended region.\nComplete legal interface example without a physical answer:\nc = tool(\"Crop\", image=\"F0\", bbox=[0.0,0.0,1.0,1.0])\nv = tool(\"VQA\", images=[c[\"image\"]], question=\"Describe what is visible in this image.\")\nobservation = v[\"text\"]\nFor the real task, set answer to an operations object or a VQA text containing its\ncomplete operations JSON. Do not use print, imports, attributes or invented functions.\n\nBoolean and/or expressions use Python short-circuit semantics. Other explicitly prohibited constructs remain prohibited.\n\nAvailable pixel tools (all image arguments use F0..Fk or returned T references):\nCrop(image,bbox=[x0,y0,x1,y1]); ZoomIn(image,bbox,factor=2); Mark(image,boxes=[bbox,...]);\nPanel(images=[ref,...]); Statistics(image,bbox optional); Difference(first,second).\nBounding boxes are normalized to [0,1]. Outputs from pixel tools are actual pixels/statistics,\nnot ground-truth physical actions. Do not infer physical identities from filenames.\nVQA(images=[ref,...],question=...) sends those images and the original public problem\nto the same vision model and returns {\"text\": actual_response, \"note\": ...}, which may\nbe wrong. Use at most 2 VQA calls. All image-producing calls return a dictionary with\nan \"image\" field holding its registered reference. Pass result[\"image\"] to another\nimage tool, NEVER the whole dictionary. Original image references are quoted strings\nsuch as \"F0\", not variables. Statistics returns RGB statistics, not object coordinates.\nOnly the supplied frames are available. Do not access files, network, imports or hidden data.\n\nPanel accepts1–16 registered original or derived image references, within a16-million-pixel output limit. No additional original frames become available.\n\nTRANSPORT: Return one ordinary text JSON object with exactly one field, \"program\", whose string contains the complete program. This is program text for our local interpreter, NOT a native function/tool call. Do not use built-in tools or function-call channels. The interpreter will return actual observations next turn. The program must not invent tool outputs.",
+    "viper_v1": "Infer the hidden physical operations from the public scene description and images. Choose one explicit legal action set for EVERY one of the {k} events, even if uncertain. Never omit an event or return an empty answer. Public explanations must refer to visible evidence. Write one Python program that obtains observations and computes the final answer. Python execution supports variables, lists/dicts, indexing, if/else, bounded for\nover range(n) with n<=7, len, str, arithmetic, and tool(\"NAME\", argument=value).\nNo imports, attributes, functions, while, comprehensions or file access. Set answer to\n{\"operations\": [[labels],...]} when finished. Tool image returns contain an \"image\" reference.\nExample syntax only: c=tool(\"Crop\",image=\"F0\",bbox=[0.1,0.1,0.5,0.5]).\nUse the actual problem to decide what to observe; this example is not a recommended region.\nComplete legal interface example without a physical answer:\nc = tool(\"Crop\", image=\"F0\", bbox=[0.0,0.0,1.0,1.0])\nv = tool(\"VQA\", images=[c[\"image\"]], question=\"Describe what is visible in this image.\")\nobservation = v[\"text\"]\nFor the real task, set answer to an operations object or a VQA text containing its\ncomplete operations JSON. Do not use print, imports, attributes or invented functions.\n\nAvailable pixel tools (all image arguments use F0..Fk or returned T references):\nCrop(image,bbox=[x0,y0,x1,y1]); ZoomIn(image,bbox,factor=2); Mark(image,boxes=[bbox,...]);\nPanel(images=[ref,...]); Statistics(image,bbox optional); Difference(first,second).\nBounding boxes are normalized to [0,1]. Outputs from pixel tools are actual pixels/statistics,\nnot ground-truth physical actions. Do not infer physical identities from filenames.\nVQA(images=[ref,...],question=...) sends those images and the original public problem\nto the same vision model and returns {\"text\": actual_response, \"note\": ...}, which may\nbe wrong. Use at most 2 VQA calls. All image-producing calls return a dictionary with\nan \"image\" field holding its registered reference. Pass result[\"image\"] to another\nimage tool, NEVER the whole dictionary. Original image references are quoted strings\nsuch as \"F0\", not variables. Statistics returns RGB statistics, not object coordinates.\nOnly the supplied frames are available. Do not access files, network, imports or hidden data.\n\nTRANSPORT: Return one ordinary text JSON object with exactly one field, \"program\", whose string contains the complete program. This is program text for our local interpreter, NOT a native function/tool call. Do not use built-in tools or function-call channels. The interpreter will return actual observations next turn. The program must not invent tool outputs.",
+    "viper_v2": "Infer the hidden physical operations from the public scene description and images. Choose one explicit legal action set for EVERY one of the {k} events, even if uncertain. Never omit an event or return an empty answer. Public explanations must refer to visible evidence. Write one Python program that obtains observations and computes the final answer. Python execution supports variables, lists/dicts, indexing, if/else, bounded for\nover range(n) with n<=7, len, str, arithmetic, and tool(\"NAME\", argument=value).\nNo imports, attributes, functions, while, comprehensions or file access. Set answer to\n{\"operations\": [[labels],...]} when finished. Tool image returns contain an \"image\" reference.\nExample syntax only: c=tool(\"Crop\",image=\"F0\",bbox=[0.1,0.1,0.5,0.5]).\nUse the actual problem to decide what to observe; this example is not a recommended region.\nComplete legal interface example without a physical answer:\nc = tool(\"Crop\", image=\"F0\", bbox=[0.0,0.0,1.0,1.0])\nv = tool(\"VQA\", images=[c[\"image\"]], question=\"Describe what is visible in this image.\")\nobservation = v[\"text\"]\nFor the real task, set answer to an operations object or a VQA text containing its\ncomplete operations JSON. Do not use print, imports, attributes or invented functions.\n\nBoolean and/or expressions use Python short-circuit semantics. Other explicitly prohibited constructs remain prohibited.\n\nAvailable pixel tools (all image arguments use F0..Fk or returned T references):\nCrop(image,bbox=[x0,y0,x1,y1]); ZoomIn(image,bbox,factor=2); Mark(image,boxes=[bbox,...]);\nPanel(images=[ref,...]); Statistics(image,bbox optional); Difference(first,second).\nBounding boxes are normalized to [0,1]. Outputs from pixel tools are actual pixels/statistics,\nnot ground-truth physical actions. Do not infer physical identities from filenames.\nVQA(images=[ref,...],question=...) sends those images and the original public problem\nto the same vision model and returns {\"text\": actual_response, \"note\": ...}, which may\nbe wrong. Use at most 2 VQA calls. All image-producing calls return a dictionary with\nan \"image\" field holding its registered reference. Pass result[\"image\"] to another\nimage tool, NEVER the whole dictionary. Original image references are quoted strings\nsuch as \"F0\", not variables. Statistics returns RGB statistics, not object coordinates.\nOnly the supplied frames are available. Do not access files, network, imports or hidden data.\n\nPanel accepts1–16 registered original or derived image references, within a16-million-pixel output limit. No additional original frames become available.\n\nTRANSPORT: Return one ordinary text JSON object with exactly one field, \"program\", whose string contains the complete program. This is program text for our local interpreter, NOT a native function/tool call. Do not use built-in tools or function-call channels. The interpreter will return actual observations next turn. The program must not invent tool outputs."
+  },
+  "react": {
+    "native_finish": {
+      "system": "You solve a fixed visual inverse-physics question using a bounded ReAct loop.\nYou receive the complete public question and the ordered original images F0..Fk.\nReason about the visible evidence, choose ONE action, receive its real observation,\nand then decide again. You have at most TWO image-tool actions, followed by a final\nanswer. You may finish earlier when confident. Do not call a tool just for appearance.\nThe original question's final-output instructions apply when you finish; during\ninspection use the action envelope below. No external state or answer key is available.\n\nAvailable actions (all frame indices are zero-based and cannot exceed k):\n1. crop_compare: arguments {\"frame_indices\":[0,1],\"bbox\":[0.0,0.0,1.0,1.0]}.\n   Crop the SAME normalized rectangle from the selected frames and return an enlarged\n   labeled comparison. bbox is [left,top,right,bottom], in [0,1], origin top-left.\n2. frame_difference: arguments {\"a\":0,\"b\":1,\"bbox\":[0.0,0.0,1.0,1.0]}.\n   Return the pixel differences between two provided frames in this region.\n   Differences include illumination and occlusion; they are not a physical conclusion.\n3. measure_translation: arguments {\"a\":0,\"b\":1,\"bbox\":[0.2,0.2,0.4,0.4],\"search_margin\":0.15}.\n   Match the rectangular patch in frame a inside a larger region of frame b.\n   Return estimated dx,dy in image pixels and a match score, not world displacement,\n   velocity, object identity, or proof of a control. Repeated textures, occlusion,\n   deformation and viewpoint change can invalidate the estimate.\n4. finish: supply \"operations\" as the complete ordered answer specified by the question.\n\n\nTo inspect evidence, call ONE of the registered functions using the native tool-call\ninterface. Do not encode a function call in ordinary text. The runner executes it\nand returns an authentic tool observation. Call at most one function in each turn.\nTo finish, call the registered finish function with operations containing the\ncomplete answer and an optional brief public evidence note. This submits your\nanswer; it is not an image inspection and does not consume an inspection action.\nUse the actual allowed labels and exactly k nonempty event arrays. Select your best\nanswer for EVERY event, even when uncertain. Keep the optional public note under\n60 words. The labels above are placeholders. Never simulate a tool observation.\n",
+      "inspect": {
+        "model": "google/gemini-3.8-flash",
+        "reasoning": {
+          "effort": "medium",
+          "exclude": false
+        },
+        "stream": false,
+        "temperature": 1.0,
+        "provider": {
+          "allow_fallbacks": true,
+          "require_parameters": true,
+          "max_price": {
+            "prompt": 0.825,
+            "completion": 4.125
+          }
+        },
+        "max_tokens": 2048,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "crop_compare",
+              "description": "Show the same normalized rectangle from selected supplied frames, enlarged where possible. Pixel-only observation; no inferred labels.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "frame_indices": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "minItems": 1,
+                    "maxItems": 7
+                  },
+                  "bbox": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4,
+                    "description": "[left, top, right, bottom], normalized 0..1; origin at image top left"
+                  }
+                },
+                "required": [
+                  "frame_indices",
+                  "bbox"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "frame_difference",
+              "description": "Compare two supplied frames and their absolute RGB difference; responds to motion, lighting and appearance changes alike.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "b": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "bbox": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4
+                  }
+                },
+                "required": [
+                  "a",
+                  "b"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "measure_translation",
+              "description": "Match a textured rectangle in frame a to a nearby rectangle in b. Returns estimated pixel translation and correlation, not object identity, physical velocity or ground truth. May be ambiguous under occlusion, rotation, lighting or repeated textures.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "b": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "bbox": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4
+                  },
+                  "search_margin": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 0.5,
+                    "default": 0.15,
+                    "description": "Search expansion on each side as fraction of full image dimensions"
+                  }
+                },
+                "required": [
+                  "a",
+                  "b",
+                  "bbox"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "finish",
+              "description": "Submit the final complete answer. Supply exactly k chronological nonempty allowed operation sets. This is final, not an image inspection.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "operations": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 6,
+                    "items": {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "note": {
+                    "type": "string",
+                    "description": "Optional brief public evidence note under 60 words."
+                  }
+                },
+                "required": [
+                  "operations"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        ],
+        "tool_choice": "auto"
+      },
+      "final": {
+        "model": "google/gemini-3.8-flash",
+        "reasoning": {
+          "effort": "medium",
+          "exclude": false
+        },
+        "stream": false,
+        "temperature": 1.0,
+        "provider": {
+          "allow_fallbacks": true,
+          "require_parameters": true,
+          "max_price": {
+            "prompt": 0.825,
+            "completion": 4.125
+          }
+        },
+        "max_tokens": 6144,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "crop_compare",
+              "description": "Show the same normalized rectangle from selected supplied frames, enlarged where possible. Pixel-only observation; no inferred labels.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "frame_indices": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "minItems": 1,
+                    "maxItems": 7
+                  },
+                  "bbox": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4,
+                    "description": "[left, top, right, bottom], normalized 0..1; origin at image top left"
+                  }
+                },
+                "required": [
+                  "frame_indices",
+                  "bbox"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "frame_difference",
+              "description": "Compare two supplied frames and their absolute RGB difference; responds to motion, lighting and appearance changes alike.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "b": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "bbox": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4
+                  }
+                },
+                "required": [
+                  "a",
+                  "b"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "measure_translation",
+              "description": "Match a textured rectangle in frame a to a nearby rectangle in b. Returns estimated pixel translation and correlation, not object identity, physical velocity or ground truth. May be ambiguous under occlusion, rotation, lighting or repeated textures.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "b": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "bbox": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4
+                  },
+                  "search_margin": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 0.5,
+                    "default": 0.15,
+                    "description": "Search expansion on each side as fraction of full image dimensions"
+                  }
+                },
+                "required": [
+                  "a",
+                  "b",
+                  "bbox"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "finish",
+              "description": "Submit the final complete answer. Supply exactly k chronological nonempty allowed operation sets. This is final, not an image inspection.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "operations": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 6,
+                    "items": {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "note": {
+                    "type": "string",
+                    "description": "Optional brief public evidence note under 60 words."
+                  }
+                },
+                "required": [
+                  "operations"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        ],
+        "tool_choice": {
+          "type": "function",
+          "function": {
+            "name": "finish"
+          }
+        }
+      },
+      "finish": "The inspection budget is exhausted. Call finish NOW with your best complete answer: exactly {k} nonempty allowed event arrays in operations. Make a definite choice for every event, even if uncertain. Do not inspect more regions or write lengthy text; prioritize submitting the answer."
+    },
+    "native_tools": {
+      "system": "You solve a fixed visual inverse-physics question using a bounded ReAct loop.\nYou receive the complete public question and the ordered original images F0..Fk.\nReason about the visible evidence, choose ONE action, receive its real observation,\nand then decide again. You have at most TWO image-tool actions, followed by a final\nanswer. You may finish earlier when confident. Do not call a tool just for appearance.\nThe original question's final-output instructions apply when you finish; during\ninspection use the action envelope below. No external state or answer key is available.\n\nAvailable actions (all frame indices are zero-based and cannot exceed k):\n1. crop_compare: arguments {\"frame_indices\":[0,1],\"bbox\":[0.0,0.0,1.0,1.0]}.\n   Crop the SAME normalized rectangle from the selected frames and return an enlarged\n   labeled comparison. bbox is [left,top,right,bottom], in [0,1], origin top-left.\n2. frame_difference: arguments {\"a\":0,\"b\":1,\"bbox\":[0.0,0.0,1.0,1.0]}.\n   Return the pixel differences between two provided frames in this region.\n   Differences include illumination and occlusion; they are not a physical conclusion.\n3. measure_translation: arguments {\"a\":0,\"b\":1,\"bbox\":[0.2,0.2,0.4,0.4],\"search_margin\":0.15}.\n   Match the rectangular patch in frame a inside a larger region of frame b.\n   Return estimated dx,dy in image pixels and a match score, not world displacement,\n   velocity, object identity, or proof of a control. Repeated textures, occlusion,\n   deformation and viewpoint change can invalidate the estimate.\n4. finish: supply \"operations\" as the complete ordered answer specified by the question.\n\n\nTo inspect evidence, call ONE of the registered functions using the native tool-call\ninterface. Do not encode a function call in ordinary text. The runner executes it\nand returns an authentic tool observation. Call at most one function in each turn.\nTo finish, return ONE JSON object:\n{\"action\":\"finish\",\"operations\":[[\"LABEL\"],[\"LABEL\"]],\"note\":\"Brief public evidence justification.\"}\nUse the actual allowed labels and exactly k nonempty event arrays. Select your best\nanswer for EVERY event, even when uncertain. Keep the optional public note under\n60 words. The labels above are placeholders. Never simulate a tool observation.\n",
+      "inspect": {
+        "model": "google/gemini-3.8-flash",
+        "reasoning": {
+          "effort": "medium",
+          "exclude": false
+        },
+        "stream": false,
+        "temperature": 1.0,
+        "provider": {
+          "allow_fallbacks": true,
+          "require_parameters": true,
+          "max_price": {
+            "prompt": 0.825,
+            "completion": 4.125
+          }
+        },
+        "max_tokens": 2048,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "crop_compare",
+              "description": "Show the same normalized rectangle from selected supplied frames, enlarged where possible. Pixel-only observation; no inferred labels.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "frame_indices": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "minItems": 1,
+                    "maxItems": 7
+                  },
+                  "bbox": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4,
+                    "description": "[left, top, right, bottom], normalized 0..1; origin at image top left"
+                  }
+                },
+                "required": [
+                  "frame_indices",
+                  "bbox"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "frame_difference",
+              "description": "Compare two supplied frames and their absolute RGB difference; responds to motion, lighting and appearance changes alike.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "b": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "bbox": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4
+                  }
+                },
+                "required": [
+                  "a",
+                  "b"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "measure_translation",
+              "description": "Match a textured rectangle in frame a to a nearby rectangle in b. Returns estimated pixel translation and correlation, not object identity, physical velocity or ground truth. May be ambiguous under occlusion, rotation, lighting or repeated textures.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "b": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "bbox": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4
+                  },
+                  "search_margin": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 0.5,
+                    "default": 0.15,
+                    "description": "Search expansion on each side as fraction of full image dimensions"
+                  }
+                },
+                "required": [
+                  "a",
+                  "b",
+                  "bbox"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        ],
+        "tool_choice": "auto"
+      },
+      "final": {
+        "model": "google/gemini-3.8-flash",
+        "reasoning": {
+          "effort": "medium",
+          "exclude": false
+        },
+        "stream": false,
+        "temperature": 1.0,
+        "provider": {
+          "allow_fallbacks": true,
+          "require_parameters": true,
+          "max_price": {
+            "prompt": 0.825,
+            "completion": 4.125
+          }
+        },
+        "max_tokens": 4096,
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "crop_compare",
+              "description": "Show the same normalized rectangle from selected supplied frames, enlarged where possible. Pixel-only observation; no inferred labels.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "frame_indices": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "minItems": 1,
+                    "maxItems": 7
+                  },
+                  "bbox": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4,
+                    "description": "[left, top, right, bottom], normalized 0..1; origin at image top left"
+                  }
+                },
+                "required": [
+                  "frame_indices",
+                  "bbox"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "frame_difference",
+              "description": "Compare two supplied frames and their absolute RGB difference; responds to motion, lighting and appearance changes alike.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "b": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "bbox": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4
+                  }
+                },
+                "required": [
+                  "a",
+                  "b"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "measure_translation",
+              "description": "Match a textured rectangle in frame a to a nearby rectangle in b. Returns estimated pixel translation and correlation, not object identity, physical velocity or ground truth. May be ambiguous under occlusion, rotation, lighting or repeated textures.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "b": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "bbox": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4
+                  },
+                  "search_margin": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 0.5,
+                    "default": 0.15,
+                    "description": "Search expansion on each side as fraction of full image dimensions"
+                  }
+                },
+                "required": [
+                  "a",
+                  "b",
+                  "bbox"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        ],
+        "tool_choice": "none",
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "finish": "Inspection budget is now exhausted. Submit your best complete answer now; no further tools. Return one JSON object with action=\"finish\", operations containing exactly {k} nonempty allowed event arrays, and an optional brief note. Uncertainty does not permit an empty or missing answer. Do not spend the remaining budget on lengthy text."
+    },
+    "text_actions": {
+      "system": "You solve a fixed visual inverse-physics question using a bounded ReAct loop.\nYou receive the complete public question and the ordered original images F0..Fk.\nReason about the visible evidence, choose ONE action, receive its real observation,\nand then decide again. You have at most TWO image-tool actions, followed by a final\nanswer. You may finish earlier when confident. Do not call a tool just for appearance.\nThe original question's final-output instructions apply when you finish; during\ninspection use the action envelope below. No external state or answer key is available.\n\nAvailable actions (all frame indices are zero-based and cannot exceed k):\n1. crop_compare: arguments {\"frame_indices\":[0,1],\"bbox\":[0.0,0.0,1.0,1.0]}.\n   Crop the SAME normalized rectangle from the selected frames and return an enlarged\n   labeled comparison. bbox is [left,top,right,bottom], in [0,1], origin top-left.\n2. frame_difference: arguments {\"a\":0,\"b\":1,\"bbox\":[0.0,0.0,1.0,1.0]}.\n   Return the pixel differences between two provided frames in this region.\n   Differences include illumination and occlusion; they are not a physical conclusion.\n3. measure_translation: arguments {\"a\":0,\"b\":1,\"bbox\":[0.2,0.2,0.4,0.4],\"search_margin\":0.15}.\n   Match the rectangular patch in frame a inside a larger region of frame b.\n   Return estimated dx,dy in image pixels and a match score, not world displacement,\n   velocity, object identity, or proof of a control. Repeated textures, occlusion,\n   deformation and viewpoint change can invalidate the estimate.\n4. finish: supply \"operations\" as the complete ordered answer specified by the question.\n\nFor an inspection action return ONE JSON object:\n{\"action\":\"crop_compare\",\"arguments\":{\"frame_indices\":[0,1],\"bbox\":[0,0,1,1]},\"note\":\"Brief reason for this inspection.\"}\nFor a final action return ONE JSON object:\n{\"action\":\"finish\",\"operations\":[[\"LABEL\"],[\"LABEL\"]],\"note\":\"Brief public evidence justification.\"}\nUse the actual allowed labels and exactly k event arrays, including simultaneous\ncontrols. Choose a best answer for EVERY event even if uncertain. No abstention.\nKeep note under 60 words. Do not write long deliberations or simulate tool observations.\nOnly the program supplies observations. The illustrative labels above are placeholders.\n",
+      "inspect": {
+        "model": "google/gemini-3.8-flash",
+        "reasoning": {
+          "effort": "medium",
+          "exclude": false
+        },
+        "stream": false,
+        "temperature": 1.0,
+        "provider": {
+          "allow_fallbacks": true,
+          "require_parameters": true,
+          "max_price": {
+            "prompt": 0.825,
+            "completion": 4.125
+          }
+        },
+        "max_tokens": 2048,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "final": {
+        "model": "google/gemini-3.8-flash",
+        "reasoning": {
+          "effort": "medium",
+          "exclude": false
+        },
+        "stream": false,
+        "temperature": 1.0,
+        "provider": {
+          "allow_fallbacks": true,
+          "require_parameters": true,
+          "max_price": {
+            "prompt": 0.825,
+            "completion": 4.125
+          }
+        },
+        "max_tokens": 4096,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "finish": "Inspection budget is now exhausted. Submit your best complete answer now; no further tools. Return one JSON object with action=\"finish\", operations containing exactly {k} nonempty allowed event arrays, and an optional brief note. Uncertainty does not permit an empty or missing answer. Do not spend the remaining budget on lengthy text."
+    }
+  },
+  "final_instructions_by_question": {
+    "sketchpad": {
+      "scene_09/sample_0004/k6": "FINAL ANSWER SUBMISSION. Give exactly6 chronological choices now, using the complete original task and actual observations already in this conversation. Do not call tools or continue explaining. Choose your current best answer even if uncertain; no blank or missing event. Unchanged original legal options, with zero-based indices: {\"0\": [\"Mirror1Left\"], \"1\": [\"Mirror1Right\"], \"2\": [\"Mirror1Up\"], \"3\": [\"Mirror1Down\"], \"4\": [\"Mirror2Left\"], \"5\": [\"Mirror2Right\"], \"6\": [\"Mirror2Up\"], \"7\": [\"Mirror2Down\"], \"8\": [\"Mirror1Left\", \"Mirror2Left\"], \"9\": [\"Mirror1Left\", \"Mirror2Right\"], \"10\": [\"Mirror1Left\", \"Mirror2Up\"], \"11\": [\"Mirror1Left\", \"Mirror2Down\"], \"12\": [\"Mirror1Right\", \"Mirror2Left\"], \"13\": [\"Mirror1Right\", \"Mirror2Right\"], \"14\": [\"Mirror1Right\", \"Mirror2Up\"], \"15\": [\"Mirror1Right\", \"Mirror2Down\"], \"16\": [\"Mirror1Up\", \"Mirror2Left\"], \"17\": [\"Mirror1Up\", \"Mirror2Right\"], \"18\": [\"Mirror1Up\", \"Mirror2Up\"], \"19\": [\"Mirror1Up\", \"Mirror2Down\"], \"20\": [\"Mirror1Down\", \"Mirror2Left\"], \"21\": [\"Mirror1Down\", \"Mirror2Right\"], \"22\": [\"Mirror1Down\", \"Mirror2Up\"], \"23\": [\"Mirror1Down\", \"Mirror2Down\"]}. Return only {\"candidate_indices\":[...]}.",
+      "scene_16/sample_0004/k6": "FINAL ANSWER SUBMISSION. Submit exactly 6 chronological choices from the complete original task and actual observations above. No tools or further explanation. Choose your best permitted answer even if uncertain; no missing event. Unchanged original options with zero-based indices: {\"0\": [\"SelectLeftLamp\"], \"1\": [\"SelectRearLamp\"], \"2\": [\"SelectRightLamp\"], \"3\": [\"SelectLeftLamp\", \"SelectRearLamp\"], \"4\": [\"SelectLeftLamp\", \"SelectRightLamp\"], \"5\": [\"SelectRearLamp\", \"SelectRightLamp\"]}. Return only {\"candidate_indices\":[...]}.",
+      "scene_04/sample_0066/k5": "FINAL ANSWER SUBMISSION. Submit exactly 5 chronological choices from the complete original task and actual observations above. No tools or further explanation. Choose your best permitted answer even if uncertain; no missing event. Unchanged original options with zero-based indices: {\"0\": [\"IncreaseLoad\"], \"1\": [\"DecreaseLoad\"], \"2\": [\"RotateClockwise\"], \"3\": [\"RotateCounterclockwise\"]}. Return only {\"candidate_indices\":[...]}.",
+      "scene_10/sample_0027/k6": "FINAL ANSWER SUBMISSION. Give exactly6 chronological choices now, using the complete original task and actual observations already in this conversation. Do not call tools or continue explaining. Choose your current best answer even if uncertain; no blank or missing event. Unchanged original legal options, with zero-based indices: {\"0\": [\"pulse_left\"], \"1\": [\"pulse_right\"], \"2\": [\"pulse_front\"], \"3\": [\"pulse_back\"], \"4\": [\"pulse_back\", \"pulse_front\"], \"5\": [\"pulse_back\", \"pulse_left\"], \"6\": [\"pulse_back\", \"pulse_right\"], \"7\": [\"pulse_front\", \"pulse_left\"], \"8\": [\"pulse_front\", \"pulse_right\"], \"9\": [\"pulse_left\", \"pulse_right\"]}. Return only {\"candidate_indices\":[...]}.",
+      "scene_03/sample_0130/k5": "FINAL ANSWER SUBMISSION. Submit exactly 5 chronological choices from the complete original task and actual observations above. No tools or further explanation. Choose your best permitted answer even if uncertain; no missing event. Unchanged original options with zero-based indices: {\"0\": [\"MoveLeft\"], \"1\": [\"MoveRight\"], \"2\": [\"MoveUp\"], \"3\": [\"MoveDown\"], \"4\": [\"MoveLeft\", \"MoveUp\"], \"5\": [\"MoveDown\", \"MoveLeft\"], \"6\": [\"MoveRight\", \"MoveUp\"], \"7\": [\"MoveDown\", \"MoveRight\"]}. Return only {\"candidate_indices\":[...]}.",
+      "scene_07/sample_0011/k1": "FINAL ANSWER SUBMISSION. Submit exactly 1 chronological choices from the complete original task and actual observations above. No tools or further explanation. Choose your best permitted answer even if uncertain; no missing event. Unchanged original options with zero-based indices: {\"0\": [\"IncreaseChargeA\"], \"1\": [\"DecreaseChargeA\"], \"2\": [\"IncreaseChargeB\"], \"3\": [\"DecreaseChargeB\"], \"4\": [\"IncreaseChargeA\", \"IncreaseChargeB\"], \"5\": [\"DecreaseChargeB\", \"IncreaseChargeA\"], \"6\": [\"DecreaseChargeA\", \"IncreaseChargeB\"], \"7\": [\"DecreaseChargeA\", \"DecreaseChargeB\"]}. Return only {\"candidate_indices\":[...]}."
+    },
+    "viper": {
+      "scene_02/sample_0002/k1": "FINAL ANSWER SUBMISSION. Submit exactly 1 chronological choices from the complete original task and actual observations above. No tools or further explanation. Choose your best permitted answer even if uncertain; no missing event. Unchanged original options with zero-based indices: {\"0\": [\"Coil1Positive\"], \"1\": [\"Coil1Negative\"], \"2\": [\"Coil2Positive\"], \"3\": [\"Coil2Negative\"], \"4\": [\"Coil3Positive\"], \"5\": [\"Coil3Negative\"]}. Return only {\"candidate_indices\":[...]}.",
+      "scene_08/sample_0027/k1": "FINAL ANSWER SUBMISSION. Submit exactly 1 chronological choices from the complete original task and actual observations above. No tools or further explanation. Choose your best permitted answer even if uncertain; no missing event. Unchanged original options with zero-based indices: {\"0\": [\"Heat\", \"LowerLayer\"], \"1\": [\"Cool\", \"LowerLayer\"], \"2\": [\"Heat\", \"UpperLayer\"], \"3\": [\"Cool\", \"UpperLayer\"]}. Return only {\"candidate_indices\":[...]}."
+    }
+  }
+}

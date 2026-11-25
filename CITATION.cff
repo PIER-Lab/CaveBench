@@ -1,0 +1,68 @@
+cff-version: 1.2.0
+message: "If you use CaveBench, please cite the accompanying paper."
+title: "CaveBench: Benchmarking Abductive Physical Reasoning from Internal Observations"
+type: dataset
+authors:
+  - given-names: Guanxin
+    family-names: Lin
+    affiliation: Tsinghua University
+  - given-names: Chen
+    family-names: Yang
+    affiliation: Tsinghua University
+  - given-names: Shenxiang
+    family-names: Zeng
+    affiliation: Tsinghua University
+  - given-names: Honghui
+    family-names: Zhu
+    affiliation: Tsinghua University
+  - given-names: Xin
+    family-names: Li
+    affiliation: Tsinghua University
+  - given-names: Wenbo
+    family-names: Deng
+    affiliation: Tsinghua University
+  - given-names: Jiansheng
+    family-names: Fan
+    affiliation: Tsinghua University
+  - given-names: Chen
+    family-names: Wang
+    affiliation: Tsinghua University
+contact:
+  - given-names: Chen
+    family-names: Wang
+    affiliation: Tsinghua University
+    email: chwang@tsinghua.edu.cn
+url: "https://pier-lab.github.io/CaveBench/"
+repository-code: "https://github.com/PIER-Lab/CaveBench"
+preferred-citation:
+  type: article
+  title: "CaveBench: Benchmarking Abductive Physical Reasoning from Internal Observations"
+  authors:
+    - given-names: Guanxin
+      family-names: Lin
+      affiliation: Tsinghua University
+    - given-names: Chen
+      family-names: Yang
+      affiliation: Tsinghua University
+    - given-names: Shenxiang
+      family-names: Zeng
+      affiliation: Tsinghua University
+    - given-names: Honghui
+      family-names: Zhu
+      affiliation: Tsinghua University
+    - given-names: Xin
+      family-names: Li
+      affiliation: Tsinghua University
+    - given-names: Wenbo
+      family-names: Deng
+      affiliation: Tsinghua University
+    - given-names: Jiansheng
+      family-names: Fan
+      affiliation: Tsinghua University
+    - given-names: Chen
+      family-names: Wang
+      affiliation: Tsinghua University
+  year: 2026
+  journal: arXiv
+  doi: 10.48550/arXiv.2611.32251
+  url: https://arxiv.org/abs/2611.32251

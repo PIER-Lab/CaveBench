@@ -1,0 +1,101 @@
+/* Apparatuses share one shelf per physical domain, from S01 through S20. */
+#dataset.apparatus-chapter, #overview.method-chapter {
+  --chapter-width:1200px;
+  color:#263c39;
+  padding-block:clamp(36px,4.2vw,66px);
+}
+#dataset.apparatus-chapter {
+  background:#edf3ec;
+  border-block:1px solid #bfcfc2;
+}
+#overview.method-chapter { background:#fffdf7; }
+.atlas-heading {
+  display:flex; justify-content:space-between; align-items:flex-end;
+  gap:20px; margin-bottom:24px;
+}
+.section :is(.atlas-heading,.method-heading) h2 {
+  color:#173e36; font:400 clamp(36px,4.3vw,62px)/1.04 var(--serif);
+  letter-spacing:-.052em; margin:0 0 12px;
+}
+.atlas-heading p, .method-heading p, .task-plates p, .split-register p, .question-plate > p {
+  color:#405550; max-width:76ch; font:400 clamp(16px,1.15vw,18px)/1.55 var(--sans);
+}
+.atlas-control { display:grid; gap:4px; flex:none; color:#34524a; font:600 14px/1.4 var(--sans); }
+.section .atlas-control select { background:#fcfdf8; border-color:#91ac9b; color:#214b3d; }
+#dataset:has(#scene-reader:not([hidden])) .atlas-control { display:none; }
+#viewer { scroll-margin-top:16px; }
+#viewer-status:empty { display:none; }
+#atlas {
+  display:grid; grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:clamp(12px,1.3vw,21px); align-items:start;
+}
+#atlas .atlas-domain { --domain-rule:#45716e; min-width:0; margin:0; }
+#atlas .atlas-domain[data-domain="Thermal"] { --domain-rule:#a25837; }
+#atlas .atlas-domain[data-domain="Electromagnetism"] { --domain-rule:#52668f; }
+#atlas .atlas-domain[data-domain="Acoustics"] { --domain-rule:#8a6960; }
+#atlas .atlas-domain[data-domain="Optics"] { --domain-rule:#69547f; }
+#atlas .atlas-domain h3 {
+  color:var(--domain-rule); padding:9px 0 12px; margin:0;
+  border-top:3px solid var(--domain-rule); text-align:left; overflow-wrap:anywhere;
+  font:620 clamp(14px,1.2vw,18px)/1.35 var(--sans); letter-spacing:-.015em;
+}
+#atlas .domain-specimens { grid-template-columns:1fr; gap:0; }
+#atlas .specimen { display:block; padding-bottom:10px; text-decoration:none; }
+#atlas .specimen-photo { aspect-ratio:2.04; border-radius:4px; }
+#atlas .specimen-caption {
+  min-height:2.65em; padding:6px 0 0; display:flex; align-items:baseline; gap:7px;
+  font-size:clamp(15px,1.18vw,18px);
+}
+#atlas .specimen-meta {
+  display:inline; margin:0; color:var(--domain-rule);
+  font:600 12px/1.45 var(--mono); letter-spacing:0;
+}
+#atlas .specimen-name {
+  margin:0; min-width:0; color:#283f37; font:540 1em/1.22 var(--sans);
+  letter-spacing:-.025em;
+}
+#atlas[data-filtered="true"] { grid-template-columns:1fr; }
+#atlas[data-filtered="true"] .domain-specimens { grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+.method-heading { margin-bottom:24px; }
+.task-plates { display:grid; grid-template-columns:1.12fr 1fr; gap:clamp(18px,2vw,32px); }
+.task-plates article { min-width:0; }
+.task-plates .paper-figure > a {
+  aspect-ratio:2.03; display:flex; align-items:center; justify-content:center;
+  padding:6px; background:white;
+}
+.task-plates .paper-figure img { width:100%; height:100%; object-fit:contain; }
+.section .task-plates h3 {
+  margin:13px 0 6px; font:500 clamp(21px,2vw,30px)/1.16 var(--serif); color:#253f3b;
+}
+.method-chapter .inset-details { margin:20px 0 0; }
+.method-chapter .study-fold > summary { padding-block:12px; }
+.build-block, .question-plate { padding-top:30px; margin-top:34px; border-top:1px solid #c8d2c6; }
+.method-chapter :is(.build-block,.question-plate)>h3 { font-size:clamp(30px,3vw,44px); margin:0 0 16px; }
+.construction-spread {
+  display:grid; grid-template-columns:1.25fr 1fr; gap:clamp(20px,2.6vw,40px);
+  align-items:stretch; margin:0 0 24px;
+}
+.construction-spread > .paper-figure { display:flex; align-items:center; min-width:0; }
+.construction-spread .paper-figure a { width:100%; }
+.split-register {
+  display:flex; flex-direction:column; justify-content:center; padding:clamp(16px,2vw,30px);
+  background:#edf2e8; border-block:1px solid #b8c9b5;
+}
+.split-register dl { display:grid; grid-template-columns:1fr 1fr; gap:16px 14px; margin:0; }
+.split-register dl > div { display:flex; flex-direction:column-reverse; }
+.split-register dt { color:#2c5143; font:600 15px/1.45 var(--sans); }
+.split-register dd { font:400 clamp(28px,3.2vw,48px)/1.1 var(--serif); color:#1f5143; letter-spacing:-.04em; }
+.split-register p { margin-top:18px; font-size:16px; }
+.question-plate > p { margin-bottom:16px; }
+.question-plate .paper-figure { max-width:1050px; margin-inline:auto; }
+@media (max-width:890px) {
+  #atlas { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .construction-spread { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:650px) {
+  .atlas-heading { display:block; }
+  .atlas-control { margin-top:14px; max-width:240px; }
+  #atlas { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #atlas[data-filtered="true"] .domain-specimens { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .task-plates, .construction-spread { grid-template-columns:1fr; }
+}

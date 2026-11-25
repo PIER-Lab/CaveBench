@@ -1,0 +1,20 @@
+.length-comparison { display: block; margin: 0; }
+.trend-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 20px;
+  font: 600 14px/1.4 var(--sans);
+}
+.trend-legend > span { display: inline-flex; align-items: center; gap: 7px; }
+.trend-key { width: 22px; border-top: 3px solid #355f6e; }
+.trend-key.key-1 { border-top: 3px dashed #986533; }
+.trend-plot { min-width: 0; }
+.trend-plot svg { display: block; width: 100%; height: auto; overflow: visible; }
+.trend-plot svg text { font: 12px var(--sans); fill: var(--ink); }
+.trend-plot svg text.axis-title { font: 600 12px var(--sans); }
+.chart-grid { stroke: #c8d0c8; stroke-width: .8px; }
+.trend-line { stroke: #355f6e; fill: #355f6e; }
+.trend-line polyline { stroke-width: 2.7px; }
+.trend-line.series-1 { stroke: #986533; fill: #986533; }
+.trend-line.series-1 polyline { stroke-dasharray: 5 3; }
